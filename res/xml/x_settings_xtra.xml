@@ -31,6 +31,12 @@
             android:summary="@string/keyboard_ime_summary"
             android:fragment="com.msm.xtended.fragments.InputSettings" />
 
+        <Preference
+            android:key="app_circle_bar"
+            android:title="@string/app_circle_bar_title"
+            android:summary="@string/app_circle_bar_summary"
+            android:fragment="com.msm.xtended.fragments.AppCircleBar" />
+
         <com.msm.xtended.preferences.SystemSettingListPreference
             android:key="screenshot_type"
             android:entries="@array/screenshot_type_entries"

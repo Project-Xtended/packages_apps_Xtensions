@@ -29,5 +29,3 @@
         android:layout_height="wrap_content"
         android:divider="@null" />
 </LinearLayout>
-
-
