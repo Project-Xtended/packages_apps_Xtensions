@@ -47,7 +47,7 @@
          android:key="lockscreen_max_notif_cofig"
          android:title="@string/lockscreen_maxnotif_config"
          android:max="6"
-         settings:minimum="1"
+         settings:min="1"
          settings:unitsLeft=""
          settings:unitsRight=""
          android:persistent="false"

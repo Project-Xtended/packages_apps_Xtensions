@@ -26,6 +26,14 @@
             android:summary="@string/system_app_remover_summary"
             android:fragment="com.xtended.xtensions.fragments.SystemappRemover" />
 
+        <!-- App sidebar -->
+        <Preference
+            android:key="app_sidebar"
+            android:title="@string/app_sidebar_title"
+            android:summary="@string/app_sidebar_summary"
+            android:layout="@layout/preference_benzoextra_appbar" 
+            android:fragment="com.xtended.xtensions.fragments.AppSidebar" />
+
         <PreferenceCategory
             android:title="@string/corners_category" >
 
