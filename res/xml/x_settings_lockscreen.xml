@@ -31,6 +31,18 @@
                 android:targetClass="com.android.systemui.tuner.LockscreenActivity" />
     </Preference>
 
+    <PreferenceScreen
+             android:key="lockscreen_shortcuts"
+             android:fragment="com.msm.xtended.preferences.dslv.ActionListViewSettings"
+             android:summary="@string/lockscreen_shortcuts_summary"
+             android:title="@string/lockscreen_shortcuts_title">
+        <extra android:name="actionMode" android:value="4" />
+        <extra android:name="maxAllowedActions" android:value="8" />
+        <extra android:name="disableLongpress" android:value="true" />
+        <extra android:name="useAppPickerOnly" android:value="true" />
+        <extra android:name="fragment" android:value="com.msm.xtended.fragments.LockscreenShortcutFragment" />
+    </PreferenceScreen>
+
     <Preference
         android:key="omnijaws_settings"
         android:title="@string/weather_title"
