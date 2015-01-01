@@ -51,4 +51,11 @@
     <string name="lockscreen_battery_info_title">Charging info</string>
     <string name="lockscreen_battery_info_summary">Show charging current, voltage, wattage and battery temperature on lock screen while charging</string>
 
+    <!-- QuickSettings general category -->
+    <string name="quick_settings_general_category_title">General</string>
+
+    <!-- QuickSettings haptic feedback -->
+    <string name="quick_settings_vibrate_title">Vibrate on touch</string>
+    <string name="quick_settings_vibrate_summary">Vibrate when touching QS tiles</string>
+
 </resources>
