@@ -40,4 +40,10 @@
             android:defaultValue="50" />
     </PreferenceCategory>
 
+    <com.xtended.support.preferences.SystemSettingSwitchPreference
+        android:key="lockscreen_power_menu_disabled"
+        android:title="@string/power_menu_hide_on_secure_title"
+        android:summary="@string/power_menu_hide_on_secure_summary"
+        android:defaultValue="true" />
+
 </PreferenceScreen>

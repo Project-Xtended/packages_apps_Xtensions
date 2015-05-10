@@ -167,4 +167,8 @@
     <string name="toast_icon_title">Toast app icon</string>
     <string name="toast_icon_summary">Display the app\'s icon corresponding with the toast</string>
 
+    <!-- Power menu on lockscreen -->
+    <string name="power_menu_hide_on_secure_title">Hide on lockscreen</string>
+    <string name="power_menu_hide_on_secure_summary">Hides the global actions menu on secure lockscreen</string>
+
 </resources>
