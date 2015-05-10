@@ -76,4 +76,8 @@
     <!-- On the Go in Power UI -->
     <string name="global_actions_onthego_title">On-The-Go</string>
 
+    <!-- Power menu on lockscreen -->
+    <string name="power_menu_hide_on_secure_title">Hide on lockscreen</string>
+    <string name="power_menu_hide_on_secure_summary">Hides the global actions menu on secure lockscreen</string>
+
 </resources>
