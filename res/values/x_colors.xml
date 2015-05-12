@@ -35,7 +35,6 @@
     <color name="dslv_float_background_color">#ff1b1f23</color>
 
     <!-- DSLV fab color -->
-    <color name="floating_action_button_touch_tint">#80ffffff</color>
     <color name="fab_ripple">#1fffffff</color><!-- 12% white -->
     <color name="fab_shape">?android:attr/colorAccent</color>
 
