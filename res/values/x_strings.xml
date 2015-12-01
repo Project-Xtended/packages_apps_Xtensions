@@ -115,4 +115,11 @@
     <string name="charging_animation_title">Charging animation</string>
     <string name="charging_animation_summary">Display an animation when the device is plugged in</string>
 
+    <!--Volume Buttons title -->
+    <string name="volume_category">Volume Button Menus</string>
+
+    <!--Volume keys -->
+    <string name="volume_rocker_wake_title">Volume rocker wake</string>
+    <string name="volume_rocker_wake_summary">Pressing the volume keys will wake your device</string>
+
 </resources>
