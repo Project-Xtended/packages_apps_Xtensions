@@ -18,10 +18,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="64dp"
-    android:paddingStart="6dp"
-    android:gravity="center_vertical"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
     android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+    android:paddingTop="8dip"
+    android:paddingBottom="8dip"
     android:orientation="horizontal" >
 
     <ImageView
@@ -40,7 +41,7 @@
         android:layout_weight="1"
         android:layout_gravity="center_vertical"
         android:singleLine="true"
-        android:ellipsize="end"
+        android:ellipsize="marquee"
         android:focusable="false"
         android:textAppearance="?android:attr/textAppearanceListItem"
         android:textAlignment="viewStart" />
@@ -48,12 +49,11 @@
     <CheckBox android:id="@android:id/checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dip"
+        android:layout_marginStart="4dip"
         android:layout_gravity="center_vertical"
         android:clickable="false"
         android:focusable="false" />
 
 </LinearLayout>
-
 
 
