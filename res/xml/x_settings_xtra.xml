@@ -18,6 +18,12 @@
 	android:title="@string/xtra_title"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+        <Preference
+            android:key="systemappremover"
+            android:title="@string/system_app_remover"
+            android:summary="@string/system_app_remover_summary"
+            android:fragment="com.msm.xtended.fragments.SystemappRemover" />
+
         <!-- Keyboard -->
         <Preference
             android:key="inputmethod_settings"
