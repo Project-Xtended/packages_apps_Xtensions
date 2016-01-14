@@ -56,10 +56,12 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String FP_KEYSTORE = "fp_unlock_keystore";
+    private static final String FINGERPRINT_ERROR_VIB = "fingerprint_error_vib";
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
 
     private SystemSettingSwitchPreference mFingerprintUnlock;
     private FingerprintManager mFingerprintManager;
+    private SwitchPreference mFingerprintErrorVib;
     private SwitchPreference mFingerprintVib;
 
     @Override
@@ -97,6 +99,21 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         } else {
             prefScreen.removePreference(mFingerprintVib);
         }
+
+        mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
+        mFingerprintErrorVib = (SwitchPreference) findPreference(FINGERPRINT_ERROR_VIB);
+        if (mPm.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT) &&
+                 mFingerprintManager != null) {
+            if (!mFingerprintManager.isHardwareDetected()){
+                prefScreen.removePreference(mFingerprintErrorVib);
+            } else {
+                mFingerprintErrorVib.setChecked((Settings.System.getInt(getContentResolver(),
+                        Settings.System.FINGERPRINT_ERROR_VIB, 1) == 1));
+                mFingerprintErrorVib.setOnPreferenceChangeListener(this);
+           }
+        } else {
+            prefScreen.removePreference(mFingerprintErrorVib);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -106,6 +123,10 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(resolver,
                     Settings.System.FINGERPRINT_SUCCESS_VIB, value ? 1 : 0);
             return true;
+        } else if (preference == mFingerprintErrorVib) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(resolver,
+                    Settings.System.FINGERPRINT_ERROR_VIB, value ? 1 : 0);
         }
         return false;
     }
