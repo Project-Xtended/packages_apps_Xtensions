@@ -31,6 +31,14 @@
             android:summary="@string/corners_category_summary"
             android:fragment="com.msm.xtended.fragments.RoundedCornersSettings" />
 
+        <PreferenceScreen
+            android:title="@string/hide_apps_from_recents_title"
+            android:summary="@string/hide_apps_from_recents_summary" >
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.settings"
+                android:targetClass="com.msm.xtended.fragments.hideappfromrecents.HAFRAppListActivity" />
+        </PreferenceScreen>
+
         <com.msm.xtended.preferences.GlobalSettingSwitchPreference
             android:key="allow_signature_fake"
             android:title="@string/allow_signature_fake"

@@ -1260,6 +1260,12 @@
     <!-- Navbar Animation -->
     <string name="pixel_navbar_anim_title">Pixel animation</string>
     <string name="pixel_navbar_anim_summary">Toggle home button animation</string>
+
+    <!-- Hide Apps from Recents -->
+    <string name="hide_apps_from_recents_title">Hide apps from recents</string>
+    <string name="hide_apps_from_recents_summary">Prevent apps from appearing in recents</string>
+    <string name="hide_from_recents_add_app">Add app</string>
+    <string name="title_activity_carbon_recents_settings">Recents</string>
        
     <!-- Lockscreen clock style -->
     <string name="lockscreen_clock_title">Clock style</string>
