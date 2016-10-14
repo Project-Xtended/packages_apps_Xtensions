@@ -43,6 +43,13 @@
         android:summary="@string/edge_gestures_summary" 
         android:fragment="com.msm.xtended.fragments.EdgeGesturesSettings"/>
 
+    <!-- PA Pie -->
+    <Preference
+        android:key="pa_pie_control" 
+        android:title="@string/pa_pie_control_title" 
+        android:summary="@string/pa_pie_control_summary" 
+        android:fragment="com.msm.xtended.fragments.PieSettings" />
+
     <com.msm.xtended.preferences.SystemSettingSwitchPreference
         android:key="use_bottom_gesture_navigation"
         android:title="@string/gesture_settings_title"
