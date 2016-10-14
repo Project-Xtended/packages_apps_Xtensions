@@ -31,8 +31,8 @@
             android:key="app_circle_bar"
             android:title="@string/app_circle_bar_title"
             android:summary="@string/app_circle_bar_summary"
-            android:fragment="com.xtended.xtensions.fragments.AppCircleBar" />
-
+            android:fragment="com.xtended.xtensions.fragments.AppCircleBar" /> 
+ 
         <PreferenceCategory
             android:title="@string/corners_category" >
 
