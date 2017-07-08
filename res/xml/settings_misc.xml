@@ -69,7 +69,6 @@
             android:key="systemappremover"
             android:title="@string/system_app_remover"
             android:summary="@string/system_app_remover_summary"
-            android:layout="@layout/preference_systemappremover"
             android:fragment="com.xtended.xtensions.fragments.SystemappRemover" />
 
         <Preference
