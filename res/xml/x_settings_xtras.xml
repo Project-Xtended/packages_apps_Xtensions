@@ -68,4 +68,16 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+
+        android:title="@string/dev_options_category_title">
+
+        <Preference
+            android:key="wakelock_blocker"
+            android:title="@string/wakelock_blocker_title"
+            android:summary="@string/wakelock_blocker_summary"
+            android:fragment="com.xtended.fragments.WakeLockBlocker" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
