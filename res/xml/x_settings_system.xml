@@ -19,6 +19,12 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
         <Preference
+             android:key="wakelock_blocker"
+             android:title="@string/wakelock_blocker_title"
+             android:summary="@string/wakelock_blocker_summary"
+             android:fragment="com.msm.xtended.fragments.WakeLockBlocker" />
+
+        <Preference
             android:title="@string/app_ops_settings"
             android:summary="@string/app_ops_summary"
             android:fragment="com.android.settings.applications.appops.AppOpsSummary"/>
