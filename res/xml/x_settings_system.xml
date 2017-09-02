@@ -25,6 +25,12 @@
              android:fragment="com.msm.xtended.fragments.WakeLockBlocker" />
 
         <Preference
+             android:id="@+id/alarm_blocker"
+             android:title="@string/alarm_blocker"
+             android:summary="@string/alarm_blocker_summary"
+             android:fragment="com.msm.xtended.fragments.AlarmBlocker" />
+
+        <Preference
             android:title="@string/app_ops_settings"
             android:summary="@string/app_ops_summary"
             android:fragment="com.android.settings.applications.appops.AppOpsSummary"/>
