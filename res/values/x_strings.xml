@@ -204,4 +204,8 @@
     <string name="network_traffic_layout_v">Vertical</string>
     <string name="nettraf_font_size">Single net font size</string>
 
+    <!-- Statusbar Tuner -->
+    <string name="status_bar_system_icons_title">System icons</string>
+    <string name="status_bar_system_icons_summary">Control which status bar icons are shown</string>
+
 </resources>
