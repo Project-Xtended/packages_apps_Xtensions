@@ -38,6 +38,14 @@
 
         android:title="@string/statusbar_icons_category_title">
 
+        <Preference
+            android:title="@string/status_bar_system_icons_title"
+            android:summary="@string/status_bar_system_icons_summary">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.systemui" 
+                android:targetClass="com.android.systemui.tuner.StatusbarItemsActivity" />
+        </Preference>
+
         <com.xtended.support.preferences.SystemSettingSwitchPreference 
             android:key="show_fourg"
             android:title="@string/show_fourg_title"
