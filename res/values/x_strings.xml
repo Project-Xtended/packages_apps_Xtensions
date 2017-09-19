@@ -71,5 +71,6 @@
     <string name="powermenu_users">Users</string>
     <string name="powermenu_logout">Logout</string>
     <string name="powermenu_emergency">Emergency</string>
+    <string name="powermenu_torch">Flashlight</string>
 
 </resources>

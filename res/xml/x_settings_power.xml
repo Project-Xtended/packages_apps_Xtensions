@@ -88,4 +88,9 @@
             android:title="@string/powermenu_logout"
             android:defaultValue="false" />
 
+         <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="powermenu_torch"
+            android:title="@string/powermenu_torch"
+            android:persistent="false" />
+
 </PreferenceScreen>
