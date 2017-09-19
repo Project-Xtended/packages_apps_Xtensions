@@ -40,12 +40,19 @@ import androidx.annotation.NonNull;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.SettingsPreferenceFragment;
 
+import com.android.internal.util.xtended.XtendedUtils;
+import com.xtended.support.preferences.SystemSettingSwitchPreference;
+
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PowerMenuSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
+
+    private static final String KEY_POWERMENU_TORCH = "powermenu_torch";
+
+    private SystemSettingSwitchPreference mPowermenuTorch;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -55,6 +62,10 @@ public class PowerMenuSettings extends SettingsPreferenceFragment implements
 
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
+        mPowermenuTorch = (SystemSettingSwitchPreference) findPreference(KEY_POWERMENU_TORCH);
+        if (!XtendedUtils.deviceHasFlashlight(getActivity())) {
+            prefScreen.removePreference(mPowermenuTorch);
+        }
     }
 
     @Override
