@@ -18,6 +18,12 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
 	android:title="@string/notifications_title">
 
+    <!-- Heads up -->
+    <Preference
+        android:title="@string/heads_up_notifications"
+        android:summary="@string/heads_up_notifications_summary"
+        android:fragment="com.xtended.fragments.HeadsUpSettings" />
+
     <PreferenceCategory
 
         android:title="@string/notifications_general_category_title">
