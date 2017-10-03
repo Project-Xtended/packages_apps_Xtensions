@@ -32,6 +32,13 @@
             android:summary="@string/wakeup_when_plugged_unplugged_summary"
             android:defaultValue="true" />
 
+        <ListPreference
+            android:key="ringtone_focus_mode"
+            android:title="@string/ringtone_focus_mode_title"
+            android:summary="%s"
+            android:entries="@array/ringtone_focus_mode_entries"
+            android:entryValues="@array/ringtone_focus_mode_values" />
+
     <PreferenceCategory
 
         android:title="@string/battery_saving">

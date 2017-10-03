@@ -70,9 +70,11 @@ public class XtraSettings extends SettingsPreferenceFragment implements
     private static final String SELINUX_EXPLANATION = "selinux_explanation";
     private static final String PREF_SELINUX_MODE = "selinux_mode";
     private static final String PREF_SELINUX_PERSISTENCE = "selinux_persistence";
+    private static final String RINGTONE_FOCUS_MODE = "ringtone_focus_mode";
 
     private SwitchPreference mSelinuxMode;
     private SwitchPreference mSelinuxPersistence;
+    private ListPreference mHeadsetRingtoneFocus;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -81,6 +83,7 @@ public class XtraSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.x_settings_xtras);
 
         final PreferenceScreen prefScreen = getPreferenceScreen();
+        final ContentResolver resolver = getActivity().getContentResolver();
 
       // SELinux
       Preference selinuxCategory = findPreference(SELINUX_CATEGORY);
@@ -106,6 +109,13 @@ public class XtraSettings extends SettingsPreferenceFragment implements
         mSelinuxPersistence.setOnPreferenceChangeListener(this);
         mSelinuxMode.setOnPreferenceChangeListener(this);
       }
+
+        mHeadsetRingtoneFocus = (ListPreference) findPreference(RINGTONE_FOCUS_MODE);
+        int mHeadsetRingtoneFocusValue = Settings.Global.getInt(resolver,
+                Settings.Global.RINGTONE_FOCUS_MODE, 0);
+        mHeadsetRingtoneFocus.setValue(Integer.toString(mHeadsetRingtoneFocusValue));
+        mHeadsetRingtoneFocus.setSummary(mHeadsetRingtoneFocus.getEntry());
+        mHeadsetRingtoneFocus.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -119,6 +129,14 @@ public class XtraSettings extends SettingsPreferenceFragment implements
       } else if (preference == mSelinuxPersistence) {
         setSelinuxEnabled(mSelinuxMode.isChecked(), (Boolean) newValue);
         return true;
+      } else if (preference == mHeadsetRingtoneFocus) {
+            int mHeadsetRingtoneFocusValue = Integer.valueOf((String) newValue);
+            int index = mHeadsetRingtoneFocus.findIndexOfValue((String) newValue);
+            mHeadsetRingtoneFocus.setSummary(
+                    mHeadsetRingtoneFocus.getEntries()[index]);
+            Settings.Global.putInt(getContentResolver(), Settings.Global.RINGTONE_FOCUS_MODE,
+                    mHeadsetRingtoneFocusValue);
+            return true;
         }
         return false;
     }
