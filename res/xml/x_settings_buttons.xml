@@ -22,6 +22,11 @@
 
         android:title="@string/volume_key_category_title">
 
+        <Preference
+            android:title="@string/volume_steps_title"
+            android:summary="@string/volume_steps_summary"
+            android:fragment="com.xtended.fragments.VolumeSteps" />
+
         <ListPreference
             android:dialogTitle="@string/volume_key_cursor_control_title"
             android:summary="%s"
