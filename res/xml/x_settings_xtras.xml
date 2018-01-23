@@ -55,6 +55,13 @@
 
         android:title="@string/battery_saving">
 
+        <!-- Smart Pixels -->
+        <Preference
+           android:key="smart_pixels" 
+           android:fragment="com.xtended.fragments.SmartPixels"
+           android:title="@string/smart_pixels_title"
+           android:summary="@string/smart_pixels_summary" />
+
         <!-- Sensor Block -->
         <Preference
             android:key="sensor_block_settings"
