@@ -13,7 +13,7 @@ import com.android.settings.R;
 
 import com.android.settings.SettingsPreferenceFragment;
 
-import com.android.internal.util.gzosp.XtendedUtils;
+import com.android.internal.util.nitrogen.NitrogenUtils;
 
 public class GestureSettings extends SettingsPreferenceFragment implements
           Preference.OnPreferenceChangeListener {
@@ -31,7 +31,7 @@ public class GestureSettings extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
-        if (!XtendedUtils.deviceHasFlashlight(getContext())) {
+        if (!NitrogenUtils.deviceHasFlashlight(getContext())) {
             Preference toRemove = prefScreen.findPreference(TORCH_POWER_BUTTON_GESTURE);
             if (toRemove != null) {
                 prefScreen.removePreference(toRemove);
