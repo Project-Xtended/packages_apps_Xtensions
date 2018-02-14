@@ -28,6 +28,16 @@
     <string name="notifications_title">Notifications</string>
     <string name="device_part_title">Device Features</string>
     <string name="device_part_summary">Oneplus Shits</string>
+    <string name="button_summary">Buttons Options</string>
+    <string name="gestures_summary">Gestures Menu</string>
+    <string name="lockscreen_summary">Lock Screen Customizations</string>
+    <string name="xtra_summary">Some Misc. Options</string>
+    <string name="navbar_summary">Nav Bar Menus</string>
+    <string name="powermenu_summary">Power Menu Customizations</string>
+    <string name="quicksettings_summary">Quick Settings Options</string>
+    <string name="recents_summary">Recents Apps Menus</string>
+    <string name="statusbar_summary">Status Bar Customizations</string>
+    <string name="notifications_summary">Notifications Options</string>
 
     <!-- General strings -->
     <string name="ok">OK</string>

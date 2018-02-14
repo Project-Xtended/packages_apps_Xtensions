@@ -31,60 +31,79 @@
         <Preference
             android:key="buttonsettings_category"
             android:title="@string/button_title"
-            android:fragment="com.xtended.xtensions.fragments.ButtonSettings" />
+            android:summary="@string/button_summary"
+            android:fragment="com.xtended.xtensions.fragments.ButtonSettings"
+            settings:allowDividerAbove="true" />
 
         <!-- Gestures -->
         <Preference
             android:key="gestures_category"
             android:title="@string/gestures_title"
-            android:fragment="com.xtended.xtensions.fragments.GestureSettings" />
+            android:summary="@string/gestures_summary"
+            android:fragment="com.xtended.xtensions.fragments.GestureSettings"
+            settings:allowDividerAbove="true" />
 
         <!-- Lock Screen -->
         <Preference
             android:key="lockscreen_category"
             android:title="@string/lockscreen_title"
-            android:fragment="com.xtended.xtensions.fragments.LockScreenSettings" />
+            android:summary="@string/lockscreen_summary"
+            android:fragment="com.xtended.xtensions.fragments.LockScreenSettings"
+            settings:allowDividerAbove="true" />
 
         <!-- Navigation Bar -->
         <Preference
             android:key="navigationbar_category"
             android:title="@string/navbar_title"
-            android:fragment="com.xtended.xtensions.fragments.NavbarSettings" />
+            android:summary="@string/navbar_summary"
+            android:fragment="com.xtended.xtensions.fragments.NavbarSettings"
+            settings:allowDividerAbove="true" />
 
         <!-- Notifications -->
         <Preference
             android:key="notifications_category"
             android:title="@string/notifications_title"
-            android:fragment="com.xtended.xtensions.fragments.NotificationSettings" />
+            android:summary="@string/notifications_summary"
+            android:fragment="com.xtended.xtensions.fragments.NotificationSettings"
+            settings:allowDividerAbove="true" />
 
         <!-- Power Menu -->
         <Preference
             android:key="powermenu__category"
             android:title="@string/powermenu_title"
-            android:fragment="com.xtended.xtensions.fragments.PowerMenuSettings" />
+            android:summary="@string/powermenu_summary"
+            android:fragment="com.xtended.xtensions.fragments.PowerMenuSettings"
+            settings:allowDividerAbove="true" />
 
         <!-- Quick Settings panel -->
         <Preference
             android:key="quicksettings_category"
             android:title="@string/quicksettings_title"
-            android:fragment="com.xtended.xtensions.fragments.QuickSettings" />
+            android:summary="@string/quicksettings_summary"
+            android:fragment="com.xtended.xtensions.fragments.QuickSettings"
+            settings:allowDividerAbove="true" />
 
         <!-- Recents -->
         <Preference
             android:key="recents_category"
             android:title="@string/recents_title"
-            android:fragment="com.xtended.xtensions.fragments.RecentsSettings" />
+            android:summary="@string/recents_summary"
+            android:fragment="com.xtended.xtensions.fragments.RecentsSettings"
+            settings:allowDividerAbove="true" />
 
         <!-- Status Bar -->
         <Preference
             android:key="statusbar_category"
             android:title="@string/statusbar_title"
-            android:fragment="com.xtended.xtensions.fragments.StatusBarSettings" />
+            android:summary="@string/statusbar_summary"
+            android:fragment="com.xtended.xtensions.fragments.StatusBarSettings"
+            settings:allowDividerAbove="true" />
 
         <!-- Xtras -->
         <Preference
             android:key="xtra_category"
             android:title="@string/xtra_title"
+            android:summary="@string/xtra_summary"
             android:fragment="com.xtended.xtensions.fragments.MiscSettings" />
 			
 </PreferenceScreen>
