@@ -73,7 +73,7 @@ public class StatusBarClockSettings extends SettingsPreferenceFragment implement
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
-        addPreferencesFromResource(R.xml.statusbar_clock_settings);
+        addPreferencesFromResource(R.xml.status_bar_clock_settings);
 
         ContentResolver resolver = getActivity().getContentResolver();
 
