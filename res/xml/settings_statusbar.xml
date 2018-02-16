@@ -28,12 +28,14 @@
     <Preference
             android:key="battery_settings"
             android:title="@string/battery_style_category_title"
+            android:summary="@string/battery_style_category_summary"
             android:fragment="com.xtended.xtensions.fragments.StatusBarBattery" />
 
     <Preference
         android:key="status_bar_clock"
         android:fragment="com.xtended.xtensions.fragments.StatusBarClockSettings"
-        android:title="@string/status_bar_clock_title" />
+        android:title="@string/status_bar_clock_title"
+        android:summary="@string/status_bar_clock_summary" />
 
     <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
             android:key="status_bar_brightness_control"

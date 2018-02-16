@@ -1,5 +1,6 @@
 /*
- * Copyright (C) GZOSP
+ * Copyright (C) 2017 The Nitrogen Project
+ * Copyright (C) 2017 The Liquid Remix Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,15 +31,15 @@ import android.text.format.DateFormat;
 import android.view.Menu;
 import android.widget.EditText;
 
-import com.android.internal.logging.nano.MetricsProto;
-
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.internal.logging.nano.MetricsProto;
 
 import java.util.Date;
 
 public class StatusBarClockSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
+
     private static final String TAG = "StatusBarClockSettings";
 
     private static final String STATUS_BAR_SHOW_CLOCK = "status_bar_show_clock";
@@ -48,6 +49,7 @@ public class StatusBarClockSettings extends SettingsPreferenceFragment implement
     private static final String CLOCK_DATE_DISPLAY = "clock_date_display";
     private static final String CLOCK_DATE_STYLE = "clock_date_style";
     private static final String CLOCK_DATE_FORMAT = "clock_date_format";
+    private static final String CLOCK_DATE_POSITION = "clock_date_position";
 
     public static final int CLOCK_DATE_STYLE_LOWERCASE = 1;
     public static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
@@ -60,17 +62,18 @@ public class StatusBarClockSettings extends SettingsPreferenceFragment implement
     private ListPreference mClockDateDisplay;
     private ListPreference mClockDateStyle;
     private ListPreference mClockDateFormat;
+    private ListPreference mClockDatePosition;
 
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.NITROGEN_SETTINGS;
+        return MetricsProto.MetricsEvent.XTENDED;
     }
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
-        addPreferencesFromResource(R.xml.status_bar_clock_settings);
+        addPreferencesFromResource(R.xml.statusbar_clock_settings);
 
         ContentResolver resolver = getActivity().getContentResolver();
 
@@ -117,9 +120,23 @@ public class StatusBarClockSettings extends SettingsPreferenceFragment implement
 
         mClockDateFormat = (ListPreference) findPreference(CLOCK_DATE_FORMAT);
         mClockDateFormat.setOnPreferenceChangeListener(this);
-        if (mClockDateFormat.getValue() == null) {
-            mClockDateFormat.setValue("EEE");
+        String value = Settings.System.getString(getActivity().getContentResolver(),
+                Settings.System.STATUSBAR_CLOCK_DATE_FORMAT);
+        if (value == null || value.isEmpty()) {
+            value = "EEE";
         }
+        int index = mClockDateFormat.findIndexOfValue((String) value);
+        if (index == -1) {
+            mClockDateFormat.setValueIndex(CUSTOM_CLOCK_DATE_FORMAT_INDEX);
+        } else {
+            mClockDateFormat.setValue(value);
+        }
+
+        mClockDatePosition = (ListPreference) findPreference(CLOCK_DATE_POSITION);
+        mClockDatePosition.setOnPreferenceChangeListener(this);
+        mClockDatePosition.setValue(Integer.toString(Settings.System.getInt(resolver,
+                Settings.System.STATUSBAR_CLOCK_DATE_POSITION, 0)));
+        mClockDatePosition.setSummary(mClockDatePosition.getEntry());
 
         parseClockDateFormats();
     }
@@ -217,6 +234,14 @@ public class StatusBarClockSettings extends SettingsPreferenceFragment implement
                         Settings.System.STATUSBAR_CLOCK_DATE_FORMAT, (String) newValue);
                 }
             }
+            return true;
+        } else if (preference == mClockDatePosition) {
+            int val = Integer.parseInt((String) newValue);
+            int index = mClockDatePosition.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_CLOCK_DATE_POSITION, val);
+            mClockDatePosition.setSummary(mClockDatePosition.getEntries()[index]);
+            parseClockDateFormats();
             return true;
         }
         return false;
