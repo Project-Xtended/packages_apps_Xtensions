@@ -41,12 +41,12 @@
 
     </PreferenceCategory>
 
-
+    <!--
     <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
         android:key="pocket_judge"
         android:title="@string/pocket_judge_title"
         android:summary="@string/pocket_judge_summary"
-        android:defaultValue="false" />
+        android:defaultValue="false" /> -->
 
     <ListPreference
         android:key="torch_power_button_gesture"
