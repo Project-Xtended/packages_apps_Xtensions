@@ -35,11 +35,12 @@
             android:fragment="com.xtended.xtensions.fragments.ButtonSettings"
             settings:allowDividerAbove="true" />
 
-        <!--Carrier Label -->
+        <!-- Decoration Room -->
         <Preference
-            android:title="@string/carrier_label_menu"
-            android:summary="@string/carrier_label_summary"
-            android:fragment="com.xtended.xtensions.fragments.CarrierLabelSettings"
+            android:key="decor_room_category"
+            android:title="@string/decor_room_category"
+            android:summary="@string/decor_room_summary"
+            android:fragment="com.xtended.xtensions.fragments.DecorRoomSettings"
             settings:allowDividerAbove="true" />
 
         <!-- Gestures -->
