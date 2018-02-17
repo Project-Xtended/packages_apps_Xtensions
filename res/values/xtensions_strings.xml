@@ -658,6 +658,8 @@
     <string name="fp_unlock_keystore_summary">Unlock device with fingerprint after reboot without PIN/Password/Pattern\nNote: at your own risk!</string>
 
     <!-- Carrier Label -->
+    <string name="carrier_label_menu">Carrier Label</string>
+    <string name="carrier_label_summary">Customize The Carrier Labels</string>
     <string name="carrier_category">Carrier label</string>
     <string name="carrier_options">Select display locations</string>
     <string name="custom_carrier_label_title">Custom carrier label</string>

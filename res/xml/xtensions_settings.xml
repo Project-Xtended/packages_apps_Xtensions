@@ -35,6 +35,13 @@
             android:fragment="com.xtended.xtensions.fragments.ButtonSettings"
             settings:allowDividerAbove="true" />
 
+        <!--Carrier Label -->
+        <Preference
+            android:title="@string/carrier_label_menu"
+            android:summary="@string/carrier_label_summary"
+            android:fragment="com.xtended.xtensions.fragments.CarrierLabelSettings"
+            settings:allowDividerAbove="true" />
+
         <!-- Gestures -->
         <Preference
             android:key="gestures_category"
