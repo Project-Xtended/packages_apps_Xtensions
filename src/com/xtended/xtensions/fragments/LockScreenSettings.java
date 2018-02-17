@@ -67,9 +67,9 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         mFingerprintVib.setOnPreferenceChangeListener(this);
         }
         // Fingerprint unlock keystore
-        mFpKeystore = (SwitchPreference) prefSet.findPreference(FP_UNLOCK_KEYSTORE);
+        mFpKeystore = (SwitchPreference) prefScreen.findPreference(FP_UNLOCK_KEYSTORE);
         if (!mFingerprintManager.isHardwareDetected()){
-            prefSet.removePreference(mFpKeystore);
+            prefScreen.removePreference(mFpKeystore);
         }
     }
 
