@@ -42,9 +42,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
+    private static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
 
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintVib;
+    private SwitchPreference mFpKeystore;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -63,6 +65,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         mFingerprintVib.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.FINGERPRINT_SUCCESS_VIB, 1) == 1));
         mFingerprintVib.setOnPreferenceChangeListener(this);
+        }
+        // Fingerprint unlock keystore
+        mFpKeystore = (SwitchPreference) prefSet.findPreference(FP_UNLOCK_KEYSTORE);
+        if (!mFingerprintManager.isHardwareDetected()){
+            prefSet.removePreference(mFpKeystore);
         }
     }
 
