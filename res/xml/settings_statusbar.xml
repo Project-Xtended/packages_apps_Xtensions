@@ -25,6 +25,11 @@
                 android:targetClass="com.android.systemui.tuner.StatusbarItemsActivity" />
     </Preference>
 
+    <Preference
+            android:key="batterybar"
+            android:fragment="com.xtended.xtensions.fragments.BatteryBarSettings"
+            android:title="@string/batterybar_title"/>
+
     <!--
     <Preference
             android:key="battery_settings"

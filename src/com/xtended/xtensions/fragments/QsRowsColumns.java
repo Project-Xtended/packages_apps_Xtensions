@@ -35,6 +35,7 @@ public class QsRowsColumns extends SettingsPreferenceFragment implements
     private CustomSeekBarPreference mQsRowsLand;
     private CustomSeekBarPreference mQsColumnsPort;
     private CustomSeekBarPreference mQsColumnsLand;
+    private CustomSeekBarPreference mSysuiQqsCount;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class QsRowsColumns extends SettingsPreferenceFragment implements
         final ContentResolver resolver = getActivity().getContentResolver();
 
         int value = Settings.System.getIntForUser(resolver,
-                Settings.System.QS_ROWS_PORTRAIT, 3, UserHandle.USER_CURRENT);
+                Settings.System.QS_ROWS_PORTRAIT, 4, UserHandle.USER_CURRENT);
         mQsRowsPort = (CustomSeekBarPreference) findPreference("qs_rows_portrait");
         mQsRowsPort.setValue(value);
         mQsRowsPort.setOnPreferenceChangeListener(this);
@@ -55,7 +56,7 @@ public class QsRowsColumns extends SettingsPreferenceFragment implements
         mQsRowsLand.setOnPreferenceChangeListener(this);
 
         value = Settings.System.getIntForUser(resolver,
-                Settings.System.QS_COLUMNS_PORTRAIT, 5, UserHandle.USER_CURRENT);
+                Settings.System.QS_COLUMNS_PORTRAIT, 3, UserHandle.USER_CURRENT);
         mQsColumnsPort = (CustomSeekBarPreference) findPreference("qs_columns_portrait");
         mQsColumnsPort.setValue(value);
         mQsColumnsPort.setOnPreferenceChangeListener(this);
@@ -65,6 +66,12 @@ public class QsRowsColumns extends SettingsPreferenceFragment implements
         mQsColumnsLand = (CustomSeekBarPreference) findPreference("qs_columns_landscape");
         mQsColumnsLand.setValue(value);
         mQsColumnsLand.setOnPreferenceChangeListener(this);
+
+        value = Settings.Secure.getInt(resolver, Settings.Secure.QQS_COUNT, 4);
+        mSysuiQqsCount = (CustomSeekBarPreference) findPreference("sysui_qqs_count_key");
+        mSysuiQqsCount.setValue(value);
+        mSysuiQqsCount.setOnPreferenceChangeListener(this);
+
     }
 
     @Override
@@ -93,6 +100,11 @@ public class QsRowsColumns extends SettingsPreferenceFragment implements
             int val = (Integer) newValue;
             Settings.System.putIntForUser(getContentResolver(),
                     Settings.System.QS_COLUMNS_LANDSCAPE, val, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mSysuiQqsCount) {
+            int SysuiQqsCount = (Integer) newValue;
+            Settings.Secure.putInt(getContentResolver(),
+                    Settings.Secure.QQS_COUNT, SysuiQqsCount * 1);
             return true;
         }
         return false;
