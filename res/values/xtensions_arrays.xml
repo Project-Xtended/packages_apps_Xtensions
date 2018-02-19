@@ -406,6 +406,7 @@
         <item>@string/battery_style_big_circle</item>
         <item>@string/battery_style_big_dotted_circle</item>
         <item>@string/battery_style_text</item>
+        <item>@string/battery_style_square</item>
         <item>@string/battery_style_hidden</item>
     </string-array>
 
@@ -417,6 +418,7 @@
         <item>4</item>
         <item>5</item>
         <item>6</item>
+        <item>9</item>
         <item>7</item>
     </string-array>
 
