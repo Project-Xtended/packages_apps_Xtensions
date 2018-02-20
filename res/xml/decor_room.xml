@@ -43,11 +43,5 @@
         android:title="@string/status_bar_clock_title"
         android:summary="@string/status_bar_clock_summary" />
 
-   <Preference
-        android:key="qs_header_settings"
-        android:title="@string/qs_header_title"
-        android:summary="@string/qs_header_summary"
-        android:fragment="com.xtended.xtensions.fragments.QuickSettingsHeader" />
-
 </PreferenceScreen>
 
