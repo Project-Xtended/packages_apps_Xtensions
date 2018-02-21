@@ -18,6 +18,12 @@
     android:title="@string/notifications_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
+        android:key="force_ambient_for_media"
+        android:title="@string/force_ambient_for_media_title"
+        android:summary="@string/force_ambient_for_media_summary"
+        android:defaultValue="false" />
+
     <!-- Heads up -->
     <Preference
         android:key="heads_up_notifications"

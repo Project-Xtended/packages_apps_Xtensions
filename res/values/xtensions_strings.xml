@@ -696,4 +696,8 @@
     <string name="lock_clock_font_medium_normal">Medium</string>
     <string name="lock_clock_font_medium_italic">Medium Italic</string>
 
+    <!-- Ambient display music ticker -->
+    <string name="force_ambient_for_media_title">Show Ambient on new track</string>
+    <string name="force_ambient_for_media_summary">Show an Ambient Display notification when a new track is being played</string>
+
 </resources>
