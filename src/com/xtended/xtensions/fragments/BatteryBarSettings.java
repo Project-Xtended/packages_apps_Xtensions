@@ -78,7 +78,7 @@ public class BatteryBarSettings extends SettingsPreferenceFragment implements
 
         mBatteryBar = (ListPreference) findPreference(PREF_BATT_BAR);
         mBatteryBar.setOnPreferenceChangeListener(this);
-        mBatteryBar.setValue((Settings.System.getInt(resolver, Settings.System.BATTERY_BAR_LOCATION, 1)) + "");
+        mBatteryBar.setValue((Settings.System.getInt(resolver, Settings.System.BATTERY_BAR_LOCATION, 0)) + "");
         mBatteryBar.setSummary(mBatteryBar.getEntry());
 
         mBatteryBarStyle = (ListPreference) findPreference(PREF_BATT_BAR_STYLE);
@@ -142,7 +142,7 @@ public class BatteryBarSettings extends SettingsPreferenceFragment implements
         mBatteryBarThickness = (ListPreference) findPreference(PREF_BATT_BAR_WIDTH);
         mBatteryBarThickness.setOnPreferenceChangeListener(this);
         mBatteryBarThickness.setValue((Settings.System.getInt(resolver,
-                Settings.System.BATTERY_BAR_THICKNESS, 3)) + "");
+                Settings.System.BATTERY_BAR_THICKNESS, 1)) + "");
         mBatteryBarThickness.setSummary(mBatteryBarThickness.getEntry());
 
         updateBatteryBarOptions();
