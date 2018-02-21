@@ -22,11 +22,9 @@ public class NotificationSettings extends SettingsPreferenceFragment
 
     private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
     private static final String PREF_LESS_NOTIFICATION_SOUNDS = "less_notification_sounds";
-    private static final String FORCE_AMBIENT_FOR_MEDIA = "force_ambient_for_media";
 
     private ListPreference mAnnoyingNotifications;
     private Preference mChargingLeds;
-    private ListPreference mAmbientTicker;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -58,13 +56,6 @@ public class NotificationSettings extends SettingsPreferenceFragment
         }
         mAnnoyingNotifications.setOnPreferenceChangeListener(this);
 
-        mAmbientTicker = (ListPreference) findPreference(FORCE_AMBIENT_FOR_MEDIA);
-        int mode = Settings.System.getIntForUser(resolver,
-                Settings.System.FORCE_AMBIENT_FOR_MEDIA, 0, UserHandle.USER_CURRENT);
-        mAmbientTicker.setValue(Integer.toString(mode));
-        mAmbientTicker.setSummary(mAmbientTicker.getEntry());
-        mAmbientTicker.setOnPreferenceChangeListener(this);
-
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -77,14 +68,6 @@ public class NotificationSettings extends SettingsPreferenceFragment
                     .findIndexOfValue(notificationThreshold);
             mAnnoyingNotifications
                     .setSummary(mAnnoyingNotifications.getEntries()[notificationThresholdIndex]);
-            return true;
-        } else if (preference == mAmbientTicker) {
-            int mode = Integer.valueOf((String) objValue);
-            int index = mAmbientTicker.findIndexOfValue((String) objValue);
-            mAmbientTicker.setSummary(
-                    mAmbientTicker.getEntries()[index]);
-            Settings.System.putIntForUser(resolver, Settings.System.FORCE_AMBIENT_FOR_MEDIA,
-                    mode, UserHandle.USER_CURRENT);
             return true;
         }
         return false;
