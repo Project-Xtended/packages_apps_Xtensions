@@ -109,7 +109,7 @@ public class ButtonSettings extends ActionFragment implements OnPreferenceChange
                 if (mBacklightTimeout != null) {
                     mBacklightTimeout.setOnPreferenceChangeListener(this);
                     int BacklightTimeout = Settings.System.getInt(getContentResolver(),
-                            Settings.System.BUTTON_BACKLIGHT_TIMEOUT, 5000);
+                            Settings.System.BUTTON_BACKLIGHT_TIMEOUT, 1000);
                     mBacklightTimeout.setValue(Integer.toString(BacklightTimeout));
                     mBacklightTimeout.setSummary(mBacklightTimeout.getEntry());
                 }
@@ -118,7 +118,7 @@ public class ButtonSettings extends ActionFragment implements OnPreferenceChange
                     hwkeyCat.removePreference(mButtonBrightness_sw);
                     if (mButtonBrightness != null) {
                         int ButtonBrightness = Settings.System.getInt(getContentResolver(),
-                                Settings.System.BUTTON_BRIGHTNESS, 255);
+                                Settings.System.BUTTON_BRIGHTNESS, 148);
                         mButtonBrightness.setValue(ButtonBrightness / 1);
                         mButtonBrightness.setOnPreferenceChangeListener(this);
                     }
