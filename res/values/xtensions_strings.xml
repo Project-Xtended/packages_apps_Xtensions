@@ -725,4 +725,11 @@
     <string name="force_ambient_for_media_on_forced">Normal (forced)</string>
     <string name="force_ambient_for_media_on_forced_clean">Minimal (forced)</string>
 
+    <!-- Screenshot -->
+    <string name="screenshot_type_title">Screenshot type</string>
+    <string name="screenshot_type_fullscreen">Take fullscreen screenshots</string>
+    <string name="screenshot_type_partial">Drag selection on the area you want to take as a screenshot</string>
+    <string name="screenshot_options_category">Screenshot options</string>
+    <string name="screenshot_options_summary">Customize screenshot attributes like time, delay,type etc</string>
+
 </resources>
