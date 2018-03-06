@@ -18,12 +18,6 @@
         android:title="@string/xtra_title"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-        <ListPreference
-            android:key="screen_off_animation"
-            android:title="@string/screen_off_animation_title"
-            android:entries="@array/screen_off_animation_entries"
-            android:entryValues="@array/screen_off_animation_values" />
-
         <com.xtended.xtensions.preferences.SystemSettingListPreference
             android:key="screenshot_type"
             android:entries="@array/screenshot_type_entries"
