@@ -29,17 +29,41 @@ import com.android.settings.SettingsPreferenceFragment;
 public class MiscSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
+    private static final String SCREEN_OFF_ANIMATION = "screen_off_animation";
+ 
+    private ListPreference mScreenOffAnimation;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
         addPreferencesFromResource(R.xml.settings_misc);
 
+         ContentResolver resolver = getActivity().getContentResolver();
+         final PreferenceScreen prefScreen = getPreferenceScreen();
+         Resources resources = getResources();
+
+        // Screen Off Animations
+        mScreenOffAnimation = (ListPreference) findPreference(SCREEN_OFF_ANIMATION);
+        int screenOffStyle = Settings.System.getInt(resolver,
+                 Settings.System.SCREEN_OFF_ANIMATION, 0);
+        mScreenOffAnimation.setValue(String.valueOf(screenOffStyle));
+        mScreenOffAnimation.setSummary(mScreenOffAnimation.getEntry());
+        mScreenOffAnimation.setOnPreferenceChangeListener(this);
+
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
+         ContentResolver resolver = getActivity().getContentResolver();
 
+        if (preference == mScreenOffAnimation) {
+            Settings.System.putInt(resolver,
+                     Settings.System.SCREEN_OFF_ANIMATION, Integer.valueOf((String) newValue));
+            int valueIndex = mScreenOffAnimation.findIndexOfValue((String) newValue);
+            mScreenOffAnimation.setSummary(mScreenOffAnimation.getEntries()[valueIndex]);
+             return true;
+        }
         return false;
     }
 
