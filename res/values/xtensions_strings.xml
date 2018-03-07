@@ -27,7 +27,7 @@
     <string name="volume_title">Volume Rockers</string>
     <string name="notifications_title">Notifications</string>
     <string name="device_part_title">Device Features</string>
-    <string name="device_part_summary">Oneplus Shits</string>
+    <string name="device_part_summary">OnePlus Shits</string>
     <string name="button_summary">Buttons Options</string>
     <string name="gestures_summary">Gestures Menu</string>
     <string name="lockscreen_summary">Lock Screen Customizations</string>
@@ -194,8 +194,10 @@
     <!-- Buttons backlight timeout -->
     <string name="backlight_timeout_title">Buttons backlight timeout</string>
     <string name="backlight_timeout_on">Enabled always</string>
+    <string name="backlight_timeout_2s">2 sec</string>
+    <string name="backlight_timeout_default">1 sec (default)</string>
     <string name="backlight_timeout_3s">3 sec</string>
-    <string name="backlight_timeout_default">5 sec (default)</string>
+    <string name="backlight_timeout_5s">5 sec</string>
     <string name="backlight_timeout_10s">10 sec</string>
     <string name="backlight_timeout_15s">15 sec</string>
     <string name="backlight_timeout_20s">20 sec</string>
@@ -653,6 +655,7 @@
     <string name="battery_style_dotted_circle">Dotted circle</string>
     <string name="battery_style_big_circle">Big circle</string>
     <string name="battery_style_big_dotted_circle">Big dotted circle</string>
+    <string name="battery_style_square">Square</string>
     <string name="battery_style_text">Text</string>
     <string name="battery_style_hidden">Hidden</string>
     <string name="show_battery_percent_title">Show percentage</string>
@@ -692,12 +695,25 @@
     <string name="lock_clock_font_bold_italic">Bold Italic</string>
     <string name="lock_clock_font_light_italic">Light Italic</string>
     <string name="lock_clock_font_thin_italic">Thin Italic</string>
+    <string name="lock_clock_font_light">Light</string>
+    <string name="lock_clock_font_thin">Thin</string>
     <string name="lock_clock_font_condensed_normal">Condensed</string>
     <string name="lock_clock_font_condensed_italic">Condensed Italic</string>
     <string name="lock_clock_font_condensed_bold">Condensed Bold</string>
     <string name="lock_clock_font_condensed_bold_italic">Condensed Bold Italic</string>
+    <string name="lock_clock_font_condensed_light">Condensed Light</string>
+    <string name="lock_clock_font_condensed_light_italic">Condensed Light Italic</string> 
     <string name="lock_clock_font_medium_normal">Medium</string>
     <string name="lock_clock_font_medium_italic">Medium Italic</string>
+    <string name="lock_clock_font_black">Black</string>
+    <string name="lock_clock_font_black_italic">Black Italic</string> 
+    <string name="lock_clock_font_dancingscript">DancingScript</string>
+    <string name="lock_clock_font_dancingscript_bold">DancingScript Bold</string>
+    <string name="lock_clock_font_comingsoon">ComingSoon</string>
+    <string name="lock_clock_font_notoserif">NotoSerif Normal</string>
+    <string name="lock_clock_font_notoserif_italic">NotoSerif Italic</string>
+    <string name="lock_clock_font_notoserif_bold">NotoSerif Bold</string>
+    <string name="lock_clock_font_notoserif_bold_italic">NotoSerif Bold Italic</string>
 
     <!-- Ambient music ticker -->
     <string name="ambient_ticker_title">Ambient ticker</string>
@@ -709,5 +725,12 @@
     <string name="force_ambient_for_media_on">Normal</string>
     <string name="force_ambient_for_media_on_forced">Normal (forced)</string>
     <string name="force_ambient_for_media_on_forced_clean">Minimal (forced)</string>
+
+    <!-- Screenshot -->
+    <string name="screenshot_type_title">Screenshot type</string>
+    <string name="screenshot_type_fullscreen">Take fullscreen screenshots</string>
+    <string name="screenshot_type_partial">Drag selection on the area you want to take as a screenshot</string>
+    <string name="screenshot_options_category">Screenshot options</string>
+    <string name="screenshot_options_summary">Customize screenshot attributes like time, delay,type etc</string>
 
 </resources>

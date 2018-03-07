@@ -18,6 +18,12 @@
         android:title="@string/xtra_title"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+        <com.xtended.xtensions.preferences.SystemSettingListPreference
+            android:key="screenshot_type"
+            android:entries="@array/screenshot_type_entries"
+            android:entryValues="@array/screenshot_type_values"
+            android:title="@string/screenshot_type_title" />
+
         <Preference
              android:key="wakelock_blocker"
              android:fragment="com.xtended.xtensions.fragments.WakeLockBlocker"
