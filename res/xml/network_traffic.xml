@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Copyright (C) 2015 The OmniROM Project
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+        android:key="category_network_traffic"
+        android:title="@string/network_traffic_title">
+
+           <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
+                android:key="network_traffic_enable"
+                android:title="@string/network_traffic_enable_title"
+                android:defaultValue="false"/>
+
+            <ListPreference
+                android:key="network_traffic_state"
+                android:title="@string/show_network_traffic_state"
+                android:entries="@array/show_network_traffic_state_entries"
+                android:entryValues="@array/show_network_traffic_state_values"
+                android:persistent="false"
+                android:defaultValue="1"
+                android:dependency="network_traffic_enable" />
+
+            <ListPreference
+                android:key="network_traffic_unit"
+                android:title="@string/show_network_traffic_unit"
+                android:entries="@array/show_network_traffic_unit_entries"
+                android:entryValues="@array/show_network_traffic_unit_values"
+                android:persistent="false"
+                android:dependency="network_traffic_enable" />
+
+            <ListPreference
+                android:key="network_traffic_period"
+                android:title="@string/show_network_traffic_frequency"
+                android:entries="@array/show_network_traffic_frequency_entries"
+                android:entryValues="@array/show_network_traffic_frequency_values"
+                android:persistent="false"
+                android:dependency="network_traffic_enable" />
+
+            <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
+                android:key="network_traffic_autohide"
+                android:title="@string/network_traffic_autohide_title"
+                android:summary="@string/network_traffic_autohide_summary"
+                android:defaultValue="false"
+                android:dependency="network_traffic_enable" />
+
+            <com.xtended.xtensions.preferences.CustomSeekBarPreference
+                android:key="network_traffic_autohide_threshold"
+                android:title="@string/network_traffic_autohide_threshold"
+                android:max="100"
+                settings:min="0"
+                settings:unitsLeft=""
+                settings:unitsRight="kB/s"
+                android:dependency="network_traffic_autohide"
+                android:persistent="false" />
+
+</PreferenceScreen>
+

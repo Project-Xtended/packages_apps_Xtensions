@@ -49,17 +49,10 @@
             android:summary="@string/adb_notify_summary"
             android:defaultValue="true" />
 
-    <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
-        android:key="network_traffic_state"
-        android:title="@string/network_traffic_state_title"
-        android:summary="@string/network_traffic_state_summary"
-        android:defaultValue="true" />
-
-    <com.xtended.xtensions.preferences.CustomSeekBarPreference
-        android:key="network_traffic_autohide_threshold"
-        android:title="@string/network_traffic_autohide_threshold_title"
-        android:max="10"
-        settings:min="0"
-        settings:units="" />
+    <Preference
+            android:key="category_network_traffic"
+            android:title="@string/network_traffic_title"
+            android:summary="@string/network_traffic_summary"
+            android:fragment="com.xtended.xtensions.fragments.NetworkTraffic" />
 
 </PreferenceScreen>
