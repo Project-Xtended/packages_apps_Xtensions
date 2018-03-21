@@ -633,10 +633,6 @@
     <string name="ring_home_button_title">Answer call by Home button</string>
     <string name="ring_home_button_summary">Allow answer call by Home button when device is ringing</string>
 
-    <!-- Three-fingers-swipe to screenshot -->
-    <string name="three_finger_gesture">Three finger gesture</string>
-    <string name="three_finger_gesture_summary">Swipe three finger to screenshot</string>
-
     <!-- Partial Screenshot -->
     <string name="screenshot_type_title">Partial screenshot</string>
     <string name="screenshot_type_partial">Drag selection on the area for screenshot via volume keys</string>
@@ -847,8 +843,6 @@
     <!-- Notification guts kill app button -->
     <string name="notification_guts_kill_app_button_title">Kill app button</string>
     <string name="notification_guts_kill_app_button_summary">Show a kill app button in the notification\'s longpress menu</string>
-
-    <string name="screenshot_options_category">Screenshot options</string>
 
     <string name="recents_kill_app_title">Forced closе of app</string>
     <string name="recents_kill_app_hide">Hide</string>
