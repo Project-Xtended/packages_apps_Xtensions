@@ -877,4 +877,12 @@
     <string name="time_in_state_title">Time in state</string>
     <string name="time_in_state_summary">Show CPU frequency statistics</string>
 
+    <!-- Hide Lockscreen clock, date, & alarm -->
+    <string name="hide_lockscreen_clock_title">Clock widget</string>
+    <string name="hide_lockscreen_clock_summary">Change the clock widget\'s visibility</string>
+    <string name="hide_lockscreen_date_title">Date widget</string>
+    <string name="hide_lockscreen_date_summary">Change the date\'s visibility underneath the clock widget</string>
+    <string name="hide_lockscreen_alarm_title">Alarm text</string>
+    <string name="hide_lockscreen_alarm_summary">Change the alarm text\'s visibility underneath the clock widget</string>
+
 </resources>

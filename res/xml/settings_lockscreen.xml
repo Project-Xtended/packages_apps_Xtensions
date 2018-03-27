@@ -47,6 +47,24 @@
         android:entryValues="@array/screen_off_animation_values" />
 
     <com.xtended.xtensions.preferences.SecureSettingSwitchPreference
+        android:key="hide_lockscreen_clock"
+        android:title="@string/hide_lockscreen_clock_title"
+        android:summary="@string/hide_lockscreen_clock_summary"
+        android:defaultValue="true" />
+
+    <com.xtended.xtensions.preferences.SecureSettingSwitchPreference
+        android:key="hide_lockscreen_date"
+        android:title="@string/hide_lockscreen_date_title"
+        android:summary="@string/hide_lockscreen_date_summary"
+        android:defaultValue="true" />
+
+    <com.xtended.xtensions.preferences.SecureSettingSwitchPreference
+        android:key="hide_lockscreen_alarm"
+        android:title="@string/hide_lockscreen_alarm_title"
+        android:summary="@string/hide_lockscreen_alarm_summary"
+        android:defaultValue="true" />
+
+    <com.xtended.xtensions.preferences.SecureSettingSwitchPreference
         android:key="face_auto_unlock"
         android:title="@string/face_auto_unlock_title"
         android:summary="@string/face_auto_unlock_summary"
