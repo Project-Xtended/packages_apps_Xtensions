@@ -31,6 +31,18 @@
             android:defaultValue="false" />
 
         <Preference
+             android:key="time_in_state"
+             android:title="@string/time_in_state_title"
+             android:summary="@string/time_in_state_summary"
+             android:fragment="com.xtended.xtensions.fragments.TimeInState" />
+
+        <Preference
+             android:key="doze_settings"
+             android:title="@string/doze_settings_title"
+             android:summary="@string/doze_settings_summary"
+             android:fragment="com.xtended.xtensions.fragments.DozeSettings" />
+
+        <Preference
              android:key="wakelock_blocker"
              android:fragment="com.xtended.xtensions.fragments.WakeLockBlocker"
              android:title="@string/wakelock_blocker_title"
