@@ -888,4 +888,7 @@
     <!-- Lock screen visualizer -->
     <string name="lockscreen_visualizer_title">Display music visualizer</string>
 
+    <string name="lockscreen_alpha">Lockscreen alpha</string>
+    <string name="lockscreen_security_alpha">Lockscreen bouncer alpha</string>
+
 </resources>
