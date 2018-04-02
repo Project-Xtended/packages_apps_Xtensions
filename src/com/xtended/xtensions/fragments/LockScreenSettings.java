@@ -48,6 +48,8 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     private static final String SCREEN_OFF_ANIMATION = "screen_off_animation";
     private static final String LOCKSCREEN_SECURITY_ALPHA = "lockscreen_security_alpha";
     private static final String LOCKSCREEN_ALPHA = "lockscreen_alpha";
+    private static final String CLOCK_FONT_SIZE  = "lockclock_font_size";
+    private static final String DATE_FONT_SIZE  = "lockdate_font_size";
 
     private ListPreference mScreenOffAnimation;
     private FingerprintManager mFingerprintManager;
@@ -55,6 +57,8 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     private SwitchPreference mFpKeystore;
     private CustomSeekBarPreference mLsAlpha;
     private CustomSeekBarPreference mLsSecurityAlpha;
+    private CustomSeekBarPreference mClockFontSize;
+    private CustomSeekBarPreference mDateFontSize;
 
     ListPreference mLockClockFonts;
 
@@ -108,6 +112,16 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
                 Settings.System.LOCKSCREEN_ALPHA, 0.45f);
         mLsAlpha.setValue((int)(100 * alpha));
         mLsAlpha.setOnPreferenceChangeListener(this);
+
+        mClockFontSize = (CustomSeekBarPreference) findPreference(CLOCK_FONT_SIZE);
+        mClockFontSize.setValue(Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKCLOCK_FONT_SIZE, 78));
+        mClockFontSize.setOnPreferenceChangeListener(this);
+
+        mDateFontSize = (CustomSeekBarPreference) findPreference(DATE_FONT_SIZE);
+        mDateFontSize.setValue(Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKDATE_FONT_SIZE,14));
+        mDateFontSize.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -138,6 +152,16 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
             int alpha = (Integer) newValue;
             Settings.System.putFloat(resolver,
                     Settings.System.LOCKSCREEN_ALPHA, alpha / 100.0f);
+            return true;
+        } else if (preference == mClockFontSize) {
+            int top = (Integer) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKCLOCK_FONT_SIZE, top*1);
+            return true;
+        } else if (preference == mDateFontSize) {
+            int top = (Integer) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKDATE_FONT_SIZE, top*1);
             return true;
         }
         return false;
