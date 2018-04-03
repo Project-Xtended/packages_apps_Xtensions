@@ -43,6 +43,7 @@ public class LockScreenUi extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";
+    private static final String LOCK_CLOCK_FONTS = "lock_date_fonts";
     private static final String LOCKSCREEN_SECURITY_ALPHA = "lockscreen_security_alpha";
     private static final String LOCKSCREEN_ALPHA = "lockscreen_alpha";
     private static final String CLOCK_FONT_SIZE  = "lockclock_font_size";
@@ -54,6 +55,7 @@ public class LockScreenUi extends SettingsPreferenceFragment implements
     private CustomSeekBarPreference mDateFontSize;
 
     ListPreference mLockClockFonts;
+    ListPreference mLockDateFonts;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -70,6 +72,13 @@ public class LockScreenUi extends SettingsPreferenceFragment implements
                 getContentResolver(), Settings.System.LOCK_CLOCK_FONTS, 0)));
         mLockClockFonts.setSummary(mLockClockFonts.getEntry());
         mLockClockFonts.setOnPreferenceChangeListener(this);
+
+        // Lockscren Date Fonts
+        mLockDateFonts = (ListPreference) findPreference(LOCK_CLOCK_FONTS);
+        mLockDateFonts.setValue(String.valueOf(Settings.System.getInt(
+                getContentResolver(), Settings.System.LOCK_CLOCK_FONTS, 8)));
+        mLockDateFonts.setSummary(mLockDateFonts.getEntry());
+        mLockDateFonts.setOnPreferenceChangeListener(this);
 
         mLsSecurityAlpha = (CustomSeekBarPreference) findPreference(LOCKSCREEN_SECURITY_ALPHA);
         float alpha2 = Settings.System.getFloat(resolver,
@@ -102,6 +111,12 @@ public class LockScreenUi extends SettingsPreferenceFragment implements
                     Integer.valueOf((String) newValue));
             mLockClockFonts.setValue(String.valueOf(newValue));
             mLockClockFonts.setSummary(mLockClockFonts.getEntry());
+            return true;
+        } else if (preference == mLockDateFonts) {
+            Settings.System.putInt(getContentResolver(), Settings.System.LOCK_CLOCK_FONTS,
+                    Integer.valueOf((String) newValue));
+            mLockDateFonts.setValue(String.valueOf(newValue));
+            mLockDateFonts.setSummary(mLockDateFonts.getEntry());
             return true;
         } else if (preference == mLsSecurityAlpha) {
             int alpha2 = (Integer) newValue;
