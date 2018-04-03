@@ -44,23 +44,12 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
 
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
     private static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
-    private static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";
     private static final String SCREEN_OFF_ANIMATION = "screen_off_animation";
-    private static final String LOCKSCREEN_SECURITY_ALPHA = "lockscreen_security_alpha";
-    private static final String LOCKSCREEN_ALPHA = "lockscreen_alpha";
-    private static final String CLOCK_FONT_SIZE  = "lockclock_font_size";
-    private static final String DATE_FONT_SIZE  = "lockdate_font_size";
 
     private ListPreference mScreenOffAnimation;
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintVib;
     private SwitchPreference mFpKeystore;
-    private CustomSeekBarPreference mLsAlpha;
-    private CustomSeekBarPreference mLsSecurityAlpha;
-    private CustomSeekBarPreference mClockFontSize;
-    private CustomSeekBarPreference mDateFontSize;
-
-    ListPreference mLockClockFonts;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -86,13 +75,6 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
             prefScreen.removePreference(mFpKeystore);
         }
 
-        // Lockscren Clock Fonts
-        mLockClockFonts = (ListPreference) findPreference(LOCK_CLOCK_FONTS);
-        mLockClockFonts.setValue(String.valueOf(Settings.System.getInt(
-                getContentResolver(), Settings.System.LOCK_CLOCK_FONTS, 0)));
-        mLockClockFonts.setSummary(mLockClockFonts.getEntry());
-        mLockClockFonts.setOnPreferenceChangeListener(this);
-
         // Screen Off Animations
         mScreenOffAnimation = (ListPreference) findPreference(SCREEN_OFF_ANIMATION);
         int screenOffStyle = Settings.System.getInt(resolver,
@@ -101,27 +83,6 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         mScreenOffAnimation.setSummary(mScreenOffAnimation.getEntry());
         mScreenOffAnimation.setOnPreferenceChangeListener(this);
 
-        mLsSecurityAlpha = (CustomSeekBarPreference) findPreference(LOCKSCREEN_SECURITY_ALPHA);
-        float alpha2 = Settings.System.getFloat(resolver,
-                Settings.System.LOCKSCREEN_SECURITY_ALPHA, 0.75f);
-        mLsSecurityAlpha.setValue((int)(100 * alpha2));
-        mLsSecurityAlpha.setOnPreferenceChangeListener(this);
-
-        mLsAlpha = (CustomSeekBarPreference) findPreference(LOCKSCREEN_ALPHA);
-        float alpha = Settings.System.getFloat(resolver,
-                Settings.System.LOCKSCREEN_ALPHA, 0.45f);
-        mLsAlpha.setValue((int)(100 * alpha));
-        mLsAlpha.setOnPreferenceChangeListener(this);
-
-        mClockFontSize = (CustomSeekBarPreference) findPreference(CLOCK_FONT_SIZE);
-        mClockFontSize.setValue(Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKCLOCK_FONT_SIZE, 78));
-        mClockFontSize.setOnPreferenceChangeListener(this);
-
-        mDateFontSize = (CustomSeekBarPreference) findPreference(DATE_FONT_SIZE);
-        mDateFontSize.setValue(Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKDATE_FONT_SIZE,14));
-        mDateFontSize.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -131,38 +92,12 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.FINGERPRINT_SUCCESS_VIB, value ? 1 : 0);
             return true;
-        } else if (preference == mLockClockFonts) {
-            Settings.System.putInt(getContentResolver(), Settings.System.LOCK_CLOCK_FONTS,
-                    Integer.valueOf((String) newValue));
-            mLockClockFonts.setValue(String.valueOf(newValue));
-            mLockClockFonts.setSummary(mLockClockFonts.getEntry());
-            return true;
         } else if (preference == mScreenOffAnimation) {
             Settings.System.putInt(resolver,
                      Settings.System.SCREEN_OFF_ANIMATION, Integer.valueOf((String) newValue));
             int valueIndex = mScreenOffAnimation.findIndexOfValue((String) newValue);
             mScreenOffAnimation.setSummary(mScreenOffAnimation.getEntries()[valueIndex]);
              return true;
-        } else if (preference == mLsSecurityAlpha) {
-            int alpha2 = (Integer) newValue;
-            Settings.System.putFloat(resolver,
-                    Settings.System.LOCKSCREEN_SECURITY_ALPHA, alpha2 / 100.0f);
-            return true;
-        } else if (preference == mLsAlpha) {
-            int alpha = (Integer) newValue;
-            Settings.System.putFloat(resolver,
-                    Settings.System.LOCKSCREEN_ALPHA, alpha / 100.0f);
-            return true;
-        } else if (preference == mClockFontSize) {
-            int top = (Integer) newValue;
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKCLOCK_FONT_SIZE, top*1);
-            return true;
-        } else if (preference == mDateFontSize) {
-            int top = (Integer) newValue;
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKDATE_FONT_SIZE, top*1);
-            return true;
         }
         return false;
     }

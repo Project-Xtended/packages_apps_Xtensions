@@ -922,4 +922,7 @@
     <string name="lockdate_font_size_title">Date font size</string>
     <string name="lockclock_font_size_title">Clock font size</string>
 
+    <string name="lockscreen_ui_title">Lockscreen Decor</string>
+    <string name="lockscreen_ui_summary">Keyguard Customization Menu</string>
+
 </resources>
