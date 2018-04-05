@@ -36,10 +36,12 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.WindowManagerGlobal;
 import android.view.IWindowManager;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import java.util.Locale;
+
 import android.text.TextUtils;
 import android.view.View;
 
@@ -52,6 +54,8 @@ import com.android.settings.Utils;
 import android.view.Menu;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import org.aospextended.extensions.preference.CustomSeekBarPreference;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -66,7 +70,7 @@ public class Animations extends SettingsPreferenceFragment implements OnPreferen
     private static final String TASK_CLOSE = "task_close";
     private static final String TASK_MOVE_TO_FRONT = "task_move_to_front";
     private static final String TASK_MOVE_TO_BACK = "task_move_to_back";
-//  private static final String ANIMATION_NO_OVERRIDE = "animation_no_override";
+    private static final String ANIMATION_NO_OVERRIDE = "animation_no_override";
     private static final String WALLPAPER_OPEN = "wallpaper_open";
     private static final String WALLPAPER_CLOSE = "wallpaper_close";
     private static final String WALLPAPER_INTRA_OPEN = "wallpaper_intra_open";
@@ -77,25 +81,27 @@ public class Animations extends SettingsPreferenceFragment implements OnPreferen
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
     private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
     private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
+    private static final String ANIMATION_DURATION = "animation_duration";
 
     private static final String SCROLLINGCACHE_DEFAULT = "2";
 
-    ListPreference mActivityOpenPref;
-    ListPreference mActivityClosePref;
-    ListPreference mTaskOpenPref;
-    ListPreference mTaskClosePref;
-    ListPreference mTaskMoveToFrontPref;
-    ListPreference mTaskMoveToBackPref;
-    ListPreference mWallpaperOpen;
-    ListPreference mWallpaperClose;
-    ListPreference mWallpaperIntraOpen;
-    ListPreference mWallpaperIntraClose;
-    ListPreference mTaskOpenBehind;
-//  SwitchPreference mAnimNoOverride;
+    private ListPreference mActivityOpenPref;
+    private ListPreference mActivityClosePref;
+    private ListPreference mTaskOpenPref;
+    private ListPreference mTaskClosePref;
+    private ListPreference mTaskMoveToFrontPref;
+    private ListPreference mTaskMoveToBackPref;
+    private ListPreference mWallpaperOpen;
+    private ListPreference mWallpaperClose;
+    private ListPreference mWallpaperIntraOpen;
+    private ListPreference mWallpaperIntraClose;
+    private ListPreference mTaskOpenBehind;
+    private SwitchPreference mAnimNoOverride;
     private ListPreference mToastAnimation;
     private ListPreference mListViewAnimation;
     private ListPreference mListViewInterpolator;
     private ListPreference mScrollingCachePref;
+    private CustomSeekBarPreference mAnimationDuration;
 
     private int[] mAnimations;
     private String[] mAnimationsStrings;
@@ -112,11 +118,10 @@ public class Animations extends SettingsPreferenceFragment implements OnPreferen
 
         final ContentResolver resolver = getActivity().getContentResolver();
 
-	mContext = getActivity().getApplicationContext();
+        mContext = getActivity().getApplicationContext();
 
         mContentRes = getActivity().getContentResolver();
 
-        PreferenceScreen prefs = getPreferenceScreen();
         mAnimations = AwesomeAnimationHelper.getAnimationsList();
         int animqty = mAnimations.length;
         mAnimationsStrings = new String[animqty];
@@ -125,10 +130,6 @@ public class Animations extends SettingsPreferenceFragment implements OnPreferen
             mAnimationsStrings[i] = AwesomeAnimationHelper.getProperName(mContext, mAnimations[i]);
             mAnimationsNum[i] = String.valueOf(mAnimations[i]);
         }
-
-        //mAnimNoOverride = (SwitchPreference) findPreference(ANIMATION_NO_OVERRIDE);
-        //mAnimNoOverride.setChecked(Settings.System.getBoolean(mContentRes,
-        //        Settings.System.ANIMATION_CONTROLS_NO_OVERRIDE, false));
 
         mActivityOpenPref = (ListPreference) findPreference(ACTIVITY_OPEN);
         mActivityOpenPref.setOnPreferenceChangeListener(this);
@@ -215,24 +216,25 @@ public class Animations extends SettingsPreferenceFragment implements OnPreferen
         mToastAnimation.setOnPreferenceChangeListener(this);
 
         mListViewAnimation = (ListPreference) findPreference(KEY_LISTVIEW_ANIMATION);
-        int listviewanimation = Settings.System.getInt(getContentResolver(),
-                Settings.System.LISTVIEW_ANIMATION, 0);
+        int listviewanimation = Settings.System.getInt(getContentResolver(), Settings.System.LISTVIEW_ANIMATION, 0);
         mListViewAnimation.setValue(String.valueOf(listviewanimation));
         mListViewAnimation.setSummary(mListViewAnimation.getEntry());
         mListViewAnimation.setOnPreferenceChangeListener(this);
 
         mListViewInterpolator = (ListPreference) findPreference(KEY_LISTVIEW_INTERPOLATOR);
-        int listviewinterpolator = Settings.System.getInt(getContentResolver(),
-                Settings.System.LISTVIEW_INTERPOLATOR, 0);
+        int listviewinterpolator = Settings.System.getInt(getContentResolver(), Settings.System.LISTVIEW_INTERPOLATOR, 0);
         mListViewInterpolator.setValue(String.valueOf(listviewinterpolator));
         mListViewInterpolator.setSummary(mListViewInterpolator.getEntry());
         mListViewInterpolator.setOnPreferenceChangeListener(this);
         mListViewInterpolator.setEnabled(listviewanimation > 0);
 
         mScrollingCachePref = (ListPreference) findPreference(SCROLLINGCACHE_PREF);
-        mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
-                SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
+        mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
         mScrollingCachePref.setOnPreferenceChangeListener(this);
+
+        mAnimationDuration = (CustomSeekBarPreference) findPreference(ANIMATION_DURATION);
+        mAnimationDuration.setValue(Settings.System.getInt(resolver, Settings.System.ANIMATION_CONTROLS_DURATION, 0));
+        mAnimationDuration.setOnPreferenceChangeListener(this);
 
     }
 
@@ -248,7 +250,7 @@ public class Animations extends SettingsPreferenceFragment implements OnPreferen
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-	boolean result = false;
+        boolean result = false;
         if (preference == mActivityOpenPref) {
             int val = Integer.parseInt((String) objValue);
             result = Settings.System.putInt(mContentRes,
@@ -319,13 +321,17 @@ public class Animations extends SettingsPreferenceFragment implements OnPreferen
                 SystemProperties.set(SCROLLINGCACHE_PERSIST_PROP, (String) objValue);
             }
             return true;
+        } else if (preference == mAnimationDuration) {
+            int val = (Integer) objValue;
+            Settings.System.putInt(getContentResolver(), Settings.System.ANIMATION_CONTROLS_DURATION, val);
+            return true;
         }
-	preference.setSummary(getProperSummary(preference));
+        preference.setSummary(getProperSummary(preference));
         return result;
 
     }
 
-     private String getProperSummary(Preference preference) {
+    private String getProperSummary(Preference preference) {
         String mString = "";
         if (preference == mActivityOpenPref) {
             mString = Settings.System.ACTIVITY_ANIMATION_CONTROLS[0];
@@ -355,7 +361,7 @@ public class Animations extends SettingsPreferenceFragment implements OnPreferen
         return mAnimationsStrings[mNum];
     }
 
-     private int getProperIndex(Preference preference) {
+    private int getProperIndex(Preference preference) {
         String mString = "";
         if (preference == mActivityOpenPref) {
             mString = Settings.System.ACTIVITY_ANIMATION_CONTROLS[0];
@@ -383,6 +389,6 @@ public class Animations extends SettingsPreferenceFragment implements OnPreferen
 
         int mNum = Settings.System.getInt(mContentRes, mString, 0);
         return mNum;
-     }
+    }
 
 }
