@@ -35,6 +35,7 @@ public abstract class XAppChooserAdapter extends BaseAdapter implements Filterab
     protected List<PackageInfo> mTemporarylist;
 
     boolean isUpdating;
+    boolean hasLauncherFilter = false;
 
     public XAppChooserAdapter(Context context) {
         mContext = context;
@@ -60,10 +61,14 @@ public abstract class XAppChooserAdapter extends BaseAdapter implements Filterab
                     item.icon = info.applicationInfo.loadIcon(mPackageManager);
                     item.packageName = info.packageName;
                     final int index = Collections.binarySearch(temp, item);
-                    if (index < 0) {
-                        temp.add((-index - 1), item);
-                    } else {
-                        temp.add((index + 1), item);
+                    final boolean isLauncherApp =
+                            mPackageManager.getLaunchIntentForPackage(info.packageName) != null;
+                    if (!hasLauncherFilter || isLauncherApp) {
+                        if (index < 0) {
+                            temp.add((-index - 1), item);
+                        } else {
+                            temp.add((index + 1), item);
+                        }
                     }
                 }
                 mHandler.post(new Runnable() {
@@ -179,4 +184,9 @@ public abstract class XAppChooserAdapter extends BaseAdapter implements Filterab
         ImageView icon;
         TextView pkg;
     }
+
+    protected void setLauncherFilter(boolean enabled) {
+        hasLauncherFilter = enabled;
+    }
 }
+

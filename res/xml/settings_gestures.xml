@@ -22,6 +22,11 @@
         android:key="dtts_category"
         android:title="@string/dtts_category_header" >
 
+    <Preference
+        android:title="@string/carbon_gesture_preference_title"
+        android:key="carbongestures"
+        android:fragment="com.xtended.xtensions.fragments.CarbonGesturesSettings" />
+
     <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
         android:key="double_tap_sleep_gesture"
         android:title="@string/double_tap_to_sleep_title"

@@ -76,5 +76,9 @@ public abstract class XAppChooserDialog extends Dialog {
         show();
     }
 
+    public void setLauncherFilter(boolean enabled) {
+        dAdapter.setLauncherFilter(enabled);
+    }
+
     public abstract void onListViewItemClick(XAppChooserAdapter.AppItem info, int id);
 }
