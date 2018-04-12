@@ -64,6 +64,12 @@
             android:title="@string/app_ops_settings"
             android:fragment="com.android.settings.applications.AppOpsSummary"/>
 
+        <Preference
+            android:key="suspend_actions"
+            android:title="@string/screen_state_toggles_title" 
+            android:summary="@string/screen_state_toggles_summary_opt"
+            android:fragment="com.xtended.xtensions.fragments.SuspendActions" />
+  
         <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
             android:key="mtp_dirty_hack"
             android:title="@string/enable_mtp_dirtyhack_title"
