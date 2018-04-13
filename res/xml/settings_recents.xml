@@ -39,6 +39,18 @@
         android:defaultValue="3"
         android:dependency="show_clear_all_recents" />
 
+    <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
+         android:key="recents_dismiss_icon"
+         android:title="@string/recents_dismiss_icon_title"
+         android:summary="@string/recents_dismiss_icon_summary"
+         android:defaultValue="true" />
+ 
+    <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
+        android:key="recents_lock_icon"
+        android:title="@string/recents_lock_icon_title"
+        android:summary="@string/recents_lock_icon_summary"
+        android:defaultValue="true" />
+
     <ListPreference
         android:key="immersive_recents"
         android:title="@string/immersive_recents_title"
