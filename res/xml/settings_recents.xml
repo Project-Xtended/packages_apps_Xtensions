@@ -40,6 +40,13 @@
         android:dependency="show_clear_all_recents" />
 
     <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
+         android:key="recents_deep_clear"
+         android:title="@string/recents_deep_clear_title"
+         android:summary="@string/recents_deep_clear_summary"
+         android:defaultValue="false"
+         android:dependency="recents_dismiss_icon" />
+
+    <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
          android:key="recents_dismiss_icon"
          android:title="@string/recents_dismiss_icon_title"
          android:summary="@string/recents_dismiss_icon_summary"

@@ -988,7 +988,9 @@
     <string name="no_iconpacks_summary">No icon packs installed</string>
     <string name="dialog_pick_iconpack_title">Pick icon pack</string>
     <string name="default_iconpack_title">Default icons</string>
-    <string name="dialog_delete_title">Delete</string>
-    <string name="dialog_delete_message">Remove selected item?</string>
+
+    <!-- Recents deep clear -->
+    <string name="recents_deep_clear_title">Deep clear</string>
+    <string name="recents_deep_clear_summary">Clear background process when using dismiss icon to dismiss task from recents view. This may lead unitentional results. Some apps may stop working until you restart them.</string>
 
 </resources>

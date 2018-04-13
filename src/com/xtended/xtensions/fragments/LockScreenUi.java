@@ -69,37 +69,37 @@ public class LockScreenUi extends SettingsPreferenceFragment implements
         // Lockscren Clock Fonts
         mLockClockFonts = (ListPreference) findPreference(LOCK_CLOCK_FONTS);
         mLockClockFonts.setValue(String.valueOf(Settings.System.getInt(
-                getContentResolver(), Settings.System.LOCK_CLOCK_FONTS, 0)));
+                getContentResolver(), Settings.System.LOCK_CLOCK_FONTS, 23)));
         mLockClockFonts.setSummary(mLockClockFonts.getEntry());
         mLockClockFonts.setOnPreferenceChangeListener(this);
 
         // Lockscren Date Fonts
         mLockDateFonts = (ListPreference) findPreference(LOCK_DATE_FONTS);
         mLockDateFonts.setValue(String.valueOf(Settings.System.getInt(
-                getContentResolver(), Settings.System.LOCK_DATE_FONTS, 8)));
+                getContentResolver(), Settings.System.LOCK_DATE_FONTS, 24)));
         mLockDateFonts.setSummary(mLockDateFonts.getEntry());
         mLockDateFonts.setOnPreferenceChangeListener(this);
 
         mLsSecurityAlpha = (CustomSeekBarPreference) findPreference(LOCKSCREEN_SECURITY_ALPHA);
         float alpha2 = Settings.System.getFloat(resolver,
-                Settings.System.LOCKSCREEN_SECURITY_ALPHA, 0.75f);
+                Settings.System.LOCKSCREEN_SECURITY_ALPHA, 0.72f);
         mLsSecurityAlpha.setValue((int)(100 * alpha2));
         mLsSecurityAlpha.setOnPreferenceChangeListener(this);
 
         mLsAlpha = (CustomSeekBarPreference) findPreference(LOCKSCREEN_ALPHA);
         float alpha = Settings.System.getFloat(resolver,
-                Settings.System.LOCKSCREEN_ALPHA, 0.45f);
+                Settings.System.LOCKSCREEN_ALPHA, 0.72f);
         mLsAlpha.setValue((int)(100 * alpha));
         mLsAlpha.setOnPreferenceChangeListener(this);
 
         mClockFontSize = (CustomSeekBarPreference) findPreference(CLOCK_FONT_SIZE);
         mClockFontSize.setValue(Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKCLOCK_FONT_SIZE, 78));
+                Settings.System.LOCKCLOCK_FONT_SIZE, 81));
         mClockFontSize.setOnPreferenceChangeListener(this);
 
         mDateFontSize = (CustomSeekBarPreference) findPreference(DATE_FONT_SIZE);
         mDateFontSize.setValue(Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKDATE_FONT_SIZE,14));
+                Settings.System.LOCKDATE_FONT_SIZE,21));
         mDateFontSize.setOnPreferenceChangeListener(this);
     }
 

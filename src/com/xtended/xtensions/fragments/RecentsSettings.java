@@ -7,6 +7,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
 import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.content.pm.PackageManager;
@@ -56,6 +57,10 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
     private ListPreference mImmersiveRecents;
     private static final String RECENTS_ICON_PACK = "recents_icon_pack";
     private Preference mRecentsIconPack;
+    private static final String RECENTS_LOCK = "recents_lock_icon";
+    private static final String RECENTS_DISMISS = "recents_dismiss_icon";
+    private SwitchPreference mRecentsLockIcon;
+    private SwitchPreference mRecentsDismissIcon;
 
     private final static String[] sSupportedActions = new String[] {
         "org.adw.launcher.THEMES",
@@ -87,12 +92,26 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
         mRecentsClearAllLocation.setSummary(mRecentsClearAllLocation.getEntry());
         mRecentsClearAllLocation.setOnPreferenceChangeListener(this);
 
+        // Immersive Recents
         mImmersiveRecents = (ListPreference) findPreference(IMMERSIVE_RECENTS);
         mImmersiveRecents.setValue(String.valueOf(Settings.System.getInt(
                 resolver, Settings.System.IMMERSIVE_RECENTS, 0)));
         mImmersiveRecents.setSummary(mImmersiveRecents.getEntry());
         mImmersiveRecents.setOnPreferenceChangeListener(this);
 
+        //Recents Lock Icon
+        mRecentsLockIcon = (SwitchPreference) findPreference(RECENTS_LOCK);
+        mRecentsLockIcon.setChecked((Settings.System.getInt(getContentResolver(),
+                Settings.System.RECENTS_LOCK_ICON, 1) == 1));
+        mRecentsLockIcon.setOnPreferenceChangeListener(this);
+
+        //Recents Dismiss Icon
+        mRecentsDismissIcon = (SwitchPreference) findPreference(RECENTS_DISMISS);
+        mRecentsDismissIcon.setChecked((Settings.System.getInt(getContentResolver(),
+                Settings.System.RECENTS_DISMISS_ICON, 1) == 1));
+        mRecentsDismissIcon.setOnPreferenceChangeListener(this);
+
+        // Recents Icon Pack
         String currentIconPack =  Settings.System.getStringForUser(resolver,
             Settings.System.RECENTS_ICON_PACK, UserHandle.USER_CURRENT);
 
@@ -118,6 +137,15 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
                     Integer.valueOf((String) objValue));
             mImmersiveRecents.setValue(String.valueOf(objValue));
             mImmersiveRecents.setSummary(mImmersiveRecents.getEntry());
+            return true;
+        } else if (preference == mRecentsLockIcon) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.RECENTS_LOCK_ICON, value ? 1 : 0);
+            return true;
+        } else if (preference == mRecentsDismissIcon) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.RECENTS_DISMISS_ICON, value ? 1 : 0);
             return true;
         }
     return false;
