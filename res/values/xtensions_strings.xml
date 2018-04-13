@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Xtensions OS
+<?xml version="1.0" encoding="utf-8"?> <!-- Copyright (C) 2016 The Xtensions OS
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -982,5 +981,14 @@
     <!-- Recents dismiss icon -->
     <string name="recents_dismiss_icon_title">Dismiss task</string>
     <string name="recents_dismiss_icon_summary">Toggle dismiss task icon in recent app view</string>
+
+    <!-- Recents Icon Pack -->
+    <string name="recents_icon_pack_title">Icon pack</string>
+    <string name="recents_icon_pack_summary">Apply a custom icon pack for apps in the panel</string>
+    <string name="no_iconpacks_summary">No icon packs installed</string>
+    <string name="dialog_pick_iconpack_title">Pick icon pack</string>
+    <string name="default_iconpack_title">Default icons</string>
+    <string name="dialog_delete_title">Delete</string>
+    <string name="dialog_delete_message">Remove selected item?</string>
 
 </resources>
