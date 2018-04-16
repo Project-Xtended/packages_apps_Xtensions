@@ -75,6 +75,12 @@
             android:title="@string/screen_state_toggles_title" 
             android:summary="@string/screen_state_toggles_summary_opt"
             android:fragment="com.xtended.xtensions.fragments.SuspendActions" />
+
+        <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
+            android:key="disable_fc_notifications"
+            android:title="@string/disable_fc_notifications_title"
+            android:summary="@string/disable_fc_notifications_summary"
+            android:defaultValue="false" />
   
         <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
             android:key="mtp_dirty_hack"
