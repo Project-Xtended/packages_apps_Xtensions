@@ -18,7 +18,7 @@
         android:title="@string/xtra_title"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-        <com.xtended.xtensions.preferences.SystemSettingListPreference
+        <ListPreference
             android:key="screenshot_type"
             android:entries="@array/screenshot_type_entries"
             android:entryValues="@array/screenshot_type_values"
@@ -75,6 +75,13 @@
             android:title="@string/screen_state_toggles_title" 
             android:summary="@string/screen_state_toggles_summary_opt"
             android:fragment="com.xtended.xtensions.fragments.SuspendActions" />
+
+        <!-- MediaScanner behavior on boot -->
+        <ListPreference
+            android:key="media_scanner_on_boot"
+            android:title="@string/media_scanner_on_boot_title"
+            android:entries="@array/media_scanner_on_boot_entries"
+            android:entryValues="@array/media_scanner_on_boot_values" />
 
         <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
             android:key="disable_fc_notifications"

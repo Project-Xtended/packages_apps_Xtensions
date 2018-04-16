@@ -32,6 +32,9 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String SUBS_PACKAGE = "projekt.substratum";
+    private static final String MEDIA_SCANNER_ON_BOOT = "media_scanner_on_boot";
+
+    private ListPreference mMSOB;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -57,11 +60,25 @@ public class MiscSettings extends SettingsPreferenceFragment implements
                     0, UserHandle.USER_CURRENT);
         }
 
+        // MediaScanner behavior on boot
+        mMSOB = (ListPreference) findPreference(MEDIA_SCANNER_ON_BOOT);
+        int mMSOBValue = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.MEDIA_SCANNER_ON_BOOT, 0);
+        mMSOB.setValue(String.valueOf(mMSOBValue));
+        mMSOB.setSummary(mMSOB.getEntry());
+        mMSOB.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-
+        if (preference == mMSOB) {
+            int value = Integer.parseInt(((String) objValue).toString());
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.MEDIA_SCANNER_ON_BOOT, value);
+            mMSOB.setValue(String.valueOf(value));
+            mMSOB.setSummary(mMSOB.getEntries()[value]);
+            return true;
+         }
         return false;
     }
 
