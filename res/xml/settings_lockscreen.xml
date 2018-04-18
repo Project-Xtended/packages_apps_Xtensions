@@ -41,7 +41,7 @@
         android:key="face_auto_unlock"
         android:title="@string/face_auto_unlock_title"
         android:summary="@string/face_auto_unlock_summary"
-        android:defaultValue="false" />
+        android:defaultValue="true" />
 
     <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
         android:key="lockscreen_media_metadata"
