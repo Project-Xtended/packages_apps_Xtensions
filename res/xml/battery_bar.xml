@@ -74,7 +74,7 @@
             android:title="@string/battery_bar_low_color"
             android:defaultValue="0xffff4444"
             android:dialogTitle="@string/battery_bar_color" />
-
+      
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="battery_bar_high_color"
             android:title="@string/battery_bar_high_color"
