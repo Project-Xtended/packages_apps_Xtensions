@@ -48,11 +48,27 @@
         android:fragment="com.android.settings.applications.NotificationApps"
         android:title="@string/notification_light_settings" />
 
+    <PreferenceCategory
+        android:title="@string/toast_category" >
+
     <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
         android:key="toast_icon"
         android:title="@string/toast_icon_title"
         android:summary="@string/toast_icon_summary"
         android:defaultValue="true" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="toast_icon_color"
+        android:title="@string/toast_icon_color"
+        android:defaultValue="0xffffffff"
+        android:dependency="toast_icon" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="toast_text_color"
+        android:title="@string/toast_text_color"
+        android:defaultValue="0xde000000" />
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="incall_vib_options"

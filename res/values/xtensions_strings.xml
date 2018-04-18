@@ -1024,4 +1024,9 @@
     <string name="media_scanner_on_boot_ask">Ask to scan (notification)</string>
     <string name="media_scanner_on_boot_disabled">Do not scan media</string>
 
+    <!-- Toast Icon & Text Color -->
+    <string name="toast_category">Toast Menu</string>
+    <string name="toast_text_color">Toast text color</string>
+    <string name="toast_icon_color">Toast icon color</string>
+
 </resources>
