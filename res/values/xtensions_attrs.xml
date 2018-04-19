@@ -28,4 +28,9 @@
     <declare-styleable name="ColorPreference">
         <attr name="defaultColorValue" format="integer" />
     </declare-styleable>
+
+    <declare-styleable name="ColorSelectPreference">
+        <attr name="ledPreview" format="boolean" />
+    </declare-styleable>
+
 </resources>

@@ -27,6 +27,13 @@
                android:targetClass ="com.oneplus.shit.settings.ShitPanelSettings" />
         </Preference>
 
+        <!-- OmniROM Event Settings -->
+        <Preference
+             android:key="event_service_settings"
+             android:title="@string/event_service_settings_title"
+             android:summary="@string/event_service_settings_summary"
+             android:fragment="com.xtended.xtensions.service.EventServiceSettings" />
+
         <!-- Buttons -->
         <Preference
             android:key="buttonsettings_category"
