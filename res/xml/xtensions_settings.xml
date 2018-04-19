@@ -32,7 +32,8 @@
              android:key="event_service_settings"
              android:title="@string/event_service_settings_title"
              android:summary="@string/event_service_settings_summary"
-             android:fragment="com.xtended.xtensions.service.EventServiceSettings" />
+             android:fragment="com.xtended.xtensions.service.EventServiceSettings"
+             settings:allowDividerAbove="true" />
 
         <!-- Buttons -->
         <Preference
