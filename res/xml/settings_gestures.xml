@@ -24,8 +24,15 @@
 
     <Preference
         android:title="@string/carbon_gesture_preference_title"
+        android:summary="@string/carbon_gesture_preference_summary"
         android:key="carbongestures"
         android:fragment="com.xtended.xtensions.fragments.CarbonGesturesSettings" />
+
+    <Preference
+        android:key="gesture_anywhere"
+        android:title="@string/gesture_anywhere_title"
+        android:summary="@string/gesture_anywhere_summary"
+        android:fragment="com.xtended.xtensions.gestureanywhere.GestureAnywhereSettings" />
 
     <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
         android:key="double_tap_sleep_gesture"
