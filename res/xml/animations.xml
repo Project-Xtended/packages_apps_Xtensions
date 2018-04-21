@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2016 AospExtended ROM Project
+     Copyright (C) 2016 MSM Xtended ROM Project
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -27,7 +27,13 @@
 	    android:entries="@array/entries_scrollingcache"
 	    android:entryValues="@array/values_scrollingcache" />
 
-         <org.aospextended.extensions.preference.CustomSeekBarPreference
+         <com.xtended.xtensions.preferences.GlobalSettingSwitchPreference
+             android:key="system_default_animation"
+             android:title="@string/system_default_animation_title"
+             android:summary="@string/system_default_animation_summary"
+             android:defaultValue="false" />
+
+         <com.xtended.xtensions.preferences.CustomSeekBarPreference
              android:key="animation_duration"
              android:max="1500"
              android:persistent="false"
@@ -36,7 +42,7 @@
              settings:units="ms"
              settings:interval="50"/>
 
-        <org.aospextended.extensions.preference.SystemSettingSwitchPreference
+        <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
             android:key="animation_no_override"
             android:title="@string/title_animation_no_override"
             android:summary="@string/summary_animation_no_override"

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.aospextended.extensions;
+package com.xtended.xtensions.fragments;
 
 import android.app.ActivityManagerNative;
 import android.content.Context;
@@ -62,7 +62,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
-public class Animations extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+public class AnimSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String ACTIVITY_OPEN = "activity_open";
     private static final String ACTIVITY_CLOSE = "activity_close";

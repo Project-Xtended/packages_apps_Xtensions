@@ -39,6 +39,8 @@
     <string name="notifications_summary">Notifications Options</string>
     <string name="decor_room_category">Decoration Menu</string>
     <string name="decor_room_summary">Status Bar Decoration</string>
+    <string name="cat_animations_tittle">Animations</string>
+    <string name="cat_animations_summary">Settings for Animations</string>
 
     <!-- General strings -->
     <string name="ok">OK</string>
@@ -1194,4 +1196,6 @@
     <string name="title_animation_no_override">Prevent app overrides</string>
     <string name="summary_animation_no_override">Prevent apps from overriding transitions</string>
     <string name="animation_duration_default">Default</string>
+
+
 </resources>
