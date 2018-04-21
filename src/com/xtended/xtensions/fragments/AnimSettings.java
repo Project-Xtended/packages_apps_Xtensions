@@ -21,7 +21,6 @@ import android.content.Context;
 import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.app.Fragment;
 import android.support.v7.preference.PreferenceCategory;
@@ -38,11 +37,6 @@ import com.android.internal.util.screwd.AwesomeAnimationHelper;
 
 import com.android.settings.R;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-
 public class AnimSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
@@ -58,10 +52,6 @@ public class AnimSettings extends SettingsPreferenceFragment implements
     private static final String WALLPAPER_CLOSE = "wallpaper_close";
     private static final String WALLPAPER_INTRA_OPEN = "wallpaper_intra_open";
     private static final String WALLPAPER_INTRA_CLOSE = "wallpaper_intra_close";
-    private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
-    private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
-
-    private static final String SCROLLINGCACHE_DEFAULT = "2";
 
     ListPreference mActivityOpenPref;
     ListPreference mActivityClosePref;
@@ -75,8 +65,6 @@ public class AnimSettings extends SettingsPreferenceFragment implements
     ListPreference mWallpaperIntraOpen;
     ListPreference mWallpaperIntraClose;
     SwitchPreference mAnimNoOverride;
-
-    private ListPreference mScrollingCachePref;
 
     private int[] mAnimations;
     private String[] mAnimationsStrings;
@@ -93,7 +81,7 @@ public class AnimSettings extends SettingsPreferenceFragment implements
 
         final ContentResolver resolver = getContentResolver();
         final Resources res = getResources();
-
+        
         mContext = getActivity().getApplicationContext();
 
         mContentRes = getActivity().getContentResolver();
@@ -179,11 +167,6 @@ public class AnimSettings extends SettingsPreferenceFragment implements
         mWallpaperIntraClose.setEntries(mAnimationsStrings);
         mWallpaperIntraClose.setEntryValues(mAnimationsNum);
 
-        mScrollingCachePref = (ListPreference) findPreference(SCROLLINGCACHE_PREF);
-        mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
-                SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
-        mScrollingCachePref.setOnPreferenceChangeListener(this);
-
     }
 
     @Override
@@ -242,11 +225,6 @@ public class AnimSettings extends SettingsPreferenceFragment implements
             int val = Integer.parseInt((String) newValue);
             Settings.System.putInt(mContentRes,
                     Settings.System.ACTIVITY_ANIMATION_CONTROLS[9], val);
-            return true;
-        } else if (preference == mScrollingCachePref) {
-            if (newValue != null) {
-                SystemProperties.set(SCROLLINGCACHE_PERSIST_PROP, (String) newValue);
-            }
             return true;
         }
         preference.setSummary(getProperSummary(preference));

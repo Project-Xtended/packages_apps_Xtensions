@@ -30,6 +30,12 @@
             android:summary="@string/sensor_block_summary"
             android:defaultValue="false" />
 
+	<com.xtended.xtensions.preferences.GlobalSettingSwitchPreference
+            android:key="system_default_animation"
+            android:title="@string/system_default_animation_title"
+            android:summary="@string/system_default_animation_summary"
+            android:defaultValue="false" />	
+
         <Preference
              android:key="smart_pixels"
              android:title="@string/smart_pixels_title"
@@ -76,6 +82,14 @@
             android:title="@string/media_scanner_on_boot_title"
             android:entries="@array/media_scanner_on_boot_entries"
             android:entryValues="@array/media_scanner_on_boot_values" />
+
+        <ListPreference
+            android:key="pref_scrollingcache"
+            android:dialogTitle="@string/pref_scrollingcache_title"
+            android:title="@string/pref_scrollingcache_title"
+            android:summary="@string/pref_scrollingcache_summary"
+            android:entries="@array/entries_scrollingcache"
+            android:entryValues="@array/values_scrollingcache" />
 
         <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
             android:key="disable_fc_notifications"

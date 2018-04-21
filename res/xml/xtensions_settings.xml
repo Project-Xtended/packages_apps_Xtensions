@@ -35,14 +35,6 @@
              android:fragment="com.xtended.xtensions.service.EventServiceSettings"
              settings:allowDividerAbove="true" />
 
-        <!-- Animations -->
-        <Preference
-            android:key="animsettings_category"
-            android:title="@string/cat_animations_tittle"
-            android:summary="@string/cat_animations_summary"
-            android:fragment="com.xtended.xtensions.fragments.AnimSettings"
-            settings:allowDividerAbove="true" />
-
         <!-- Buttons -->
         <Preference
             android:key="buttonsettings_category"

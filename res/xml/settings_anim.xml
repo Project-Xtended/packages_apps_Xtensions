@@ -16,15 +16,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-     <ListPreference
-            android:key="pref_scrollingcache"
-            android:dialogTitle="@string/pref_scrollingcache_title"
-            android:title="@string/pref_scrollingcache_title"
-            android:summary="@string/pref_scrollingcache_summary"
-            android:entries="@array/entries_scrollingcache"
-            android:entryValues="@array/values_scrollingcache" />
-
-     <com.xtended.xtensions.preferences.GlobalSettingSwitchPreference
+	<com.xtended.xtensions.preferences.GlobalSettingSwitchPreference
             android:key="system_default_animation"
             android:title="@string/system_default_animation_title"
             android:summary="@string/system_default_animation_summary"

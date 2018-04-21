@@ -1164,8 +1164,7 @@
 
     <!-- AOKP custom system animations -->
     <string name="system_animations">System Animations</string>
-    <string name="cat_animations_tittle">Animations</string>
-    <string name="cat_animations_summary">Settings for Animations</string>
+    <string name="system_animations_summary">Settings for Animations</string>
     <string name="animation_title">Animations</string>  
     <string name="system_animation_title">System animations</string>
     <string name="activity_open_title">Activity open animation</string>
