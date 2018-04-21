@@ -55,7 +55,7 @@ import android.view.Menu;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.aospextended.extensions.preference.CustomSeekBarPreference;
+import com.xtended.xtensions.preferences.CustomSeekBarPreference;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -240,7 +240,7 @@ public class Animations extends SettingsPreferenceFragment implements OnPreferen
 
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.EXTENSIONS;
+        return MetricsProto.MetricsEvent.XTENDED;
     }
 
     @Override

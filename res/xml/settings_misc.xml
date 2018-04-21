@@ -38,7 +38,6 @@
 
         <Preference
              android:fragment="org.aospextended.extensions.Animations"
-             android:icon="@drawable/ic_animations"
              android:key="animations"
              android:title="@string/animations_title"/>
 
