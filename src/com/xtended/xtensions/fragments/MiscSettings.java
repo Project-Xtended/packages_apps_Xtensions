@@ -23,10 +23,8 @@ import com.android.settings.R;
 
 import com.android.internal.util.gzosp.GzospUtils;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 
 import com.android.settings.SettingsPreferenceFragment;
 
@@ -35,13 +33,8 @@ public class MiscSettings extends SettingsPreferenceFragment implements
 
     private static final String SUBS_PACKAGE = "projekt.substratum";
     private static final String MEDIA_SCANNER_ON_BOOT = "media_scanner_on_boot";
-    private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
-    private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
-
-    private static final String SCROLLINGCACHE_DEFAULT = "2";
 
     private ListPreference mMSOB;
-    private ListPreference mScrollingCachePref;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -74,13 +67,6 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         mMSOB.setValue(String.valueOf(mMSOBValue));
         mMSOB.setSummary(mMSOB.getEntry());
         mMSOB.setOnPreferenceChangeListener(this);
-
-        // Scrolling Cache Pref.
-        mScrollingCachePref = (ListPreference) findPreference(SCROLLINGCACHE_PREF);
-        mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
-                SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
-        mScrollingCachePref.setOnPreferenceChangeListener(this);
-
     }
 
     @Override
@@ -91,11 +77,6 @@ public class MiscSettings extends SettingsPreferenceFragment implements
                     Settings.System.MEDIA_SCANNER_ON_BOOT, value);
             mMSOB.setValue(String.valueOf(value));
             mMSOB.setSummary(mMSOB.getEntries()[value]);
-            return true;
-        } else if (preference == mScrollingCachePref) {
-            if (newValue != null) {
-                SystemProperties.set(SCROLLINGCACHE_PERSIST_PROP, (String) newValue);
-            }
             return true;
          }
         return false;
