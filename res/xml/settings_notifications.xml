@@ -38,6 +38,11 @@
         android:entryValues="@array/less_notification_sounds_values"
         android:persistent="false" />
 
+    <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
+        android:key="force_expanded_notifications"
+        android:title="@string/force_expanded_notifications_title"
+        android:summary="@string/force_expanded_notifications_summary" />
+
     <Preference
         android:key="charging_light"
         android:fragment="com.xtended.xtensions.BatteryLightSettings"

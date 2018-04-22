@@ -62,6 +62,7 @@
 
         <Preference
             android:title="@string/app_ops_settings"
+            android:summary="@string/app_ops_summary"
             android:fragment="com.android.settings.applications.AppOpsSummary"/>
 
         <Preference
