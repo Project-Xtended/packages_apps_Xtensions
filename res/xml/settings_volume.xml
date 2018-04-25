@@ -41,12 +41,19 @@
         android:summary="@string/volume_keys_control_media_stream_summary"
         android:defaultValue="false" />
 
-    <!-- <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
+    <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
         android:key="volume_button_music_control"
         android:summary="@string/volume_rocker_music_controls_summary"
         android:title="@string/volume_rocker_music_controls_title"
-        android:defaultValue="true" /> -->
+	android:defaultValue="true" />
 
+    <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
+        android:key="safe_headset_volume"
+        android:title="@string/safe_headset_volume_title"
+        android:summary="@string/safe_headset_volume_summary"
+        android:persistent="false"
+        android:defaultValue="true" />
+				
     <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
         android:key="volume_wake_screen"
         android:summary="@string/volume_rocker_wake_summary"
