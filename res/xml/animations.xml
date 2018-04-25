@@ -27,12 +27,6 @@
 	    android:entries="@array/entries_scrollingcache"
 	    android:entryValues="@array/values_scrollingcache" />
 
-         <com.xtended.xtensions.preferences.GlobalSettingSwitchPreference
-             android:key="system_default_animation"
-             android:title="@string/system_default_animation_title"
-             android:summary="@string/system_default_animation_summary"
-             android:defaultValue="false" />
-
          <com.xtended.xtensions.preferences.CustomSeekBarPreference
              android:key="animation_duration"
              android:max="1500"
