@@ -59,11 +59,13 @@ import com.xtended.xtensions.preferences.SystemSettingSwitchPreference;
 public class CarrierLabelSettings extends SettingsPreferenceFragment {
 
     private static final String KEY_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
+    private static final String CARRIER_FONT_STYLE  = "status_bar_carrier_font_style";
+    private static final String CARRIER_FONT_SIZE  = "status_bar_carrier_font_size";
 
     private CustomSeekBarPreference mThreshold;
     private Preference mCustomCarrierLabel;
     private String mCustomCarrierLabelText;
-
+    private CustomSeekBarPreference mCarrierFontSize;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,6 +77,7 @@ public class CarrierLabelSettings extends SettingsPreferenceFragment {
 
         mCustomCarrierLabel = (Preference) findPreference(KEY_CUSTOM_CARRIER_LABEL);
         updateCustomLabelTextSummary();
+
     }
 
     private void updateCustomLabelTextSummary() {
@@ -118,7 +121,6 @@ public class CarrierLabelSettings extends SettingsPreferenceFragment {
         }
         return true;
     }
-
 
     @Override
     public int getMetricsCategory() {
