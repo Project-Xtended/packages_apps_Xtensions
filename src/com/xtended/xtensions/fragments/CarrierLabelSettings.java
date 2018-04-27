@@ -86,13 +86,6 @@ public class CarrierLabelSettings extends SettingsPreferenceFragment {
         mCustomCarrierLabel = (Preference) findPreference(KEY_CUSTOM_CARRIER_LABEL);
         updateCustomLabelTextSummary();
 
-        mCarrierColorPicker = (ColorPickerPreference) findPreference(STATUS_BAR_CARRIER_COLOR);
-            mCarrierColorPicker.setOnPreferenceChangeListener(this);
-            intColor = Settings.System.getInt(resolver,
-                    Settings.System.STATUS_BAR_CARRIER_COLOR, DEFAULT_STATUS_CARRIER_COLOR);
-            hexColor = String.format("#%08x", (0xaaffffff & intColor));
-            mCarrierColorPicker.setSummary(hexColor);
-            mCarrierColorPicker.setNewPreviewColor(intColor);
     }
 
     private void updateCustomLabelTextSummary() {
@@ -135,20 +128,6 @@ public class CarrierLabelSettings extends SettingsPreferenceFragment {
             alert.show();
         }
         return true;
-    }
-
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-		ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mCarrierColorPicker) {
-                String hex = ColorPickerPreference.convertToARGB(
-                        Integer.valueOf(String.valueOf(newValue)));
-                preference.setSummary(hex);
-                int intHex = ColorPickerPreference.convertToColorInt(hex);
-                Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                        Settings.System.STATUS_BAR_CARRIER_COLOR, intHex);
-                return true;
-        }
-         return false;
     }
 
     @Override
