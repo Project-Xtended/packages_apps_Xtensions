@@ -54,6 +54,7 @@ import com.android.settings.Utils;
 import com.android.internal.logging.nano.MetricsProto;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import com.xtended.xtensions.preferences.CustomSeekBarPreference;
+import com.xtended.xtensions.preferences.SystemSettingSeekBarPreference;
 import com.xtended.xtensions.preferences.SystemSettingSwitchPreference;
 
 public class CarrierLabelSettings extends SettingsPreferenceFragment {
@@ -61,11 +62,15 @@ public class CarrierLabelSettings extends SettingsPreferenceFragment {
     private static final String KEY_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
     private static final String CARRIER_FONT_STYLE  = "status_bar_carrier_font_style";
     private static final String CARRIER_FONT_SIZE  = "status_bar_carrier_font_size";
+    private static final String STATUS_BAR_CARRIER_COLOR = "status_bar_carrier_color";
+
+    static final int DEFAULT_STATUS_CARRIER_COLOR = 0xaaffffff;
 
     private CustomSeekBarPreference mThreshold;
     private Preference mCustomCarrierLabel;
     private String mCustomCarrierLabelText;
-    private CustomSeekBarPreference mCarrierFontSize;
+    private SystemSettingSeekBarPreference mCarrierFontSize;
+    private ColorPickerPreference mCarrierColorPicker;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,9 +80,19 @@ public class CarrierLabelSettings extends SettingsPreferenceFragment {
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
 
+        int intColor;
+        String hexColor;
+
         mCustomCarrierLabel = (Preference) findPreference(KEY_CUSTOM_CARRIER_LABEL);
         updateCustomLabelTextSummary();
 
+        mCarrierColorPicker = (ColorPickerPreference) findPreference(STATUS_BAR_CARRIER_COLOR);
+            mCarrierColorPicker.setOnPreferenceChangeListener(this);
+            intColor = Settings.System.getInt(resolver,
+                    Settings.System.STATUS_BAR_CARRIER_COLOR, DEFAULT_STATUS_CARRIER_COLOR);
+            hexColor = String.format("#%08x", (0xaaffffff & intColor));
+            mCarrierColorPicker.setSummary(hexColor);
+            mCarrierColorPicker.setNewPreviewColor(intColor);
     }
 
     private void updateCustomLabelTextSummary() {
@@ -120,6 +135,20 @@ public class CarrierLabelSettings extends SettingsPreferenceFragment {
             alert.show();
         }
         return true;
+    }
+
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+		ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mCarrierColorPicker) {
+                String hex = ColorPickerPreference.convertToARGB(
+                        Integer.valueOf(String.valueOf(newValue)));
+                preference.setSummary(hex);
+                int intHex = ColorPickerPreference.convertToColorInt(hex);
+                Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                        Settings.System.STATUS_BAR_CARRIER_COLOR, intHex);
+                return true;
+        }
+         return false;
     }
 
     @Override

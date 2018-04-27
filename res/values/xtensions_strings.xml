@@ -1202,8 +1202,10 @@
     <string name="force_expanded_notifications_title">Force Expanded Notifications</string>
     <string name="force_expanded_notifications_summary">Available only for apps that support expanded notifications</string>
 
+    <!-- Carrier Label Additions -->
     <string name="status_bar_carrier_size">Carrier label text size</string>
     <string name="status_bar_carrier_font_style_title">Carrier Label Font</string>
+    <string name="status_bar_carrier_color">Carrier label color</string>
 
     <!-- Wake And Unlock -->
     <string name="fp_wake_and_unlock_title">Fingerprint wake and unlock</string>
