@@ -1211,4 +1211,8 @@
     <string name="fp_wake_and_unlock_title">Fingerprint wake and unlock</string>
     <string name="fp_wake_and_unlock_summary">Allow unlocking device using fingerprint when screen is off or dozing</string>
 
+    <!-- 4G icon instead  of LTE -->
+    <string name="show_fourg_icon_title">4G icon</string>
+    <string name="show_fourg_icon_summary">Display 4G icon in signal icon instead LTE</string>
+
 </resources>
