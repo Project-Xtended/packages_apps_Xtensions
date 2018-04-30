@@ -35,8 +35,7 @@
             android:key="swap_navigation_keys"
             android:title="@string/swap_navigation_keys_title"
             android:summary="@string/swap_navigation_keys_title_summary"
-            android:defaultValue="false"
-            android:dependency="hardware_keys_disable" />
+            android:defaultValue="false" />
 
         <com.xtended.xtensions.preferences.CustomSeekBarPreference
             android:key="button_brightness"
