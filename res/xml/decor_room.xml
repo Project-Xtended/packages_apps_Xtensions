@@ -31,17 +31,27 @@
         android:summary="@string/carrier_label_summary"
         android:fragment="com.xtended.xtensions.fragments.CarrierLabelSettings" />
 
+    <!-- Status Bar Battery Style -->
     <Preference
         android:key="battery_settings"
         android:title="@string/battery_style_category_title"
         android:summary="@string/battery_style_category_summary"
         android:fragment="com.xtended.xtensions.fragments.StatusBarBattery" />
 			
+    <!-- Status Bar Clock Style -->
     <Preference
         android:key="status_bar_clock"
         android:fragment="com.xtended.xtensions.fragments.StatusBarClockSettings"
         android:title="@string/status_bar_clock_title"
         android:summary="@string/status_bar_clock_summary" />
+
+    <!--Status Bar Weather -->
+    <ListPreference
+        android:key="status_bar_show_weather_temp"
+        android:title="@string/statusbar_weather_title"
+        android:dialogTitle="@string/statusbar_weather_dialog_title"
+        android:entries="@array/status_bar_weather_entries"
+        android:entryValues="@array/status_bar_weather_values" />
 
 </PreferenceScreen>
 

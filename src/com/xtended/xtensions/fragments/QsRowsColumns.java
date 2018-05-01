@@ -56,7 +56,7 @@ public class QsRowsColumns extends SettingsPreferenceFragment implements
         mQsRowsLand.setOnPreferenceChangeListener(this);
 
         value = Settings.System.getIntForUser(resolver,
-                Settings.System.QS_COLUMNS_PORTRAIT, 3, UserHandle.USER_CURRENT);
+                Settings.System.QS_COLUMNS_PORTRAIT, 5, UserHandle.USER_CURRENT);
         mQsColumnsPort = (CustomSeekBarPreference) findPreference("qs_columns_portrait");
         mQsColumnsPort.setValue(value);
         mQsColumnsPort.setOnPreferenceChangeListener(this);
@@ -67,7 +67,7 @@ public class QsRowsColumns extends SettingsPreferenceFragment implements
         mQsColumnsLand.setValue(value);
         mQsColumnsLand.setOnPreferenceChangeListener(this);
 
-        value = Settings.Secure.getInt(resolver, Settings.Secure.QQS_COUNT, 4);
+        value = Settings.Secure.getInt(resolver, Settings.Secure.QQS_COUNT, 5);
         mSysuiQqsCount = (CustomSeekBarPreference) findPreference("sysui_qqs_count_key");
         mSysuiQqsCount.setValue(value);
         mSysuiQqsCount.setOnPreferenceChangeListener(this);
