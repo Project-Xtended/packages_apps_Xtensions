@@ -46,13 +46,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
     private static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
     private static final String SCREEN_OFF_ANIMATION = "screen_off_animation";
-    private static final String FP_WAKE_AND_UNLOCK = "fp_wake_and_unlock";
 
     private ListPreference mScreenOffAnimation;
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintVib;
     private SwitchPreference mFpKeystore;
-    private SwitchPreference mFpWakeAndUnlock;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -75,14 +73,8 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         // Fingerprint unlock keystore
         mFpKeystore = (SwitchPreference) prefScreen.findPreference(FP_UNLOCK_KEYSTORE);
 
-        mFpWakeAndUnlock = (SwitchPreference) findPreference(FP_WAKE_AND_UNLOCK);
-        mFpWakeAndUnlock.setChecked(Settings.System.getIntForUser(resolver,
-               Settings.System.FP_WAKE_AND_UNLOCK, 1, UserHandle.USER_CURRENT) == 1);
-        mFpWakeAndUnlock.setOnPreferenceChangeListener(this);
-
         if (!mFingerprintManager.isHardwareDetected()){
             prefScreen.removePreference(mFpKeystore);
-            prefScreen.removePreference(mFpWakeAndUnlock);
         }
 
         // Screen Off Animations
@@ -108,11 +100,6 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
             int valueIndex = mScreenOffAnimation.findIndexOfValue((String) newValue);
             mScreenOffAnimation.setSummary(mScreenOffAnimation.getEntries()[valueIndex]);
              return true;
-        } else if (preference == mFpWakeAndUnlock) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putIntForUser(resolver,
-                    Settings.System.FP_WAKE_AND_UNLOCK, value ? 1: 0, UserHandle.USER_CURRENT);
-            return true;
         }
         return false;
     }
