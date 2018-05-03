@@ -54,6 +54,8 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     ListPreference mRenderMode;
     SwitchPreference mAutoColor;
     ColorPickerPreference mPulseColor;
+    ColorPickerPreference mLavaLampColorFrom;
+    ColorPickerPreference mLavaLampColorTo;
     SwitchPreference mLavaLampEnabled;
     CustomSeekBarPreference mCustomDimen;
     CustomSeekBarPreference mCustomDiv;
@@ -101,6 +103,18 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         mPulseColor = (ColorPickerPreference) findPreference("eos_fling_pulse_color");
         mPulseColor.setNewPreviewColor(pulseColor);
         mPulseColor.setOnPreferenceChangeListener(this);
+
+        int lavaLampColorFrom = Settings.Secure.getIntForUser(getContentResolver(),
+                Settings.Secure.FLING_PULSE_LAVALAMP_COLOR_FROM, 0xffff8080, UserHandle.USER_CURRENT);
+        mLavaLampColorFrom = (ColorPickerPreference) findPreference("fling_lavalamp_color_from");
+        mLavaLampColorFrom.setNewPreviewColor(lavaLampColorFrom);
+        mLavaLampColorFrom.setOnPreferenceChangeListener(this);
+
+        int lavaLampColorTo = Settings.Secure.getIntForUser(getContentResolver(),
+                Settings.Secure.FLING_PULSE_LAVALAMP_COLOR_TO, 0xff8080ff, UserHandle.USER_CURRENT);
+        mLavaLampColorTo = (ColorPickerPreference) findPreference("fling_lavalamp_color_to");
+        mLavaLampColorTo.setNewPreviewColor(lavaLampColorTo);
+        mLavaLampColorTo.setOnPreferenceChangeListener(this);
 
         mLavaLampEnabled = (SwitchPreference) findPreference("eos_fling_lavalamp");
         mLavaLampEnabled.setChecked(Settings.Secure.getIntForUser(getContentResolver(),
@@ -205,6 +219,16 @@ public class PulseSettings extends SettingsPreferenceFragment implements
             int color = ((Integer) newValue).intValue();
             Settings.Secure.putIntForUser(getContentResolver(),
                     Settings.Secure.FLING_PULSE_COLOR, color, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference.equals(mLavaLampColorFrom)) {
+            int color = ((Integer) newValue).intValue();
+            Settings.Secure.putIntForUser(getContentResolver(),
+                    Settings.Secure.FLING_PULSE_LAVALAMP_COLOR_FROM, color, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference.equals(mLavaLampColorTo)) {
+            int color = ((Integer) newValue).intValue();
+            Settings.Secure.putIntForUser(getContentResolver(),
+                    Settings.Secure.FLING_PULSE_LAVALAMP_COLOR_TO, color, UserHandle.USER_CURRENT);
             return true;
         } else if (preference.equals(mLavaLampEnabled)) {
             boolean enabled = ((Boolean) newValue).booleanValue();
