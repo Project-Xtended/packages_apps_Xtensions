@@ -63,18 +63,14 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
 
         mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
         mFingerprintVib = (SwitchPreference) findPreference(FINGERPRINT_VIB);
+	mFpKeystore = (SwitchPreference) prefScreen.findPreference(FP_UNLOCK_KEYSTORE);
         if (mFingerprintManager == null){
             prefScreen.removePreference(mFingerprintVib);
+	    prefScreen.removePreference(mFpKeystore);
         } else {
         mFingerprintVib.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.FINGERPRINT_SUCCESS_VIB, 1) == 1));
         mFingerprintVib.setOnPreferenceChangeListener(this);
-        }
-        // Fingerprint unlock keystore
-        mFpKeystore = (SwitchPreference) prefScreen.findPreference(FP_UNLOCK_KEYSTORE);
-
-        if (!mFingerprintManager.isHardwareDetected()){
-            prefScreen.removePreference(mFpKeystore);
         }
 
         // Screen Off Animations
