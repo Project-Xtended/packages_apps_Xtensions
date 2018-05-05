@@ -115,5 +115,23 @@
             settings:unitsLeft=""
             settings:unitsRight="@string/unit_sec" />
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="category_network"
+        android:title="@string/category_network_title">
+
+        <com.xtended.xtensions.preferences.CustomSeekBarPreference
+            android:dependency="event_service_enabled"
+            android:icon="@drawable/ic_settings_wireless"
+            android:key="disable_wifi_threshold"
+            android:max="10"
+            android:persistent="false"
+            android:summary="@string/disable_wifi_threshold_summary"
+            android:title="@string/disable_wifi_threshold_title"
+            settings:min="0"
+            settings:unitsLeft=""
+            settings:unitsRight="@string/unit_minutes" />
+    </PreferenceCategory>
+
 </PreferenceScreen>
 

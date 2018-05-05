@@ -59,6 +59,7 @@ public class EventServiceSettings extends SettingsPreferenceFragment implements 
     public static final String APP_CHOOSER_TIMEOUT = "app_chooser_timeout";
     public static final String APP_CHOOSER_POSITION = "app_chooser_position";
     public static final String WIRED_EVENTS_THRESHOLD = "wired_events_threshold";
+    public static final String DISABLE_WIFI_THRESHOLD = "disable_wifi_threshold";
 
     // -- For backward compatibility
     public static final String OLD_EVENT_A2DP_CONNECT = "bt_a2dp_connect_app";
@@ -74,6 +75,7 @@ public class EventServiceSettings extends SettingsPreferenceFragment implements 
     private SwitchPreference mMusicActive;
     private SwitchPreference mAutorun;
     private CustomSeekBarPreference mChooserTimeout;
+    private CustomSeekBarPreference mDisableWifi;
     private ListPreference mChooserPosition;
     private Handler mHandler = new Handler();
     private String mServiceRunning;
@@ -133,6 +135,10 @@ public class EventServiceSettings extends SettingsPreferenceFragment implements 
         mChooserTimeout = (CustomSeekBarPreference) findPreference(APP_CHOOSER_TIMEOUT);
         mChooserTimeout.setValue(getPrefs().getInt(EventServiceSettings.APP_CHOOSER_TIMEOUT, 15));
         mChooserTimeout.setOnPreferenceChangeListener(this);
+
+        mDisableWifi = (CustomSeekBarPreference) findPreference(DISABLE_WIFI_THRESHOLD);
+        mDisableWifi.setValue(getPrefs().getInt(EventServiceSettings.DISABLE_WIFI_THRESHOLD, 0));
+        mDisableWifi.setOnPreferenceChangeListener(this);
 
         mWiredThresholdTimeout = (CustomSeekBarPreference) findPreference(WIRED_EVENTS_THRESHOLD);
         mWiredThresholdTimeout.setValue(getPrefs().getInt(EventServiceSettings.WIRED_EVENTS_THRESHOLD, 0));
@@ -240,6 +246,10 @@ public class EventServiceSettings extends SettingsPreferenceFragment implements 
         } else if (preference == mWiredThresholdTimeout) {
             int value = ((int) newValue);
             getPrefs().edit().putInt(WIRED_EVENTS_THRESHOLD, value).commit();
+            return true;
+        } else if (preference == mDisableWifi) {
+            int value = ((int) newValue);
+            getPrefs().edit().putInt(DISABLE_WIFI_THRESHOLD, value).commit();
             return true;
         }
         return false;

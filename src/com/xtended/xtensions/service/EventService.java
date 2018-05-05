@@ -23,6 +23,9 @@ import android.bluetooth.BluetoothA2dp;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothProfile;
+import android.net.wifi.WifiManager;
+import android.net.wifi.WifiInfo;
+import android.os.AsyncTask;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -75,6 +78,7 @@ public class EventService extends Service {
     private static boolean mOverlayShown;
     private static long mLastUnplugEventTimestamp;
 
+    private WifiManager mWifiManager;
     private WindowManager mWindowManager;
     private View mFloatingWidget = null;
     private Set<String> appList = null;
@@ -83,6 +87,7 @@ public class EventService extends Service {
     private int chooserPosition;
     private int mOverlayWidth;
     private boolean mRecalcOverlayWidth;
+    private boolean mDisableWifiIsRunning;
     private Runnable mCloseRunnable = new Runnable() {
         @Override
         public void run() {
@@ -140,7 +145,8 @@ public class EventService extends Service {
                             if (mLastUnplugEventTimestamp != 0) {
                                 final long eventDelta = System.currentTimeMillis() - mLastUnplugEventTimestamp;
                                 if (eventDelta < threshold * 1000) {
-                                    if (DEBUG) Log.d(TAG, "Ignore AudioManager.ACTION_HEADSET_PLUG = " + useHeadset + " delta = " + eventDelta);
+                                    if (DEBUG) 
+                                        Log.d(TAG, "Ignore AudioManager.ACTION_HEADSET_PLUG = " + useHeadset + " delta = " + eventDelta);
                                     return;
                                 }
                             }
@@ -163,6 +169,31 @@ public class EventService extends Service {
                             mLastUnplugEventTimestamp = System.currentTimeMillis();
                         }
                         break;
+                    case WifiManager.NETWORK_STATE_CHANGED_ACTION:
+                        if (DEBUG) Log.d(TAG, "WifiManager.NETWORK_STATE_CHANGED_ACTION = true");
+
+                        int timeout = getPrefs(context).getInt(EventServiceSettings.DISABLE_WIFI_THRESHOLD, 0);
+                        if ((timeout > 0) && wifiEnabledAndNotConnected() && !mDisableWifiIsRunning) {
+                            if (DEBUG) Log.d(TAG, "DISABLE_WIFI_THRESHOLD true");
+                            mDisableWifiIsRunning = true;
+                            final Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    mDisableWifiIsRunning = false;
+                                    new AsyncTask<Void, Void, Void>() {
+                                        @Override
+                                        protected Void doInBackground(Void... args) {
+                                            if (wifiEnabledAndNotConnected()) {
+                                                mWifiManager.setWifiEnabled(false);
+                                            }
+                                            return null;
+                                        }
+                                    }.execute();
+                                }
+                            }, timeout * 60000);
+                        }
+                        break;
                 }
 
             } finally {
@@ -170,6 +201,12 @@ public class EventService extends Service {
             }
         }
     };
+
+    private boolean wifiEnabledAndNotConnected() {
+        if (!mWifiManager.isWifiEnabled()) return false;
+        WifiInfo wifiInfo = mWifiManager.getConnectionInfo();
+        return (wifiInfo.getNetworkId() == -1);
+    }
 
     public void openAppChooserDialog(final Context context) {
         if (!mOverlayShown) {
@@ -334,6 +371,7 @@ public class EventService extends Service {
         mPm = getPackageManager();
         registerListener();
         mOverlayWidth = getOverlayWidth(this);
+        mWifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
     }
 
     @Override
@@ -363,6 +401,7 @@ public class EventService extends Service {
         filter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);
         filter.addAction(BluetoothA2dp.ACTION_CONNECTION_STATE_CHANGED);
         filter.addAction(AudioManager.ACTION_HEADSET_PLUG);
+        filter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
         this.registerReceiver(mStateListener, filter);
     }
 
