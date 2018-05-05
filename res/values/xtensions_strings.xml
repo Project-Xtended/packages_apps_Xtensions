@@ -768,7 +768,7 @@
     <string name="sensor_block_summary">Block access to certain sensors for some apps to save battery.</string>
 
     <!-- QuickSettings Panel Transparency -->
-    <string name="qs_panel_alpha_title">QS Panel Transparency</string>
+    <string name="qs_panel_alpha_title">QS Panel Opacity</string>
 
     <!-- Doze settings editor -->
     <string name="doze_settings_title">Doze settings</string>
@@ -1137,6 +1137,7 @@
     <string name="disabled_entry">Disabled</string>
     <string name="unit_sec">sec</string>
     <string name="unit_msec">ms</string>
+    <string name="unit_minutes">min</string>
     <string name="event_service_settings_title">Events</string>
     <string name="event_service_settings_summary">OmniEvents Setting Menu</string>
     <string name="category_media_player_title">Media player</string>
@@ -1158,6 +1159,9 @@
     <string name="app_chooser_position_title">App chooser dialog position</string>
     <string name="wired_events_threshold_title">Wired headset event threshold</string>
     <string name="wired_events_threshold_summary">Ignore headset events if they are within threshold time</string>
+    <string name="category_network_title">Network</string>
+    <string name="disable_wifi_threshold_title">Turn off Wi\u2011Fi automatically</string>
+    <string name="disable_wifi_threshold_summary">Deactivate Wi\u2011Fi if, when disconnecting from a network, we do not reconnect after a few minutes</string>
 
     <!-- Toast Animation -->
     <string name="toast_animation_title">Toast animation</string>
@@ -1235,5 +1239,6 @@
     <string name="hide_lockscreen_indicator_display_summary">Hide charging information and unlock hints</string>
     <string name="hide_lockscreen_icon_title">Hide lock screen icon</string>
     <string name="hide_lockscreen_icon_summary">Change the lock screen icon visibility</string>
+    <string name="qsh_items_title">QS Header Tuner</string>
 
 </resources>
