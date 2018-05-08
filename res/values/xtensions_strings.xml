@@ -737,6 +737,11 @@
     <string name="lock_clock_font_notoserif_italic">NotoSerif Italic</string>
     <string name="lock_clock_font_notoserif_bold">NotoSerif Bold</string>
     <string name="lock_clock_font_notoserif_bold_italic">NotoSerif Bold Italic</string>
+    <string name="lock_clock_font_gobold">GoBold Light</string>
+    <string name="lock_clock_font_roadrage">Road Rage</string>
+    <string name="lock_clock_font_snowstorm">Snowstorm</string>
+    <string name="lock_clock_font_googlesans">Google Sans</string>
+    <string name="lock_clock_font_themeable">Themeable (or VCR OSD Mono)</string>
 
     <!-- Ambient music ticker -->
     <string name="ambient_ticker_title">Ambient ticker</string>

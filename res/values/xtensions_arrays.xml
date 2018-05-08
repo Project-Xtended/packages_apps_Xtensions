@@ -460,10 +460,10 @@
         <item>@string/lock_clock_font_italic</item>
         <item>@string/lock_clock_font_bold</item>
         <item>@string/lock_clock_font_bold_italic</item>
-        <item>@string/lock_clock_font_light</item>
         <item>@string/lock_clock_font_light_italic</item>
-        <item>@string/lock_clock_font_thin</item>
+        <item>@string/lock_clock_font_light</item>
         <item>@string/lock_clock_font_thin_italic</item>
+        <item>@string/lock_clock_font_thin</item>
         <item>@string/lock_clock_font_condensed_normal</item>
         <item>@string/lock_clock_font_condensed_italic</item>
         <item>@string/lock_clock_font_condensed_bold</item>
@@ -480,7 +480,12 @@
         <item>@string/lock_clock_font_notoserif</item>
         <item>@string/lock_clock_font_notoserif_italic</item>
         <item>@string/lock_clock_font_notoserif_bold</item>
-        <item>@string/lock_clock_font_notoserif_bold_italic</item>
+	<item>@string/lock_clock_font_notoserif_bold_italic</item>
+        <item>@string/lock_clock_font_gobold</item>
+        <item>@string/lock_clock_font_roadrage</item>
+        <item>@string/lock_clock_font_snowstorm</item>
+        <item>@string/lock_clock_font_googlesans</item>
+        <item>@string/lock_clock_font_themeable</item>
     </string-array>
 
     <string-array name="lock_clock_fonts_values" translatable="false">
@@ -509,6 +514,11 @@
         <item>22</item>
         <item>23</item>
         <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
     </string-array>
 
     <!-- Ambient display music ticker -->
