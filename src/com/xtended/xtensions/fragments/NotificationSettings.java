@@ -4,6 +4,7 @@ import com.android.internal.logging.nano.MetricsProto;
 
 import android.content.ContentResolver;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
@@ -32,6 +33,7 @@ public class NotificationSettings extends SettingsPreferenceFragment
     private ColorPickerPreference mTextColor;
     private ListPreference mAnnoyingNotifications;
     private Preference mChargingLeds;
+    private ListPreference mTickerMode;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -85,6 +87,15 @@ public class NotificationSettings extends SettingsPreferenceFragment
         mTextColor.setNewPreviewColor(intColor);
         mTextColor.setSummary(hexColor);
         mTextColor.setOnPreferenceChangeListener(this);
+
+        mTickerMode = (ListPreference) findPreference("ticker_mode");
+        mTickerMode.setOnPreferenceChangeListener(this);
+        int tickerMode = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.STATUS_BAR_SHOW_TICKER,
+                0, UserHandle.USER_CURRENT);
+        updatePrefs();
+        mTickerMode.setValue(String.valueOf(tickerMode));
+        mTickerMode.setSummary(mTickerMode.getEntry());
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -116,12 +127,32 @@ public class NotificationSettings extends SettingsPreferenceFragment
                 Settings.System.putInt(resolver,
                       Settings.System.TOAST_TEXT_COLOR, intHex);
                 return true;
-        }
+            } else if (preference.equals(mTickerMode)) {
+                int tickerMode = Integer.parseInt(((String) newValue).toString());
+                Settings.System.putIntForUser(getContentResolver(),
+                      Settings.System.STATUS_BAR_SHOW_TICKER, tickerMode, UserHandle.USER_CURRENT);
+                updatePrefs();
+  		 	   int index = mTickerMode.findIndexOfValue((String) newValue);
+                mTickerMode.setSummary(
+                      mTickerMode.getEntries()[index]);
+                return true;
+            }
         return false;
     }
 
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.XTENDED;
+    }
+
+    private void updatePrefs() {
+          ContentResolver resolver = getActivity().getContentResolver();
+          boolean enabled = (Settings.Global.getInt(resolver,
+                  Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, 0) == 1);
+        if (enabled) {
+            Settings.System.putInt(resolver,
+                Settings.System.STATUS_BAR_SHOW_TICKER, 0);
+            mTickerMode.setEnabled(false);
+        }
     }
 }

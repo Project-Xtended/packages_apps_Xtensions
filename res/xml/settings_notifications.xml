@@ -38,6 +38,13 @@
         android:entryValues="@array/less_notification_sounds_values"
         android:persistent="false" />
 
+    <ListPreference
+        android:key="ticker_mode"
+        android:entries="@array/ticker_mode_entries"
+        android:entryValues="@array/ticker_mode_values"
+        android:summary="%s"
+        android:title="@string/ticker_mode_title" />
+
     <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
         android:key="force_expanded_notifications"
         android:title="@string/force_expanded_notifications_title"
