@@ -34,6 +34,7 @@ public class NotificationSettings extends SettingsPreferenceFragment
     private ListPreference mAnnoyingNotifications;
     private Preference mChargingLeds;
     private ListPreference mTickerMode;
+    private ListPreference mTickerAnimation;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -96,6 +97,14 @@ public class NotificationSettings extends SettingsPreferenceFragment
         updatePrefs();
         mTickerMode.setValue(String.valueOf(tickerMode));
         mTickerMode.setSummary(mTickerMode.getEntry());
+
+        mTickerAnimation = (ListPreference) findPreference("status_bar_ticker_animation_mode");
+        mTickerAnimation.setOnPreferenceChangeListener(this);
+        int tickerAnimationMode = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.STATUS_BAR_TICKER_ANIMATION_MODE,
+                1, UserHandle.USER_CURRENT);
+        mTickerAnimation.setValue(String.valueOf(tickerAnimationMode));
+        mTickerAnimation.setSummary(mTickerAnimation.getEntry());
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -136,6 +145,14 @@ public class NotificationSettings extends SettingsPreferenceFragment
                 mTickerMode.setSummary(
                       mTickerMode.getEntries()[index]);
                 return true;
+            } else if (preference.equals(mTickerAnimation)) {
+                int tickerAnimationMode = Integer.parseInt(((String) newValue).toString());
+                Settings.System.putIntForUser(getContentResolver(),
+                      Settings.System.STATUS_BAR_TICKER_ANIMATION_MODE, tickerAnimationMode, UserHandle.USER_CURRENT);
+                int index = mTickerAnimation.findIndexOfValue((String) newValue);
+                mTickerAnimation.setSummary(
+                      mTickerAnimation.getEntries()[index]);
+               return true;
             }
         return false;
     }
