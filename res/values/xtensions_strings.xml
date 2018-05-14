@@ -1266,5 +1266,8 @@
     <string name="ticker_animation_mode_alpha_fade">Fade</string>
     <string name="ticker_animation_mode_scroll">Scroll</string>
 
+    <!-- Ambient Visualizer -->
+    <string name="ambient_visualizer_title">Visualizer on Ambient Display</string>
+    <string name="ambient_visualizer_summary">Displays a spectrum bars on Ambient Display while music is playing</string>
 
 </resources>
