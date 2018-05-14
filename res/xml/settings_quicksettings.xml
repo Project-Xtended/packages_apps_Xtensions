@@ -18,12 +18,32 @@
     android:title="@string/quicksettings_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+     <PreferenceCategory
+        android:key="qs_header_category"
+        android:title="@string/qs_header_category">
+
      <Preference
-            android:title="@string/qsh_items_title" >
+            android:title="@string/qsh_items_title"
+            android:summary="@string/qsh_items_summary" >
             <intent android:action="android.intent.action.MAIN"
                 android:targetPackage="com.android.systemui"
                 android:targetClass="com.android.systemui.tuner.QSHeaderItemsActivity" />
-    </Preference>
+     </Preference>
+
+    <!-- QS scroller -->
+    <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
+        android:key="qs_quickbar_scroll_enabled"
+        android:title="@string/qqs_scroll_title"
+        android:summary="@string/qqs_scroll_summary"
+        android:defaultValue="false"/>
+
+    <Preference
+        android:key="qs_headers"
+        android:title="@string/qs_header_title"
+        android:summary="@string/qs_header_summary"
+        android:fragment="com.xtended.xtensions.fragments.QSHeader" />
+
+     </PreferenceCategory>
 
     <com.xtended.xtensions.preferences.CustomSeekBarPreference
         android:key="qs_panel_alpha"
@@ -99,4 +119,5 @@
         android:key="qs_rows_columns"
         android:fragment="com.xtended.xtensions.QsRowsColumns"
         android:title="@string/qs_rows_columns_title"/>
+
 </PreferenceScreen>
