@@ -1025,7 +1025,7 @@
     <string name="smart_pixels_footer">CAUTION: Attempting to restart SystemUI with Smart Pixels enabled will cause a black screen and a full reboot will be required to recover.</string>
 
     <!-- Disabling FC notifications -->
-    <string name="disable_fc_notifications_title">Diable FC Notifications</string>
+    <string name="disable_fc_notifications_title">Disable FC Notifications</string>
     <string name="disable_fc_notifications_summary">This will hide all force close notificaitons</string>
 
     <!-- MediaScanner behavior on boot -->
@@ -1303,5 +1303,9 @@
     <string name="file_header_provider" translatable="false">file</string>
     <string name="qs_header_title">Custom Headers</string>
     <string name="qs_header_summary">Beautify quick settings with custom headers</string>
+
+    <!-- QS Brightness Toggle -->
+    <string name="qs_brightness_position_title">Brightness Slider at Bottom</string>
+    <string name="qs_brightness_position_summary">Enable it for getting slider at bottom</string>
 
 </resources>

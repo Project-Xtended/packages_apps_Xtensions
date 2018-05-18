@@ -79,6 +79,13 @@
         android:defaultValue="false"/>
 
     <com.xtended.xtensions.preferences.SecureSettingSwitchPreference
+        android:key="qs_brightness_position_bottom"
+        android:title="@string/qs_brightness_position_title"
+        android:summary="@string/qs_brightness_position_summary"
+        android:dependency="qs_show_brightness"
+        android:defaultValue="false"/>
+
+    <com.xtended.xtensions.preferences.SecureSettingSwitchPreference
         android:key="lockscreen_qs_disabled"
         android:title="@string/lockscreen_qs_disabled_title"
         android:summary="@string/lockscreen_qs_disabled_summary"
