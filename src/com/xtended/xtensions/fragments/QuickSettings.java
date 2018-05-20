@@ -2,6 +2,7 @@ package com.xtended.xtensions.fragments;
 
 import com.android.internal.logging.nano.MetricsProto;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -21,13 +22,17 @@ import java.util.Locale;
 import android.text.TextUtils;
 import android.view.View;
 
+import android.provider.SearchIndexableResource;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+
 import java.util.List;
 import java.util.ArrayList;
 
 import com.xtended.xtensions.preferences.CustomSeekBarPreference;
 
 public class QuickSettings extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
+        OnPreferenceChangeListener, Indexable {
 
     private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
     private static final String QS_PANEL_ALPHA = "qs_panel_alpha";
@@ -97,5 +102,26 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.XTENDED;
     }
+
+    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                        boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.settings_lockscreen;
+                    result.add(sir);
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    ArrayList<String> result = new ArrayList<String>();
+                    return result;
+                }
+            };
 
 }

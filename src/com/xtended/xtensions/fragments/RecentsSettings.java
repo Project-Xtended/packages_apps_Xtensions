@@ -38,6 +38,10 @@ import com.android.settings.R;
 
 import com.xtended.xtensions.preferences.XUtils;
 
+import android.provider.SearchIndexableResource;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.ArrayList;
@@ -50,7 +54,7 @@ import java.util.List;
 import com.android.settings.SettingsPreferenceFragment;
 
 public class RecentsSettings extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener, DialogInterface.OnDismissListener {
+        OnPreferenceChangeListener, DialogInterface.OnDismissListener, Indexable {
 
     private static final String RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
     private ListPreference mRecentsClearAllLocation;
@@ -329,4 +333,25 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.XTENDED;
     }
+
+    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                        boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.settings_recents;
+                    result.add(sir);
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    ArrayList<String> result = new ArrayList<String>();
+                    return result;
+                }
+            };
 }

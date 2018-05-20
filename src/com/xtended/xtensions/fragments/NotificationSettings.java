@@ -2,6 +2,7 @@ package com.xtended.xtensions.fragments;
 
 import com.android.internal.logging.nano.MetricsProto;
 
+import android.content.Context;
 import android.content.ContentResolver;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -21,8 +22,15 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import com.xtended.xtensions.preferences.Utils;
 
+import android.provider.SearchIndexableResource;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class NotificationSettings extends SettingsPreferenceFragment
-                        implements OnPreferenceChangeListener {
+                        implements OnPreferenceChangeListener, Indexable {
 
     private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
     private static final String PREF_LESS_NOTIFICATION_SOUNDS = "less_notification_sounds";
@@ -172,4 +180,25 @@ public class NotificationSettings extends SettingsPreferenceFragment
             mTickerMode.setEnabled(false);
         }
     }
+
+    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                        boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.settings_notifications;
+                    result.add(sir);
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    ArrayList<String> result = new ArrayList<String>();
+                    return result;
+                }
+            };
 }
