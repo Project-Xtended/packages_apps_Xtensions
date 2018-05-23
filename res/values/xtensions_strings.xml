@@ -1368,4 +1368,20 @@
     <string name="system_app_remover">System App Remover</string>
     <string name="system_app_remover_summary">Remove Un-needed System App</string>
 
+    <!-- Dashboard Settings -->
+    <string name="dashboard_header"> Dashboard</string>
+    <string name="hide_dashboard_summary_title">Hide summary</string> 
+    <string name="hide_dashboard_summary_summary">In settings main page</string> 
+
+    <!-- Disable dashboard conditions -->
+    <string name="dashboard_conditions_title">Dashboard conditions</string>
+    <string name="summary_dashboard_conditions_enabled">Dashboard conditions are enabled</string>
+    <string name="summary_dashboard_conditions_disabled">Dashboard conditions are disabled</string>
+
+    <!-- Disable dashboard suggestions -->
+    <string name="dashboard_suggestions_title">Dashboard suggestions</string>
+    <string name="summary_dashboard_suggestions_enabled">Dashboard suggestions are enabled</string>
+    <string name="summary_dashboard_suggestions_disabled">Dashboard suggestions are disabled</string>
+
+
 </resources>
