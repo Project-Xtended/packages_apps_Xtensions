@@ -25,6 +25,22 @@
         android:fragment="com.xtended.xtensions.fragments.LockScreenWeatherSettings" />
 
     <ListPreference
+        android:key="lockscreen_clock_selection"
+        android:title="@string/lockscreen_clock_selection_title"
+        android:entries="@array/lockscreen_clock_selection_entries"
+        android:entryValues="@array/lockscreen_clock_selection_values"
+        android:defaultValue="0"
+        android:dependency="hide_lockscreen_clock" />
+
+    <ListPreference
+        android:key="lockscreen_date_selection"
+        android:title="@string/lockscreen_date_selection_title"
+        android:entries="@array/lockscreen_date_selection_entries"
+        android:entryValues="@array/lockscreen_date_selection_values"
+        android:defaultValue="0"
+        android:dependency="hide_lockscreen_date" />
+
+    <ListPreference
         android:key="lock_clock_fonts"
         android:title="@string/lock_clock_font_title"
         android:dialogTitle="@string/lock_clock_font_dialog_title"
@@ -55,7 +71,7 @@
         settings:min="50"
         settings:units="dp"
         android:persistent="false"
-        android:defaultValue="78"
+        android:defaultValue="90"
         android:dependency="hide_lockscreen_clock" />
 
     <com.xtended.xtensions.preferences.CustomSeekBarPreference
@@ -64,7 +80,7 @@
         android:max="25"
         settings:min="1"
         settings:units="sp"
-        android:defaultValue="14"
+        android:defaultValue="24"
         android:persistent="false"
         android:dependency="hide_lockscreen_date" />
 
