@@ -484,7 +484,8 @@
         <item>@string/lock_clock_font_gobold</item>
         <item>@string/lock_clock_font_roadrage</item>
         <item>@string/lock_clock_font_snowstorm</item>
-        <item>@string/lock_clock_font_googlesans</item>
+	<item>@string/lock_clock_font_googlesans</item>
+	<item>@string/lock_clock_font_neoneon</item>
         <item>@string/lock_clock_font_themeable</item>
     </string-array>
 
@@ -518,7 +519,8 @@
         <item>26</item>
         <item>27</item>
         <item>28</item>
-        <item>29</item>
+	<item>29</item>
+	<item>30</item>
     </string-array>
 
     <!-- Ambient display music ticker -->
