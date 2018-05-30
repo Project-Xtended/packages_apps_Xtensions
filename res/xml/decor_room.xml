@@ -24,6 +24,13 @@
         android:summary="@string/batterybar_summary"
         android:fragment="com.xtended.xtensions.fragments.BatteryBarSettings" />
 
+    <!-- Status Bar Logo Style -->
+    <Preference
+        android:key="status_bar_logo"
+        android:title="@string/status_bar_logo_category_title"
+        android:summary="@string/status_bar_logo_category_summary"
+        android:fragment="com.xtended.xtensions.fragments.StatusbarLogo" />
+
     <!--Carrier Label -->
     <Preference
         android:key="carrier_label"
