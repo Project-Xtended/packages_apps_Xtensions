@@ -37,6 +37,12 @@
         android:summary="@string/carbon_gestures_summary"
         android:fragment="com.msm.xtended.fragments.CarbonGesturesSettings" />
 
+    <Preference 
+        android:key="edge_gestures" 
+        android:title="@string/edge_gestures_title" 
+        android:summary="@string/edge_gestures_summary" 
+        android:fragment="com.msm.xtended.fragments.EdgeGesturesSettings"/>
+
     <com.msm.xtended.preferences.SystemSettingSwitchPreference
         android:key="use_bottom_gesture_navigation"
         android:title="@string/gesture_settings_title"
