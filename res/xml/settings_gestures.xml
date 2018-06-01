@@ -34,6 +34,12 @@
         android:summary="@string/gesture_anywhere_summary"
         android:fragment="com.xtended.xtensions.gestureanywhere.GestureAnywhereSettings" />
 
+    <Preference
+	android:key="edge_gestures"
+        android:title="@string/edge_gestures_title"
+        android:summary="@string/edge_gestures_summary"
+        android:fragment="com.xtended.xtensions.fragments.EdgeGesturesSettings"/>
+
     <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
         android:key="double_tap_sleep_gesture"
         android:title="@string/double_tap_to_sleep_title"
