@@ -67,33 +67,4 @@
             android:summary="@string/network_traffic_summary"
             android:fragment="com.xtended.xtensions.fragments.NetworkTraffic" />
 
-    <PreferenceCategory
-        android:title="@string/tint_menus_all">
-
-        <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
-            android:key="wallpaper_notification_shade_wallpaper_tint"
-            android:title="@string/wallpaper_tint_notification_shade"
-            android:summary="@string/wallpaper_tint_summary"
-            android:defaultValue="true" />
-
-        <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
-            android:key="wallpaper_keyguard_wallpaper_tint"
-            android:title="@string/wallpaper_tint_keyguard"
-            android:summary="@string/wallpaper_tint_summary"
-            android:defaultValue="true" />
-
-        <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
-            android:key="wallpaper_power_menu_tint"
-            android:title="@string/wallpaper_tint_power_menu"
-            android:summary="@string/wallpaper_tint_summary"
-            android:defaultValue="true" />
-
-        <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
-            android:key="wallpaper_recents_tint"
-            android:title="@string/wallpaper_tint_recents"
-            android:summary="@string/wallpaper_tint_summary"
-            android:defaultValue="true" />
-
-    </PreferenceCategory>
-
 </PreferenceScreen>

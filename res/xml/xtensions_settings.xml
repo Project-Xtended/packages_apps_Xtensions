@@ -123,6 +123,13 @@
             android:fragment="com.xtended.xtensions.fragments.StatusBarSettings"
             settings:allowDividerAbove="true" />
 
+        <!-- System -->
+        <Preference
+            android:key="system_category"
+            android:title="@string/system_title"
+            android:summary="@string/system_summary"
+            android:fragment="com.xtended.xtensions.fragments.SystemSettings" />
+
         <!-- Xtras -->
         <Preference
             android:key="xtra_category"

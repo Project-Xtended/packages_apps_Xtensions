@@ -55,8 +55,7 @@ import java.util.Map;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class BlurPersonalizations extends SettingsPreferenceFragment
-        implements OnPreferenceChangeListener {
+public class BlurPersonalizations extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
    //Switch Preferences
     private SwitchPreference mExpand;

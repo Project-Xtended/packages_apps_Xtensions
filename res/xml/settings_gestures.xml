@@ -18,10 +18,6 @@
     android:title="@string/gestures_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <PreferenceCategory
-        android:key="dtts_category"
-        android:title="@string/dtts_category_header" >
-
     <Preference
         android:title="@string/carbon_gesture_preference_title"
         android:summary="@string/carbon_gesture_preference_summary"
@@ -39,6 +35,10 @@
         android:title="@string/edge_gestures_title"
         android:summary="@string/edge_gestures_summary"
         android:fragment="com.xtended.xtensions.fragments.EdgeGesturesSettings"/>
+
+    <PreferenceCategory
+        android:key="dtts_category"
+        android:title="@string/dtts_category_header" >
 
     <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
         android:key="double_tap_sleep_gesture"

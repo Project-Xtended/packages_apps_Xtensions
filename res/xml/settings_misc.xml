@@ -1,22 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 Xtended Project
-
+<!-- Copyright (C) 2018 Xtended Project
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-
           http://www.apache.org/licenses/LICENSE-2.0
-
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<PreferenceScreen
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:title="@string/xtra_title"
-        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/xtra_title" >
+
+        <Preference
+            android:key="blur_cat"
+            android:title="@string/settings_blur_cat"
+            android:summary="@string/settings_blur_sum"
+            android:fragment="com.xtended.xtensions.fragments.BlurPersonalizations" />
+			
+        <Preference
+            android:key="systemappremover"
+            android:title="@string/system_app_remover"
+            android:summary="@string/system_app_remover_summary"
+            android:fragment="com.xtended.xtensions.fragments.SystemappRemover" />
 
         <PreferenceCategory
 	        android:title="@string/dashboard_header">
@@ -36,95 +44,35 @@
                 android:summaryOn="@string/summary_dashboard_suggestions_enabled"
                 android:summaryOff="@string/summary_dashboard_suggestions_disabled"
                 android:defaultValue="false" />
-        </PreferenceCategory>
+       </PreferenceCategory>
 
-        <ListPreference
-            android:key="screenshot_type"
-            android:entries="@array/screenshot_type_entries"
-            android:entryValues="@array/screenshot_type_values"
-            android:title="@string/screenshot_type_title" />
+       <PreferenceCategory
+           android:title="@string/tint_menus_all">
 
-        <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
-            android:key="sensor_block"
-            android:title="@string/sensor_block_title"
-            android:summary="@string/sensor_block_summary"
-            android:defaultValue="false" />
+           <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
+               android:key="wallpaper_notification_shade_wallpaper_tint"
+               android:title="@string/wallpaper_tint_notification_shade"
+               android:summary="@string/wallpaper_tint_summary"
+               android:defaultValue="true" />
 
-        <Preference
-             android:key="smart_pixels"
-             android:title="@string/smart_pixels_title"
-             android:summary="@string/smart_pixels_summary"
-             android:fragment="com.xtended.xtensions.fragments.SmartPixels" />
+           <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
+               android:key="wallpaper_keyguard_wallpaper_tint"
+               android:title="@string/wallpaper_tint_keyguard"
+               android:summary="@string/wallpaper_tint_summary"
+               android:defaultValue="true" />
 
-        <Preference
-             android:key="time_in_state"
-             android:title="@string/time_in_state_title"
-             android:summary="@string/time_in_state_summary"
-             android:fragment="com.xtended.xtensions.fragments.TimeInState" />
+           <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
+               android:key="wallpaper_power_menu_tint"
+               android:title="@string/wallpaper_tint_power_menu"
+               android:summary="@string/wallpaper_tint_summary"
+               android:defaultValue="true" />
 
-        <Preference
-             android:key="doze_settings"
-             android:title="@string/doze_settings_title"
-             android:summary="@string/doze_settings_summary"
-             android:fragment="com.xtended.xtensions.fragments.DozeSettings" />
+           <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
+               android:key="wallpaper_recents_tint"
+               android:title="@string/wallpaper_tint_recents"
+               android:summary="@string/wallpaper_tint_summary"
+               android:defaultValue="true" />
 
-        <Preference
-             android:key="wakelock_blocker"
-             android:fragment="com.xtended.xtensions.fragments.WakeLockBlocker"
-             android:title="@string/wakelock_blocker_title"
-             android:summary="@string/wakelock_blocker_summary" />
+       </PreferenceCategory>
 
-        <Preference
-             android:id="@+id/alarm_blocker"
-             android:fragment="com.xtended.xtensions.fragments.AlarmBlocker"
-             android:title="@string/alarm_blocker"
-             android:summary="@string/alarm_blocker_summary" />
-
-        <Preference
-            android:title="@string/app_ops_settings"
-            android:summary="@string/app_ops_summary"
-            android:fragment="com.android.settings.applications.AppOpsSummary"/>
-
-        <Preference
-            android:key="systemappremover"
-            android:title="@string/system_app_remover"
-            android:summary="@string/system_app_remover_summary"
-            android:fragment="com.xtended.xtensions.fragments.SystemappRemover" />
-
-        <Preference
-            android:key="suspend_actions"
-            android:title="@string/screen_state_toggles_title" 
-            android:summary="@string/screen_state_toggles_summary_opt"
-            android:fragment="com.xtended.xtensions.fragments.SuspendActions" />
-
-        <!-- MediaScanner behavior on boot -->
-        <ListPreference
-            android:key="media_scanner_on_boot"
-            android:title="@string/media_scanner_on_boot_title"
-            android:entries="@array/media_scanner_on_boot_entries"
-            android:entryValues="@array/media_scanner_on_boot_values" />
-
-        <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
-            android:key="disable_fc_notifications"
-            android:title="@string/disable_fc_notifications_title"
-            android:summary="@string/disable_fc_notifications_summary"
-            android:defaultValue="false" />
-  
-        <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
-            android:key="mtp_dirty_hack"
-            android:title="@string/enable_mtp_dirtyhack_title"
-            android:summary="@string/enable_mtp_dirtyhack_summary"
-            android:defaultValue="true" />
-
-        <com.xtended.xtensions.preferences.GlobalSettingSwitchPreference
-            android:key="wake_when_plugged_or_unplugged"
-            android:title="@string/wakeup_when_plugged_unplugged_title"
-            android:summary="@string/wakeup_when_plugged_unplugged_summary"
-            android:defaultValue="true" />
-
-        <com.xtended.xtensions.preferences.GlobalSettingSwitchPreference
-            android:key="show_cpu_overlay"
-            android:title="@string/show_cpu_info"
-            android:summary="@string/show_cpu_info_summary" 
-            android:defaultValue="false" />
 </PreferenceScreen>
