@@ -91,7 +91,7 @@ public class NotificationSettings extends SettingsPreferenceFragment
         // Toast text color
         mTextColor = (ColorPickerPreference) findPreference(TOAST_TEXT_COLOR);
         intColor = Settings.System.getInt(resolver,
-                Settings.System.TOAST_TEXT_COLOR, 0xde000000);
+                Settings.System.TOAST_TEXT_COLOR, 0xccff0000);
         hexColor = String.format("#%08x", intColor);
         mTextColor.setNewPreviewColor(intColor);
         mTextColor.setSummary(hexColor);
