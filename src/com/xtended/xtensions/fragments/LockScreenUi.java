@@ -99,12 +99,12 @@ public class LockScreenUi extends SettingsPreferenceFragment implements
 
         mClockFontSize = (CustomSeekBarPreference) findPreference(CLOCK_FONT_SIZE);
         mClockFontSize.setValue(Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKCLOCK_FONT_SIZE, 90));
+                Settings.System.LOCKCLOCK_FONT_SIZE, 84));
         mClockFontSize.setOnPreferenceChangeListener(this);
 
         mDateFontSize = (CustomSeekBarPreference) findPreference(DATE_FONT_SIZE);
         mDateFontSize.setValue(Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKDATE_FONT_SIZE,24));
+                Settings.System.LOCKDATE_FONT_SIZE,21));
         mDateFontSize.setOnPreferenceChangeListener(this);
 
         mLockscreenClockSelection = (ListPreference) findPreference(KEY_LOCKSCREEN_CLOCK_SELECTION);
