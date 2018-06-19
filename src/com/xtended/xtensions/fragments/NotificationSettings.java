@@ -36,6 +36,7 @@ public class NotificationSettings extends SettingsPreferenceFragment
     private static final String PREF_LESS_NOTIFICATION_SOUNDS = "less_notification_sounds";
     private static final String TOAST_ICON_COLOR = "toast_icon_color";
     private static final String TOAST_TEXT_COLOR = "toast_text_color";
+    private static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
 
     private ColorPickerPreference mIconColor;
     private ColorPickerPreference mTextColor;
@@ -43,6 +44,7 @@ public class NotificationSettings extends SettingsPreferenceFragment
     private Preference mChargingLeds;
     private ListPreference mTickerMode;
     private ListPreference mTickerAnimation;
+    private ListPreference mFlashlightOnCall;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -113,6 +115,18 @@ public class NotificationSettings extends SettingsPreferenceFragment
                 1, UserHandle.USER_CURRENT);
         mTickerAnimation.setValue(String.valueOf(tickerAnimationMode));
         mTickerAnimation.setSummary(mTickerAnimation.getEntry());
+
+        mFlashlightOnCall = (ListPreference) findPreference(FLASHLIGHT_ON_CALL);
+        Preference FlashOnCall = findPreference("flashlight_on_call");
+        int flashlightValue = Settings.System.getInt(getContentResolver(),
+                Settings.System.FLASHLIGHT_ON_CALL, 0);
+        mFlashlightOnCall.setValue(String.valueOf(flashlightValue));
+        mFlashlightOnCall.setSummary(mFlashlightOnCall.getEntry());
+        mFlashlightOnCall.setOnPreferenceChangeListener(this);
+
+        if (!Utils.deviceSupportsFlashLight(getActivity())) {
+            prefScreen.removePreference(FlashOnCall);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -160,6 +174,13 @@ public class NotificationSettings extends SettingsPreferenceFragment
                 int index = mTickerAnimation.findIndexOfValue((String) newValue);
                 mTickerAnimation.setSummary(
                       mTickerAnimation.getEntries()[index]);
+               return true;
+            } else if (preference == mFlashlightOnCall) {
+               int flashlightValue = Integer.parseInt(((String) newValue).toString());
+               Settings.System.putInt(resolver,
+                     Settings.System.FLASHLIGHT_ON_CALL, flashlightValue);
+               mFlashlightOnCall.setValue(String.valueOf(flashlightValue));
+               mFlashlightOnCall.setSummary(mFlashlightOnCall.getEntry());
                return true;
             }
         return false;
