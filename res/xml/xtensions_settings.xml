@@ -128,14 +128,16 @@
             android:key="system_category"
             android:title="@string/system_title"
             android:summary="@string/system_summary"
-            android:fragment="com.xtended.xtensions.fragments.SystemSettings" />
+            android:fragment="com.xtended.xtensions.fragments.SystemSettings"
+            settings:allowDividerAbove="true" />
 
         <!-- Xtras -->
         <Preference
             android:key="xtra_category"
             android:title="@string/xtra_title"
             android:summary="@string/xtra_summary"
-            android:fragment="com.xtended.xtensions.fragments.MiscSettings" />
+            android:fragment="com.xtended.xtensions.fragments.MiscSettings"
+            settings:allowDividerAbove="true" />
 			
 </PreferenceScreen>
 
