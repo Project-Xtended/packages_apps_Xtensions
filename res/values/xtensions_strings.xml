@@ -1481,4 +1481,8 @@
     <string name="flashlight_on_call_dnd">Blink flashlight only in DND mode</string>
     <string name="flashlight_on_call_always">Always blink flashlight</string>
 
+    <!-- Activity Indicators -->
+    <string name="activity_indicators">Activity Indicators</string>
+    <string name="activity_indicators_summary">Show network activity indicators</string>
+
 </resources>

@@ -20,6 +20,12 @@
         android:title="@string/network_traffic_title">
 
            <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
+                android:key="activity_indicators"
+                android:title="@string/activity_indicators"
+                android:summary="@string/activity_indicators_summary"
+                android:defaultValue="false" />
+
+           <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
                 android:key="network_traffic_enable"
                 android:title="@string/network_traffic_enable_title"
                 android:defaultValue="false"/>
