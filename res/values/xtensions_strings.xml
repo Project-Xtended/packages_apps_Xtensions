@@ -746,6 +746,7 @@
     <string name="lock_clock_font_googlesans">Google Sans</string>
     <string name="lock_clock_font_neoneon">Neoneon</string>
     <string name="lock_clock_font_themeable">Themeable (or VCR OSD Mono)</string>
+    <string name="lock_clock_font_samsung">Shamshung</string>
 
     <!-- Ambient music ticker -->
     <string name="ambient_ticker_title">Ambient ticker</string>

@@ -487,6 +487,7 @@
 	<item>@string/lock_clock_font_googlesans</item>
 	<item>@string/lock_clock_font_neoneon</item>
         <item>@string/lock_clock_font_themeable</item>
+	<item>@string/lock_clock_font_samsung</item>
     </string-array>
 
     <string-array name="lock_clock_fonts_values" translatable="false">
@@ -521,6 +522,7 @@
         <item>28</item>
 	<item>29</item>
 	<item>30</item>
+	<item>31</item>
     </string-array>
 
     <!-- Ambient display music ticker -->
