@@ -1399,6 +1399,14 @@
     <string name="lockscreen_date_selection_default">Default</string>
     <string name="lockscreen_date_selection_str_box">Semi-transparent box</string>
     <string name="lockscreen_date_selection_str_round">Semi-transparent box (round)</string>
+    <string name="lockscreen_date_selection_str_accent">Rounded, simple and with accent</string>
+    <string name="lockscreen_date_selection_str_accent_day">Rounded, simple and with accent (alt)</string>
+    <string name="lockscreen_date_selection_str_accent_transparent">Rounded, transparent and with accent</string>
+    <string name="lockscreen_date_selection_str_accent_transparent_day">Rounded, transparent and with accent (alt)</string>
+    <string name="lockscreen_date_selection_str_sammy">Sammy</string>
+    <string name="lockscreen_date_selection_str_short">Short</string>
+    <string name="lockscreen_date_selection_str_accent_sammy">Sammy, rounded bg with accent</string>
+    <string name="lockscreen_date_selection_str_accent_short">Short, rounded bg with accent</string>
 
     <!-- Wallpaper tint -->
     <string name="tint_menus_all">Tint Removal Menu</string>
