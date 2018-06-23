@@ -487,6 +487,7 @@
 	<item>@string/lock_clock_font_googlesans</item>
 	<item>@string/lock_clock_font_neoneon</item>
         <item>@string/lock_clock_font_themeable</item>
+	<item>@string/lock_clock_font_samsung</item>
     </string-array>
 
     <string-array name="lock_clock_fonts_values" translatable="false">
@@ -521,6 +522,7 @@
         <item>28</item>
 	<item>29</item>
 	<item>30</item>
+	<item>31</item>
     </string-array>
 
     <!-- Ambient display music ticker -->
@@ -1037,12 +1039,28 @@
         <item>@string/lockscreen_date_selection_default</item>
         <item>@string/lockscreen_date_selection_str_box</item>
         <item>@string/lockscreen_date_selection_str_round</item>
+	<item>@string/lockscreen_date_selection_str_accent</item>
+        <item>@string/lockscreen_date_selection_str_accent_day</item>
+        <item>@string/lockscreen_date_selection_str_accent_transparent</item>
+        <item>@string/lockscreen_date_selection_str_accent_transparent_day</item>
+	<item>@string/lockscreen_date_selection_str_sammy</item>
+        <item>@string/lockscreen_date_selection_str_short</item>
+	<item>@string/lockscreen_date_selection_str_accent_sammy</item>
+        <item>@string/lockscreen_date_selection_str_accent_short</item>
     </string-array>
 
     <string-array name="lockscreen_date_selection_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
+	<item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+	<item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
     </string-array>
 
    <!-- Xtended Logo -->
