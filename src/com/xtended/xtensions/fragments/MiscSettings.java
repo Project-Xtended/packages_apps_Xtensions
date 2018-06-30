@@ -40,23 +40,36 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
+import android.text.TextUtils;
 import android.util.Log;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import android.content.Context;
 
 import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.xtended.xtensions.preferences.SecureSettingSeekBarPreference;
+import com.xtended.xtensions.preferences.AppMultiSelectListPreference;
+import com.xtended.xtensions.preferences.ScrollAppsViewPreference;
 
 public class MiscSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String SYSUI_ROUNDED_SIZE = "sysui_rounded_size";
     private static final String SYSUI_ROUNDED_CONTENT_PADDING = "sysui_rounded_content_padding";
+    private static final String KEY_ASPECT_RATIO_APPS_ENABLED = "aspect_ratio_apps_enabled";
+    private static final String KEY_ASPECT_RATIO_APPS_LIST = "aspect_ratio_apps_list";
+    private static final String KEY_ASPECT_RATIO_CATEGORY = "aspect_ratio_category";
+    private static final String KEY_ASPECT_RATIO_APPS_LIST_SCROLLER = "aspect_ratio_apps_list_scroller";
 
     private Context mContext;
     private SecureSettingSeekBarPreference mCornerRadius;
     private SecureSettingSeekBarPreference mContentPadding;
+    private AppMultiSelectListPreference mAspectRatioAppsSelect;
+    private ScrollAppsViewPreference mAspectRatioApps;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -77,6 +90,26 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         mContentPadding.setValue(contentPadding / 1);
         mContentPadding.setOnPreferenceChangeListener(this);
 
+        //final PreferenceCategory aspectRatioCategory =
+        //        (PreferenceCategory) getPreferenceScreen().findPreference(KEY_ASPECT_RATIO_CATEGORY);
+        //final boolean supportMaxAspectRatio = getResources().getBoolean(com.android.internal.R.bool.config_haveHigherAspectRatioScreen);
+        //if (!supportMaxAspectRatio) {
+        //    getPreferenceScreen().removePreference(aspectRatioCategory);
+        //} else {
+        mAspectRatioAppsSelect = (AppMultiSelectListPreference) findPreference(KEY_ASPECT_RATIO_APPS_LIST);
+        mAspectRatioApps = (ScrollAppsViewPreference) findPreference(KEY_ASPECT_RATIO_APPS_LIST_SCROLLER);
+        final String valuesString = Settings.System.getString(getContentResolver(), Settings.System.ASPECT_RATIO_APPS_LIST);
+        List<String> valuesList = new ArrayList<String>();
+        if (!TextUtils.isEmpty(valuesString)) {
+             valuesList.addAll(Arrays.asList(valuesString.split(":")));
+             mAspectRatioApps.setVisible(true);
+             mAspectRatioApps.setValues(valuesList);
+        } else {
+             mAspectRatioApps.setVisible(false);
+        }
+        mAspectRatioAppsSelect.setValues(valuesList);
+        mAspectRatioAppsSelect.setOnPreferenceChangeListener(this);
+        //}
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -88,6 +121,18 @@ public class MiscSettings extends SettingsPreferenceFragment implements
             int value = (Integer) newValue;
             Settings.Secure.putInt(getContentResolver(),
                 Settings.Secure.SYSUI_ROUNDED_CONTENT_PADDING, value * 1);
+        } else if (preference == mAspectRatioAppsSelect) {
+            Collection<String> valueList = (Collection<String>) newValue;
+            mAspectRatioApps.setVisible(false);
+            if (valueList != null) {
+                Settings.System.putString(getContentResolver(), Settings.System.ASPECT_RATIO_APPS_LIST,
+                        TextUtils.join(":", valueList));
+                mAspectRatioApps.setVisible(true);
+                mAspectRatioApps.setValues(valueList);
+            } else {
+                Settings.System.putString(getContentResolver(), Settings.System.ASPECT_RATIO_APPS_LIST, "");
+            }
+            return true;
         }
         return true;
     }
