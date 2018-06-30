@@ -16,11 +16,17 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <com.xtended.xtensions.preferences.GlobalSettingSwitchPreference
-            android:key="heads_up_notifications_enabled"
-            android:title="@string/heads_up_notifications"
-            android:summaryOn="@string/summary_heads_up_enabled"
-            android:summaryOff="@string/summary_heads_up_disabled"
-            android:defaultValue="true" />
+        android:key="heads_up_notifications_enabled"
+        android:title="@string/heads_up_notifications"
+        android:summaryOn="@string/summary_heads_up_enabled"
+        android:summaryOff="@string/summary_heads_up_disabled"
+        android:defaultValue="true" />
+
+    <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
+        android:key="always_headsup_dialer"
+        android:title="@string/always_headsup_dialer_title"
+        android:summary="@string/always_headsup_dialer_summary"
+        android:defaultValue="false" />
 
     <ListPreference
         android:key="heads_up_time_out"
