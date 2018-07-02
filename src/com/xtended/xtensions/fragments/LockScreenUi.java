@@ -51,14 +51,18 @@ public class LockScreenUi extends SettingsPreferenceFragment implements
     private static final String DATE_FONT_SIZE  = "lockdate_font_size";
     private static final String KEY_LOCKSCREEN_CLOCK_SELECTION = "lockscreen_clock_selection";
     private static final String KEY_LOCKSCREEN_DATE_SELECTION = "lockscreen_date_selection";
+    private static final String LOCK_OWNERINFO_FONTS = "lock_ownerinfo_fonts";
+    private static final String LOCKOWNER_FONT_SIZE = "lockowner_font_size";
 
     private CustomSeekBarPreference mLsAlpha;
     private CustomSeekBarPreference mLsSecurityAlpha;
     private CustomSeekBarPreference mClockFontSize;
     private CustomSeekBarPreference mDateFontSize;
+    private CustomSeekBarPreference mOwnerInfoFontSize;
 
     ListPreference mLockClockFonts;
     ListPreference mLockDateFonts;
+    ListPreference mLockOwnerInfoFonts;
     ListPreference mLockscreenClockSelection;
     ListPreference mLockscreenDateSelection;
 
@@ -121,6 +125,18 @@ public class LockScreenUi extends SettingsPreferenceFragment implements
         mLockscreenDateSelection.setSummary(mLockscreenDateSelection.getEntry());
         mLockscreenDateSelection.setOnPreferenceChangeListener(this);
 
+        // Lockscren OwnerInfo Fonts
+        mLockOwnerInfoFonts = (ListPreference) findPreference(LOCK_OWNERINFO_FONTS);
+        mLockOwnerInfoFonts.setValue(String.valueOf(Settings.System.getInt(
+                getContentResolver(), Settings.System.LOCK_OWNERINFO_FONTS, 26)));
+        mLockOwnerInfoFonts.setSummary(mLockOwnerInfoFonts.getEntry());
+        mLockOwnerInfoFonts.setOnPreferenceChangeListener(this);
+
+        // Lockscren OwnerInfo Size
+        mOwnerInfoFontSize = (CustomSeekBarPreference) findPreference(LOCKOWNER_FONT_SIZE);
+        mOwnerInfoFontSize.setValue(Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKOWNER_FONT_SIZE,21));
+        mOwnerInfoFontSize.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -170,6 +186,17 @@ public class LockScreenUi extends SettingsPreferenceFragment implements
             Settings.System.putIntForUser(resolver,
                     Settings.System.LOCKSCREEN_DATE_SELECTION, dateSelection, UserHandle.USER_CURRENT);
             mLockscreenDateSelection.setSummary(mLockscreenDateSelection.getEntries()[index]);
+            return true;
+       } else if (preference == mLockOwnerInfoFonts) {
+            Settings.System.putInt(getContentResolver(), Settings.System.LOCK_OWNERINFO_FONTS,
+                    Integer.valueOf((String) newValue));
+            mLockOwnerInfoFonts.setValue(String.valueOf(newValue));
+            mLockOwnerInfoFonts.setSummary(mLockOwnerInfoFonts.getEntry());
+            return true;
+        } else if (preference == mOwnerInfoFontSize) {
+            int top = (Integer) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKOWNER_FONT_SIZE, top*1);
             return true;
         }
         return false;
