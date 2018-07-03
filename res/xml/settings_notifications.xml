@@ -58,6 +58,16 @@
         android:entryValues="@array/ticker_animation_mode_values"
         android:defaultValue="1" />
 
+   <com.xtended.xtensions.preferences.SystemSettingSeekBarPreference
+        android:key="status_bar_ticker_tick_duration"
+        android:title="@string/ticker_tick_duration_title"
+        settings:min="300"
+        android:max="5000"
+        android:defaultValue="3000"
+        settings:interval="100"
+        settings:unitsLeft=""
+        settings:unitsRight="ms" />
+
     <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
         android:key="status_bar_notif_count"
         android:title="@string/status_bar_notif_count_title"

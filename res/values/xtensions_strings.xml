@@ -1309,6 +1309,7 @@
     <string name="ticker_animation_mode_title">Ticker animation style</string>
     <string name="ticker_animation_mode_alpha_fade">Fade</string>
     <string name="ticker_animation_mode_scroll">Scroll</string>
+    <string name="ticker_tick_duration_title">Ticker duration</string>
 
     <!-- Ambient Visualizer -->
     <string name="ambient_visualizer_title">Visualizer on Ambient Display</string>
