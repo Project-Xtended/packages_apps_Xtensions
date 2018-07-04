@@ -29,6 +29,7 @@ import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.text.TextUtils;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
@@ -40,8 +41,9 @@ import com.xtended.xtensions.preferences.AppMultiSelectListPreference;
 import com.xtended.xtensions.preferences.ScrollAppsViewPreference;
 import com.xtended.xtensions.preferences.CustomSeekBarPreference;
 
+import java.util.Arrays;
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -97,12 +99,12 @@ public class EventServiceSettings extends SettingsPreferenceFragment implements 
         addPreferencesFromResource(R.xml.event_service_settings);
 
         // -- For backward compatibility
-        String old_value = getPrefs().getString(OLD_EVENT_A2DP_CONNECT, null);
-        if (old_value != null) {
+        if (getPrefs().contains(OLD_EVENT_A2DP_CONNECT)) {
+            Set<String> old_value = getPrefs().getStringSet(OLD_EVENT_A2DP_CONNECT, null);
             fixOldPreference(OLD_EVENT_A2DP_CONNECT, EVENT_A2DP_CONNECT, old_value);
         }
-        old_value = getPrefs().getString(OLD_EVENT_WIRED_HEADSET_CONNECT, null);
-        if (old_value != null) {
+        if (getPrefs().contains(OLD_EVENT_WIRED_HEADSET_CONNECT)) {
+            Set<String> old_value = getPrefs().getStringSet(OLD_EVENT_WIRED_HEADSET_CONNECT, null);
             fixOldPreference(OLD_EVENT_WIRED_HEADSET_CONNECT, EVENT_WIRED_HEADSET_CONNECT, old_value);
         }
         // -- End backward compatibility
@@ -145,62 +147,70 @@ public class EventServiceSettings extends SettingsPreferenceFragment implements 
         mWiredThresholdTimeout.setOnPreferenceChangeListener(this);
 
         mA2DPappSelect = (AppMultiSelectListPreference) findPreference(EVENT_A2DP_CONNECT);
-        Set<String> value = getPrefs().getStringSet(EVENT_A2DP_CONNECT, null);
-        if (value != null) mA2DPappSelect.setValues(value);
+        String value = getPrefs().getString(EVENT_A2DP_CONNECT, null);
+        List<String> valueList = new ArrayList<String>();
+        if (!TextUtils.isEmpty(value)) {
+            valueList.addAll(Arrays.asList(value.split(":")));
+        }
+        mA2DPappSelect.setValues(valueList);
         mA2DPappSelect.setOnPreferenceChangeListener(this);
 
         mA2DPApps = (ScrollAppsViewPreference) findPreference(A2DP_APP_LIST);
-        if (value == null) {
+        if (TextUtils.isEmpty(value)) {
             mA2DPApps.setVisible(false);
         } else {
             mA2DPApps.setVisible(true);
-            mA2DPApps.setValues(value);
+            mA2DPApps.setValues(valueList);
         }
 
         mWiredHeadsetAppSelect = (AppMultiSelectListPreference) findPreference(EVENT_WIRED_HEADSET_CONNECT);
-        value = getPrefs().getStringSet(EVENT_WIRED_HEADSET_CONNECT, null);
-        if (value != null) mWiredHeadsetAppSelect.setValues(value);
+        value = getPrefs().getString(EVENT_WIRED_HEADSET_CONNECT, null);
+        valueList = new ArrayList<String>();
+        if (!TextUtils.isEmpty(value)) {
+            valueList.addAll(Arrays.asList(value.split(":")));
+        }
+        mWiredHeadsetAppSelect.setValues(valueList);
         mWiredHeadsetAppSelect.setOnPreferenceChangeListener(this);
 
         mHeadsetApps = (ScrollAppsViewPreference) findPreference(HEADSET_APP_LIST);
-        if (value == null) {
+       if (TextUtils.isEmpty(value)) {
             mHeadsetApps.setVisible(false);
         } else {
-            mHeadsetApps.setValues(value);
+            mHeadsetApps.setValues(valueList);
             mHeadsetApps.setVisible(true);
         }
     }
 
-    private void fixOldPreference(String old_event, String new_event, String value) {
-        Set<String> mValues = new HashSet<String>();
-        mValues.add(value);
-        getPrefs().edit().putStringSet(new_event, mValues).commit();
-        getPrefs().edit().putString(old_event, null).commit();
+    private void fixOldPreference(String old_event, String new_event, Set<String> value) {
+        getPrefs().edit().putString(new_event, TextUtils.join(":", value)).commit();
+        getPrefs().edit().remove(old_event).commit();
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mA2DPappSelect) {
-            Set<String> value = (Set<String>) newValue;
-
-            getPrefs().edit().putStringSet(EVENT_A2DP_CONNECT, value).commit();
+            Collection<String> value = (Collection<String>) newValue;
 
             mA2DPApps.setVisible(false);
-            if (value != null) {
+            if (value != null && !value.isEmpty()) {
+                getPrefs().edit().putString(EVENT_A2DP_CONNECT, TextUtils.join(":", value)).commit();
                 mA2DPApps.setValues(value);
                 mA2DPApps.setVisible(true);
+            } else {
+                getPrefs().edit().putString(EVENT_A2DP_CONNECT, null).commit();
             }
 
             return true;
         } else if (preference == mWiredHeadsetAppSelect) {
-            Set<String> value = (Set<String>) newValue;
-
-            getPrefs().edit().putStringSet(EVENT_WIRED_HEADSET_CONNECT, value).commit();
+            Collection<String> value = (Collection<String>) newValue;
 
             mHeadsetApps.setVisible(false);
-            if (value != null) {
+            if (value != null && !value.isEmpty()) {
+                getPrefs().edit().putString(EVENT_WIRED_HEADSET_CONNECT, TextUtils.join(":", value)).commit();
                 mHeadsetApps.setValues(value);
                 mHeadsetApps.setVisible(true);
+            } else {
+                getPrefs().edit().putString(EVENT_WIRED_HEADSET_CONNECT, null).commit();
             }
 
             return true;
