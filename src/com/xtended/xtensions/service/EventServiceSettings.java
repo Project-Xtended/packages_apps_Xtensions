@@ -39,7 +39,7 @@ import com.android.settings.search.Indexable;
 
 import com.xtended.xtensions.preferences.AppMultiSelectListPreference;
 import com.xtended.xtensions.preferences.ScrollAppsViewPreference;
-import com.xtended.xtensions.preferences.CustomSeekBarPreference;
+import com.xtended.xtensions.preferences.SeekBarPreference;
 
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -50,8 +50,8 @@ import java.util.Set;
 public class EventServiceSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener, Indexable {
     public static final String EVENTS_PREFERENCES_NAME = "event_service";
 
-    public static final String EVENT_A2DP_CONNECT = "bt_a2dp_connect_app_list";
-    public static final String EVENT_WIRED_HEADSET_CONNECT = "headset_connect_app_list";
+    public static final String EVENT_A2DP_CONNECT = "bt_a2dp_connect_app_string";
+    public static final String EVENT_WIRED_HEADSET_CONNECT = "headset_connect_app_string";
     public static final String EVENT_SERVICE_ENABLED = "event_service_enabled";
     public static final String EVENT_MEDIA_PLAYER_START = "media_player_autostart";
     public static final String EVENT_MUSIC_ACTIVE = "media_player_music_active";
@@ -64,8 +64,8 @@ public class EventServiceSettings extends SettingsPreferenceFragment implements 
     public static final String DISABLE_WIFI_THRESHOLD = "disable_wifi_threshold";
 
     // -- For backward compatibility
-    public static final String OLD_EVENT_A2DP_CONNECT = "bt_a2dp_connect_app";
-    public static final String OLD_EVENT_WIRED_HEADSET_CONNECT = "headset_connect_app";
+    public static final String OLD_EVENT_A2DP_CONNECT = "bt_a2dp_connect_app_list";
+    public static final String OLD_EVENT_WIRED_HEADSET_CONNECT = "headset_connect_app_list";
     // -- End backward compatibility
 
     private AppMultiSelectListPreference mA2DPappSelect;
@@ -76,13 +76,13 @@ public class EventServiceSettings extends SettingsPreferenceFragment implements 
     private SwitchPreference mAutoStart;
     private SwitchPreference mMusicActive;
     private SwitchPreference mAutorun;
-    private CustomSeekBarPreference mChooserTimeout;
-    private CustomSeekBarPreference mDisableWifi;
+    private SeekBarPreference mChooserTimeout;
+    private SeekBarPreference mDisableWifi;
     private ListPreference mChooserPosition;
     private Handler mHandler = new Handler();
     private String mServiceRunning;
     private String mServiceStopped;
-    private CustomSeekBarPreference mWiredThresholdTimeout;
+    private SeekBarPreference mWiredThresholdTimeout;
 
     @Override
     public int getMetricsCategory() {
@@ -134,15 +134,15 @@ public class EventServiceSettings extends SettingsPreferenceFragment implements 
         mAutorun.setChecked(getPrefs().getBoolean(EventServiceSettings.EVENT_AUTORUN_SINGLE, true));
         mAutorun.setOnPreferenceChangeListener(this);
 
-        mChooserTimeout = (CustomSeekBarPreference) findPreference(APP_CHOOSER_TIMEOUT);
+        mChooserTimeout = (SeekBarPreference) findPreference(APP_CHOOSER_TIMEOUT);
         mChooserTimeout.setValue(getPrefs().getInt(EventServiceSettings.APP_CHOOSER_TIMEOUT, 15));
         mChooserTimeout.setOnPreferenceChangeListener(this);
 
-        mDisableWifi = (CustomSeekBarPreference) findPreference(DISABLE_WIFI_THRESHOLD);
+        mDisableWifi = (SeekBarPreference) findPreference(DISABLE_WIFI_THRESHOLD);
         mDisableWifi.setValue(getPrefs().getInt(EventServiceSettings.DISABLE_WIFI_THRESHOLD, 0));
         mDisableWifi.setOnPreferenceChangeListener(this);
 
-        mWiredThresholdTimeout = (CustomSeekBarPreference) findPreference(WIRED_EVENTS_THRESHOLD);
+        mWiredThresholdTimeout = (SeekBarPreference) findPreference(WIRED_EVENTS_THRESHOLD);
         mWiredThresholdTimeout.setValue(getPrefs().getInt(EventServiceSettings.WIRED_EVENTS_THRESHOLD, 0));
         mWiredThresholdTimeout.setOnPreferenceChangeListener(this);
 
@@ -173,11 +173,11 @@ public class EventServiceSettings extends SettingsPreferenceFragment implements 
         mWiredHeadsetAppSelect.setOnPreferenceChangeListener(this);
 
         mHeadsetApps = (ScrollAppsViewPreference) findPreference(HEADSET_APP_LIST);
-       if (TextUtils.isEmpty(value)) {
+	if (TextUtils.isEmpty(value)) {
             mHeadsetApps.setVisible(false);
         } else {
-            mHeadsetApps.setValues(valueList);
             mHeadsetApps.setVisible(true);
+	    mHeadsetApps.setValues(valueList);
         }
     }
 
