@@ -37,6 +37,22 @@
         android:entries="@array/screen_off_animation_entries"
         android:entryValues="@array/screen_off_animation_values" />
 
+    <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
+         android:key="lock_screen_custom_notif"
+         android:title="@string/lockscreen_maxnotif_title"
+         android:summary="@string/lockscreen_maxnotif_sumary"
+         android:defaultValue="false" />
+
+    <com.xtended.xtensions.preferences.CustomSeekBarPreference
+         android:key="lockscreen_max_notif_cofig"
+         android:title="@string/lockscreen_maxnotif_config"
+         android:max="6"
+         settings:min="1"
+         settings:unitsLeft=""
+         settings:unitsRight=""
+         android:persistent="false"
+         android:dependency="lock_screen_custom_notif" />
+
     <com.xtended.xtensions.preferences.SecureSettingSwitchPreference
         android:key="face_auto_unlock"
         android:title="@string/face_auto_unlock_title"
