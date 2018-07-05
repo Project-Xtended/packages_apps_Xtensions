@@ -47,6 +47,7 @@ import android.os.PowerManager;
 import android.os.ServiceManager;
 import android.os.SystemClock;
 import android.os.UserHandle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.Gravity;
@@ -61,7 +62,9 @@ import android.widget.LinearLayout;
 
 import com.android.settings.R;
 
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class EventService extends Service {
@@ -81,7 +84,7 @@ public class EventService extends Service {
     private WifiManager mWifiManager;
     private WindowManager mWindowManager;
     private View mFloatingWidget = null;
-    private Set<String> appList = null;
+    private List<String> appList = null;
     private Handler mHandler = new Handler();
     private PackageManager mPm;
     private int chooserPosition;
@@ -123,8 +126,8 @@ public class EventService extends Service {
                             if (DEBUG) Log.d(TAG, "BluetoothProfile.STATE_CONNECTED = true");
 
                             if (!(disableIfMusicActive && isMusicActive())) {
-                                appList = getPrefs(context).getStringSet(EventServiceSettings.EVENT_A2DP_CONNECT, null);
-                                if (appList != null) {
+                                appList = getAvailableActionList(EventServiceSettings.EVENT_A2DP_CONNECT);
+                                if (appList.size() != 0) {
                                     if (autoRun && appList.size() == 1) {
                                         openApp(appList.iterator().next(), context);
                                     } else {
@@ -154,8 +157,8 @@ public class EventService extends Service {
                             if (DEBUG) Log.d(TAG, "AudioManager.ACTION_HEADSET_PLUG = true");
 
                             if (!(disableIfMusicActive && isMusicActive())) {
-                                appList = getPrefs(context).getStringSet(EventServiceSettings.EVENT_WIRED_HEADSET_CONNECT, null);
-                                if (appList != null) {
+                                appList = getAvailableActionList(EventServiceSettings.EVENT_WIRED_HEADSET_CONNECT);
+                                if (appList.size() != 0) {
                                     if (autoRun && appList.size() == 1) {
                                         openApp(appList.iterator().next(), context);
                                     } else {
@@ -468,6 +471,22 @@ public class EventService extends Service {
                     })
                     .start();
         }
+    }
+
+    // filter out unresolvable (uninstalled) intents
+    private List<String> getAvailableActionList(String key) {
+        String value = getPrefs(this).getString(key, null);
+        List<String> valueList = new ArrayList<String>();
+        if (!TextUtils.isEmpty(value)) {
+            for (String intentUri : value.split(":")){
+                Intent intent = createIntent(intentUri);
+                if (mPm.resolveActivity(intent, 0) != null) {
+                    valueList.add(intentUri);
+                }
+            }
+            if (DEBUG) Log.d(TAG, "getActionList valueList = " + valueList);
+        }
+        return valueList;
     }
 }
 

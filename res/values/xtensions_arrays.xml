@@ -1234,6 +1234,13 @@
         <item>2.0</item>
     </string-array>
 
+    <!-- Base attributes available to SeekBarPreference -->
+    <declare-styleable name="SeekBarPreference">
+	<attr name="min" format="integer" />
+	<attr name="interval" format="integer" />
+	<attr name="unitsLeft" format="string|reference" />
+	<attr name="unitsRight" format="string|reference" />
+    </declare-styleable>
 
 </resources>
 

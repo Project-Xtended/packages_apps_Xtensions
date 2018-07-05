@@ -40,7 +40,7 @@
         <com.xtended.xtensions.preferences.AppMultiSelectListPreference
             android:dependency="event_service_enabled"
             android:icon="@drawable/ic_settings_bluetooth"
-            android:key="bt_a2dp_connect_app_list"
+            android:key="bt_a2dp_connect_app_string"
             android:persistent="false"
             android:summary="@string/bt_a2dp_connect_app_list_summary"
             android:title="@string/bt_a2dp_connect_app_list_title" />
@@ -54,7 +54,7 @@
         <com.xtended.xtensions.preferences.AppMultiSelectListPreference
             android:dependency="event_service_enabled"
             android:icon="@drawable/ic_headset_24dp"
-            android:key="headset_connect_app_list"
+            android:key="headset_connect_app_string"
             android:persistent="false"
             android:summary="@string/headset_connect_app_list_summary"
             android:title="@string/headset_connect_app_list_title" />
@@ -86,7 +86,7 @@
             android:persistent="false"
             android:title="@string/media_player_autostart_title" />
 
-        <com.xtended.xtensions.preferences.CustomSeekBarPreference
+        <com.xtended.xtensions.preferences.SeekBarPreference
             android:dependency="event_service_enabled"
             android:key="app_chooser_timeout"
             android:max="60"
@@ -104,7 +104,7 @@
             android:persistent="false"
             android:title="@string/app_chooser_position_title" />
 
-        <com.xtended.xtensions.preferences.CustomSeekBarPreference
+        <com.xtended.xtensions.preferences.SeekBarPreference
             android:dependency="event_service_enabled"
             android:key="wired_events_threshold"
             android:max="6"
@@ -120,7 +120,7 @@
         android:key="category_network"
         android:title="@string/category_network_title">
 
-        <com.xtended.xtensions.preferences.CustomSeekBarPreference
+        <com.xtended.xtensions.preferences.SeekBarPreference
             android:dependency="event_service_enabled"
             android:icon="@drawable/ic_settings_wireless"
             android:key="disable_wifi_threshold"
