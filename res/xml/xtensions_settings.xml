@@ -23,7 +23,7 @@
             android:title="@string/device_part_title"
             android:summary="@string/device_part_summary">
             <intent android:action="com.android.settings.action.EXTRA_SETTINGS"
-               android:targetPackage="com.oneplus.shit"
+               android:targetPackage="com.oneplus.shit.settings"
                android:targetClass ="com.oneplus.shit.settings.ShitPanelSettings" />
         </Preference>
 

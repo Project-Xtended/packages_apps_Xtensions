@@ -36,7 +36,7 @@ public class Xtensions extends SettingsPreferenceFragment {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         final String KEY_DEVICE_PART = "device_part";
-        final String KEY_DEVICE_PART_PACKAGE_NAME = "com.oneplus.shit";
+        final String KEY_DEVICE_PART_PACKAGE_NAME = "com.oneplus.shit.settings";
 
         addPreferencesFromResource(R.xml.xtensions_settings);
 
