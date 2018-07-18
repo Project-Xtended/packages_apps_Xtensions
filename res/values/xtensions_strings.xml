@@ -1550,4 +1550,8 @@
     <string name="pa_pie_gravity_right">Right</string> 
     <string name="pa_pie_gravity_left">Left</string> 
 
+     <!-- Volume Dialog Expanded -->
+    <string name="volume_dialog_force_expanded_title">Force Expanded Volume Panel</string>
+    <string name="volume_dialog_force_expanded_summary">Force the volume panel to always appear in expanded mode</string>
+
 </resources>

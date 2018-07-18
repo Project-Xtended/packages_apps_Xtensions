@@ -72,6 +72,13 @@
             android:entries="@array/media_scanner_on_boot_entries"
             android:entryValues="@array/media_scanner_on_boot_values" />
 
+    <!-- Force expanded mode -->
+	<com.xtended.xtensions.preferences.SystemSettingSwitchPreference
+            android:key="volume_dialog_force_expanded"
+            android:title="@string/volume_dialog_force_expanded_title"
+            android:summary="@string/volume_dialog_force_expanded_summary"
+            android:defaultValue="true" />
+
         <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
             android:key="disable_fc_notifications"
             android:title="@string/disable_fc_notifications_title"
