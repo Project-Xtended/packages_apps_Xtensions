@@ -37,12 +37,11 @@
         android:summary="@string/pa_pie_control_summary" 
         android:fragment="com.xtended.xtensions.fragments.PieSettings" />
 
-    <!--
     <Preference
 	android:key="edge_gestures"
         android:title="@string/edge_gestures_title"
         android:summary="@string/edge_gestures_summary"
-        android:fragment="com.xtended.xtensions.fragments.EdgeGesturesSettings"/> -->
+        android:fragment="com.xtended.xtensions.fragments.EdgeGesturesSettings"/>
 
     <PreferenceCategory
         android:key="dtts_category"
