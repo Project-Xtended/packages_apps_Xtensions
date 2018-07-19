@@ -311,6 +311,9 @@
     <string name="powermenu_soundpanel">Sound Panel</string>
     <string name="powermenu_users">Users</string>
     <string name="powermenu_torch">Flashlight</string>
+    <string name="powermenu_voiceassist">VoiceAssist</string>
+    <string name="powermenu_assist">Assist</string>
+    <string name="powermenu_onthego">OnTheGo</string>
 
     <!-- Power menu on secure lockscreen -->
     <string name="lockscreen_power_menu_disabled_title">Power menu when locked</string>

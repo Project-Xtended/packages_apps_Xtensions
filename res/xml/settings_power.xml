@@ -74,6 +74,21 @@
             android:title="@string/powermenu_users"
             android:defaultValue="false" />
 
+    <!--<com.xtended.xtensions.preferences.SystemSettingSwitchPreference
+              android:key="powermenu_voiceassist"
+              android:title="@string/powermenu_voiceassist"
+              android:defaultValue="false" />
+
+         <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
+              android:key="powermenu_assist"
+              android:title="@string/powermenu_assist"
+	      android:defaultValue="false" />-->
+
+         <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
+              android:key="powermenu_onthego"
+              android:title="@string/powermenu_onthego"
+              android:defaultValue="false" />
+
          <!--<com.xtended.xtensions.preferences.SystemSettingSwitchPreference
             android:key="powermenu_soundpanel"
             android:title="@string/powermenu_soundpanel"
