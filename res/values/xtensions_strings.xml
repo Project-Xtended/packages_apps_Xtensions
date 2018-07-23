@@ -1557,4 +1557,7 @@
     <string name="volume_dialog_force_expanded_title">Force Expanded Volume Panel</string>
     <string name="volume_dialog_force_expanded_summary">Force the volume panel to always appear in expanded mode</string>
 
+    <string name="aosp_gestures_title">AOSP Gestures</string>
+    <string name="aosp_gestures_summary">Common AOSP Gestures</string>
+
 </resources>

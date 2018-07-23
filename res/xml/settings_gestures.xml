@@ -19,6 +19,12 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <Preference
+        android:key="gestures_dashboard"
+        android:title="@string/aosp_gestures_title"
+        android:summary="@string/aosp_gestures_summary"
+        android:fragment="com.android.settings.gestures.GestureSettings" />
+
+    <Preference
         android:title="@string/carbon_gesture_preference_title"
         android:summary="@string/carbon_gesture_preference_summary"
         android:key="carbongestures"
