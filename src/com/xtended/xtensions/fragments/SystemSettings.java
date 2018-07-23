@@ -78,9 +78,10 @@ public class SystemSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
+	ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mMSOB) {
             int value = Integer.parseInt(((String) objValue).toString());
-            Settings.System.putInt(getContentResolver(),
+            Settings.System.putInt(resolver,
                     Settings.System.MEDIA_SCANNER_ON_BOOT, value);
             mMSOB.setValue(String.valueOf(value));
             mMSOB.setSummary(mMSOB.getEntries()[value]);
