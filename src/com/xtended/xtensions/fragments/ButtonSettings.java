@@ -103,6 +103,7 @@ public class ButtonSettings extends ActionFragment implements OnPreferenceChange
                     UserHandle.USER_CURRENT);
             mHwKeyDisable.setChecked(keysDisabled != 0);
             mHwKeyDisable.setOnPreferenceChangeListener(this);
+	    updateButtons();
 
         mSwapKeysPreference = (SystemSettingSwitchPreference) prefScreen.findPreference(
                 KEY_BUTTON_SWAP_KEYS);
@@ -230,6 +231,7 @@ public class ButtonSettings extends ActionFragment implements OnPreferenceChange
             Settings.Secure.putInt(getContentResolver(), Settings.Secure.HARDWARE_KEYS_DISABLE,
                     value ? 1 : 0);
             setActionPreferencesEnabled(!value);
+	    updateButtons();
             return true;
         }
         return false;
@@ -265,5 +267,16 @@ public class ButtonSettings extends ActionFragment implements OnPreferenceChange
                     return result;
                 }
             };
+
+    private void updateButtons() {
+        boolean hardwareButtons = Settings.Secure.getIntForUser(getActivity().getContentResolver(),
+                Settings.Secure.HARDWARE_KEYS_DISABLE, 0, UserHandle.USER_CURRENT) == 1;
+
+        if (hardwareButtons) {
+            mButtonBackLightCategory.setEnabled(false);
+        } else {
+            mButtonBackLightCategory.setEnabled(true);
+        }
+    }
 
 }
