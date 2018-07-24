@@ -197,6 +197,7 @@
     <string name="allow_incall_home_summary">Allow to use Home button when device is ringing</string>
 
     <!-- Buttons backlight timeout -->
+    <string name="button_backlight_options_category">Backlight Options</string>
     <string name="backlight_timeout_title">Buttons backlight timeout</string>
     <string name="backlight_timeout_on">Enabled always</string>
     <string name="backlight_timeout_2s">2 sec</string>
