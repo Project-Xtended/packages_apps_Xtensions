@@ -14,8 +14,7 @@ import com.android.settings.R;
 
 import com.android.settings.SettingsPreferenceFragment;
 
-import com.android.internal.util.nitrogen.NitrogenUtils;
-
+import com.xtended.xtensions.preferences.Utils;
 import android.provider.SearchIndexableResource;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
@@ -27,8 +26,10 @@ public class GestureSettings extends SettingsPreferenceFragment implements
           Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String TORCH_POWER_BUTTON_GESTURE = "torch_power_button_gesture";
+    private static final String KEY_TORCH_LONG_PRESS_POWER_TIMEOUT = "torch_long_press_power_timeout";
 
     private ListPreference mTorchPowerButton;
+    private ListPreference mTorchLongPressPowerTimeout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,19 +40,24 @@ public class GestureSettings extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
-        if (!NitrogenUtils.deviceHasFlashlight(getContext())) {
-            Preference toRemove = prefScreen.findPreference(TORCH_POWER_BUTTON_GESTURE);
-            if (toRemove != null) {
-                prefScreen.removePreference(toRemove);
-            }
-        } else {
-            mTorchPowerButton = (ListPreference) findPreference(TORCH_POWER_BUTTON_GESTURE);
-            int mTorchPowerButtonValue = Settings.Secure.getInt(resolver,
-                    Settings.Secure.TORCH_POWER_BUTTON_GESTURE, 0);
-            mTorchPowerButton.setValue(Integer.toString(mTorchPowerButtonValue));
-            mTorchPowerButton.setSummary(mTorchPowerButton.getEntry());
-            mTorchPowerButton.setOnPreferenceChangeListener(this);
-        }
+        mTorchPowerButton = (ListPreference) findPreference(TORCH_POWER_BUTTON_GESTURE);
+        int mTorchPowerButtonValue = Settings.Secure.getInt(resolver,
+               Settings.Secure.TORCH_POWER_BUTTON_GESTURE, 0);
+        mTorchPowerButton.setValue(Integer.toString(mTorchPowerButtonValue));
+        mTorchPowerButton.setSummary(mTorchPowerButton.getEntry());
+        mTorchPowerButton.setOnPreferenceChangeListener(this);
+
+        mTorchLongPressPowerTimeout = (ListPreference) findPreference(KEY_TORCH_LONG_PRESS_POWER_TIMEOUT);
+        int mTorchLongPressPowerTimeoutValue = Settings.System.getInt(resolver,
+             Settings.System.TORCH_LONG_PRESS_POWER_TIMEOUT, 0);
+        mTorchLongPressPowerTimeout.setValue(Integer.toString(mTorchLongPressPowerTimeoutValue));
+        mTorchLongPressPowerTimeout.setSummary(mTorchLongPressPowerTimeout.getEntry());
+        mTorchLongPressPowerTimeout.setOnPreferenceChangeListener(this);
+
+        if (!Utils.deviceSupportsFlashLight(getActivity())) {
+	     prefScreen.removePreference(mTorchPowerButton);
+	     prefScreen.removePreference(mTorchLongPressPowerTimeout);
+	}
     }
 
      public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -68,11 +74,18 @@ public class GestureSettings extends SettingsPreferenceFragment implements
                 //if doubletap for torch is enabled, switch off double tap for camera
                 Settings.Secure.putInt(resolver, Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED,
                         1);
-            }
+           }
+           return true;
+        } else if (preference == mTorchLongPressPowerTimeout) {
+            int mTorchLongPressPowerTimeoutValue = Integer.valueOf((String) newValue);
+            int index = mTorchLongPressPowerTimeout.findIndexOfValue((String) newValue);
+            mTorchLongPressPowerTimeout.setSummary(
+                    mTorchLongPressPowerTimeout.getEntries()[index]);
+            Settings.System.putInt(resolver, Settings.System.TORCH_LONG_PRESS_POWER_TIMEOUT,
+            mTorchLongPressPowerTimeoutValue);
             return true;
         }
-
-          return false;
+        return false;
       }
 
     @Override
@@ -99,5 +112,5 @@ public class GestureSettings extends SettingsPreferenceFragment implements
                     ArrayList<String> result = new ArrayList<String>();
                     return result;
                 }
-            };
+     };
 }

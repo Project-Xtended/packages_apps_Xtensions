@@ -79,4 +79,12 @@
         android:entries="@array/torch_power_button_gesture_entries"
         android:entryValues="@array/torch_power_button_gesture_values" />
 
+    <ListPreference
+        android:key="torch_long_press_power_timeout"
+        android:title="@string/torch_long_press_power_timeout_title"
+        android:entries="@array/torch_long_press_power_timeout_entries"
+        android:entryValues="@array/torch_long_press_power_timeout_values"
+        android:dependency="torch_power_button_gesture"
+        android:persistent="false" />
+
 </PreferenceScreen>
