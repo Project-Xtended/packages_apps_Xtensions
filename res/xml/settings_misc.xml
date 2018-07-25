@@ -14,6 +14,21 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/xtra_title" >
 
+        <com.xtended.xtensions.preferences.SystemSettingListPreference
+            android:key="screenshot_type"
+            android:entries="@array/screenshot_type_entries"
+            android:entryValues="@array/screenshot_type_values"
+            android:title="@string/screenshot_type_title" />
+
+        <com.xtended.xtensions.preferences.SystemSettingSeekBarPreference
+            android:key="screenshot_delay"
+            android:title="@string/screenshot_delay_title"
+            android:max="10000"
+            settings:min="100"
+            settings:interval="100"
+            android:defaultValue="100"
+            settings:units="ms"/>
+
         <Preference
             android:key="blur_cat"
             android:title="@string/settings_blur_cat"
