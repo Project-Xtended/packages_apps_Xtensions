@@ -1567,4 +1567,8 @@
     <string name="torch_long_press_power_timeout_5min">5 minutes</string>
     <string name="torch_long_press_power_timeout_10min">10 minutes</string>
 
+   <!-- Double Tap Power For Camera -->
+   <string name="dtp_for_camera_title">Double Press Power For Camera</string>
+   <string name="dtp_for_camera_summary">Double Tap Power Button for Camera</string>
+
 </resources>

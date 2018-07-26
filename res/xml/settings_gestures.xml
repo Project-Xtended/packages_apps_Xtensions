@@ -73,6 +73,12 @@
         android:summary="@string/three_finger_gesture_summary"
         android:defaultValue="false" />
 
+    <Preference
+        android:key="gesture_double_tap_power_input_summary"
+        android:title="@string/dtp_for_camera_title"
+        android:summary="@string/dtp_for_camera_summary"
+        android:fragment="com.android.settings.gestures.DoubleTapPowerSettings" />
+
     <ListPreference
         android:key="torch_power_button_gesture"
         android:title="@string/torch_power_button_gesture_title"
