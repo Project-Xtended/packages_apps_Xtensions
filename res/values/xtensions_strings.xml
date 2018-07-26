@@ -1571,4 +1571,8 @@
    <string name="dtp_for_camera_title">Double Press Power For Camera</string>
    <string name="dtp_for_camera_summary">Double Tap Power Button for Camera</string>
 
+   <!-- Bottom Navigations -->
+   <string name="use_bottom_gesture_title">Use swipe up gestures for navigation</string>
+   <string name="use_bottom_gesture_summary">Works only with navigation bar disable</string>
+
 </resources>

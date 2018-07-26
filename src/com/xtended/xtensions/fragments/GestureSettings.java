@@ -10,6 +10,7 @@ import android.provider.Settings;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceScreen;
+import android.support.v14.preference.SwitchPreference;
 import com.android.settings.R;
 
 import com.android.settings.SettingsPreferenceFragment;
@@ -27,9 +28,11 @@ public class GestureSettings extends SettingsPreferenceFragment implements
 
     private static final String TORCH_POWER_BUTTON_GESTURE = "torch_power_button_gesture";
     private static final String KEY_TORCH_LONG_PRESS_POWER_TIMEOUT = "torch_long_press_power_timeout";
+    private static final String USE_GESTURE_NAVIGATION = "use_bottom_gesture";
 
     private ListPreference mTorchPowerButton;
     private ListPreference mTorchLongPressPowerTimeout;
+    private SwitchPreference mGestureNavigation;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,11 @@ public class GestureSettings extends SettingsPreferenceFragment implements
 
         ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        mGestureNavigation = (SwitchPreference) findPreference(USE_GESTURE_NAVIGATION);
+        mGestureNavigation.setChecked(Settings.System.getInt(resolver,
+               Settings.System.USE_BOTTOM_GESTURE_NAVIGATION, 0) == 1);
+        mGestureNavigation.setOnPreferenceChangeListener(this);
 
         mTorchPowerButton = (ListPreference) findPreference(TORCH_POWER_BUTTON_GESTURE);
         int mTorchPowerButtonValue = Settings.Secure.getInt(resolver,
@@ -58,6 +66,7 @@ public class GestureSettings extends SettingsPreferenceFragment implements
 	     prefScreen.removePreference(mTorchPowerButton);
 	     prefScreen.removePreference(mTorchLongPressPowerTimeout);
 	}
+
     }
 
      public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -83,6 +92,11 @@ public class GestureSettings extends SettingsPreferenceFragment implements
                     mTorchLongPressPowerTimeout.getEntries()[index]);
             Settings.System.putInt(resolver, Settings.System.TORCH_LONG_PRESS_POWER_TIMEOUT,
             mTorchLongPressPowerTimeoutValue);
+            return true;
+        } else if (preference == mGestureNavigation) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.USE_BOTTOM_GESTURE_NAVIGATION, value ? 1 : 0);
             return true;
         }
         return false;

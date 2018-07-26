@@ -43,6 +43,12 @@
         android:summary="@string/edge_gestures_summary"
         android:fragment="com.xtended.xtensions.fragments.EdgeGesturesSettings"/>
 
+    <SwitchPreference
+        android:key="use_bottom_gesture"
+        android:title="@string/use_bottom_gesture_title"
+        android:summary="@string/use_bottom_gesture_summary"
+        android:persistent="false" />
+
     <PreferenceCategory
         android:key="dtts_category"
         android:title="@string/dtts_category_header" >
