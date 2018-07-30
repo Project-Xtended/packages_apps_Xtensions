@@ -45,6 +45,12 @@
 
      </PreferenceCategory>
 
+    <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
+         android:key="qs_tile_tinting_enable"
+         android:title="@string/qs_tile_theme_title"
+         android:summary="@string/qs_tile_theme_summary"
+         android:defaultValue="true" />
+
     <com.xtended.xtensions.preferences.CustomSeekBarPreference
         android:key="qs_panel_alpha"
         android:title="@string/qs_panel_alpha_title"

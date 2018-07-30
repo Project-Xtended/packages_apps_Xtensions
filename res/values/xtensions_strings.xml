@@ -1557,4 +1557,8 @@
     <string name="lockscreen_hide_shortcuts_title">Hide Bottom Shortcuts</string>
     <string name="lockscreen_hide_shortcuts_summary">Hide Left-Right Shortcuts on secure lock screens</string>
 
+    <!-- QS Tile Theme/Tinting -->
+    <string name="qs_tile_theme_title">QS Tile Accents</string>
+    <string name="qs_tile_theme_summary">It will enable Device Accent on QS Tiles n Titles</string>
+
 </resources>

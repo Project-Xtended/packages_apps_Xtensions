@@ -30,15 +30,19 @@ import java.util.List;
 import java.util.ArrayList;
 
 import com.xtended.xtensions.preferences.CustomSeekBarPreference;
+import com.xtended.xtensions.preferences.SystemSettingSwitchPreference;
+import com.xtended.xtensions.preferences.XUtils;
 
 public class QuickSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Indexable {
 
     private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
     private static final String QS_PANEL_ALPHA = "qs_panel_alpha";
+    private static final String QS_TILE_TINTING = "qs_tile_tinting_enable";
 
     private ListPreference mSmartPulldown;
     private CustomSeekBarPreference mQsPanelAlpha;
+    private SwitchPreference mEnableQsTileTinting;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -62,6 +66,11 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mQsPanelAlpha.setValue(qsPanelAlpha);
         mQsPanelAlpha.setOnPreferenceChangeListener(this);
 
+        //QS Tile Theme
+        mEnableQsTileTinting = (SwitchPreference) findPreference(QS_TILE_TINTING);
+        mEnableQsTileTinting.setChecked(Settings.System.getInt(resolver,
+                Settings.System.QS_TILE_TINTING_ENABLE, 1) == 1);
+        mEnableQsTileTinting.setOnPreferenceChangeListener(this);
         }
 
     @Override
@@ -77,6 +86,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             Settings.System.putIntForUser(getContentResolver(),
                     Settings.System.QS_PANEL_BG_ALPHA, bgAlpha,
                     UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mEnableQsTileTinting) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(resolver,
+                    Settings.System.QS_TILE_TINTING_ENABLE, value ? 1 : 0);
+             XUtils.restartSystemUi(getContext());
             return true;
         }
         return false;
