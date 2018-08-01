@@ -119,7 +119,7 @@ public class NotificationSettings extends SettingsPreferenceFragment
         mFlashlightOnCall = (ListPreference) findPreference(FLASHLIGHT_ON_CALL);
         Preference FlashOnCall = findPreference("flashlight_on_call");
         int flashlightValue = Settings.System.getInt(getContentResolver(),
-                Settings.System.FLASHLIGHT_ON_CALL, 0);
+                Settings.System.FLASHLIGHT_ON_CALL, 1);
         mFlashlightOnCall.setValue(String.valueOf(flashlightValue));
         mFlashlightOnCall.setSummary(mFlashlightOnCall.getEntry());
         mFlashlightOnCall.setOnPreferenceChangeListener(this);

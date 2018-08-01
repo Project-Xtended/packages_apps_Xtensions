@@ -103,7 +103,7 @@ public class SystemSettings extends SettingsPreferenceFragment implements
                             new ArrayList<SearchIndexableResource>();
 
                     SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.settings_misc;
+                    sir.xmlResId = R.xml.settings_system;
                     result.add(sir);
                     return result;
                 }

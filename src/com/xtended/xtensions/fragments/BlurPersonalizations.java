@@ -108,19 +108,19 @@ public class BlurPersonalizations extends SettingsPreferenceFragment implements 
 
         mExpand = (SwitchPreference) findPreference("blurred_status_bar_expanded_enabled_pref");
         mExpand.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.STATUS_BAR_EXPANDED_ENABLED_PREFERENCE_KEY, 0) == 1));
+                Settings.System.STATUS_BAR_EXPANDED_ENABLED_PREFERENCE_KEY, 1) == 1));
 
         mScale = (CustomSeekBarPreference) findPreference("statusbar_blur_scale");
-        mScale.setValue(Settings.System.getInt(resolver, Settings.System.BLUR_SCALE_PREFERENCE_KEY, 10));
+        mScale.setValue(Settings.System.getInt(resolver, Settings.System.BLUR_SCALE_PREFERENCE_KEY, 6));
         mScale.setOnPreferenceChangeListener(this);
 
         mRadius = (CustomSeekBarPreference) findPreference("statusbar_blur_radius");
-        mRadius.setValue(Settings.System.getInt(resolver, Settings.System.BLUR_RADIUS_PREFERENCE_KEY, 5));
+        mRadius.setValue(Settings.System.getInt(resolver, Settings.System.BLUR_RADIUS_PREFERENCE_KEY, 3));
         mRadius.setOnPreferenceChangeListener(this);
 
         /*mNotiTrans = (SwitchPreference) prefSet.findPreference("translucent_notifications_pref");
         mNotiTrans.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.TRANSLUCENT_NOTIFICATIONS_PREFERENCE_KEY, 0) == 1));
+                Settings.System.TRANSLUCENT_NOTIFICATIONS_PREFERENCE_KEY, 1) == 1));
 
         mQuickSett = (SwitchPreference) findPreference("translucent_quick_settings_pref");
         mQuickSett.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
@@ -136,7 +136,7 @@ public class BlurPersonalizations extends SettingsPreferenceFragment implements 
 
         mRecentsSett = (SwitchPreference) findPreference("blurred_recent_app_enabled_pref");
         mRecentsSett.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.RECENT_APPS_ENABLED_PREFERENCE_KEY, 0) == 1));
+                Settings.System.RECENT_APPS_ENABLED_PREFERENCE_KEY, 1) == 1));
 
         mRecentsScale = (CustomSeekBarPreference) findPreference("recents_blur_scale");
         mRecentsScale.setValue(Settings.System.getInt(resolver, Settings.System.RECENT_APPS_SCALE_PREFERENCE_KEY, 6));

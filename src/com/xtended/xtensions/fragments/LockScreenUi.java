@@ -97,7 +97,7 @@ public class LockScreenUi extends SettingsPreferenceFragment implements
 
         mLsAlpha = (CustomSeekBarPreference) findPreference(LOCKSCREEN_ALPHA);
         float alpha = Settings.System.getFloat(resolver,
-                Settings.System.LOCKSCREEN_ALPHA, 0.72f);
+                Settings.System.LOCKSCREEN_ALPHA, 0.45f);
         mLsAlpha.setValue((int)(100 * alpha));
         mLsAlpha.setOnPreferenceChangeListener(this);
 
@@ -113,14 +113,14 @@ public class LockScreenUi extends SettingsPreferenceFragment implements
 
         mLockscreenClockSelection = (ListPreference) findPreference(KEY_LOCKSCREEN_CLOCK_SELECTION);
         int clockSelection = Settings.System.getIntForUser(resolver,
-                Settings.System.LOCKSCREEN_CLOCK_SELECTION, 0, UserHandle.USER_CURRENT);
+                Settings.System.LOCKSCREEN_CLOCK_SELECTION, 3, UserHandle.USER_CURRENT);
         mLockscreenClockSelection.setValue(String.valueOf(clockSelection));
         mLockscreenClockSelection.setSummary(mLockscreenClockSelection.getEntry());
         mLockscreenClockSelection.setOnPreferenceChangeListener(this);
 
         mLockscreenDateSelection = (ListPreference) findPreference(KEY_LOCKSCREEN_DATE_SELECTION);
         int dateSelection = Settings.System.getIntForUser(resolver,
-                Settings.System.LOCKSCREEN_DATE_SELECTION, 0, UserHandle.USER_CURRENT);
+                Settings.System.LOCKSCREEN_DATE_SELECTION, 8, UserHandle.USER_CURRENT);
         mLockscreenDateSelection.setValue(String.valueOf(dateSelection));
         mLockscreenDateSelection.setSummary(mLockscreenDateSelection.getEntry());
         mLockscreenDateSelection.setOnPreferenceChangeListener(this);

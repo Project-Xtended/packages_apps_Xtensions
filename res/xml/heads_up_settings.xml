@@ -26,7 +26,7 @@
         android:key="always_headsup_dialer"
         android:title="@string/always_headsup_dialer_title"
         android:summary="@string/always_headsup_dialer_summary"
-        android:defaultValue="false" />
+        android:defaultValue="true" />
 
     <ListPreference
         android:key="heads_up_time_out"
