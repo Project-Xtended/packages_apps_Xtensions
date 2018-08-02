@@ -21,6 +21,7 @@ import android.content.Context;
 import android.content.ContentResolver;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
+import android.database.ContentObserver;
 import android.os.Bundle;
 import android.os.SystemProperties;
 import android.os.UserHandle;
@@ -86,6 +87,8 @@ public class AnimSettings extends SettingsPreferenceFragment implements OnPrefer
     private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
     private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
     private static final String ANIMATION_DURATION = "animation_duration";
+    private static final String PREF_TILE_ANIM_STYLE = "qs_tile_animation_style";
+    private static final String PREF_TILE_ANIM_DURATION = "qs_tile_animation_duration";
 
     private static final String SCROLLINGCACHE_DEFAULT = "2";
 
@@ -106,6 +109,8 @@ public class AnimSettings extends SettingsPreferenceFragment implements OnPrefer
     private ListPreference mListViewInterpolator;
     private ListPreference mScrollingCachePref;
     private CustomSeekBarPreference mAnimationDuration;
+    private ListPreference mTileAnimationStyle;
+    private ListPreference mTileAnimationDuration;
 
     private int[] mAnimations;
     private String[] mAnimationsStrings;
@@ -240,6 +245,20 @@ public class AnimSettings extends SettingsPreferenceFragment implements OnPrefer
         mAnimationDuration.setValue(Settings.System.getInt(resolver, Settings.System.ANIMATION_CONTROLS_DURATION, 0));
         mAnimationDuration.setOnPreferenceChangeListener(this);
 
+        mTileAnimationStyle = (ListPreference) findPreference(PREF_TILE_ANIM_STYLE);
+        int tileAnimationStyle = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.ANIM_TILE_STYLE, 0, UserHandle.USER_CURRENT);
+        mTileAnimationStyle.setValue(String.valueOf(tileAnimationStyle));
+        updateTileAnimationStyleSummary(tileAnimationStyle);
+        updateAnimTileStyle(tileAnimationStyle);
+
+        mTileAnimationStyle.setOnPreferenceChangeListener(this);
+        mTileAnimationDuration = (ListPreference) findPreference(PREF_TILE_ANIM_DURATION);
+        int tileAnimationDuration = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.ANIM_TILE_DURATION, 2000, UserHandle.USER_CURRENT);
+        mTileAnimationDuration.setValue(String.valueOf(tileAnimationDuration));
+        updateTileAnimationDurationSummary(tileAnimationDuration);
+        mTileAnimationDuration.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -329,6 +348,19 @@ public class AnimSettings extends SettingsPreferenceFragment implements OnPrefer
             int val = (Integer) objValue;
             Settings.System.putInt(getContentResolver(), Settings.System.ANIMATION_CONTROLS_DURATION, val);
             return true;
+        } else if (preference == mTileAnimationStyle) {
+            int tileAnimationStyle = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(resolver, Settings.System.ANIM_TILE_STYLE,
+                    tileAnimationStyle, UserHandle.USER_CURRENT);
+            updateTileAnimationStyleSummary(tileAnimationStyle);
+            updateAnimTileStyle(tileAnimationStyle);
+            return true;
+        } else if (preference == mTileAnimationDuration) {
+            int tileAnimationDuration = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(resolver, Settings.System.ANIM_TILE_DURATION,
+                    tileAnimationDuration, UserHandle.USER_CURRENT);
+            updateTileAnimationDurationSummary(tileAnimationDuration);
+            return true;
         }
         preference.setSummary(getProperSummary(preference));
         return result;
@@ -394,6 +426,41 @@ public class AnimSettings extends SettingsPreferenceFragment implements OnPrefer
         int mNum = Settings.System.getInt(mContentRes, mString, 0);
         return mNum;
     }
+
+    private void updateTileAnimationStyleSummary(int tileAnimationStyle) {
+        String prefix = (String) mTileAnimationStyle.getEntries()[mTileAnimationStyle.findIndexOfValue(String
+                .valueOf(tileAnimationStyle))];
+        mTileAnimationStyle.setSummary(getResources().getString(R.string.qs_set_animation_style, prefix));
+    }
+
+    private void updateTileAnimationDurationSummary(int tileAnimationDuration) {
+        String prefix = (String) mTileAnimationDuration.getEntries()[mTileAnimationDuration.findIndexOfValue(String
+                .valueOf(tileAnimationDuration))];
+        mTileAnimationDuration.setSummary(getResources().getString(R.string.qs_set_animation_duration, prefix));
+    }
+
+    private void updateAnimTileDuration(int tileAnimationStyle) {
+        if (mTileAnimationDuration != null) {
+            if (tileAnimationStyle == 0) {
+                mTileAnimationDuration.setSelectable(false);
+            } else {
+                mTileAnimationDuration.setSelectable(true);
+            }
+        }
+    }
+
+    private void updateAnimTileStyle(int tileAnimationStyle) {
+        if (mTileAnimationDuration != null) {
+            if (tileAnimationStyle == 0) {
+                mTileAnimationDuration.setSelectable(false);
+                mTileAnimationInterpolator.setSelectable(false);
+            } else {
+                mTileAnimationDuration.setSelectable(true);
+                mTileAnimationInterpolator.setSelectable(true);
+            }
+        }
+    }
+
 
     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider() {
