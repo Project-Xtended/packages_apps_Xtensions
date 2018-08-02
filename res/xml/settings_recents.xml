@@ -66,6 +66,12 @@
         android:summary="@string/recents_lock_icon_summary"
 	android:defaultValue="true" /> -->
 
+    <PreferenceScreen
+        android:key="recent_styles"
+        android:title="@string/recent_styles"
+        android:summary="@string/recent_styles_summary"
+        android:fragment="com.xtended.xtensions.fragments.RecentsStyles" />
+
     <ListPreference
         android:key="immersive_recents"
         android:title="@string/immersive_recents_title"
@@ -74,6 +80,18 @@
         android:entries="@array/immersive_recents_entries"
         android:entryValues="@array/immersive_recents_values"
         android:persistent="false" />
+
+    <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
+        android:key="recents_full_screen_clock"
+        android:title="@string/recents_full_screen_clock_title"
+        android:summary="@string/recents_full_screen_clock_summary"
+        android:defaultValue="false" />
+
+    <com.xtended.xtensions.preferences.SystemSettingSwitchPreference
+        android:key="recents_full_screen_date"
+        android:title="@string/recents_full_screen_date_title"
+        android:summary="@string/recents_full_screen_date_summary"
+        android:defaultValue="false" />
 
      <Preference
         android:key="hide_app_from_recents"
