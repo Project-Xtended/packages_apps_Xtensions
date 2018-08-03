@@ -1349,7 +1349,7 @@
     <!-- Dashboard Settings -->
     <string name="dashboard_header"> Dashboard</string>
     <string name="hide_dashboard_summary_title">Hide summary</string> 
-    <string name="hide_dashboard_summary_summary">In settings main page</string> 
+    <string name="hide_dashboard_summary_summary">Disable Summary in settings</string> 
 
     <!-- Disable dashboard conditions -->
     <string name="dashboard_conditions_title">Dashboard conditions</string>
