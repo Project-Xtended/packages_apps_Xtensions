@@ -1665,4 +1665,8 @@
     <string name="qs_tile_animation_interpolator_anticipateOvershootInterpolator">Anticipate overshoot</string>
     <string name="qs_set_animation_interpolator">%1$s</string>
 
+    <!-- Disable InCall UI Accent -->	   
+    <string name="dialer_accent_enable_title">In-Call UI Accent</string>
+    <string name="dialer_accent_enable_summary">Enable Device Accent on InCall UI</string>
+
 </resources>
