@@ -229,8 +229,8 @@
     <string name="ime_switcher_notify_summary">Display input method selector notification</string>
 
     <!-- Battery saver color -->
-    <string name="battery_saver_color_title">Warning color</string>
-    <string name="battery_saver_color_summary">Enable orange status - navigation bars when battery saver is activated</string>
+    <string name="battery_saver_color_title">Battery Saver Color</string>
+    <string name="battery_saver_color_summary">Note: If battery saver already enabled, for new color to be effective, toggle battery saver!</string>
 
     <!-- The volume key answer -->
     <string name="volume_answer_call_title">Volume keys answer</string>
