@@ -28,6 +28,7 @@ import android.view.View;
 import com.android.settings.SettingsPreferenceFragment;
 import com.xtended.xtensions.preferences.CustomSeekBarPreference;
 import com.xtended.xtensions.preferences.SystemSettingSwitchPreference;
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import com.android.settings.Utils;
 import android.util.Log;
 
@@ -44,6 +45,9 @@ import java.util.Collections;
 public class StatusBarSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Indexable {
 
+    private static final String STATUS_BAR_BATTERY_SAVER_COLOR = "status_bar_battery_saver_color";
+
+    private ColorPickerPreference mBatterySaverColor;
     private CustomSeekBarPreference mThreshold;
     private SystemSettingSwitchPreference mNetMonitor;
 
@@ -56,10 +60,21 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
         PreferenceScreen prefSet = getPreferenceScreen();
         final ContentResolver resolver = getActivity().getContentResolver();
 
+	mBatterySaverColor = (ColorPickerPreference) findPreference(STATUS_BAR_BATTERY_SAVER_COLOR);
+        int batterySaverColor = Settings.Secure.getInt(resolver,
+                Settings.Secure.STATUS_BAR_BATTERY_SAVER_COLOR, 0xfff4511e);
+        mBatterySaverColor.setNewPreviewColor(batterySaverColor);
+        mBatterySaverColor.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
+        if (preference == mBatterySaverColor) {
+            int color = ((Integer) objValue).intValue();
+            Settings.Secure.putInt(getActivity().getContentResolver(),
+                    Settings.Secure.STATUS_BAR_BATTERY_SAVER_COLOR, color);
+            return true;
+        }
         return false;
     }
 

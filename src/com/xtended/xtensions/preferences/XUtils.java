@@ -130,7 +130,7 @@ public final class XUtils {
         @Override
         protected Void doInBackground(Void... params) {
         	try {
-        	     Thread.sleep(3000); //3s
+        	     Thread.sleep(500); //.5s
         	} catch (InterruptedException ie) {}
 
             try {
