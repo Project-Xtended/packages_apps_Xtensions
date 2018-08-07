@@ -47,6 +47,14 @@
             android:title="@string/app_circle_bar_title"
             android:summary="@string/app_circle_bar_summary"
             android:fragment="com.xtended.xtensions.fragments.AppCircleBar" /> 
+
+        <!-- IME Options -->
+        <PreferenceScreen
+            android:id="@+id/ime_settings"
+            android:key="ime_settings"
+            android:title="@string/keyboard_ime_title"
+            android:summary="@string/keyboard_ime_summary"
+            android:fragment="com.xtended.xtensions.fragments.IMESettings" />
  
         <PreferenceCategory
             android:title="@string/corners_category" >
