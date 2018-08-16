@@ -44,4 +44,11 @@
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
 
+    <!-- Lock screen info category -->
+    <string name="lock_screen_info_category_title">Lock screen info</string>
+
+    <!-- Lockscreen charging info -->
+    <string name="lockscreen_battery_info_title">Charging info</string>
+    <string name="lockscreen_battery_info_summary">Show charging current, voltage, wattage and battery temperature on lock screen while charging</string>
+
 </resources>
