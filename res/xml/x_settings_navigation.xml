@@ -19,6 +19,11 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/navbar_title">
 
+    <SwitchPreference
+        android:key="navbar_visibility"
+        android:title="@string/navbar_visibility"
+        android:summary="@string/navbar_vis_summary" />
+
     <Preference
         android:key="gesture_system_navigation"
         android:title="@string/system_navigation_title"

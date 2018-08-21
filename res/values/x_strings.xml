@@ -645,4 +645,7 @@
     <string name="ambient_doze_brightness_title">Ambient display brightness</string>
     <string name="ambient_doze_brightness_summary">Set brightness to use during ambient display on</string>
 
+    <string name="navbar_visibility">Nav Bar</string>
+    <string name="navbar_vis_summary">Enable-disable navigation bar</string>
+
 </resources>
