@@ -35,6 +35,27 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory 
+
+        android:title="@string/qs_brightness_category_title">
+
+        <com.xtended.support.preferences.SecureSettingListPreference
+            android:key="qs_show_brightness_slider"
+            android:title="@string/qs_show_brightness_slider_title"
+            android:summary="%s"
+            android:dialogTitle="@string/qs_show_brightness_slider_title"
+            android:entries="@array/qs_show_brightness_slider_entries"
+            android:entryValues="@array/qs_show_brightness_slider_values"
+            android:defaultValue="1" />
+
+        <com.xtended.support.preferences.SecureSettingSwitchPreference
+            android:key="qs_show_auto_brightness"
+            android:title="@string/qs_show_auto_brightness_title"
+            android:summary="@string/qs_show_auto_brightness_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory
 
         android:title="@string/qs_columns_rows_category_title">

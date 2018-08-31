@@ -986,4 +986,15 @@
     <string name="lockscreen_solid_fudge_factor_title">Sanity level</string>
     <string name="lockscreen_solid_units_opacity_title">Lines opacity</string>
 
+    <!-- Quick Settings brightness category -->
+    <string name="qs_brightness_category_title">Brightness</string>
+
+    <!-- Quick Settings brightness slider -->
+    <string name="qs_show_brightness_slider_title">Brightness slider</string>
+    <string name="qs_show_auto_brightness_title">Autobrightness icon</string>
+    <string name="qs_show_auto_brightness_summary">Show toggle for adaptive brightness near the slider</string>
+    <string name="qs_show_brightness_slider_show_never">Never show</string>
+    <string name="qs_show_brightness_slider_show_expanded">Show when expanded</string>
+    <string name="qs_show_brightness_slider_show_always">Show always</string>
+
 </resources>
