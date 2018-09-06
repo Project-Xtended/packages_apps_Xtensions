@@ -1,6 +1,7 @@
 package com.msm.xtended.fragments;
 
 import com.android.internal.logging.nano.MetricsProto;
+import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.PreferenceScreen;
 import com.msm.xtended.preferences.XUtils;
@@ -14,6 +15,8 @@ public class NotificationSettings extends SettingsPreferenceFragment {
 
     private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
 
+    private Preference mChargingLeds;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -24,6 +27,13 @@ public class NotificationSettings extends SettingsPreferenceFragment {
         PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);
         if (!XUtils.isVoiceCapable(getActivity())) {
             prefScreen.removePreference(incallVibCategory);
+        }
+
+        mChargingLeds = (Preference) findPreference("charging_light");
+        if (mChargingLeds != null
+                && !getResources().getBoolean(
+                        com.android.internal.R.bool.config_intrusiveBatteryLed)) {
+            prefScreen.removePreference(mChargingLeds);
         }
     }
 
