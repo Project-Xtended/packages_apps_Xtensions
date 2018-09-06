@@ -203,4 +203,19 @@
     <string name="global_actions_max_columns_summary">Set how many actions to show before buttons move to overflow menu</string>
     <string name="global_actions_onthego_title">On-The-Go</string>
 
+    <!-- Notification led category -->
+    <string name="notification_led_category_title">Notification led</string>
+
+    <!-- Battery light -->
+    <string name="battery_light_settings">Battery charging light</string>
+    <string name="battery_light_summary">Customizations for battery charging light</string>
+    <string name="battery_light_enable">Enable</string>
+    <string name="battery_light_allow_on_dnd_title">Battery light in Do Not Disturb mode</string>
+    <string name="battery_light_low_blinking_title">Blinking light on low battery</string>
+    <string name="battery_light_cat">Battery light color when charging</string>
+    <string name="battery_light_low_color">Low battery</string>
+    <string name="battery_light_medium_color">Medium battery</string>
+    <string name="battery_light_full_color">Almost full battery</string>
+    <string name="battery_light_reallyfull_color">Full (100) battery</string>
+
 </resources>
