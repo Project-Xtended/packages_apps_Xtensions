@@ -30,6 +30,8 @@ public class NotificationSettings extends SettingsPreferenceFragment
 
     private Preference mChargingLeds;
 
+    private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -38,6 +40,11 @@ public class NotificationSettings extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.x_settings_notifications);
 
         PreferenceScreen prefScreen = getPreferenceScreen();
+        PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);
+        if (!XUtils.isVoiceCapable(getActivity())) {
+            prefScreen.removePreference(incallVibCategory);
+        }
+
         mChargingLeds = (Preference) findPreference("charging_light");
         if (mChargingLeds != null
                 && !getResources().getBoolean(
