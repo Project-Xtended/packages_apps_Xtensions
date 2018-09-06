@@ -38,6 +38,8 @@ import androidx.annotation.NonNull;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.SettingsPreferenceFragment;
 
+import com.msm.xtended.preferences.XUtils;
+
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +48,9 @@ import java.util.List;
 public class PowerMenuSettings extends SettingsPreferenceFragment
                 implements Preference.OnPreferenceChangeListener {
 
+    private static final String KEY_POWERMENU_TORCH = "powermenu_torch";
+
+    private SwitchPreference mPowermenuTorch;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -56,11 +61,25 @@ public class PowerMenuSettings extends SettingsPreferenceFragment
         final ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
+        mPowermenuTorch = (SwitchPreference) findPreference(KEY_POWERMENU_TORCH);
+        mPowermenuTorch.setOnPreferenceChangeListener(this);
+        if (!XUtils.deviceSupportsFlashLight(getActivity())) {
+            prefScreen.removePreference(mPowermenuTorch);
+        } else {
+        mPowermenuTorch.setChecked((Settings.System.getInt(resolver,
+                Settings.System.POWERMENU_TORCH, 0) == 1));
+        }
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
 
+        if (preference == mPowermenuTorch) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.POWERMENU_TORCH, value ? 1 : 0);
+            return true;
+        }
         return false;
     }
 

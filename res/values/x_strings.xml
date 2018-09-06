@@ -172,6 +172,7 @@
     <string name="powermenu_users">Users</string>
     <string name="powermenu_logout">Logout</string>
     <string name="global_actions_onthego">OnTheGo</string>
+    <string name="powermenu_torch">Flashlight</string>
     
     <!-- Volume Wake -->
     <string name="volume_rocker_wake_title">Volume rocker wake</string>
