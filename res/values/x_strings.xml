@@ -54,4 +54,9 @@
     <string name="hex_hint">#ff000000</string>
     <string name="set">Set</string>
     <string name="color_default">Default</string>
+
+    <!-- OnePlus Shit -->
+    <string name="device_part_title">OnePlus Shit</string>
+    <string name="device_part_summary">OnePlus Speicific Features</string>
+	
 </resources>
