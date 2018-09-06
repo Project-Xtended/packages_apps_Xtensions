@@ -32,6 +32,11 @@
             android:key="powermenu_restart_recovery"
             android:title="@string/powermenu_restart_recovery"
             android:defaultValue="true" />
+
+    	 <com.msm.xtended.preferences.SystemSettingSwitchPreference
+       	    android:key="powermenu_screenrecord"
+            android:title="@string/powermenu_screenrecord"
+	    android:defaultValue="true" />
 			
          <com.msm.xtended.preferences.SystemSettingSwitchPreference
             android:key="powermenu_screenshot"

@@ -98,5 +98,6 @@
     <string name="powermenu_users">Users</string>
     <string name="powermenu_logout">Logout</string>
     <string name="powermenu_torch">Flashlight</string>
+    <string name="powermenu_screenrecord">Screenrecord</string>
     
 </resources>
