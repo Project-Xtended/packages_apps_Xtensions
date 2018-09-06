@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2020-21 The Project-Xtended
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- App Title -->
+    <string name="x_settings_title">X-Tensions</string>
+
+    <!-- Categories -->
+    <string name="buttons_title">Buttons</string>
+    <string name="gestures_title">Gestures</string>
+    <string name="lockscreen_title">Lock screen</string>
+    <string name="navbar_title">Navigation</string>
+    <string name="notifications_title">Notifications</string>
+    <string name="powermenu_title">Power menu</string>
+    <string name="quicksettings_title">Quick settings</string>
+    <string name="statusbar_title">Status bar</string>
+    <string name="xtras_title">Xtras</string>
+    <string name="buttons_summary">Buttons options</string>
+    <string name="gestures_summary">Gestures menu</string>
+    <string name="lockscreen_summary">Lock screen customizations</string>
+    <string name="navbar_summary">Navbar menu</string>
+    <string name="notifications_summary">Notifications options</string>
+    <string name="powermenu_summary">Power menu customizations</string>
+    <string name="quicksettings_summary">Quick settings options</string>
+    <string name="statusbar_summary">Status bar customizations</string>
+    <string name="xtras_summary">Some extra options</string>
+
+    <!-- General strings -->
+    <string name="ok">OK</string>
+    <string name="reset">Reset</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+
+</resources>
