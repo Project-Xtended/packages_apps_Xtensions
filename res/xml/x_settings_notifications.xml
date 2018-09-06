@@ -23,6 +23,12 @@
         android:title="@string/light_settings_header" >
 
         <Preference
+            android:key="charging_light"
+            android:title="@string/battery_light_settings"
+            android:summary="@string/battery_light_summary"
+            android:fragment="com.msm.xtended.fragments.BatteryLightSettings" />
+
+        <Preference
             android:key="notification_light"
             android:title="@string/notification_light_settings"  
             android:summary="@string/notification_light_summary"  

@@ -99,6 +99,18 @@
     <string name="global_actions_max_columns_summary">Set how many actions to show before buttons move to overflow menu</string>
     <string name="global_actions_onthego_title">On-The-Go</string>
 
+    <!-- Battery light -->
+    <string name="battery_light_settings">Battery Charging Light</string>
+    <string name="battery_light_summary">Customization for Battery Light</string>
+    <string name="battery_light_enable">Enable</string>
+    <string name="battery_light_allow_on_dnd_title">Battery light in Do Not Disturb mode</string>
+    <string name="battery_light_low_blinking_title">Blinking light on low battery</string>
+    <string name="battery_light_cat">Battery light color when charging</string>
+    <string name="battery_light_low_color">Low battery</string>
+    <string name="battery_light_medium_color">Medium battery</string>
+    <string name="battery_light_full_color">Almost full battery</string>
+    <string name="battery_light_reallyfull_color">Full (100) battery</string>
+	
     <!-- AOKP custom system animations -->
     <string name="animation_title">Animations</string>  
     <string name="system_animation_title">System Animations</string>

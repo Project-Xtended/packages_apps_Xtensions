@@ -28,6 +28,8 @@ import com.msm.xtended.preferences.SystemSettingSeekBarPreference;
 public class NotificationSettings extends SettingsPreferenceFragment
                          implements OnPreferenceChangeListener {
 
+    private Preference mChargingLeds;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -36,6 +38,12 @@ public class NotificationSettings extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.x_settings_notifications);
 
         PreferenceScreen prefScreen = getPreferenceScreen();
+        mChargingLeds = (Preference) findPreference("charging_light");
+        if (mChargingLeds != null
+                && !getResources().getBoolean(
+                        com.android.internal.R.bool.config_intrusiveBatteryLed)) {
+            prefScreen.removePreference(mChargingLeds);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
