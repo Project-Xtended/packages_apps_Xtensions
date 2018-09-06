@@ -24,4 +24,15 @@
         android:summary="@string/heads_up_notifications_summary"
         android:fragment="com.xtended.fragments.HeadsUpSettings" />
 
+    <PreferenceCategory
+        android:title="@string/notification_led_category_title" >
+
+        <Preference
+            android:key="charging_light"
+            android:title="@string/battery_light_settings"
+            android:summary="@string/battery_light_summary"
+            android:fragment="com.xtended.fragments.BatteryLightSettings" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
