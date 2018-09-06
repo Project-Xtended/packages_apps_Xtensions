@@ -18,7 +18,7 @@
     <string name="button_title">Buttons</string>
     <string name="gestures_title">Gestures</string>
     <string name="lockscreen_title">Lock Screen</string>
-    <string name="misc_title">Miscellaneous</string>
+    <string name="xtra_title">Xtra Options</string>
     <string name="navbar_title">Navigation bar</string>
     <string name="powermenu_title">Power Menu</string>
     <string name="quicksettings_title">Quick Settings</string>
@@ -27,6 +27,17 @@
     <string name="volume_title">Volume rockers</string>
     <string name="notifications_title">Notifications</string>
     <string name="system_title">System Settings</string>
+    <string name="button_summary">Buttons Options</string>
+    <string name="gestures_summary">Gestures Menu</string>
+    <string name="lockscreen_summary">Lock Screen Customizations</string>
+    <string name="xtra_summary">Some Misc. Options</string>
+    <string name="navbar_summary">Nav Bar Menus</string>
+    <string name="powermenu_summary">Power Menu Customizations</string>
+    <string name="quicksettings_summary">Quick Settings Options</string>
+    <string name="recents_summary">Recents Apps Menus</string>
+    <string name="statusbar_summary">Status Bar Customizations</string>
+    <string name="notifications_summary">Notifications Options</string>
+    <string name="system_summary">Modify Generic System Settings</string>
 
     <!-- General strings -->
     <string name="ok">OK</string>

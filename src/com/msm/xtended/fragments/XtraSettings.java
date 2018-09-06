@@ -26,14 +26,14 @@ import java.util.HashSet;
 
 import com.android.settings.SettingsPreferenceFragment;
 
-public class MiscSettings extends SettingsPreferenceFragment implements
+public class XtraSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
-        addPreferencesFromResource(R.xml.x_settings_misc);
+        addPreferencesFromResource(R.xml.x_settings_xtra);
 
     }
 
