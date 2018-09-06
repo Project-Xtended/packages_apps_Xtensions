@@ -40,9 +40,13 @@ import android.provider.SearchIndexableResource;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.android.internal.util.xtended.XtendedUtils;
+
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class NotificationSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
+
+    private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
 
     private Preference mChargingLeds;
 
@@ -59,6 +63,11 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
                 && !getResources().getBoolean(
                         com.android.internal.R.bool.config_intrusiveBatteryLed)) {
             prefScreen.removePreference(mChargingLeds);
+        }
+
+        PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);
+        if (!XtendedUtils.isVoiceCapable(getActivity())) {
+            prefScreen.removePreference(incallVibCategory);
         }
     }
 
