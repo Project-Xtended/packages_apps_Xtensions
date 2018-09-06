@@ -99,5 +99,6 @@
     <string name="powermenu_logout">Logout</string>
     <string name="powermenu_torch">Flashlight</string>
     <string name="powermenu_screenrecord">Screenrecord</string>
+    <string name="global_actions_onthego">OnTheGo</string>
     
 </resources>
