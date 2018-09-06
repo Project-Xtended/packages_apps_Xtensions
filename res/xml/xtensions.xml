@@ -17,70 +17,103 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/x_settings_title" >
 
-        <!-- Status Bar -->
+        <!-- Device Part
         <PreferenceScreen
-            android:key="statusbar_category"
-            android:title="@string/statusbar_title"
-            android:fragment="com.msm.xtended.fragments.StatusBarSettings" />
-
-        <!-- Quick Settings panel -->
-        <PreferenceScreen
-            android:key="quicksettings_category"
-            android:title="@string/quicksettings_title"
-            android:fragment="com.msm.xtended.fragments.QuickSettings" />
+            android:key="oneplus_shit"
+            android:title="@string/device_part_title"
+            android:summary="@string/device_part_summary">
+            <intent android:action="com.android.settings.action.EXTRA_SETTINGS"
+               android:targetPackage="com.oneplus.shit.settings"
+               android:targetClass ="com.oneplus.shit.settings.ShitPanelSettings" />
+        </PreferenceScreen>-->
 
         <!-- Buttons -->
         <PreferenceScreen
             android:key="buttonsettings_category"
             android:title="@string/button_title"
-            android:fragment="com.msm.xtended.fragments.ButtonSettings" />
-
-        <!-- Navigation Bar -->
-        <PreferenceScreen
-            android:key="navigationbar_category"
-            android:title="@string/navbar_title" 
-            android:fragment="com.msm.xtended.fragments.NavbarSettings" />
+            android:summary="@string/button_summary"
+            android:fragment="com.msm.xtended.fragments.ButtonSettings"
+            settings:allowDividerAbove="true" />
 
         <!-- Gestures -->
         <PreferenceScreen
             android:key="gestures_category"
             android:title="@string/gestures_title" 
-            android:fragment="com.msm.xtended.fragments.GestureSettings" />
+            android:summary="@string/gestures_summary"
+            android:fragment="com.msm.xtended.fragments.GestureSettings"
+            settings:allowDividerAbove="true" />
 
         <!-- Lock Screen -->
         <PreferenceScreen
             android:key="lockscreen_category"
-            android:title="@string/lockscreen_title" 
-            android:fragment="com.msm.xtended.fragments.LockScreenSettings" />
+            android:title="@string/lockscreen_title"
+            android:summary="@string/lockscreen_summary"
+            android:fragment="com.msm.xtended.fragments.LockScreenSettings"
+            settings:allowDividerAbove="true" />
 
-        <!-- Power Menu -->
+        <!-- Navigation Bar -->
         <PreferenceScreen
-            android:key="powermenu__category"
-            android:title="@string/powermenu_title" 
-            android:fragment="com.msm.xtended.fragments.PowerMenuSettings" />
-
-        <!-- Recents -->
-        <PreferenceScreen
-            android:key="recents_category"
-            android:title="@string/recents_title"
-            android:fragment="com.msm.xtended.fragments.RecentsSettings" />
+            android:key="navigationbar_category"
+            android:title="@string/navbar_title" 
+            android:summary="@string/navbar_summary"
+            android:fragment="com.msm.xtended.fragments.NavbarSettings"
+            settings:allowDividerAbove="true" />
 
         <!-- Notifications -->
         <PreferenceScreen
             android:key="notifications_category"
             android:title="@string/notifications_title"
-            android:fragment="com.msm.xtended.fragments.NotificationSettings" />
+            android:summary="@string/notifications_summary"
+            android:fragment="com.msm.xtended.fragments.NotificationSettings"
+            settings:allowDividerAbove="true" />
+
+        <!-- Power Menu -->
+        <PreferenceScreen
+            android:key="powermenu__category"
+            android:title="@string/powermenu_title" 
+            android:summary="@string/powermenu_summary"
+            android:fragment="com.msm.xtended.fragments.PowerMenuSettings"
+            settings:allowDividerAbove="true" />
+
+        <!-- Quick Settings panel -->
+        <PreferenceScreen
+            android:key="quicksettings_category"
+            android:title="@string/quicksettings_title"
+            android:summary="@string/quicksettings_summary"
+            android:fragment="com.msm.xtended.fragments.QuickSettings"
+            settings:allowDividerAbove="true" />
+
+        <!-- Recents -->
+        <PreferenceScreen
+            android:key="recents_category"
+            android:title="@string/recents_title"
+            android:summary="@string/recents_summary"
+            android:fragment="com.msm.xtended.fragments.RecentsSettings"
+            settings:allowDividerAbove="true" />
+
+        <!-- Status Bar -->
+        <PreferenceScreen
+            android:key="statusbar_category"
+            android:title="@string/statusbar_title"
+            android:summary="@string/statusbar_summary"
+            android:fragment="com.msm.xtended.fragments.StatusBarSettings"
+            settings:allowDividerAbove="true" />
 
         <!-- System -->
         <PreferenceScreen
             android:key="system_category"
             android:title="@string/system_title" 
-            android:fragment="com.msm.xtended.fragments.SystemSettings" />
+            android:summary="@string/system_summary"
+            android:fragment="com.msm.xtended.fragments.SystemSettings"
+            settings:allowDividerAbove="true" />
 	
-        <!-- Misc -->
+        <!-- Xtra -->
         <PreferenceScreen
-            android:key="misc_category"
-            android:title="@string/misc_title" 
-            android:fragment="com.msm.xtended.fragments.MiscSettings" />
+            android:key="xtra_category"
+            android:title="@string/xtra_title" 
+            android:summary="@string/xtra_summary"
+            android:fragment="com.msm.xtended.fragments.XtraSettings"
+            settings:allowDividerAbove="true" />
 
 </PreferenceScreen>
+
