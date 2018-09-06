@@ -10,6 +10,7 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 
 import com.android.internal.logging.nano.MetricsProto;
+import com.msm.xtended.preferences.XUtils;
 
 import android.content.Context;
 import android.content.ContentResolver;
@@ -31,6 +32,8 @@ public class NotificationSettings extends SettingsPreferenceFragment
     private ColorPickerPreference mIconColor;
     private ColorPickerPreference mTextColor;
 
+    private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -38,9 +41,14 @@ public class NotificationSettings extends SettingsPreferenceFragment
         ContentResolver resolver = getActivity().getContentResolver();
         addPreferencesFromResource(R.xml.x_settings_notifications);
 
-
         int intColor = 0xffffffff;
         String hexColor = String.format("#%08x", (0xffffffff & 0xffffffff));
+
+        PreferenceScreen prefScreen = getPreferenceScreen();
+        PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);
+        if (!XUtils.isVoiceCapable(getActivity())) {
+            prefScreen.removePreference(incallVibCategory);
+        }
 
         // Toast icon color
         mIconColor = (ColorPickerPreference) findPreference(TOAST_ICON_COLOR);
