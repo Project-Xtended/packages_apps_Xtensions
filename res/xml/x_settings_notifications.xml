@@ -23,6 +23,16 @@
         android:title="@string/notification_led_category_title" >
 
         <Preference
+            android:key="notification_light"
+            android:title="@string/notification_light_settings"  
+            android:summary="@string/notification_light_summary"  
+            android:fragment="com.android.settings.applications.manageapplications.ManageApplications" >         
+            <extra
+                android:name="classname"
+                android:value="com.android.settings.Settings$NotificationAppListActivity" />
+        </Preference>
+
+        <Preference
             android:key="charging_light"
             android:title="@string/battery_light_settings"
             android:summary="@string/battery_light_summary"
