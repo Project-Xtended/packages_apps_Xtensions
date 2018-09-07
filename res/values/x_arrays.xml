@@ -13,16 +13,19 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<PreferenceScreen
-        xmlns:android="http://schemas.android.com/apk/res/android"
-	android:title="@string/decorroom_title"
-        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <Preference
-            android:key="battery_settings"
-            android:title="@string/battery_style_category_title"
-            android:summary="@string/battery_style_category_summary"
-            android:fragment="com.msm.xtended.fragments.StatusBarBattery" />
+    <string-array name="status_bar_battery_percentage_entries" translatable="false">
+        <item>@string/status_bar_battery_percentage_default</item>
+        <item>@string/status_bar_battery_percentage_text_next</item>
+        <item>@string/status_bar_battery_percentage_text_inside</item>
+    </string-array>
+     <string-array name="status_bar_battery_percentage_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+	
+</resources>
 
-</PreferenceScreen>
 
