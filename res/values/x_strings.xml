@@ -38,6 +38,8 @@
     <string name="statusbar_summary">Status Bar Customizations</string>
     <string name="notifications_summary">Notifications Options</string>
     <string name="system_summary">Modify Generic System Settings</string>
+    <string name="decorroom_title">Decor Room</string>
+    <string name="decorroom_summary">Our Fav Decoration Options</string>
 
     <!-- General strings -->
     <string name="ok">OK</string>

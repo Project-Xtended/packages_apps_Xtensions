@@ -37,6 +37,15 @@
             android:icon="@drawable/ic_x_buttons"
             settings:allowDividerAbove="true" />
 
+        <!-- XDecor Room -->
+        <PreferenceScreen
+            android:key="decorroom_category"
+            android:title="@string/decorroom_title"
+            android:summary="@string/decorroom_summary"
+            android:fragment="com.msm.xtended.fragments.XDecorRoom"
+            android:icon="@drawable/ic_x_decorroom"
+            settings:allowDividerAbove="true" />
+
         <!-- Gestures -->
         <PreferenceScreen
             android:key="gestures_category"
