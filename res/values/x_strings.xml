@@ -493,7 +493,7 @@
     <string name="profile_choose_app">Choose app</string>
     <string name="dialog_delete_title">Delete</string>
     <string name="dialog_delete_message">Remove selected item?</string>
-    
+
     <!-- Breathing Notifications -->
     <string name="breathing_notifications_category">Breathing Notifications</string>
     <string name="breathing_notifications_title">Breathing notifications</string>
@@ -513,13 +513,16 @@
     <string name="ambient_display_screen_summary">Custom Ambient Display Configuration</string>
 
     <!-- Quick Settings brightness slider -->
-    <string name="qs_brightness_slider_title">Brightness slider</string>
-    <string name="qs_brightness_slider_summary">Show a brightness slider in the quick settings panel</string>
+    <string name="brightness_slider_config">Brightness Slider Config</string>
+    <string name="qs_brightness_slider_title">Show Brightness slider</string>
+    <string name="qs_brightness_slider_summary">Toggle to show a brightness slider in the qs panel</string>
+    <string name="qs_brightness_position_bottom_title">Brightness slider at bottom</string>
+    <string name="qs_brightness_position_bottom_summary">Show a brightness slider on bottom quick settings</string>
 
     <!-- Brightness icon-->
     <string name="brightness_icon_title">Brightness icon</string>
     <string name="brightness_icon_summary">Show a brightness icon to the left of the brighness slider to adjust auto-brightness</string>
-       
+
     <!-- FastCharge LED -->
     <string name="fast_color_cat_title">Fast charging</string>
     <string name="fast_charging_led_enabled_title">Enable fast charging color</string>
