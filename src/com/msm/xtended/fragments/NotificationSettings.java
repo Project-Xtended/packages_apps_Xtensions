@@ -33,6 +33,7 @@ public class NotificationSettings extends SettingsPreferenceFragment
     private static final String KEY_DOZE_BRIGHTNESS = "ambient_doze_brightness";
     private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
     private static final String PULSE_AMBIENT_LIGHT_COLOR = "pulse_ambient_light_color";
+    private static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
 
     private Preference mChargingLeds;
     private CustomSeekBarPreference mPulseBrightness;
@@ -40,6 +41,7 @@ public class NotificationSettings extends SettingsPreferenceFragment
     private ColorPickerPreference mIconColor;
     private ColorPickerPreference mTextColor;
     private ColorPickerPreference mEdgeLightColorPreference;
+    private ListPreference mFlashlightOnCall;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -114,6 +116,17 @@ public class NotificationSettings extends SettingsPreferenceFragment
             mEdgeLightColorPreference.setSummary(edgeLightColorHex);
         }
         mEdgeLightColorPreference.setOnPreferenceChangeListener(this);
+
+        mFlashlightOnCall = (ListPreference) findPreference(FLASHLIGHT_ON_CALL);
+        Preference FlashOnCall = findPreference("flashlight_on_call");
+        int flashlightValue = Settings.System.getInt(getContentResolver(),
+                Settings.System.FLASHLIGHT_ON_CALL, 0);
+        mFlashlightOnCall.setValue(String.valueOf(flashlightValue));
+        mFlashlightOnCall.setOnPreferenceChangeListener(this);
+
+        if (!XUtils.deviceSupportsFlashLight(getActivity())) {
+            prefScreen.removePreference(FlashOnCall);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -153,11 +166,17 @@ public class NotificationSettings extends SettingsPreferenceFragment
                 } else {
                     preference.setSummary(hex);
                 }
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.PULSE_AMBIENT_LIGHT_COLOR, intHex);
-            return true;
-         }
+                int intHex = ColorPickerPreference.convertToColorInt(hex);
+                Settings.System.putInt(getContentResolver(),
+                        Settings.System.PULSE_AMBIENT_LIGHT_COLOR, intHex);
+                return true;
+            } else if (preference == mFlashlightOnCall) {
+               int flashlightValue = Integer.parseInt(((String) newValue).toString());
+               Settings.System.putInt(resolver,
+                     Settings.System.FLASHLIGHT_ON_CALL, flashlightValue);
+               mFlashlightOnCall.setValue(String.valueOf(flashlightValue));
+               return true;
+            }
         return false;
     }
 
