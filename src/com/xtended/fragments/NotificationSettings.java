@@ -42,6 +42,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.android.internal.util.xtended.XtendedUtils;
+import com.android.internal.util.hwkeys.ActionUtils;
 import com.xtended.support.preferences.SystemSettingSwitchPreference;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
@@ -50,9 +51,11 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
 
     private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
     private static final String NOTIFICATION_HEADERS = "notification_headers";
+    private static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
 
     private Preference mChargingLeds;
     private SystemSettingSwitchPreference mNotificationHeader;
+    private ListPreference mFlashlightOnCall;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -79,16 +82,34 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
         mNotificationHeader.setChecked((Settings.System.getInt(resolver,
                 Settings.System.NOTIFICATION_HEADERS, 1) == 1));
         mNotificationHeader.setOnPreferenceChangeListener(this);
+
+        mFlashlightOnCall = (ListPreference) findPreference(FLASHLIGHT_ON_CALL);
+        Preference FlashOnCall = findPreference("flashlight_on_call");
+        int flashlightValue = Settings.System.getInt(getContentResolver(),
+                Settings.System.FLASHLIGHT_ON_CALL, 0);
+        mFlashlightOnCall.setValue(String.valueOf(flashlightValue));
+        mFlashlightOnCall.setOnPreferenceChangeListener(this);
+
+        if (!ActionUtils.deviceSupportsFlashLight(getActivity())
+                   || !XtendedUtils.isVoiceCapable(getActivity())) {
+            prefScreen.removePreference(FlashOnCall);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mNotificationHeader) {
-          boolean value = (Boolean) newValue;
-          Settings.System.putInt(resolver,
-                    Settings.System.NOTIFICATION_HEADERS, value ? 1 : 0);
-          XtendedUtils.showSystemUiRestartDialog(getContext());
-          return true;
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(resolver,
+                      Settings.System.NOTIFICATION_HEADERS, value ? 1 : 0);
+            XtendedUtils.showSystemUiRestartDialog(getContext());
+            return true;
+        } else if (preference == mFlashlightOnCall) {
+            int flashlightValue = Integer.parseInt(((String) newValue).toString());
+            Settings.System.putInt(resolver,
+                  Settings.System.FLASHLIGHT_ON_CALL, flashlightValue);
+            mFlashlightOnCall.setValue(String.valueOf(flashlightValue));
+            return true;
         }
         return false;
     }
