@@ -35,6 +35,14 @@
             android:fragment="com.msm.xtended.fragments.ButtonSettings"
             settings:allowDividerAbove="true" />
 
+        <!-- XDecor Room -->
+        <PreferenceScreen
+            android:key="decorroom_category"
+            android:title="@string/decorroom_title"
+            android:summary="@string/decorroom_summary"
+            android:fragment="com.msm.xtended.fragments.XDecorRoom"
+            settings:allowDividerAbove="true" />
+
         <!-- Gestures -->
         <PreferenceScreen
             android:key="gestures_category"
