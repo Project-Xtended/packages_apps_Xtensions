@@ -46,8 +46,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";
+    private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
 
     private CustomSeekBarPreference mMaxKeyguardNotifConfig;
+    private FingerprintManager mFingerprintManager;
+    private SwitchPreference mFingerprintVib;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -63,6 +66,16 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
                 Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, 3);
         mMaxKeyguardNotifConfig.setValue(kgconf);
         mMaxKeyguardNotifConfig.setOnPreferenceChangeListener(this);
+
+        mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
+        mFingerprintVib = (SwitchPreference) findPreference(FINGERPRINT_VIB);
+        if (!mFingerprintManager.isHardwareDetected()){
+            prefScreen.removePreference(mFingerprintVib);
+        } else {
+        mFingerprintVib.setChecked((Settings.System.getInt(getContentResolver(),
+                Settings.System.FINGERPRINT_SUCCESS_VIB, 1) == 1));
+        mFingerprintVib.setOnPreferenceChangeListener(this);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -72,6 +85,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
             int kgconf = (Integer) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, kgconf);
+            return true;
+        } else if (preference == mFingerprintVib) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.FINGERPRINT_SUCCESS_VIB, value ? 1 : 0);
             return true;
         }
         return false;

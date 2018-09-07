@@ -688,6 +688,10 @@
     <string name="mt_reset">Reset</string>
     <string name="time_in_state_title">Time in state</string>
     <string name="time_in_state_summary">Show CPU frequency statistics</string>
+
+    <!-- Fingerprint authentication vibration -->
+    <string name="fprint_sucess_vib_title">Fingerprint authentication vibration</string>
+    <string name="fprint_sucess_vib_summary">Vibrate on successful fingerprint authentication</string>
     
     <!-- Allow fake signature -->
     <string name="allow_signature_fake">Allow signature spoofing</string>
