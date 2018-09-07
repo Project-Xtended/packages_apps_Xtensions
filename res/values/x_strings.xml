@@ -178,6 +178,18 @@
     <string name="pref_scrollingcache_default_enable">Default enable</string>
     <string name="pref_scrollingcache_default_disable">Default disable</string>
     <string name="pref_scrollingcache_force_disable">Force disable</string>
+
+    <!-- Heads up -->
+    <string name="heads_up_notifications">Heads Up</string>
+    <string name="heads_up_summary">Customize Heads Up Behavior</string>
+    <string name="summary_heads_up_enabled">Pop-up notifications are enabled</string>
+    <string name="summary_heads_up_disabled">Pop-up notifications are disabled</string>
+    <string name="add_heads_up_package">Add app</string>
+    <string name="add_heads_up_stoplist_summary">Disable heads up notifications in these applications</string>
+    <string name="heads_up_stoplist_title">Applist</string>
+    <string name="profile_choose_app">Choose app</string>
+    <string name="dialog_delete_title">Delete</string>
+    <string name="dialog_delete_message">Remove selected item?</string>
     
     <!-- Force disable transition animation -->
     <string name="disable_transition_animations_title">Disable transition animations</string>
