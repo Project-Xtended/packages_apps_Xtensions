@@ -21,6 +21,11 @@
     <PreferenceCategory
         android:title="@string/status_bar_items_category_title">
 
+        <Preference
+            android:title="@string/status_bar_clock_date_title"
+            android:summary="@string/status_bar_clock_date_summary"
+            android:fragment="com.xtended.fragments.StatusbarClockDateSettings" />
+
         <!--Network traffic -->
         <Preference 
             android:key="network_traffic"
