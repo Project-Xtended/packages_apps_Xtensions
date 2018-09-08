@@ -96,6 +96,12 @@
     </PreferenceCategory>
 
     <Preference
+        android:key="omnijaws_settings"
+        android:title="@string/weather_title"
+        android:summary="@string/weather_summary"
+        android:fragment="com.xtended.fragments.OmniJawsSettings" />
+
+    <Preference
         android:key="pulse"
         android:title="@string/pulse_settings"
         android:summary="@string/pulse_settings_summary"
