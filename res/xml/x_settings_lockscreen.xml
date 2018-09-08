@@ -25,17 +25,23 @@
                 android:targetClass="com.android.systemui.tuner.LockscreenActivity" />
     </Preference>
 
+    <com.msm.xtended.preferences.SecureSettingSwitchPreference
+        android:key="hide_lock_shortcuts"
+        android:title="@string/lockscreen_hide_shortcuts_title"
+        android:summary="@string/lockscreen_hide_shortcuts_summary"
+        android:defaultValue="false" />
+
     <PreferenceScreen
         android:key="lockscreen_ui"
         android:title="@string/lockscreen_ui_title"
         android:summary="@string/lockscreen_ui_summary"
         android:fragment="com.msm.xtended.fragments.LockscreenUi" />
 
-    <com.msm.xtended.preferences.SecureSettingSwitchPreference
-        android:key="hide_lock_shortcuts"
-        android:title="@string/lockscreen_hide_shortcuts_title"
-        android:summary="@string/lockscreen_hide_shortcuts_summary"
-        android:defaultValue="false" />
+    <Preference
+        android:key="omnijaws_settings"
+        android:title="@string/weather_title"
+        android:summary="@string/weather_summary"
+        android:fragment="com.msm.xtended.fragments.OmniJawsSettings" />
 
     <com.msm.xtended.preferences.SystemSettingSwitchPreference
         android:key="lockscreen_battery_info"
