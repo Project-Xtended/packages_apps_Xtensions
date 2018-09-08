@@ -188,5 +188,11 @@
 
     <!-- Lockscreen icons -->
     <string name="lockscreen_tuner_title">Lockscreen shortcuts</string>
+
+    <!-- Omni Themes -->
+    <string name="x_theme_select_title">System themes</string>
+    <string name="omni_theme_select_none">Disabled</string>
+    <string name="x_theme_select_summary">Browse and select installed system themes</string>
+
     
 </resources>
