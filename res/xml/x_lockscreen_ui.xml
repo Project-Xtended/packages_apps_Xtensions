@@ -19,7 +19,6 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <PreferenceCategory
-
         android:title="@string/lock_screen_clock_category_title" />
 
     <com.xtended.support.preferences.SecureSettingListPreference
@@ -162,6 +161,12 @@
         settings:min="0"
         settings:units="dp"
         settings:interval="1"/>
+
+    <Preference
+        android:key="omnijaws_settings"
+        android:title="@string/weather_title"
+        android:summary="@string/weather_summary"
+        android:fragment="com.xtended.fragments.OmniJawsSettings" />
 
     <PreferenceScreen
         android:key="lockscreen_colors"
