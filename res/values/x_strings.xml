@@ -506,4 +506,8 @@
     <string name="qs_icon_primary_title">Qs tile icon bright|dark</string>
     <string name="qs_icon_primary_summary">Make Qs icon bright-dark if gradient tint enabled</string>
 
+    <!-- AOSP Gestures -->
+    <string name="aosp_gesture_preference">System settings</string>
+    <string name="aosp_gesture_summary">Stock gestures included with AOSP</string>
+
 </resources>
