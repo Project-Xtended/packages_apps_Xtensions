@@ -24,7 +24,8 @@
     <string name="quicksettings_title">Quick Settings</string>
     <string name="recents_title">Recents Menu</string>
     <string name="statusbar_title">Statusbar Settings</string>
-    <string name="volume_title">Volume rockers</string>
+    <string name="volume_title">Volume Buttons</string>
+    <string name="volume_summary">Volume button tweaks</string>
     <string name="notifications_title">Notifications</string>
     <string name="system_title">System Settings</string>
     <string name="button_summary">Buttons Options</string>
@@ -250,5 +251,9 @@
     <!-- QuickSettings haptic feedback -->
     <string name="quick_settings_vibrate_title">Vibrate on touch</string>
     <string name="quick_settings_vibrate_summary">Vibrate when touching QS tiles</string>
+
+    <!-- The volume key answer -->
+    <string name="volume_answer_call_title">Volume keys answer</string>
+    <string name="volume_answer_call_summary">Answer the call when volume keys pressed</string>
     
 </resources>
