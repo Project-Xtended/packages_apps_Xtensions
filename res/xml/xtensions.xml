@@ -65,7 +65,7 @@
             android:title="@string/navbar_title" 
             android:summary="@string/navbar_summary"
             android:fragment="com.msm.xtended.fragments.NavbarSettings"
-            settings:allowDividerAbove="true" />
+	    settings:allowDividerAbove="true" />
 
         <!-- Notifications -->
         <PreferenceScreen
@@ -91,13 +91,13 @@
             android:fragment="com.msm.xtended.fragments.QuickSettings"
             settings:allowDividerAbove="true" />
 
-        <!-- Recents -->
+        <!-- Recents 
         <PreferenceScreen
             android:key="recents_category"
             android:title="@string/recents_title"
             android:summary="@string/recents_summary"
             android:fragment="com.msm.xtended.fragments.RecentsSettings"
-            settings:allowDividerAbove="true" />
+	    settings:allowDividerAbove="true" /> -->
 
         <!-- Status Bar -->
         <PreferenceScreen
@@ -115,12 +115,12 @@
             android:fragment="com.msm.xtended.fragments.SystemSettings"
             settings:allowDividerAbove="true" />
 	
-        <!-- Xtra -->
+        <!-- Xtra 
         <PreferenceScreen
             android:key="xtra_category"
             android:title="@string/xtra_title" 
             android:summary="@string/xtra_summary"
             android:fragment="com.msm.xtended.fragments.XtraSettings"
-            settings:allowDividerAbove="true" />
+	    settings:allowDividerAbove="true" /> -->
 
 </PreferenceScreen>
