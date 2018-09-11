@@ -176,4 +176,11 @@
     <string name="status_bar_carrier_size">Carrier label size</string>
     <string name="status_bar_carrier_font_style_title">Carrier Label Font</string>
 
+    <!-- Navigation bar category -->
+    <string name="nav_bar_category_title">Navigation bar</string>
+
+    <!-- Navbar tuner -->
+    <string name="navbar_tuner_title">Navbar tuner</string>
+    <string name="navbar_tuner_summary">Customize navbar tuner</string>
+
 </resources>
