@@ -192,6 +192,9 @@
     <string name="profile_choose_app">Choose app</string>
     <string name="dialog_delete_title">Delete</string>
     <string name="dialog_delete_message">Remove selected item?</string>
+
+    <!-- Navbar tuner -->
+    <string name="navbar_tuner_title">Navbar Tuner</string>
     
     <!-- Force disable transition animation -->
     <string name="disable_transition_animations_title">Disable transition animations</string>
