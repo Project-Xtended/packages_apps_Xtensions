@@ -29,6 +29,12 @@
     </Preference>
 
     <Preference
+         android:key="batterybar_settings"
+         android:title="@string/battery_bar_title"
+         android:summary="@string/battery_bar_summary"
+         android:fragment="com.msm.xtended.fragments.BatterybarSettings" />
+
+    <Preference
          android:key="battery_settings"
          android:title="@string/battery_style_category_title"
          android:summary="@string/battery_style_category_summary"
