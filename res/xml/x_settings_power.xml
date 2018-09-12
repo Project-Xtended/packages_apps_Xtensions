@@ -27,6 +27,12 @@
         android:summary="@string/power_menu_animation_summary"
         android:persistent="false" />
 
+    <com.msm.xtended.preferences.SecureSettingSwitchPreference
+        android:key="lockscreen_power_menu_disabled"
+        android:title="@string/lockscreen_power_menu_disabled_title"
+        android:summary="@string/lockscreen_power_menu_disabled_summary"
+        android:defaultValue="true" />
+
          <com.msm.xtended.preferences.SystemSettingSwitchPreference
             android:key="powermenu_power"
             android:title="@string/powermenu_power"
