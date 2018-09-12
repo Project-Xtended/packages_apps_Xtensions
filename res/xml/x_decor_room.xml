@@ -75,5 +75,10 @@
         android:defaultValue="0"
         android:summary="%s" /> -->
 
-</PreferenceScreen>
+     <Preference
+         android:key="batterybar_settings"
+         android:title="@string/battery_bar_title"
+         android:summary="@string/battery_bar_summary"
+         android:fragment="com.msm.xtended.fragments.BatterybarSettings" />
 
+</PreferenceScreen>
