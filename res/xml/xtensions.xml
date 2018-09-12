@@ -27,6 +27,14 @@
                android:targetClass ="com.oneplus.shit.settings.ShitPanelSettings" />
         </PreferenceScreen>
 
+        <!-- Animations -->
+        <PreferenceScreen
+            android:key="animations_category"
+            android:title="@string/animation_settings_title"
+            android:summary="@string/animation_settings_summary"
+            android:fragment="com.msm.xtended.fragments.AnimationSettings"
+            settings:allowDividerAbove="true" />
+
         <!-- Buttons -->
         <PreferenceScreen
             android:key="buttonsettings_category"

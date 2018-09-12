@@ -41,6 +41,8 @@
     <string name="system_summary">Modify Generic System Settings</string>
     <string name="decorroom_title">Decor Room</string>
     <string name="decorroom_summary">Our Fav Decoration Options</string>
+    <string name="animation_settings_title">Animations</string>
+    <string name="animation_settings_summary">System Wide Animation Options</string>
 
     <!-- General strings -->
     <string name="ok">OK</string>
@@ -373,5 +375,12 @@
     <!-- Volume Button Music Control -->
     <string name="volume_rocker_music_controls_title">Music control</string>
     <string name="volume_rocker_music_controls_summary">Long press volume buttons to switch tracks while screen off</string>
+
+    <!-- Screen off animation -->
+    <string name="screen_off_animation_fade">Simple fade</string>
+    <string name="screen_off_animation_color">Color fade</string>
+    <string name="screen_off_animation_crt">CRT</string>
+    <string name="screen_off_animation_scale">Scale</string>
+    <string name="screen_off_animation_title">Screen off animation</string>
     
 </resources>
