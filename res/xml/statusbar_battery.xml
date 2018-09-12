@@ -58,4 +58,10 @@
         android:title="@string/qs_battery_percentage_title"
         android:summary="@string/qs_battery_percentage_summary" />
 
+   <Preference
+        android:key="batterybar_settings"
+        android:title="@string/battery_bar_title"
+        android:summary="@string/battery_bar_summary"
+        android:fragment="com.xtended.fragments.BatterybarSettings" />
+
 </PreferenceScreen>
