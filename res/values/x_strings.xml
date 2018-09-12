@@ -369,5 +369,9 @@
     <!-- NavBar Visibility -->
     <string name="navbar_visibility">Navbar Buttons</string>
     <string name="navbar_visibility_summary">Show Navigation Buttons</string>
+
+    <!-- Volume Button Music Control -->
+    <string name="volume_rocker_music_controls_title">Music control</string>
+    <string name="volume_rocker_music_controls_summary">Long press volume buttons to switch tracks while screen off</string>
     
 </resources>
