@@ -46,10 +46,12 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     private static final String KEY_FACE_AUTO_UNLOCK = "face_auto_unlock";
     private static final String KEY_FACE_UNLOCK_PACKAGE = "com.android.facelock";
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
+    private static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";
 
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintVib;
     private SwitchPreference mFaceUnlock;
+    ListPreference mLockClockFonts;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -78,6 +80,13 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
                 Settings.System.FINGERPRINT_SUCCESS_VIB, 1) == 1));
         mFingerprintVib.setOnPreferenceChangeListener(this);
         }
+
+        // Lockscren Clock Fonts
+        mLockClockFonts = (ListPreference) findPreference(LOCK_CLOCK_FONTS);
+        mLockClockFonts.setValue(String.valueOf(Settings.System.getInt(
+                getContentResolver(), Settings.System.LOCK_CLOCK_FONTS, 29)));
+        mLockClockFonts.setSummary(mLockClockFonts.getEntry());
+        mLockClockFonts.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -92,6 +101,12 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.FINGERPRINT_SUCCESS_VIB, value ? 1 : 0);
+            return true;
+        } else if (preference == mLockClockFonts) {
+            Settings.System.putInt(getContentResolver(), Settings.System.LOCK_CLOCK_FONTS,
+                    Integer.valueOf((String) newValue));
+            mLockClockFonts.setValue(String.valueOf(newValue));
+            mLockClockFonts.setSummary(mLockClockFonts.getEntry());
             return true;
         }
         return false;
