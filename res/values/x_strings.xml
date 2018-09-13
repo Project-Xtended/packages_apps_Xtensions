@@ -173,6 +173,10 @@
     <string name="powermenu_logout">Logout</string>
     <string name="global_actions_onthego">OnTheGo</string>
     <string name="powermenu_torch">Flashlight</string>
+
+    <!-- Wakeup options -->
+    <string name="wakeup_when_plugged_unplugged_title">Wake up on charge</string>
+    <string name="wakeup_when_plugged_unplugged_summary">Wake up device if charger is plugged/unplugged.</string>
     
     <!-- Volume Wake -->
     <string name="volume_rocker_wake_title">Volume rocker wake</string>
