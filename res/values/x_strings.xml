@@ -365,5 +365,10 @@
     <!-- Toast app icon -->
     <string name="toast_icon_title">Toast app icon</string>
     <string name="toast_icon_summary">Display the app\'s icon corresponding with the toast</string>
+
+    <!-- Toast Icon & Text Color -->
+    <string name="toast_category">Toast Menu</string>
+    <string name="toast_text_color">Toast text color</string>
+    <string name="toast_icon_color">Toast icon color</string>
     
 </resources>
