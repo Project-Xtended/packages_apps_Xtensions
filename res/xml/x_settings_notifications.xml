@@ -74,10 +74,26 @@
 
     </PreferenceCategory>
 
-    <com.msm.xtended.preferences.SystemSettingSwitchPreference
-        android:key="toast_icon"
-        android:title="@string/toast_icon_title"
-        android:summary="@string/toast_icon_summary"
-        android:defaultValue="false" />
+    <PreferenceCategory
+        android:title="@string/toast_category" >
+
+        <com.msm.xtended.preferences.SystemSettingSwitchPreference
+            android:key="toast_icon"
+            android:title="@string/toast_icon_title"
+            android:summary="@string/toast_icon_summary"
+            android:defaultValue="false" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="toast_icon_color"
+            android:title="@string/toast_icon_color"
+            android:defaultValue="0xffffffff"
+            android:dependency="toast_icon" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="toast_text_color"
+            android:title="@string/toast_text_color"
+            android:defaultValue="0xeeff0000" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
