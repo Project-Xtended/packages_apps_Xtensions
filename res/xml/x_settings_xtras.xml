@@ -18,6 +18,14 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
 	android:title="@string/xtras_title">
 
+        <com.xtended.support.preferences.SystemSettingListPreference
+            android:key="screenshot_type"
+            android:entries="@array/screenshot_type_entries"
+            android:entryValues="@array/screenshot_type_values"
+            android:title="@string/screenshot_type_title"
+            android:summary="%s"
+            android:defaultValue="0" />
+
         <com.xtended.support.preferences.GlobalSettingSwitchPreference
             android:key="wake_when_plugged_or_unplugged"
             android:title="@string/wakeup_when_plugged_unplugged_title"
