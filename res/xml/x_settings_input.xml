@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 Nitrogen Project
+<!--
+     Copyright (C) 2018 MSM-Xtended Rom
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,15 +15,9 @@
      limitations under the License.
 -->
 <PreferenceScreen
-        xmlns:android="http://schemas.android.com/apk/res/android"
-	android:title="@string/xtra_title"
-        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
-
-        <!-- Keyboard -->
-        <Preference
-            android:key="inputmethod_settings"
-            android:title="@string/keyboard_ime_title"
-            android:summary="@string/keyboard_ime_summary"
-            android:fragment="com.msm.xtended.fragments.InputSettings" />
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/keyboard_ime_title" >
 
 </PreferenceScreen>
+

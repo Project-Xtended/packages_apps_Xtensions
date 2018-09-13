@@ -49,6 +49,13 @@
     <string name="reset">Reset</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
+    <string name="default_string">Default</string>
+    <string name="add">Add</string>
+    <string name="enabled">Enabled</string>
+    <string name="choose_app">Choose application</string>
+    <string name="help">Help</string>
+    <string name="reset_message">Reset all entries to default?</string>
+    <string name="attention">Attention</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
@@ -428,5 +435,9 @@
 
     <!-- App Ops -->
     <string name="app_ops_summary">Control apps operations</string>
+
+    <!-- KeyBoard Features -->
+    <string name="keyboard_ime_title">Keyboard and IME</string>
+    <string name="keyboard_ime_summary">Options for keyboard configs</string>
     
 </resources>
