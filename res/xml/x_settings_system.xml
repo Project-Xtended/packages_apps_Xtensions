@@ -18,6 +18,11 @@
 	android:title="@string/system_title"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+        <Preference
+            android:title="@string/app_ops_settings"
+            android:summary="@string/app_ops_summary"
+            android:fragment="com.android.settings.applications.appops.AppOpsSummary"/>
+
         <com.msm.xtended.preferences.SystemSettingSwitchPreference
             android:key="sensor_block"
             android:title="@string/sensor_block_title"
