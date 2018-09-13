@@ -549,5 +549,12 @@
     <string name="sizer_message_success">Success</string>
     <string name="system_app_remover">System App Remover</string>
     <string name="system_app_remover_summary">Remove Un-needed System App</string>
+
+    <!-- Screenshot -->
+    <string name="screenshot_type_title">Screenshot type</string>
+    <string name="screenshot_type_fullscreen">Take fullscreen screenshots</string>
+    <string name="screenshot_type_partial">Drag selection on the area you want to take as a screenshot</string>
+    <string name="screenshot_options_category">Screenshot options</string>
+    <string name="screenshot_options_summary">Customize screenshot attributes like time, delay,type etc</string>
     
 </resources>
