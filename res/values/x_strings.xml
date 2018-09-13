@@ -186,6 +186,13 @@
     <!-- Power menu on lockscreen -->
     <string name="lockscreen_power_menu_disabled_title">Disable power menu on lock screen</string>
     <string name="lockscreen_power_menu_disabled_summary">This will only disable the power menu on secure lock screens</string>
+
+    <!-- Screenshot -->
+    <string name="screenshot_type_title">Screenshot type</string>
+    <string name="screenshot_type_fullscreen">Take fullscreen screenshots</string>
+    <string name="screenshot_type_partial">Drag selection on the area you want to take as a screenshot</string>
+    <string name="screenshot_options_category">Screenshot options</string>
+    <string name="screenshot_options_summary">Customize screenshot attributes like time, delay,type etc</string>
     
     <!-- Volume Wake -->
     <string name="volume_rocker_wake_title">Volume rocker wake</string>

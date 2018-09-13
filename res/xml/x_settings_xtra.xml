@@ -24,4 +24,11 @@
             android:summary="@string/wakeup_when_plugged_unplugged_summary"
             android:defaultValue="true" />
 
+        <com.msm.xtended.preferences.SystemSettingListPreference
+            android:key="screenshot_type"
+            android:entries="@array/screenshot_type_entries"
+            android:entryValues="@array/screenshot_type_values"
+            android:title="@string/screenshot_type_title"
+            android:defaultValue="0" />
+
 </PreferenceScreen>
