@@ -61,7 +61,9 @@ public class AnimationSettings extends SettingsPreferenceFragment
     private static final String WALLPAPER_CLOSE = "wallpaper_close";
     private static final String WALLPAPER_INTRA_OPEN = "wallpaper_intra_open";
     private static final String WALLPAPER_INTRA_CLOSE = "wallpaper_intra_close";
+    private static final String KEY_TOAST_ANIMATION = "toast_animation";
 
+    private ListPreference mToastAnimation;
     private ListPreference mScreenOffAnimation;
     ListPreference mActivityOpenPref;
     ListPreference mActivityClosePref;
@@ -92,6 +94,13 @@ public class AnimationSettings extends SettingsPreferenceFragment
         ContentResolver resolver = getActivity().getContentResolver();
         PreferenceScreen prefs = getPreferenceScreen();
         mContext = getActivity();
+
+        mToastAnimation = (ListPreference) findPreference(KEY_TOAST_ANIMATION);
+        mToastAnimation.setSummary(mToastAnimation.getEntry());
+        int CurrentToastAnimation = Settings.System.getInt(getContentResolver(), Settings.System.TOAST_ANIMATION, 1);
+        mToastAnimation.setValueIndex(CurrentToastAnimation); //set to index of default value
+        mToastAnimation.setSummary(mToastAnimation.getEntries()[CurrentToastAnimation]);
+        mToastAnimation.setOnPreferenceChangeListener(this);
 
         mScreenOffAnimation = (ListPreference) findPreference(KEY_SCREEN_OFF_ANIMATION);
         int screenOffAnimation = Settings.Global.getInt(getContentResolver(),
@@ -187,6 +196,12 @@ public class AnimationSettings extends SettingsPreferenceFragment
             int index = mScreenOffAnimation.findIndexOfValue((String) newValue);
             mScreenOffAnimation.setSummary(mScreenOffAnimation.getEntries()[index]);
             Settings.Global.putInt(getContentResolver(), Settings.Global.SCREEN_OFF_ANIMATION, value);
+            return true;
+        } else if (preference == mToastAnimation) {
+            int index = mToastAnimation.findIndexOfValue((String) newValue);
+            Settings.System.putString(getContentResolver(), Settings.System.TOAST_ANIMATION, (String) newValue);
+            mToastAnimation.setSummary(mToastAnimation.getEntries()[index]);
+            Toast.makeText(mContext, "Toast Test", Toast.LENGTH_SHORT).show();
             return true;
         } else if (preference == mActivityOpenPref) {
             int val = Integer.parseInt((String) newValue);
