@@ -18,6 +18,13 @@
 	android:title="@string/xtra_title"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+        <!-- Keyboard -->
+        <Preference
+            android:key="inputmethod_settings"
+            android:title="@string/keyboard_ime_title"
+            android:summary="@string/keyboard_ime_summary"
+            android:fragment="com.msm.xtended.fragments.InputSettings" />
+
         <Preference
              android:key="gaming_mode"
              android:title="@string/gaming_mode_title"
