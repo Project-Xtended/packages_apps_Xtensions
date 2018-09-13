@@ -39,6 +39,8 @@
     <string name="system_summary">Modify Generic System Settings</string>
     <string name="decorroom_title">DecorRoom</string>
     <string name="decorroom_summary">Our Fav Decoration Options</string>
+    <string name="animation_settings_title">Animations</string>
+    <string name="animation_settings_summary">System Wide Animation Options</string>
 
     <!-- SeekBar -->
     <string name="seekbar_no_default_value">No default value set</string>
@@ -97,4 +99,22 @@
     <string name="global_actions_max_columns_summary">Set how many actions to show before buttons move to overflow menu</string>
     <string name="global_actions_onthego_title">On-The-Go</string>
 
+    <!-- AOKP custom system animations -->
+    <string name="animation_title">Animations</string>  
+    <string name="system_animation_title">System Animations</string>
+    <string name="activity_open_title">Activity open animation</string>
+    <string name="activity_close_title">Activity close animation</string>
+    <string name="task_open_title">Task open animation</string>
+    <string name="task_close_title">Task close animation</string>
+    <string name="task_move_to_front_title">Move to front animation</string>
+    <string name="task_move_to_back_title">Move to back animation</string>
+    <string name="wallpaper_open_title">Wallpaper open animation</string>
+    <string name="wallpaper_close_title">Wallpaper close animation</string>
+    <string name="wallpaper_intra_open_title">Wallpaper intra open animation</string>
+    <string name="wallpaper_intra_close_title">Wallpaper intra close animation</string>
+    <string name="animation_duration_title">Animation duration</string>
+    <string name="title_animation_no_override">Prevent app overrides</string>
+    <string name="summary_animation_no_override">Prevent apps from overriding transitions</string>
+    <string name="animation_duration_default">Default</string>
+    
 </resources>

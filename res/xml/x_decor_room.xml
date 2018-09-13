@@ -28,4 +28,10 @@
             android:targetClass="com.oneplus.shit.settings.ShitPanelActivity" />
     </PreferenceScreen>
 
+    <Preference
+         android:key="animations_category"
+         android:title="@string/animation_settings_title"
+         android:summary="@string/animation_settings_summary"
+         android:fragment="com.msm.xtended.fragments.AnimationSettings" />
+
 </PreferenceScreen>
