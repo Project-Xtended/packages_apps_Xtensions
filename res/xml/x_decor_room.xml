@@ -19,6 +19,12 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <Preference
+         android:key="animations_category"
+         android:title="@string/animation_settings_title"
+         android:summary="@string/animation_settings_summary"
+         android:fragment="com.msm.xtended.fragments.AnimationSettings" />
+
+    <Preference
          android:key="clock_settings"
          android:title="@string/clock_style_category_title"
          android:summary="@string/clock_style_category_summary"
