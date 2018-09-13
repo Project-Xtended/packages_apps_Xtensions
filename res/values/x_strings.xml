@@ -52,6 +52,12 @@
     <string name="save">Save</string>
     <string name="default_string">Default</string>
     <string name="unit_percent">\u0025</string>
+    <string name="add">Add</string>
+    <string name="enabled">Enabled</string>
+    <string name="choose_app">Choose application</string>
+    <string name="help">Help</string>
+    <string name="reset_message">Reset all entries to default?</string>
+    <string name="attention">Attention</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
@@ -1466,7 +1472,7 @@
     <string name="gesture_anywhere_56">56px</string>
     <string name="gesture_anywhere_64">64px</string>
     <string name="gesture_anywhere_68">68px</string>
-    
+
     <!-- Summaries For Forgotten Ones -->
     <string name="gesture_anywhere_summary">Gesture Anywhere Settings</string>
        
@@ -1491,5 +1497,9 @@
     <!-- IME button space -->
     <string name="navigation_bar_ime_space_title">IME button space</string>
     <string name="navigation_bar_ime_space_summary">Show IME button space below keyboard</string>
+
+    <!-- KeyBoard Features -->
+    <string name="keyboard_ime_title">Keyboard and IME</string>
+    <string name="keyboard_ime_summary">Options for keyboard configs</string>
 
 </resources>
