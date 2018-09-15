@@ -40,7 +40,22 @@
             android:title="@string/double_tap_to_sleep_statusbar_title"
             android:summary="@string/double_tap_to_sleep_statusbar_summary"
             android:defaultValue="true" />
-
     </PreferenceCategory>
+
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference
+        android:key="torch_long_press_power_gesture"
+        android:title="@string/torch_long_press_power_gesture_title"
+        android:summary="@string/torch_long_press_power_gesture_desc"
+        android:defaultValue="false" />
+
+    <ListPreference
+        android:key="torch_long_press_power_timeout"
+        android:dialogTitle="@string/torch_long_press_power_timeout_title"
+        android:title="@string/torch_long_press_power_timeout_title"
+        android:summary="%s"
+        android:entries="@array/torch_long_press_power_timeout_entries"
+        android:entryValues="@array/torch_long_press_power_timeout_values"
+        android:dependency="torch_long_press_power_gesture"
+        android:persistent="false" />
 
 </PreferenceScreen>
