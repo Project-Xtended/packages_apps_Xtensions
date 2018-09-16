@@ -127,5 +127,9 @@
 
     <!-- Enable keys backlight-->
     <string name="button_brightness_sw_title">Enable backlight</string>
+
+    <!-- Swap navigation keys -->
+    <string name="swap_navigation_keys_title">Swap keys</string>
+    <string name="swap_navigation_keys_title_summary">Swap back and recents hardware keys</string>
     
 </resources>
