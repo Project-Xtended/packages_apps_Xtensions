@@ -703,6 +703,10 @@
     <!-- Double Tap Statusbar to Sleep -->
     <string name="double_tap_to_sleep_statusbar_title">Statusbar</string>
     <string name="double_tap_to_sleep_statusbar_summary">Double tap on statusbar to put the device to sleep</string>
+
+     <!-- Fingerprint unlock keystore -->
+    <string name="fp_unlock_keystore_title">Fingerprint unlock</string>
+    <string name="fp_unlock_keystore_summary">Unlock device with fingerprint after reboot without PIN/Password/Pattern\nNote: at your own risk!</string>
     
     <!-- Allow fake signature -->
     <string name="allow_signature_fake">Allow signature spoofing</string>

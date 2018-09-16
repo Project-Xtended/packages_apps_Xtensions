@@ -41,16 +41,21 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 import com.msm.xtended.preferences.CustomSeekBarPreference;
+import com.msm.xtended.preferences.SystemSettingSwitchPreference;
+
+import com.msm.xtended.preferences.XUtils;
 
 public class LockScreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
+    private static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
 
     private CustomSeekBarPreference mMaxKeyguardNotifConfig;
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintVib;
+    private SystemSettingSwitchPreference mFpKeystore;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -69,8 +74,10 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
 
         mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
         mFingerprintVib = (SwitchPreference) findPreference(FINGERPRINT_VIB);
-        if (!mFingerprintManager.isHardwareDetected()){
+        mFpKeystore = (SystemSettingSwitchPreference) findPreference(FP_UNLOCK_KEYSTORE);
+        if (mFingerprintManager == null){
             prefScreen.removePreference(mFingerprintVib);
+            prefScreen.removePreference(mFpKeystore);
         } else {
         mFingerprintVib.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.FINGERPRINT_SUCCESS_VIB, 1) == 1));
