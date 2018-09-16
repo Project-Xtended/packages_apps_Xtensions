@@ -44,6 +44,22 @@
         android:fragment="com.msm.xtended.fragments.OmniJawsSettings" />
 
     <com.msm.xtended.preferences.SystemSettingSwitchPreference
+         android:key="lock_screen_custom_notif"
+         android:title="@string/lockscreen_maxnotif_title"
+         android:summary="@string/lockscreen_maxnotif_sumary"
+         android:defaultValue="false" />
+
+    <com.msm.xtended.preferences.CustomSeekBarPreference
+         android:key="lockscreen_max_notif_cofig"
+         android:title="@string/lockscreen_maxnotif_config"
+         android:max="6"
+         settings:min="1"
+         settings:unitsLeft=""
+         settings:unitsRight=""
+         android:persistent="false"
+         android:dependency="lock_screen_custom_notif" />
+
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference
         android:key="lockscreen_battery_info"
         android:title="@string/lockscreen_battery_info_title"
         android:summary="@string/lockscreen_battery_info_summary"
