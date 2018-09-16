@@ -80,6 +80,12 @@
         android:summary="@string/face_auto_unlock_summary"
         android:defaultValue="false" />
 
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference
+        android:key="fp_unlock_keystore"
+        android:title="@string/fp_unlock_keystore_title"
+        android:summary="@string/fp_unlock_keystore_summary"
+        android:defaultValue="false" />
+
     <SwitchPreference
         android:key="fingerprint_success_vib"
         android:title="@string/fprint_sucess_vib_title"
