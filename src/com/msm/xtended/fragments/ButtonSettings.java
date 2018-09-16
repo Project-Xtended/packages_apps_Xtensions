@@ -42,6 +42,7 @@ import com.msm.xtended.preferences.ActionFragment;
 import com.android.internal.logging.nano.MetricsProto;
 
 import com.msm.xtended.preferences.CustomSeekBarPreference;
+import com.msm.xtended.preferences.SystemSettingSwitchPreference;
 
 public class ButtonSettings extends ActionFragment implements OnPreferenceChangeListener {
 
@@ -50,6 +51,7 @@ public class ButtonSettings extends ActionFragment implements OnPreferenceChange
     private static final String KEY_BACKLIGHT_TIMEOUT = "backlight_timeout";
 
     private static final String HWKEY_DISABLE = "hardware_keys_disable";
+    private static final String KEY_BUTTON_SWAP_KEYS = "swap_navigation_keys";
 
     // category keys
     private static final String CATEGORY_HWKEY = "hardware_keys";
@@ -75,6 +77,7 @@ public class ButtonSettings extends ActionFragment implements OnPreferenceChange
     private ListPreference mBacklightTimeout;
     private CustomSeekBarPreference mButtonBrightness;
     private SwitchPreference mButtonBrightness_sw;
+    private SystemSettingSwitchPreference mSwapKeysPreference;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -96,6 +99,9 @@ public class ButtonSettings extends ActionFragment implements OnPreferenceChange
                     UserHandle.USER_CURRENT);
             mHwKeyDisable.setChecked(keysDisabled != 0);
             mHwKeyDisable.setOnPreferenceChangeListener(this);
+
+        mSwapKeysPreference = (SystemSettingSwitchPreference) prefScreen.findPreference(
+                KEY_BUTTON_SWAP_KEYS);
 
             final boolean variableBrightness = getResources().getBoolean(
                     com.android.internal.R.bool.config_deviceHasVariableButtonBrightness);
