@@ -45,9 +45,9 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.fuelgauge.PowerUsageSummary;
 
 import com.android.internal.widget.LockPatternUtils;
+import com.xtended.support.preferences.CustomSeekBarPreference;
 import com.xtended.support.preferences.SystemSettingSwitchPreference;
 import com.xtended.support.preferences.SystemSettingListPreference;
-
 
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
@@ -63,6 +63,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     private static final String FINGERPRINT_ERROR_VIB = "fingerprint_error_vib";
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
     private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker_category";
+    private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";
 
     private SystemSettingSwitchPreference mFingerprintUnlock;
     private FingerprintManager mFingerprintManager;
@@ -70,6 +71,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     private SwitchPreference mFingerprintVib;
     private Preference mFODIconPicker;
     private SystemSettingListPreference mBatteryTempUnit;
+    private CustomSeekBarPreference mMaxKeyguardNotifConfig;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -127,6 +129,12 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         mBatteryTempUnit.setValue(String.valueOf(unitMode));
         mBatteryTempUnit.setSummary(mBatteryTempUnit.getEntry());
         mBatteryTempUnit.setOnPreferenceChangeListener(this);
+
+        mMaxKeyguardNotifConfig = (CustomSeekBarPreference) findPreference(LOCKSCREEN_MAX_NOTIF_CONFIG);
+        int kgconf = Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, 3);
+        mMaxKeyguardNotifConfig.setValue(kgconf);
+        mMaxKeyguardNotifConfig.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -149,6 +157,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
             int index = mBatteryTempUnit.findIndexOfValue((String) newValue);
             mBatteryTempUnit.setSummary(
             mBatteryTempUnit.getEntries()[index]);
+            return true;
+        } else if (preference == mMaxKeyguardNotifConfig) {
+            int kgconf = (Integer) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, kgconf);
             return true;
         }
         return false;
