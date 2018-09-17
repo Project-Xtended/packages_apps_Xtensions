@@ -874,5 +874,8 @@
     <!-- Force expanded notifications -->
     <string name="force_expanded_notifications_title">Force Expanded Notifications</string>
     <string name="force_expanded_notifications_summary">Available only for apps that support expanded notifications</string>
-    
+
+    <!-- Dumb Dev -->
+    <string name="dumb_dev">This options are only meant to work with old rcents(Oreo recents). Please remove Quickstep to Enjoy these tweaks.</string>
+       
 </resources>
