@@ -106,4 +106,10 @@
         android:summary="@string/lockscreen_battery_info_summary"
 	android:defaultValue="true" />
 
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference
+        android:key="hide_lockscreen_status_bar"
+        android:title="@string/hide_lockscreen_status_bar_title"
+        android:summary="@string/hide_lockscreen_status_bar_summary"
+        android:defaultValue="false" />
+
 </PreferenceScreen>
