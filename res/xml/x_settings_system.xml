@@ -53,4 +53,10 @@
             android:summary="@string/wakeup_when_plugged_unplugged_summary"
             android:defaultValue="true" />
 
+        <com.msm.xtended.preferences.SystemSettingSwitchPreference
+            android:key="disable_fc_notifications"
+            android:title="@string/disable_fc_notifications_title"
+            android:summary="@string/disable_fc_notifications_summary"
+            android:defaultValue="false" />
+
 </PreferenceScreen>
