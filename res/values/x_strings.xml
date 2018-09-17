@@ -1196,4 +1196,8 @@
     <string name="file_header_provider_title">Single image</string>
     <string name="file_header_provider" translatable="false">file</string>
 
+    <!-- Force expanded notifications -->
+    <string name="force_expanded_notifications_title">Force Expanded Notifications</string>
+    <string name="force_expanded_notifications_summary">Available only for apps that support expanded notifications</string>
+
 </resources>
