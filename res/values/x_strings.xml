@@ -632,4 +632,8 @@
     <string name="disable_fc_notifications_title">Disable FC notifications</string>
     <string name="disable_fc_notifications_summary">This will hide all force close notificaitons</string>
 
+    <!-- ADB debugging notifications -->
+    <string name="adb_notify">ADB notification</string>
+    <string name="adb_notify_summary">Display a notification when android debugging is enabled</string>
+
 </resources>

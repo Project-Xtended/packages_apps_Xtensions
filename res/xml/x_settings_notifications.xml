@@ -22,6 +22,12 @@
 
         android:title="@string/notifications_general_category_title">
 
+       <com.xtended.support.preferences.SecureSettingSwitchPreference
+           android:key="adb_notify"
+           android:title="@string/adb_notify"
+           android:summary="@string/adb_notify_summary"
+           android:defaultValue="true" />
+
        <com.xtended.support.preferences.SystemSettingSwitchPreference
             android:key="hide_smart_replies"
             android:title="@string/hide_smart_replies_title"
