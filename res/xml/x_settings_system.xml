@@ -72,4 +72,10 @@
             android:summary="@string/pocket_judge_summary"
             android:defaultValue="false" />
 
+        <com.msm.xtended.preferences.SecureSettingSwitchPreference
+            android:key="adb_notify"
+            android:title="@string/adb_notify"
+            android:summary="@string/adb_notify_summary"
+            android:defaultValue="true" />
+
 </PreferenceScreen>

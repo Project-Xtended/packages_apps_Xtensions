@@ -870,7 +870,7 @@
     <string name="qs_rows_category">Rows Layout</string>
     <string name="qs_rows_portrait_title">Rows (Portrait)</string>
     <string name="qs_rows_landscape_title">Rows (Landscape)</string>
-       
+
     <!-- QuickSettings haptic feedback -->
     <string name="quick_settings_vibrate_title">Vibrate on touch</string>
     <string name="quick_settings_vibrate_summary">Vibrate when QS tiles are pressed</string>
@@ -1018,5 +1018,9 @@
     <string name="status_bar_temperature_show_scale_hide_image">Show temp with scale</string>
     <string name="status_bar_temperature_hide_scale_hide_image">Show temp without scale</string>
     <string name="status_bar_show_image">Show image</string>
+
+    <!-- ADB debugging notifications -->
+    <string name="adb_notify">ADB notification</string>
+    <string name="adb_notify_summary">Display a notification when android debugging is enabled</string>
 
 </resources>
