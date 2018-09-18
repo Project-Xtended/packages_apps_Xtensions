@@ -56,6 +56,8 @@
     <string name="help">Help</string>
     <string name="reset_message">Reset all entries to default?</string>
     <string name="attention">Attention</string>
+    <string name="unit_percent">\u0025</string>
+    <string name="unit_x1000ms">x1000 ms</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
@@ -908,5 +910,12 @@
     <string name="lockscreen_visualizer_enable_custom">Use custom color</string>
     <string name="lockscreen_visualizer_enable_custom_summary">Use a preset color instead of the generated color</string>
     <string name="lockscreen_visualizer_custom_color">Visualizer Color</string>
+
+    <!-- Burn-in Protection -->
+    <string name="navigation_burnin_category">Burn-in Protection</string>
+    <string name="burn_in_protection_title">Enable</string>
+    <string name="burn_in_protection_summary">Shift navabr and statusbar icons to prevent burn-in</string>
+    <string name="burn_in_protection_interval_title">Interval of shift</string>
+    <string name="burn_in_protection_interval_summary">How often to make icons shift</string>
        
 </resources>
