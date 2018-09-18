@@ -59,6 +59,12 @@
             android:summary="@string/sensor_block_summary"
             android:defaultValue="true" />
 
+        <com.msm.xtended.preferences.SecureSettingSwitchPreference
+            android:key="adb_notify"
+            android:title="@string/adb_notify"
+            android:summary="@string/adb_notify_summary"
+            android:defaultValue="true" />
+
         <com.msm.xtended.preferences.GlobalSettingSwitchPreference
             android:key="wake_when_plugged_or_unplugged"
             android:title="@string/wakeup_when_plugged_unplugged_title"
