@@ -42,6 +42,7 @@ import com.msm.xtended.preferences.CustomSeekBarPreference;
 import com.msm.xtended.preferences.SystemSettingSwitchPreference;
 
 import com.msm.xtended.preferences.XUtils;
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class LockScreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -52,6 +53,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     private static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";
     private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";
     private static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
+    private static final String LOCK_SCREEN_VISUALIZER_CUSTOM_COLOR = "lock_screen_visualizer_custom_color";
 
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintVib;
@@ -59,6 +61,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     ListPreference mLockClockFonts;
     private CustomSeekBarPreference mMaxKeyguardNotifConfig;
     private SystemSettingSwitchPreference mFpKeystore;
+    private ColorPickerPreference mVisualizerColor;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -102,6 +105,16 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
                 Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, 3);
         mMaxKeyguardNotifConfig.setValue(kgconf);
         mMaxKeyguardNotifConfig.setOnPreferenceChangeListener(this);
+
+        // Visualizer custom color
+        mVisualizerColor = (ColorPickerPreference) findPreference(LOCK_SCREEN_VISUALIZER_CUSTOM_COLOR);
+        int visColor = Settings.System.getInt(resolver,
+                Settings.System.LOCK_SCREEN_VISUALIZER_CUSTOM_COLOR, 0xff1976D2);
+        String visColorHex = String.format("#%08x", (0xff1976D2 & visColor));
+        mVisualizerColor.setSummary(visColorHex);
+        mVisualizerColor.setNewPreviewColor(visColor);
+        mVisualizerColor.setAlphaSliderEnabled(true);
+        mVisualizerColor.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -127,6 +140,14 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
             int kgconf = (Integer) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, kgconf);
+            return true;
+        } else if (preference == mVisualizerColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(resolver,
+                    Settings.System.LOCK_SCREEN_VISUALIZER_CUSTOM_COLOR, intHex);
+            preference.setSummary(hex);
             return true;
         }
         return false;

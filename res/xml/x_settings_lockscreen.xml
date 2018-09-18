@@ -98,10 +98,28 @@
         android:summary="@string/fprint_sucess_vib_summary"
         android:persistent="false" />
 
-    <com.msm.xtended.preferences.SecureSettingSwitchPreference
-        android:key="lockscreen_visualizer_enabled"
-        android:title="@string/lockscreen_visualizer_enable"
-        android:summary="@string/lockscreen_visualizer_enable_summary"
-        android:defaultValue="false" />
+    <PreferenceCategory
+        android:key="lockscreen_visualizer"
+        android:title="@string/lockscreen_visualizer_category" />
+
+        <com.msm.xtended.preferences.SecureSettingSwitchPreference
+            android:key="lockscreen_visualizer_enabled"
+            android:title="@string/lockscreen_visualizer_enable"
+            android:summary="@string/lockscreen_visualizer_enable_summary"
+            android:defaultValue="false" />
+
+        <com.msm.xtended.preferences.SystemSettingSwitchPreference
+            android:key="lock_screen_visualizer_use_custom_color"
+            android:title="@string/lockscreen_visualizer_enable_custom"
+            android:summary="@string/lockscreen_visualizer_enable_custom_summary"
+            android:dependency="lockscreen_visualizer_enabled"
+            android:defaultValue="false" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="lock_screen_visualizer_custom_color"
+            android:title="@string/battery_bar_color"
+            android:dependency="lock_screen_visualizer_use_custom_color"
+            android:defaultValue="0xffffffff"
+            android:dialogTitle="@string/lockscreen_visualizer_custom_color" />
 
 </PreferenceScreen>

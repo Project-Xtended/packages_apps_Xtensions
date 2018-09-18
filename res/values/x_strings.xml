@@ -902,7 +902,11 @@
     <string name="adb_notify_summary">Display a notification when android debugging is enabled</string>
 
     <!-- Lock screen visualizer -->
+    <string name="lockscreen_visualizer_category">Visualizer</string>
     <string name="lockscreen_visualizer_enable">Enable lockscreen visualizer</string>
     <string name="lockscreen_visualizer_enable_summary">Show visualizer on lockscreen when music is playing</string>
+    <string name="lockscreen_visualizer_enable_custom">Use custom color</string>
+    <string name="lockscreen_visualizer_enable_custom_summary">Use a preset color instead of the generated color</string>
+    <string name="lockscreen_visualizer_custom_color">Visualizer Color</string>
        
 </resources>
