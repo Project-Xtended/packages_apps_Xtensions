@@ -960,6 +960,16 @@
     <!-- Heads up options -->
     <string name="less_boring_heads_up_title">Dialer HeadsUp</string>
     <string name="less_boring_heads_up_summary">Show heads up only for dialer app and disable all others</string>
+
+    <!-- Statusbar logo -->
+    <string name="status_bar_logo_category_title">Statusbar Logo</string>
+    <string name="status_bar_logo_category_summary">Enable to display logo in the status bar</string>
+    <string name="status_bar_logo_title">Xtended logo</string>
+    <string name="status_bar_logo_right">Right</string>
+    <string name="status_bar_logo_left">Left</string>
+    <string name="status_bar_logo_disabled">Disabled</string>
+    <string name="status_bar_logo_style_title">Xtended logo style</string>
+    <string name="status_bar_logo_color_title">Select color</string>
        
     <!-- Network Traffic Location -->
     <string name="network_traffic_location_title">Traffic indicator placement</string>
