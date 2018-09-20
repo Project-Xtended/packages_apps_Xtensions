@@ -917,5 +917,15 @@
     <string name="burn_in_protection_summary">Shift navabr and statusbar icons to prevent burn-in</string>
     <string name="burn_in_protection_interval_title">Interval of shift</string>
     <string name="burn_in_protection_interval_summary">How often to make icons shift</string>
+
+    <!-- Statusbar logo -->
+    <string name="status_bar_logo_category_title">Statusbar Logo</string>
+    <string name="status_bar_logo_category_summary">Enable to display logo in the status bar</string>
+    <string name="status_bar_logo_title">Xtended logo</string>
+    <string name="status_bar_logo_right">Right</string>
+    <string name="status_bar_logo_left">Left</string>
+    <string name="status_bar_logo_disabled">Disabled</string>
+    <string name="status_bar_logo_style_title">Xtended logo style</string>
+    <string name="status_bar_logo_color_title">Select color</string>
        
 </resources>
