@@ -830,5 +830,5 @@
         <item>EEEE MM/dd</item>
         <item>@string/clock_date_format_custom</item>
     </string-array>
-	
+
 </resources>
