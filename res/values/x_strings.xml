@@ -927,5 +927,10 @@
     <string name="status_bar_logo_disabled">Disabled</string>
     <string name="status_bar_logo_style_title">Xtended logo style</string>
     <string name="status_bar_logo_color_title">Select color</string>
+
+    <!-- Statusbar Clock Font Style, Size & Color -->
+    <string name="status_bar_clock_font_style_title">Clock font style</string>
+    <string name="status_bar_clock_font_size_title">Clock font size</string>
+    <string name="status_bar_clock_color_title">Clock font color</string>
        
 </resources>
