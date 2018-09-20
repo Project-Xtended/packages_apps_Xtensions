@@ -792,4 +792,14 @@
     <string name="projection_privacy_title"> Show Projection Privacy Indicator</string>
     <string name="projection_privacy_summary">Enable - Disable Projection privacy indicator in qs and sb</string>
 
+    <!-- Statusbar logo -->
+    <string name="status_bar_logo_category_title">Statusbar Logo</string>
+    <string name="status_bar_logo_category_summary">Enable to display logo in the status bar</string>
+    <string name="status_bar_logo_title">Xtended logo</string>
+    <string name="status_bar_logo_right">Right</string>
+    <string name="status_bar_logo_left">Left</string>
+    <string name="status_bar_logo_disabled">Disabled</string>
+    <string name="status_bar_logo_style_title">Xtended logo style</string>
+    <string name="status_bar_logo_color_title">Select color</string>
+
 </resources>
