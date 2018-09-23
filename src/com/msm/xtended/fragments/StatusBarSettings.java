@@ -49,7 +49,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-
         return false;
     }
 
