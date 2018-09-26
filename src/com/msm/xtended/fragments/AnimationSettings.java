@@ -41,6 +41,8 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.util.xtended.AwesomeAnimationHelper;
 
+import com.msm.xtended.preferences.CustomSeekBarPreference;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -71,6 +73,7 @@ public class AnimationSettings extends SettingsPreferenceFragment
     private static final String PREF_TILE_ANIM_STYLE = "qs_tile_animation_style";
     private static final String PREF_TILE_ANIM_DURATION = "qs_tile_animation_duration";
     private static final String PREF_TILE_ANIM_INTERPOLATOR = "qs_tile_animation_interpolator";
+    private static final String ANIMATION_DURATION = "animation_duration";
 
     private ListPreference mToastAnimation;
     private ListPreference mScreenOffAnimation;
@@ -80,18 +83,19 @@ public class AnimationSettings extends SettingsPreferenceFragment
     private ListPreference mTileAnimationStyle;
     private ListPreference mTileAnimationDuration;
     private ListPreference mTileAnimationInterpolator;
-    ListPreference mActivityOpenPref;
-    ListPreference mActivityClosePref;
-    ListPreference mTaskOpenPref;
-    ListPreference mTaskOpenBehind;
-    ListPreference mTaskClosePref;
-    ListPreference mTaskMoveToFrontPref;
-    ListPreference mTaskMoveToBackPref;
-    ListPreference mWallpaperOpen;
-    ListPreference mWallpaperClose;
-    ListPreference mWallpaperIntraOpen;
-    ListPreference mWallpaperIntraClose;
-    SwitchPreference mAnimNoOverride;
+    private ListPreference mActivityOpenPref;
+    private ListPreference mActivityClosePref;
+    private ListPreference mTaskOpenPref;
+    private ListPreference mTaskOpenBehind;
+    private ListPreference mTaskClosePref;
+    private ListPreference mTaskMoveToFrontPref;
+    private ListPreference mTaskMoveToBackPref;
+    private ListPreference mWallpaperOpen;
+    private ListPreference mWallpaperClose;
+    private ListPreference mWallpaperIntraOpen;
+    private ListPreference mWallpaperIntraClose;
+    private SwitchPreference mAnimNoOverride;
+    private CustomSeekBarPreference mAnimationDuration;
 
     private int[] mAnimations;
     private String[] mAnimationsStrings;
@@ -180,9 +184,11 @@ public class AnimationSettings extends SettingsPreferenceFragment
             mAnimationsStrings[i] = AwesomeAnimationHelper.getProperName(mContext, mAnimations[i]);
             mAnimationsNum[i] = String.valueOf(mAnimations[i]);
         }
-        //mAnimNoOverride = (SwitchPreference) findPreference(ANIMATION_NO_OVERRIDE);
-        //mAnimNoOverride.setChecked(Settings.System.getBoolean(mContentRes,
-        //        Settings.System.ANIMATION_CONTROLS_NO_OVERRIDE, false));
+
+        mAnimationDuration = (CustomSeekBarPreference) findPreference(ANIMATION_DURATION);
+        mAnimationDuration.setValue(Settings.System.getInt(resolver, Settings.System.ANIMATION_CONTROLS_DURATION, 0));
+        mAnimationDuration.setOnPreferenceChangeListener(this);
+
         mActivityOpenPref = (ListPreference) findPreference(ACTIVITY_OPEN);
         mActivityOpenPref.setOnPreferenceChangeListener(this);
         mActivityOpenPref.setSummary(getProperSummary(mActivityOpenPref));
@@ -355,6 +361,10 @@ public class AnimationSettings extends SettingsPreferenceFragment
             int val = Integer.parseInt((String) newValue);
             result = Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.ACTIVITY_ANIMATION_CONTROLS[10], val);
+        } else if (preference == mAnimationDuration) {
+            int val = (Integer) newValue;
+            Settings.System.putInt(getContentResolver(), Settings.System.ANIMATION_CONTROLS_DURATION, val);
+            return true;
         }
         preference.setSummary(getProperSummary(preference));
         return result;
