@@ -37,4 +37,11 @@
             android:entryValues="@array/screenshot_type_values"
             android:title="@string/screenshot_type_title" />
 
+        <!-- MediaScanner behavior on boot -->
+        <ListPreference
+            android:key="media_scanner_on_boot"
+            android:title="@string/media_scanner_on_boot_title"
+            android:entries="@array/media_scanner_on_boot_entries"
+            android:entryValues="@array/media_scanner_on_boot_values" />
+
 </PreferenceScreen>

@@ -29,17 +29,36 @@ import com.android.settings.SettingsPreferenceFragment;
 public class XtraSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
+    private static final String MEDIA_SCANNER_ON_BOOT = "media_scanner_on_boot";
+
+    private ListPreference mMSOB;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
         addPreferencesFromResource(R.xml.x_settings_xtra);
 
+        // MediaScanner behavior on boot
+        mMSOB = (ListPreference) findPreference(MEDIA_SCANNER_ON_BOOT);
+        int mMSOBValue = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.MEDIA_SCANNER_ON_BOOT, 1);
+        mMSOB.setValue(String.valueOf(mMSOBValue));
+        mMSOB.setSummary(mMSOB.getEntry());
+        mMSOB.setOnPreferenceChangeListener(this);
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
 
+        if (preference == mMSOB) {
+            int value = Integer.parseInt(((String) newValue).toString());
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.MEDIA_SCANNER_ON_BOOT, value);
+            mMSOB.setValue(String.valueOf(value));
+            mMSOB.setSummary(mMSOB.getEntries()[value]);
+            return true;
+        }
         return false;
     }
 
