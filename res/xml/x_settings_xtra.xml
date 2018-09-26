@@ -37,6 +37,12 @@
             android:entryValues="@array/screenshot_type_values"
             android:title="@string/screenshot_type_title" />
 
+        <com.msm.xtended.preferences.GlobalSettingSwitchPreference
+            android:key="allow_signature_fake"
+            android:title="@string/allow_signature_fake"
+            android:summary="@string/allow_signature_fake_summary"
+            android:defaultValue="false" />
+
         <!-- MediaScanner behavior on boot -->
         <ListPreference
             android:key="media_scanner_on_boot"
