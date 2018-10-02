@@ -24,6 +24,7 @@ public class GestureSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.x_settings_gestures);
+        mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.gesture_settings_info);
 
         mTorchLongPressPowerTimeout =
                     (ListPreference) findPreference(KEY_TORCH_LONG_PRESS_POWER_TIMEOUT);
