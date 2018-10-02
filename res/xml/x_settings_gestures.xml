@@ -25,6 +25,12 @@
         android:fragment="com.android.settings.gestures.GestureSettings"
         settings:controller="com.android.settings.gestures.GesturesSettingPreferenceController"/>
 
+    <Preference
+        android:key="CarbonGestures"
+        android:title="@string/carbon_gesture_preference_title"
+        android:summary="@string/carbon_gestures_summary"
+        android:fragment="com.msm.xtended.fragments.CarbonGesturesSettings" />
+
     <PreferenceCategory
          android:key="dtts_category"
          android:title="@string/dtts_category_header" >
