@@ -50,4 +50,10 @@
             android:entries="@array/media_scanner_on_boot_entries"
             android:entryValues="@array/media_scanner_on_boot_values" />
 
+        <com.msm.xtended.preferences.SystemSettingSwitchPreference
+            android:key="ignore_rssnr"
+            android:title="@string/ignore_rssnr_title"
+            android:summary="@string/ignore_rssnr_summary"
+            android:defaultValue="false" />
+
 </PreferenceScreen>

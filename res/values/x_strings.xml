@@ -1002,5 +1002,8 @@
     <!-- Charging options -->
     <string name="vibration_on_charge_state_changed_title">Vibrate on plug/unplug</string>
     <string name="vibration_on_charge_state_changed_summary">Enable/disable vibration on plug/unplug</string>
+
+    <string name="ignore_rssnr_title">Ignore RSSNR</string>
+    <string name="ignore_rssnr_summary">Ignore RSSNR in LTE signal strength calculation</string>
        
 </resources>
