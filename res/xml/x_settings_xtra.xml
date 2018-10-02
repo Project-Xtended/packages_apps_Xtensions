@@ -24,6 +24,12 @@
             android:summary="@string/wakeup_when_plugged_unplugged_summary"
             android:defaultValue="true" />
 
+        <com.msm.xtended.preferences.SecureSettingSwitchPreference
+            android:key="charging_vibration_enabled"
+            android:title="@string/vibration_on_charge_state_changed_title"
+            android:summary="@string/vibration_on_charge_state_changed_summary"
+            android:defaultValue="true" />
+
         <com.msm.xtended.preferences.SystemSettingListPreference
             android:key="screenshot_type"
             android:entries="@array/screenshot_type_entries"
