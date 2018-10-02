@@ -65,18 +65,6 @@
             android:summary="@string/adb_notify_summary"
             android:defaultValue="true" />
 
-        <com.msm.xtended.preferences.GlobalSettingSwitchPreference
-            android:key="wake_when_plugged_or_unplugged"
-            android:title="@string/wakeup_when_plugged_unplugged_title"
-            android:summary="@string/wakeup_when_plugged_unplugged_summary"
-            android:defaultValue="true" />
-
-        <com.msm.xtended.preferences.SystemSettingSwitchPreference
-            android:key="vibration_on_charge_state_changed"
-            android:title="@string/vibration_on_charge_state_changed_title"
-            android:summary="@string/vibration_on_charge_state_changed_summary"
-            android:defaultValue="true" />
-
         <com.msm.xtended.preferences.SystemSettingSwitchPreference
             android:key="disable_fc_notifications"
             android:title="@string/disable_fc_notifications_title"

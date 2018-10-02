@@ -50,6 +50,18 @@
             android:entries="@array/media_scanner_on_boot_entries"
             android:entryValues="@array/media_scanner_on_boot_values" />
 
+        <com.msm.xtended.preferences.GlobalSettingSwitchPreference
+            android:key="wake_when_plugged_or_unplugged"
+            android:title="@string/wakeup_when_plugged_unplugged_title"
+            android:summary="@string/wakeup_when_plugged_unplugged_summary"
+            android:defaultValue="true" />
+
+        <com.msm.xtended.preferences.SystemSettingSwitchPreference
+            android:key="vibration_on_charge_state_changed"
+            android:title="@string/vibration_on_charge_state_changed_title"
+            android:summary="@string/vibration_on_charge_state_changed_summary"
+            android:defaultValue="true" />
+
         <com.msm.xtended.preferences.SystemSettingSwitchPreference
             android:key="ignore_rssnr"
             android:title="@string/ignore_rssnr_title"
