@@ -72,6 +72,12 @@
             android:defaultValue="true" />
 
         <com.msm.xtended.preferences.SystemSettingSwitchPreference
+            android:key="vibration_on_charge_state_changed"
+            android:title="@string/vibration_on_charge_state_changed_title"
+            android:summary="@string/vibration_on_charge_state_changed_summary"
+            android:defaultValue="true" />
+
+        <com.msm.xtended.preferences.SystemSettingSwitchPreference
             android:key="disable_fc_notifications"
             android:title="@string/disable_fc_notifications_title"
             android:summary="@string/disable_fc_notifications_summary"

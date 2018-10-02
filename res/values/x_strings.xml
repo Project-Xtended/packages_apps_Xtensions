@@ -998,5 +998,9 @@
     <string name="carbon_gesture_media_previous">Previous media</string>
     <string name="carbon_gesture_customapp">Launch application</string>
     <string name="carbon_gesture_launch">Launch</string>
+
+    <!-- Charging options -->
+    <string name="vibration_on_charge_state_changed_title">Vibrate on plug/unplug</string>
+    <string name="vibration_on_charge_state_changed_summary">Enable/disable vibration on plug/unplug</string>
        
 </resources>
