@@ -65,6 +65,12 @@
             android:summary="@string/sensor_block_summary"
             android:defaultValue="true" />
 
+        <com.msm.xtended.preferences.SystemSettingSwitchPreference
+            android:key="pocket_judge"
+            android:title="@string/pocket_judge_title"
+            android:summary="@string/pocket_judge_summary"
+            android:defaultValue="false" />
+
         <com.msm.xtended.preferences.SecureSettingSwitchPreference
             android:key="adb_notify"
             android:title="@string/adb_notify"
