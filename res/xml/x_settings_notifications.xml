@@ -47,6 +47,12 @@
     </PreferenceCategory>
 
     <com.msm.xtended.preferences.SystemSettingSwitchPreference
+        android:key="notification_sound_vib_screen_on"
+        android:title="@string/notification_sound_vib_screen_on_title"
+        android:summary="@string/notification_sound_vib_screen_on_summary"
+        android:defaultValue="true" />
+
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference
         android:key="force_expanded_notifications"
         android:title="@string/force_expanded_notifications_title"
         android:summary="@string/force_expanded_notifications_summary"

@@ -1038,5 +1038,9 @@
     <!-- Pocket judge -->
     <string name="pocket_judge_title">Pocket detection</string>
     <string name="pocket_judge_summary">Block screen and button inputs when device is in pocket</string>
+
+    <!-- Notifications while screen on -->
+    <string name="notification_sound_vib_screen_on_title">Noisy notifications if screen on</string>
+    <string name="notification_sound_vib_screen_on_summary">Play sound and vibration for notifications when screen is on</string>
        
 </resources>
