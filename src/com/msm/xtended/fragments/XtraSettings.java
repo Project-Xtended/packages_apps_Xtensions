@@ -42,7 +42,7 @@ public class XtraSettings extends SettingsPreferenceFragment implements
         // MediaScanner behavior on boot
         mMSOB = (ListPreference) findPreference(MEDIA_SCANNER_ON_BOOT);
         int mMSOBValue = Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.MEDIA_SCANNER_ON_BOOT, 1);
+                Settings.System.MEDIA_SCANNER_ON_BOOT, 0);
         mMSOB.setValue(String.valueOf(mMSOBValue));
         mMSOB.setSummary(mMSOB.getEntry());
         mMSOB.setOnPreferenceChangeListener(this);
