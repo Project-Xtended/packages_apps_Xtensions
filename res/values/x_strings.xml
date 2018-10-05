@@ -109,6 +109,7 @@
     <string name="hardware_keys_category">Hardware keys</string>
     <string name="hardware_keys_disable_title">Disable HW Keys</string>
     <string name="hardware_keys_disable_summary">Toggle to enable disable hw keys</string>
+    <string name="hardware_keys_wake_title">Wake device</string>
 
     <!-- Buttons backlight timeout -->
     <string name="backlight_timeout_title">Buttons backlight timeout</string>
