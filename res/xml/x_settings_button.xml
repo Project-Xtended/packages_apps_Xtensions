@@ -90,6 +90,11 @@
             android:summary="@string/hardware_keys_double_tap_summary"
             android:title="@string/hardware_keys_double_tap_title" >
         </com.msm.xtended.preferences.ActionPreference>
+
+        <com.msm.xtended.preferences.SystemSettingSwitchPreference
+            android:key="back_wake_screen"
+            android:title="@string/hardware_keys_wake_title"
+            android:defaultValue="false" />
     </PreferenceCategory>
 	
     <PreferenceCategory
@@ -113,6 +118,11 @@
             android:summary="@string/hardware_keys_double_tap_summary"
             android:title="@string/hardware_keys_double_tap_title" >
         </com.msm.xtended.preferences.ActionPreference>		
+
+        <com.msm.xtended.preferences.SystemSettingSwitchPreference
+            android:key="home_wake_screen"
+            android:title="@string/hardware_keys_wake_title"
+            android:defaultValue="false" />
     </PreferenceCategory>
 	
     <PreferenceCategory
@@ -136,6 +146,11 @@
             android:summary="@string/hardware_keys_double_tap_summary"
             android:title="@string/hardware_keys_double_tap_title" >
         </com.msm.xtended.preferences.ActionPreference>
+
+        <com.msm.xtended.preferences.SystemSettingSwitchPreference
+            android:key="app_switch_wake_screen"
+            android:title="@string/hardware_keys_wake_title"
+            android:defaultValue="false" />
     </PreferenceCategory>
 	
     <PreferenceCategory
@@ -159,6 +174,11 @@
             android:summary="@string/hardware_keys_double_tap_summary"
             android:title="@string/hardware_keys_double_tap_title" >
         </com.msm.xtended.preferences.ActionPreference>
+
+        <com.msm.xtended.preferences.SystemSettingSwitchPreference
+            android:key="menu_wake_screen"
+            android:title="@string/hardware_keys_wake_title"
+            android:defaultValue="false" />
     </PreferenceCategory>
 	
     <PreferenceCategory
@@ -182,5 +202,10 @@
             android:summary="@string/hardware_keys_double_tap_summary"
             android:title="@string/hardware_keys_double_tap_title" >
         </com.msm.xtended.preferences.ActionPreference>
+
+        <com.msm.xtended.preferences.SystemSettingSwitchPreference
+            android:key="assist_wake_screen"
+            android:title="@string/hardware_keys_wake_title"
+            android:defaultValue="false" />
     </PreferenceCategory>
 </PreferenceScreen>
