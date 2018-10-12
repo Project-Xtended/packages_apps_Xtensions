@@ -1058,5 +1058,13 @@
     <string name="bluetooth_battery_summary">Display battery status for the connected bluetooth device, if available</string>
     <string name="bluetooth_battery_qs_title">Bluetooth Battery on QS</string>
     <string name="bluetooth_battery_qs_summary">Display battery status for the connected bluetooth device, if available</string>
+
+    <!-- Dashboard Suggestions & Conditions -->
+    <string name="dashboard_conditions_title">Dashboard conditions</string>
+    <string name="summary_dashboard_conditions_enabled">Dashboard conditions are enabled</string>
+    <string name="summary_dashboard_conditions_disabled">Dashboard conditions are disabled</string>
+    <string name="dashboard_suggestions_title">Dashboard suggestions</string>
+    <string name="summary_dashboard_suggestions_enabled">Dashboard suggestions are enabled</string>
+    <string name="summary_dashboard_suggestions_disabled">Dashboard suggestions are disabled</string>
        
 </resources>
