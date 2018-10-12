@@ -1052,5 +1052,11 @@
     <!-- Quick Settings -->
     <string name="lockscreen_qs_disabled_title">Disable quick settings when locked</string>
     <string name="lockscreen_qs_disabled_summary">Disable expanding quick settings on secure lock screens</string>
+
+    <!-- Bluetooth status -->
+    <string name="bluetooth_battery_title">Bluetooth Battery on Statusbar</string>
+    <string name="bluetooth_battery_summary">Display battery status for the connected bluetooth device, if available</string>
+    <string name="bluetooth_battery_qs_title">Bluetooth Battery on QS</string>
+    <string name="bluetooth_battery_qs_summary">Display battery status for the connected bluetooth device, if available</string>
        
 </resources>
