@@ -1048,5 +1048,9 @@
     <string name="recents_component_type_title">Recents Style</string>
     <string name="recents_pie">Pie</string>
     <string name="recents_oreo">Oreo</string>
+
+    <!-- Quick Settings -->
+    <string name="lockscreen_qs_disabled_title">Disable quick settings when locked</string>
+    <string name="lockscreen_qs_disabled_summary">Disable expanding quick settings on secure lock screens</string>
        
 </resources>
