@@ -42,4 +42,10 @@
             android:defaultValue="false"/>
     </PreferenceCategory>
 
+    <com.msm.xtended.preferences.SecureSettingSwitchPreference
+        android:key="status_bar_locked_on_secure_keyguard"
+        android:title="@string/lockscreen_qs_disabled_title"
+        android:summary="@string/lockscreen_qs_disabled_summary"
+        android:defaultValue="false" />
+
 </PreferenceScreen>
