@@ -1076,5 +1076,11 @@
     <string name="summary_dashboard_suggestions_disabled">Dashboard suggestions are disabled</string>
     <string name="tile_summary_title">Dashboard summaries</string>
     <string name="tile_summary">Disable summaries on the dashboard</string>
+
+    <!-- LockWeather Switches -->
+    <string name="lockscreen_weather_show_city_title">Show city name</string>
+    <string name="lockscreen_weather_show_city_summary">Show name of current city on left of image</string>
+    <string name="lockscreen_weather_show_temp_title">Show temperature</string>
+    <string name="lockscreen_weather_show_temp_summary">Show current city temperature on right of image</string>
        
 </resources>
