@@ -33,12 +33,14 @@ public class StatusBarBattery extends SettingsPreferenceFragment implements
 
     private static final String SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
+    private static final String TEXT_CHARGING_SYMBOL = "text_charging_symbol";
 
     private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 5;
     private static final int STATUS_BAR_BATTERY_STYLE_HIDDEN = 6;
 
     private ListPreference mStatusBarBatteryShowPercent;
     private ListPreference mStatusBarBattery;
+    private ListPreference mTextSymbol;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,7 +52,6 @@ public class StatusBarBattery extends SettingsPreferenceFragment implements
 
         mStatusBarBatteryShowPercent =
                 (ListPreference) findPreference(SHOW_BATTERY_PERCENT);
-
         int batteryShowPercent = Settings.System.getInt(resolver,
                 Settings.System.SHOW_BATTERY_PERCENT, 0);
         mStatusBarBatteryShowPercent.setValue(String.valueOf(batteryShowPercent));
@@ -64,6 +65,13 @@ public class StatusBarBattery extends SettingsPreferenceFragment implements
         mStatusBarBattery.setSummary(mStatusBarBattery.getEntry());
         enableStatusBarBatteryDependents(batteryStyle);
         mStatusBarBattery.setOnPreferenceChangeListener(this);
+
+        mTextSymbol = (ListPreference) findPreference(TEXT_CHARGING_SYMBOL);
+        int showTextSymbol = Settings.System.getInt(resolver,
+                Settings.System.TEXT_CHARGING_SYMBOL, 0);
+        mTextSymbol.setValue(String.valueOf(batteryShowPercent));
+        mTextSymbol.setSummary(mTextSymbol.getEntry());
+        mTextSymbol.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -89,6 +97,13 @@ public class StatusBarBattery extends SettingsPreferenceFragment implements
                     Settings.Secure.STATUS_BAR_BATTERY_STYLE, batteryStyle);
             mStatusBarBattery.setSummary(mStatusBarBattery.getEntries()[index]);
             enableStatusBarBatteryDependents(batteryStyle);
+            return true;
+        } else if (preference == mTextSymbol) {
+            int showTextSymbol = Integer.valueOf((String) newValue);
+            int index = mTextSymbol.findIndexOfValue((String) newValue);
+            Settings.System.putInt(resolver,
+                    Settings.System.TEXT_CHARGING_SYMBOL, showTextSymbol);
+            mTextSymbol.setSummary(mTextSymbol.getEntries()[index]);
             return true;
         }
         return false;
