@@ -216,8 +216,8 @@
     <string name="x_theme_select_summary">Browse and select installed system themes</string>
 
     <!-- Omni Jaws -->
-    <string name="weather_title">Weather</string>
-    <string name="weather_summary">OmniJaws Configuration</string>
+    <string name="weather_title">Lockscreen Weather</string>
+    <string name="weather_summary">OmniJaws Weather Config</string>
     <string name="weather_config_title">Weather service</string>
     <string name="weather_config_summary">System service settings</string>
     <string name="header_weather_title">Header view weather</string>
