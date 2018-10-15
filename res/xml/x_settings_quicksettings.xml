@@ -24,6 +24,13 @@
         android:summary="@string/qs_show_brightness_summary"
         android:defaultValue="true" />
 
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference
+        android:key="qs_show_brightness_icon"
+        android:title="@string/brightness_icon_title"
+        android:summary="@string/brightness_icon_summary"
+        android:dependency="qs_show_brightness_slider"
+        android:defaultValue="false"/>
+
     <com.msm.xtended.preferences.SecureSettingSwitchPreference
         android:key="qs_brightness_position_bottom"
         android:title="@string/qs_brightness_position_bottom_title"
