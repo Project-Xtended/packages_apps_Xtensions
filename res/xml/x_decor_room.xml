@@ -28,6 +28,13 @@
                  android:targetClass="org.omnirom.omnistyle.BrowseThemesActivity" />
     </Preference>
 
+    <ListPreference
+         android:key="qs_tile_style"
+         android:title="@string/qs_tile_style_title"
+         android:persistent="false"
+         android:entries="@array/qs_selector_entries"
+         android:entryValues="@array/qs_selector_values" />
+
     <Preference
          android:key="batterybar_settings"
          android:title="@string/battery_bar_title"

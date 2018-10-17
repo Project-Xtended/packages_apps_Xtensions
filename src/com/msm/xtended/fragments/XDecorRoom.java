@@ -32,8 +32,10 @@ public class XDecorRoom extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String PREF_STATUS_BAR_WEATHER = "status_bar_show_weather_temp";
+    private static final String QS_TILE_STYLE = "qs_tile_style";
 
     private ListPreference mStatusBarWeather;
+    private ListPreference mQsTileStyle;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -51,16 +53,27 @@ public class XDecorRoom extends SettingsPreferenceFragment implements
                Settings.System.STATUS_BAR_SHOW_WEATHER_TEMP, 0,
                UserHandle.USER_CURRENT);
        mStatusBarWeather.setValue(String.valueOf(temperatureShow));
-       if (temperatureShow == 0) {
-           mStatusBarWeather.setSummary(R.string.statusbar_weather_summary);
-       } else {
-           mStatusBarWeather.setSummary(mStatusBarWeather.getEntry());
-       }
-          mStatusBarWeather.setOnPreferenceChangeListener(this);
+           if (temperatureShow == 0) {
+               mStatusBarWeather.setSummary(R.string.statusbar_weather_summary);
+           } else {
+               mStatusBarWeather.setSummary(mStatusBarWeather.getEntry());
+           }
+       mStatusBarWeather.setOnPreferenceChangeListener(this);
+
+       mQsTileStyle = (ListPreference) findPreference(QS_TILE_STYLE);
+       int qsTileStyle = Settings.System.getIntForUser(resolver,
+               Settings.System.QS_TILE_STYLE, 0,
+	       UserHandle.USER_CURRENT);
+       int valueIndex = mQsTileStyle.findIndexOfValue(String.valueOf(qsTileStyle));
+       mQsTileStyle.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
+       mQsTileStyle.setSummary(mQsTileStyle.getEntry());
+       mQsTileStyle.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
+
         if (preference == mStatusBarWeather) {
             int temperatureShow = Integer.valueOf((String) objValue);
             int index = mStatusBarWeather.findIndexOfValue((String) objValue);
@@ -74,8 +87,13 @@ public class XDecorRoom extends SettingsPreferenceFragment implements
                 mStatusBarWeather.getEntries()[index]);
             }
             return true;
+        } else if (preference == mQsTileStyle) {
+            int qsTileStyleValue = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(resolver, Settings.System.QS_TILE_STYLE,
+                    qsTileStyleValue, UserHandle.USER_CURRENT);
+            mQsTileStyle.setSummary(mQsTileStyle.getEntries()[qsTileStyleValue]);
         }
-        return false;
+        return true;
     }
 
     @Override
