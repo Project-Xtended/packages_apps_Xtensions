@@ -55,6 +55,8 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     private static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
     private static final String LOCK_SCREEN_VISUALIZER_CUSTOM_COLOR = "lock_screen_visualizer_custom_color";
     private static final String LOCK_DATE_FONTS = "lock_date_fonts";
+    private static final String CLOCK_FONT_SIZE  = "lockclock_font_size";
+    private static final String DATE_FONT_SIZE  = "lockdate_font_size";
 
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintVib;
@@ -64,6 +66,8 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     private CustomSeekBarPreference mMaxKeyguardNotifConfig;
     private SystemSettingSwitchPreference mFpKeystore;
     private ColorPickerPreference mVisualizerColor;
+    private CustomSeekBarPreference mClockFontSize;
+    private CustomSeekBarPreference mDateFontSize;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -124,6 +128,18 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         mVisualizerColor.setNewPreviewColor(visColor);
         mVisualizerColor.setAlphaSliderEnabled(true);
         mVisualizerColor.setOnPreferenceChangeListener(this);
+
+        // Lock Clock Size
+        mClockFontSize = (CustomSeekBarPreference) findPreference(CLOCK_FONT_SIZE);
+        mClockFontSize.setValue(Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKCLOCK_FONT_SIZE, 78));
+        mClockFontSize.setOnPreferenceChangeListener(this);
+
+        // Lock Date Size
+        mDateFontSize = (CustomSeekBarPreference) findPreference(DATE_FONT_SIZE);
+        mDateFontSize.setValue(Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKDATE_FONT_SIZE,14));
+        mDateFontSize.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -163,6 +179,16 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(resolver,
                     Settings.System.LOCK_SCREEN_VISUALIZER_CUSTOM_COLOR, intHex);
             preference.setSummary(hex);
+            return true;
+        } else if (preference == mClockFontSize) {
+            int top = (Integer) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKCLOCK_FONT_SIZE, top*1);
+            return true;
+        } else if (preference == mDateFontSize) {
+            int top = (Integer) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKDATE_FONT_SIZE, top*1);
             return true;
         }
         return false;
