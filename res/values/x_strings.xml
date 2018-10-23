@@ -1120,5 +1120,12 @@
     <!-- Brightness icon-->
     <string name="brightness_icon_title">Brightness icon </string>
     <string name="brightness_icon_summary">Show a brightness icon to the left of the brighness slider to adjust auto-brightness</string>
+
+    <!-- Quick settings tiles columns and rows config --> 
+    <string name="qs_tiles_config">QS Tiles Config</string>
+    <string name="qs_rows_portrait_title">Rows (Portrait)</string>
+    <string name="qs_rows_landscape_title">Rows (Landscape)</string>
+    <string name="qs_columns_portrait_title">Columns (Portrait)</string>
+    <string name="qs_columns_landscape_title">Columns (Landscape)</string>
        
 </resources>
