@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.content.ContentResolver;
 import android.content.res.Resources;
@@ -15,6 +16,7 @@ import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v14.preference.SwitchPreference;
 import android.provider.Settings;
+import android.provider.Settings.Secure;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import java.util.Locale;
@@ -42,6 +44,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private SystemSettingSeekBarPreference mRowsLandscape;
     private SystemSettingSeekBarPreference mQsColumnsPortrait;
     private SystemSettingSeekBarPreference mQsColumnsLandscape;
+    private SystemSettingSeekBarPreference mSysuiQqsCount;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -88,6 +91,11 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 Settings.System.QS_COLUMNS_LANDSCAPE, 5, UserHandle.USER_CURRENT);
         mQsColumnsLandscape.setValue(columnsQs);
         mQsColumnsLandscape.setOnPreferenceChangeListener(this);
+
+        int value = Settings.Secure.getInt(resolver, Settings.Secure.QQS_COUNT, 6);
+        mSysuiQqsCount = (SystemSettingSeekBarPreference) findPreference("sysui_qqs_count");
+        mSysuiQqsCount.setValue(value);
+        mSysuiQqsCount.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -123,6 +131,11 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             int value = (Integer) newValue;
             Settings.System.putIntForUser(resolver,
                     Settings.System.QS_COLUMNS_LANDSCAPE, value, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mSysuiQqsCount) {
+            int val = (Integer) newValue;
+            Settings.Secure.putIntForUser(getContentResolver(),
+                    Settings.Secure.QQS_COUNT, val, UserHandle.USER_CURRENT);
             return true;
         }
         return false;

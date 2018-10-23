@@ -63,6 +63,14 @@
             android:summary="@string/qs_tile_title_visibility_summary" 
             android:defaultValue="true" /> 
 
+        <com.msm.xtended.preferences.SystemSettingSeekBarPreference
+            android:key="sysui_qqs_count"
+            android:title="@string/sysui_qqs_count_title"
+            android:max="8"
+            android:min="3"
+            android:defaultValue="6"
+            android:persistent="false" />			
+
     </PreferenceCategory>
 
     <com.msm.xtended.preferences.SecureSettingSwitchPreference
