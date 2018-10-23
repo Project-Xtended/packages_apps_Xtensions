@@ -57,7 +57,14 @@
             android:defaultValue="5"
             android:persistent="false" />
 
+        <com.msm.xtended.preferences.SystemSettingSwitchPreference 
+            android:key="qs_tile_title_visibility" 
+            android:title="@string/qs_tile_title_visibility_title" 
+            android:summary="@string/qs_tile_title_visibility_summary" 
+            android:defaultValue="true" /> 
+
     </PreferenceCategory>
+
     <com.msm.xtended.preferences.SecureSettingSwitchPreference
         android:key="qs_show_brightness"
         android:title="@string/qs_show_brightness_title"
