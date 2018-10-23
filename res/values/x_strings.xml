@@ -1132,5 +1132,9 @@
     <string name="qs_tile_title_visibility_summary">Display title below each tile</string> 
 
     <string name="sysui_qqs_count_title">Small tiles</string>	
+
+    <!-- Show VoLTE icon on statusbar -->
+    <string name="volte_icon_title">VoLTE icon</string>
+    <string name="volte_icon_summary">Display VoLTE icon</string>
        
 </resources>
