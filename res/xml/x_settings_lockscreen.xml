@@ -61,6 +61,12 @@
         android:defaultValue="18"
         android:persistent="false" />
 
+    <PreferenceScreen
+        android:key="lockscreen_colors"
+        android:title="@string/lockscreen_colors"
+        android:summary="@string/lockscreen_colors_summary"
+        android:fragment="com.msm.xtended.fragments.LockColors" />
+
     <Preference
         android:key="omnijaws_settings"
         android:title="@string/weather_title"
