@@ -80,6 +80,11 @@
             android:defaultValue="18"
             android:persistent="false" />
 
+        <PreferenceScreen
+            android:title="@string/lockscreen_colors"
+            android:summary="@string/lockscreen_colors_summary"
+            android:fragment="com.msm.xtended.fragments.LockColors" />
+
         <com.xtended.support.preferences.SecureSettingSwitchPreference 
             android:key="hide_lock_shortcuts"
             android:title="@string/lockscreen_hide_shortcuts_title"
