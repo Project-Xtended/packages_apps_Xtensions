@@ -30,6 +30,13 @@
                 android:targetClass="com.android.systemui.tuner.NavBarActivity" />
     </Preference>
 
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference
+        android:key="one_hand_mode_enabled"
+        android:title="@string/one_hand_mode_title"
+        android:summary="@string/one_hand_mode_summary"
+        android:dependency="navbar_visibility"
+        android:defaultValue="false" />
+
     <PreferenceCategory
         android:key="navigation_burnin"
         android:title="@string/navigation_burnin_category"/>
