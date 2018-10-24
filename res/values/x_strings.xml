@@ -400,4 +400,9 @@
     <string name="lockscreen_colors_reset_message">Are you sure you want to reset these colors to default?</string>
     <string name="yes">YES</string>
 
+    <!-- LS Owner info Font & Size -->
+    <string name="lock_ownerinfo_font_title">LS Owner info font style</string>
+    <string name="lock_ownerinfo_font_dialog_title">Select lockscreen ownerinfo font</string>
+    <string name="lockowner_font_size_title">LS Owner info font size</string>
+
 </resources>
