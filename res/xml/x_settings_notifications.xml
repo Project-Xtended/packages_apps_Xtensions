@@ -20,6 +20,18 @@
 
     <PreferenceCategory
 
+        android:title="@string/notifications_general_category_title">
+
+       <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="status_bar_notif_count"
+            android:title="@string/status_bar_notif_count_title"
+            android:summary="@string/status_bar_notif_count_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+
         android:title="@string/notification_led_category_title" >
 
         <Preference
