@@ -486,4 +486,11 @@
     <string name="pulse_light_top_bottom">Only Top-Bottom</string>
     <string name="pulse_light_left_right">Only Left-Right</string>
 
+    <!-- Notifications general category -->
+    <string name="notifications_general_category_title">General</string>
+
+    <!-- Notification count -->
+    <string name="status_bar_notif_count_title">Show notifications count</string>
+    <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
+
 </resources>
