@@ -1299,5 +1299,9 @@
     <!-- Hide header -->
     <string name="tuner_show_info_header_title">Information header</string>
     <string name="tuner_show_info_header_category">Enable to hide</string>
+
+    <!-- Notification count -->
+    <string name="status_bar_notif_count_title">Show notification count</string>
+    <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
        
 </resources>
