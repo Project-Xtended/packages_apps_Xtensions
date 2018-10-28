@@ -31,4 +31,10 @@
          android:summary="@string/traffic_summary"
          android:fragment="com.msm.xtended.fragments.NetworkTraffic" />
 
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference
+        android:key="status_bar_notif_count"
+        android:title="@string/status_bar_notif_count_title"
+        android:summary="@string/status_bar_notif_count_summary"
+        android:defaultValue="false" />
+
 </PreferenceScreen>
