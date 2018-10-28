@@ -403,4 +403,11 @@
     <string name="notification_light_settings">Notifications Light</string>
     <string name="notification_light_summary">Notifications light customization</string>
 
+    <!-- Notifications general category -->
+    <string name="notifications_general_category_title">General</string>
+
+    <!-- Notification count -->
+    <string name="status_bar_notif_count_title">Show notifications count</string>
+    <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
+
 </resources>
