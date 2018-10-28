@@ -51,10 +51,16 @@
             android:defaultValue="false" />
 
         <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_weather_show_image"
+            android:title="@string/lockscreen_weather_show_image_title"
+            android:summary="@string/lockscreen_weather_show_image_summary"
+            android:defaultValue="true" />
+
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_weather_show_city"
             android:title="@string/lockscreen_weather_show_city_title"
             android:summary="@string/lockscreen_weather_show_city_summary"
-            android:defaultValue="false" />
+            android:defaultValue="true" />
 		
         <com.xtended.support.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_weather_show_temp"
