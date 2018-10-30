@@ -1280,5 +1280,9 @@
     <string name="gesture_anywhere_68">68px</string>
     <!-- Summaries For Forgotten Ones -->
     <string name="gesture_anywhere_summary">Gesture Anywhere Settings</string>
+
+    <!-- Force disable transition animation -->
+    <string name="disable_transition_animations_title">Disable transition animations</string>
+    <string name="disable_transition_animations_summary">Force disable all transition animations</string>
        
 </resources>
