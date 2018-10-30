@@ -927,4 +927,8 @@
     <string name="network_traffic_layout_v">Vertical</string>
     <string name="nettraf_font_size">Single net font size</string>
 
+    <!-- Navbar Animation -->
+    <string name="pixel_navbar_anim_title">Pixel animation</string>
+    <string name="pixel_navbar_anim_summary">Toggle home button animation</string>
+
 </resources>
