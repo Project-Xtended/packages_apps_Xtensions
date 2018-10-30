@@ -1258,6 +1258,10 @@
     <!-- QS Running Services Icon -->
     <string name="qs_running_services_title">Running Services Icon</string>
     <string name="qs_running_services_summary">Disable the tile running services icon in the footer</string>
+
+    <!-- Navbar Animation -->
+    <string name="pixel_navbar_anim_title">Pixel animation</string>
+    <string name="pixel_navbar_anim_summary">Toggle home button animation</string>
        
     <!-- Lockscreen clock style -->
     <string name="lockscreen_clock_title">Clock style</string>

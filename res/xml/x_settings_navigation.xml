@@ -32,4 +32,11 @@
                 android:targetClass="com.android.systemui.tuner.NavBarActivity" />
     </Preference>
 
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference
+        android:key="pixel_nav_animation"
+        android:title="@string/pixel_navbar_anim_title"
+        android:summary="@string/pixel_navbar_anim_summary"
+        android:dependency="enable_nav_bar"
+        android:defaultValue="true" />
+
 </PreferenceScreen>
