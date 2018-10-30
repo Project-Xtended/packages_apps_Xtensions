@@ -59,7 +59,6 @@ public class AnimationSettings extends SettingsPreferenceFragment
     private static final String TASK_CLOSE = "task_close";
     private static final String TASK_MOVE_TO_FRONT = "task_move_to_front";
     private static final String TASK_MOVE_TO_BACK = "task_move_to_back";
-    private static final String ANIMATION_NO_OVERRIDE = "animation_no_override";
     private static final String WALLPAPER_OPEN = "wallpaper_open";
     private static final String WALLPAPER_CLOSE = "wallpaper_close";
     private static final String WALLPAPER_INTRA_OPEN = "wallpaper_intra_open";
@@ -94,7 +93,6 @@ public class AnimationSettings extends SettingsPreferenceFragment
     private ListPreference mWallpaperClose;
     private ListPreference mWallpaperIntraOpen;
     private ListPreference mWallpaperIntraClose;
-    private SwitchPreference mAnimNoOverride;
     private CustomSeekBarPreference mAnimationDuration;
 
     private int[] mAnimations;
