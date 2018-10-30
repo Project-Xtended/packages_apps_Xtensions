@@ -457,4 +457,8 @@
     <string name="voicemail_breath_title">Breathing Voicemail</string>
     <string name="voicemail_breath_summary">Will give your voicemail notifications a breathing effect in the statusbar</string>
 
+    <!-- Force disable transition animation -->
+    <string name="disable_transition_animations_title">Disable transition animations</string>
+    <string name="disable_transition_animations_summary">Force disable all transition animations</string>
+       
 </resources>
