@@ -1288,5 +1288,9 @@
     <!-- Navbar Animation -->
     <string name="pixel_navbar_anim_title">Pixel animation</string>
     <string name="pixel_navbar_anim_summary">Toggle home button animation</string>
+
+    <!-- Hide header -->
+    <string name="tuner_show_info_header_title">Information header</string>
+    <string name="tuner_show_info_header_category">Enable to hide</string>
        
 </resources>
