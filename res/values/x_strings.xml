@@ -282,7 +282,7 @@
 
     <!-- Statusbar net monitor -->
     <string name="traffic_title">Network Traffic</string>
-    <string name="traffic_summary">TNet traffic indicators</string>
+    <string name="traffic_summary">Net traffic indicators</string>
     <string name="network_traffic_state_title">Network Traffic</string>
     <string name="network_traffic_state_summary">Show net activity in statusbar</string>
     <string name="network_traffic_type">Select net activity type</string>
@@ -894,7 +894,7 @@
     <string name="force_expanded_notifications_summary">Available only for apps that support expanded notifications</string>
 
     <!-- Dumb Dev -->
-    <string name="dumb_dev">This options are only meant to work with old rcents(Oreo recents). Please remove Quickstep to Enjoy these tweaks.</string>
+    <string name="dumb_dev">This options are only meant to work with old recents(Oreo recents). Please select Oreo recents to enjoy these options.</string>
 
     <!-- Wakelock blocker -->
     <string name="wakelock_blocker_title">Wakelock Blocker</string>
