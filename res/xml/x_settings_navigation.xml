@@ -44,8 +44,8 @@
         android:dependency="navbar_visibility"
         android:defaultValue="true" />
 
-    <Preference
-        android:key="pulse_settings"
+    <PreferenceScreen
+        android:id="@+id/pulse_settings"
         android:title="@string/pulse_settings"
         android:summary="@string/pulse_settings_summary"
         android:fragment="com.msm.xtended.fragments.PulseSettings" />
