@@ -93,7 +93,7 @@
         android:defaultValue="false"
         android:dependency="qs_show_brightness_slider" />
 
-    <com.msm.xtended.preferences.SystemSettingSwitchPreference
+    <com.msm.xtended.preferences.SecureSettingSwitchPreference
 	android:key="qs_show_info_header"
 	android:title="@string/tuner_show_info_header_title"
 	android:summary="@string/tuner_show_info_header_category"
