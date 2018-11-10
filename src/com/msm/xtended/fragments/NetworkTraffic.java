@@ -53,7 +53,7 @@ public class NetworkTraffic extends SettingsPreferenceFragment implements
         final ContentResolver resolver = getActivity().getContentResolver();
 
         boolean isNetMonitorEnabled = Settings.System.getIntForUser(resolver,
-                Settings.System.NETWORK_TRAFFIC_STATE, 1, UserHandle.USER_CURRENT) == 1;
+                Settings.System.NETWORK_TRAFFIC_STATE, 0, UserHandle.USER_CURRENT) == 1;
         mNetMonitor = (SystemSettingSwitchPreference) findPreference("network_traffic_state");
         mNetMonitor.setChecked(isNetMonitorEnabled);
         mNetMonitor.setOnPreferenceChangeListener(this);
@@ -80,7 +80,7 @@ public class NetworkTraffic extends SettingsPreferenceFragment implements
         if (preference == mNetMonitor) {
             boolean value = (Boolean) objValue;
             Settings.System.putIntForUser(getActivity().getContentResolver(),
-                    Settings.System.NETWORK_TRAFFIC_STATE, value ? 1 : 0,
+                    Settings.System.NETWORK_TRAFFIC_STATE, value ? 0 : 1,
                     UserHandle.USER_CURRENT);
             mNetMonitor.setChecked(value);
             mThreshold.setEnabled(value);
@@ -107,6 +107,5 @@ public class NetworkTraffic extends SettingsPreferenceFragment implements
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.XTENSIONS;
     }
-
 }
 
