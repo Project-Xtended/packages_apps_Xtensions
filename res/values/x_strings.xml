@@ -1324,5 +1324,9 @@
     <string name="disabled_entry">Disabled</string>
     <string name="not_ready_summary">Resolving...</string>
     <string name="resolve_failed_summary">Resolving app failed</string>
+
+     <!-- Roaming indicator icon -->
+    <string name="roaming_indicator_icon_title">Roaming indicator</string>
+    <string name="roaming_indicator_icon_summary">Display roaming indicator in signal icon when in roaming mode</string>
        
 </resources>
