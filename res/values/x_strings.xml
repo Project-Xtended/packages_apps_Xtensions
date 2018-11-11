@@ -1099,6 +1099,9 @@
     <string name="qstile_dottedcircle">Dotted Circle</string>
     <string name="qstile_attemptmountain">An attempt of a mountain</string>
     <string name="qstile_squaremedo">The Squaremedo</string>
+    <string name="qstile_oreo">Oreo Style</string>
+    <string name="qstile_oreo_circle_trim">Oreo (Circle Trim)</string>
+    <string name="qstile_oreo_squircle_trim">Oreo (Squircle Trim)</string>
 
     <!-- Lock Date Fonts -->
     <string name="lock_date_font_title">Date font options</string>
