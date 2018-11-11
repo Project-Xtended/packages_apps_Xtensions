@@ -1219,6 +1219,10 @@
     <string name="ticker_animation_mode_alpha_fade">Fade</string>
     <string name="ticker_animation_mode_scroll">Scroll</string>
     <string name="ticker_tick_duration_title">Ticker duration</string>
+
+    <!-- Old Mobile Icons -->
+    <string name="use_old_mobiletype_title">Use old mobile type style</string>
+    <string name="use_old_mobiletype_summary">Merge signal and type icons</string>
        
     <!-- Lockscreen clock style -->
     <string name="lockscreen_clock_title">Clock style</string>
