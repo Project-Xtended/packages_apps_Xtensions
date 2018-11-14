@@ -1386,5 +1386,13 @@
     <!-- Heads up options -->
     <string name="less_boring_heads_up_title">Dialer HeadsUp</string>
     <string name="less_boring_heads_up_summary">Show heads up only for dialer app and disable all others</string>
+
+    <!-- QS header styles -->
+    <string name="qs_header_style_title">QS Header style</string>
+    <string name="qs_header_black">Black</string>
+    <string name="qs_header_grey">Grey</string>
+    <string name="qs_header_lightgrey">Light Grey</string>
+    <string name="qs_header_accent">Accent Based</string>
+    <string name="qs_header_transparent">Transparent</string>
        
 </resources>

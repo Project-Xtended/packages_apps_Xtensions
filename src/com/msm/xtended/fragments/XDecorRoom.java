@@ -33,9 +33,11 @@ public class XDecorRoom extends SettingsPreferenceFragment implements
 
     private static final String PREF_STATUS_BAR_WEATHER = "status_bar_show_weather_temp";
     private static final String QS_TILE_STYLE = "qs_tile_style";
+    private static final String QS_HEADER_STYLE = "qs_header_style";
 
     private ListPreference mStatusBarWeather;
     private ListPreference mQsTileStyle;
+    private ListPreference mQsHeaderStyle;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -68,6 +70,14 @@ public class XDecorRoom extends SettingsPreferenceFragment implements
        mQsTileStyle.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
        mQsTileStyle.setSummary(mQsTileStyle.getEntry());
        mQsTileStyle.setOnPreferenceChangeListener(this);
+
+       mQsHeaderStyle = (ListPreference) findPreference(QS_HEADER_STYLE);
+       int qsHeaderStyle = Settings.System.getInt(resolver,
+               Settings.System.QS_HEADER_STYLE, 0);
+       int newIndex = mQsHeaderStyle.findIndexOfValue(String.valueOf(qsHeaderStyle));
+       mQsHeaderStyle.setValueIndex(newIndex >= 0 ? newIndex : 0);
+       mQsHeaderStyle.setSummary(mQsHeaderStyle.getEntry());
+       mQsHeaderStyle.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -92,6 +102,12 @@ public class XDecorRoom extends SettingsPreferenceFragment implements
             Settings.System.putIntForUser(resolver, Settings.System.QS_TILE_STYLE,
                     qsTileStyleValue, UserHandle.USER_CURRENT);
             mQsTileStyle.setSummary(mQsTileStyle.getEntries()[qsTileStyleValue]);
+        } else if (preference == mQsHeaderStyle) {
+            String value = (String) objValue;
+            Settings.System.putInt(resolver, Settings.System.QS_HEADER_STYLE,
+                   Integer.valueOf(value));
+            int newIndex = mQsHeaderStyle.findIndexOfValue(value);
+            mQsHeaderStyle.setSummary(mQsHeaderStyle.getEntries()[newIndex]);
         }
         return true;
     }
