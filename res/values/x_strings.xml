@@ -1383,5 +1383,8 @@
     <string name="pulse_filled_block_size">Block size</string>
     <string name="pulse_empty_block_size">Block spacing</string>
 
+    <!-- Heads up options -->
+    <string name="less_boring_heads_up_title">Dialer HeadsUp</string>
+    <string name="less_boring_heads_up_summary">Show heads up only for dialer app and disable all others</string>
        
 </resources>
