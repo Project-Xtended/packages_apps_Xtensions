@@ -969,6 +969,10 @@
     <string name="status_bar_logo_disabled">Disabled</string>
     <string name="status_bar_logo_style_title">Xtended logo style</string>
     <string name="status_bar_logo_color_title">Select color</string>
+
+    <!-- Data disabled icon -->
+    <string name="data_disabled_icon_title">Show data disabled icon</string>
+    <string name="data_disabled_icon_summary">Display the cross sign next to signal bar when data is disabled</string>
        
     <!-- Network Traffic Location -->
     <string name="network_traffic_location_title">Traffic indicator placement</string>
