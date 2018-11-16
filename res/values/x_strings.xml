@@ -452,6 +452,7 @@
     <string name="wakeup_when_plugged_unplugged_summary">Wake up device if charger is plugged/unplugged.</string>
 
     <!-- App Ops -->
+    <string name="app_ops_settings_title">Privacy Guard</string>
     <string name="app_ops_summary">Control apps operations</string>
 
     <!-- KeyBoard Features -->
