@@ -73,6 +73,7 @@ public class AnimationSettings extends SettingsPreferenceFragment
     private static final String PREF_TILE_ANIM_DURATION = "qs_tile_animation_duration";
     private static final String PREF_TILE_ANIM_INTERPOLATOR = "qs_tile_animation_interpolator";
     private static final String ANIMATION_DURATION = "animation_duration";
+    private static final String POWER_MENU_ANIMATIONS = "power_menu_animations";
 
     private ListPreference mToastAnimation;
     private ListPreference mScreenOffAnimation;
@@ -93,6 +94,7 @@ public class AnimationSettings extends SettingsPreferenceFragment
     private ListPreference mWallpaperClose;
     private ListPreference mWallpaperIntraOpen;
     private ListPreference mWallpaperIntraClose;
+    private ListPreference mPowerMenuAnimations;
     private CustomSeekBarPreference mAnimationDuration;
 
     private int[] mAnimations;
@@ -252,6 +254,12 @@ public class AnimationSettings extends SettingsPreferenceFragment
         mWallpaperIntraClose.setSummary(getProperSummary(mWallpaperIntraClose));
         mWallpaperIntraClose.setEntries(mAnimationsStrings);
         mWallpaperIntraClose.setEntryValues(mAnimationsNum);
+
+        mPowerMenuAnimations = (ListPreference) findPreference(POWER_MENU_ANIMATIONS);
+        mPowerMenuAnimations.setValue(String.valueOf(Settings.System.getInt(
+                getContentResolver(), Settings.System.POWER_MENU_ANIMATIONS, 0)));
+        mPowerMenuAnimations.setSummary(mPowerMenuAnimations.getEntry());
+        mPowerMenuAnimations.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -314,6 +322,12 @@ public class AnimationSettings extends SettingsPreferenceFragment
             Settings.System.putIntForUser(resolver, Settings.System.ANIM_TILE_INTERPOLATOR,
                     tileAnimationInterpolator, UserHandle.USER_CURRENT);
             updateTileAnimationInterpolatorSummary(tileAnimationInterpolator);
+            return true;
+        } else if (preference == mPowerMenuAnimations) {
+            Settings.System.putInt(getContentResolver(), Settings.System.POWER_MENU_ANIMATIONS,
+                    Integer.valueOf((String) newValue));
+            mPowerMenuAnimations.setValue(String.valueOf(newValue));
+            mPowerMenuAnimations.setSummary(mPowerMenuAnimations.getEntry());
             return true;
         } else if (preference == mActivityOpenPref) {
             int val = Integer.parseInt((String) newValue);
