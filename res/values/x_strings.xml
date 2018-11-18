@@ -1427,6 +1427,7 @@
     <string name="power_menu_animation_card">3D</string>
     <string name="power_menu_animation_translucent_top">Translucent (top)</string>
     <string name="power_menu_animation_translucent_bottom">Translucent (bottom)</string>
+    <string name="power_menu_animation_rotate">Rotate</string>
 
     <!-- Volume Wake -->
     <string name="volume_rocker_wake_title">Volume rocker wake</string>
