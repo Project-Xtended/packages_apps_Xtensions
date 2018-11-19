@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2018 MSM-Xtended Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/lockscreen_ui_title"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+    <ListPreference
+        android:key="lock_clock_fonts"
+        android:title="@string/lock_clock_font_title"
+        android:dialogTitle="@string/lock_clock_font_dialog_title"
+        android:entries="@array/lock_clock_fonts_entries"
+        android:entryValues="@array/lock_clock_fonts_values"
+        android:summary="@string/lock_clock_font_summary"
+        android:persistent="false" />
+
+    <ListPreference
+        android:key="lock_date_fonts"
+        android:title="@string/lock_date_font_title"
+        android:dialogTitle="@string/lock_date_font_dialog_title"
+        android:entries="@array/lock_clock_fonts_entries"
+        android:entryValues="@array/lock_clock_fonts_values"
+        android:summary="@string/lock_date_font_summary"
+        android:persistent="false" />
+
+    <ListPreference
+        android:key="lock_ownerinfo_fonts"
+        android:title="@string/lock_ownerinfo_font_title"
+        android:dialogTitle="@string/lock_ownerinfo_font_dialog_title"
+        android:summary="@string/lock_ownerinfo_font_summary"
+        android:entries="@array/lock_clock_fonts_entries"
+        android:entryValues="@array/lock_clock_fonts_values"
+        android:persistent="false" />
+
+    <com.msm.xtended.preferences.CustomSeekBarPreference
+        android:key="lockclock_font_size"
+        android:title="@string/lockclock_font_size_title"
+        android:max="108"
+        settings:min="50"
+        settings:units="dp"
+        android:persistent="false"
+        android:defaultValue="78" />
+
+    <com.msm.xtended.preferences.CustomSeekBarPreference
+        android:key="lockdate_font_size"
+        android:title="@string/lockdate_font_size_title"
+        android:max="25"
+        settings:min="10"
+        settings:units="dp"
+        android:defaultValue="14"
+        android:persistent="false" />
+
+    <com.msm.xtended.preferences.CustomSeekBarPreference
+        android:key="lockowner_font_size"
+        android:title="@string/lockowner_font_size_title"
+        android:max="25"
+        settings:min="1"
+        settings:units="dp"
+        android:defaultValue="21"
+        android:persistent="false" />
+
+    <PreferenceScreen
+    	android:key="lockscreen_colors"
+       	android:title="@string/lockscreen_colors"
+        android:summary="@string/lockscreen_colors_summary"
+       	android:fragment="com.msm.xtended.fragments.LockColors" />
+
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference
+        android:key="hide_lockscreen_status_bar"
+        android:title="@string/hide_lockscreen_status_bar_title"
+        android:summary="@string/hide_lockscreen_status_bar_summary"
+        android:defaultValue="false" />
+
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference
+        android:key="hide_lockscreen_indicator_display"
+        android:title="@string/hide_lockscreen_indicator_display_title"
+        android:summary="@string/hide_lockscreen_indicator_display_summary"
+        android:defaultValue="false" />
+
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference
+        android:key="hide_lockscreen_icon"
+        android:title="@string/hide_lockscreen_icon_title"
+        android:summary="@string/hide_lockscreen_icon_summary"
+        android:defaultValue="false" />
+
+</PreferenceScreen>
+
