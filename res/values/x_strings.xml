@@ -41,6 +41,8 @@
     <string name="decorroom_summary">Our Fav Decoration Options</string>
     <string name="animation_settings_title">Animations</string>
     <string name="animation_settings_summary">System Wide Animation Options</string>
+    <string name="lockscreen_ui_title">Lockscreen UI</string>
+    <string name="lockscreen_ui_summary">Change the looks of Lockscreen</string>
 
     <!-- SeekBar -->
     <string name="seekbar_no_default_value">No default value set</string>
