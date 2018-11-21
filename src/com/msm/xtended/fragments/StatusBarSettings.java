@@ -44,6 +44,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
     private static final String SMS_BREATH = "sms_breath";
     private static final String MISSED_CALL_BREATH = "missed_call_breath";
     private static final String VOICEMAIL_BREATH = "voicemail_breath";
+    private static final String KEY_HIDE_NOTCH = "statusbar_hide_notch";
 
     private SwitchPreference mSmsBreath;
     private SwitchPreference mMissedCallBreath;
@@ -83,6 +84,14 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
                 prefSet.removePreference(mMissedCallBreath);
                 prefSet.removePreference(mVoicemailBreath);
             }
+
+        final String displayCutout = getResources().getString(
+                com.android.internal.R.string.config_mainBuiltInDisplayCutout);
+        if(displayCutout.isEmpty()) {
+            final Preference hideNotchPref =
+                (Preference) prefSet.findPreference(KEY_HIDE_NOTCH);
+                 prefSet.removePreference(hideNotchPref);
+        }
     }
 
     @Override
