@@ -292,6 +292,7 @@
     <string name="status_bar_clock_font_size_title">Clock font size</string>
     <string name="status_bar_clock_color_title">Clock font color</string>
        
+<<<<<<< HEAD
     <!-- All Clock Fonts -->
     <string name="all_clock_font_stock">Normal (default)</string>
     <string name="all_clock_font_bold">Bold</string>
@@ -382,5 +383,8 @@
     <!-- Data disabled icon -->
     <string name="data_disabled_icon_title">Show data disabled icon</string>
     <string name="data_disabled_icon_summary">Display the cross sign next to signal bar when data is disabled</string>
+
+    <!-- Volume dialog timeout -->
+    <string name="volume_dialog_timeout_title">Volume dialog timeout</string>
 
 </resources>
