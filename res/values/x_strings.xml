@@ -1675,4 +1675,7 @@
     <string name="hide_notch_title">Hide notch</string>
     <string name="hide_notch_summary">If enabled it hides notch and fills in side gaps</string>
 
+    <!-- Volume dialog timeout -->
+    <string name="volume_dialog_timeout_title">Volume dialog timeout</string>
+
 </resources>
