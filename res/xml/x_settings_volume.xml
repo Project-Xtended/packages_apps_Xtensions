@@ -25,6 +25,13 @@
         android:persistent="false"
         android:defaultValue="true" />
 
+    <!-- Volume keys control media stream -->
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference
+        android:key="volume_keys_control_ring_tone"
+        android:title="@string/volume_keys_control_ring_tone_title"
+        android:summary="@string/volume_keys_control_ring_tone_summary"
+        android:defaultValue="false" />
+
     <com.msm.xtended.preferences.SystemSettingSeekBarPreference
         android:key="volume_dialog_timeout"
         android:title="@string/volume_dialog_timeout_title"
