@@ -1636,4 +1636,7 @@
     <string name="volume_keys_control_ring_tone_title">Control ring volume</string>
     <string name="volume_keys_control_ring_tone_summary">Keys control media slider by default. Enable to switch to ring tone slider.</string>
 
+    <string name="navigationbar_settings_title">SmartNav Bar</string>
+    <string name="navigationbar_settings_summary">Smart Nav Bar Customizations</string>
+
 </resources>
