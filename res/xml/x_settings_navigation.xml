@@ -44,12 +44,6 @@
         android:dependency="navbar_visibility"
         android:defaultValue="true" />
 
-    <PreferenceScreen
-        android:id="@+id/pulse_settings"
-        android:title="@string/pulse_settings"
-        android:summary="@string/pulse_settings_summary"
-        android:fragment="com.msm.xtended.fragments.PulseSettings" />
-
     <PreferenceCategory
         android:key="navigation_burnin"
         android:title="@string/navigation_burnin_category"/>
