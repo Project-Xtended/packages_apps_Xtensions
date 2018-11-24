@@ -67,14 +67,6 @@
             android:fragment="com.msm.xtended.fragments.LockScreenSettings"
             settings:allowDividerAbove="true" />
 
-        <!-- Navigation Bar -->
-        <PreferenceScreen
-            android:key="navigationbar_category"
-            android:title="@string/navbar_title" 
-            android:summary="@string/navbar_summary"
-            android:fragment="com.msm.xtended.fragments.NavbarSettings"
-	    settings:allowDividerAbove="true" />
-
         <!-- Smart Nav Bar -->
 	<PreferenceScreen
             android:key="navigationbar_settings"
