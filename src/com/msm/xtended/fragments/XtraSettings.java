@@ -35,6 +35,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.msm.xtended.preferences.AppMultiSelectListPreference;
 import com.msm.xtended.preferences.ScrollAppsViewPreference;
 import com.msm.xtended.preferences.SystemSettingSwitchPreference;
+import com.msm.xtended.preferences.SystemSettingSeekBarPreference;
 
 public class XtraSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
@@ -44,7 +45,11 @@ public class XtraSettings extends SettingsPreferenceFragment implements
     private static final String KEY_ASPECT_RATIO_APPS_LIST = "aspect_ratio_apps_list";
     private static final String KEY_ASPECT_RATIO_CATEGORY = "aspect_ratio_category";
     private static final String KEY_ASPECT_RATIO_APPS_LIST_SCROLLER = "aspect_ratio_apps_list_scroller";
+    private static final String SYSUI_ROUNDED_CONTENT_PADDING = "sysui_rounded_content_padding";
+    private static final String SYSUI_ROUNDED_SIZE = "sysui_rounded_size";
 
+    private SystemSettingSeekBarPreference mContentPadding;
+    private SystemSettingSeekBarPreference mCornerRadius;
     private ListPreference mMSOB;
     private AppMultiSelectListPreference mAspectRatioAppsSelect;
     private ScrollAppsViewPreference mAspectRatioApps;
@@ -85,6 +90,18 @@ public class XtraSettings extends SettingsPreferenceFragment implements
             mAspectRatioAppsSelect.setValues(valuesList);
             mAspectRatioAppsSelect.setOnPreferenceChangeListener(this);
         }
+
+        mContentPadding = (SystemSettingSeekBarPreference) findPreference(SYSUI_ROUNDED_CONTENT_PADDING);
+        int contentPadding = Settings.Secure.getInt(getContentResolver(),
+                Settings.Secure.SYSUI_ROUNDED_CONTENT_PADDING, 1);
+                mContentPadding.setValue(contentPadding / 1);
+                mContentPadding.setOnPreferenceChangeListener(this);
+
+        mCornerRadius = (SystemSettingSeekBarPreference) findPreference(SYSUI_ROUNDED_SIZE);
+        int cornerRadius = Settings.Secure.getInt(getContentResolver(),
+                Settings.Secure.SYSUI_ROUNDED_SIZE, 1);
+                mCornerRadius.setValue(cornerRadius / 1);
+                mCornerRadius.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -109,6 +126,16 @@ public class XtraSettings extends SettingsPreferenceFragment implements
             } else {
                 Settings.System.putString(resolver, Settings.System.OMNI_ASPECT_RATIO_APPS_LIST, "");
             }
+            return true;
+        } else if (preference == mContentPadding) {
+            int value = (Integer) newValue;
+            Settings.Secure.putInt(getContentResolver(),
+                    Settings.Secure.SYSUI_ROUNDED_CONTENT_PADDING, value * 1);
+            return true;
+        } else if (preference == mCornerRadius) {
+            int value = (Integer) newValue;
+            Settings.Secure.putInt(getContentResolver(),
+                    Settings.Secure.SYSUI_ROUNDED_SIZE, value * 1);
             return true;
         }
         return false;

@@ -91,6 +91,28 @@
             android:summary="@string/tile_summary"
             android:defaultValue="false" />
 
+    <PreferenceCategory 
+        android:title="@string/corners_category" > 
+
+        <com.msm.xtended.preferences.SystemSettingSeekBarPreference
+            android:key="sysui_rounded_size"
+            android:title="@string/corner_radius"
+            android:max="45"
+            android:min="1"
+            settings:units=""
+            android:defaultValue="1"
+            android:persistent="false" />
+			
+        <com.msm.xtended.preferences.SystemSettingSeekBarPreference
+            android:key="sysui_rounded_content_padding"
+            android:title="@string/content_padding"
+            android:max="20"
+            android:min="0"
+            settings:units=""
+            android:persistent="false" />
+			
+    </PreferenceCategory>
+
         <PreferenceCategory
             android:key="aspect_ratio_category"
             android:title="@string/aspect_ratio_category_title">
