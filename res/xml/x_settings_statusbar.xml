@@ -102,6 +102,12 @@
         android:summary="@string/status_bar_notif_count_summary"
         android:defaultValue="false" />
 
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference
+        android:key="notification_guts_kill_app_button"
+        android:title="@string/notification_guts_kill_app_button_title"
+        android:summary="@string/notification_guts_kill_app_button_summary"
+        android:defaultValue="false" />
+
   <PreferenceCategory
         android:title="@string/breathing_notifications_category" />
 
@@ -122,6 +128,7 @@
         android:title="@string/voicemail_breath_title"
         android:summary="@string/voicemail_breath_summary"
         android:persistent="false"/>
+
 
     <PreferenceCategory
         android:key="statusbar_notch"
