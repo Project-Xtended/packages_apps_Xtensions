@@ -61,6 +61,12 @@
             android:summary="@string/show_fourg_summary"
             android:defaultValue="false" />
 
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="data_disabled_icon"
+            android:title="@string/data_disabled_icon_title"
+            android:summary="@string/data_disabled_icon_summary"
+            android:defaultValue="true"/>
+
         <com.xtended.support.preferences.SecureSettingSwitchPreference
             android:key="hide_qs_call_strength"
             android:title="@string/show_qs_call_strength_icon_title"
