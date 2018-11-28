@@ -50,6 +50,13 @@
             android:entries="@array/media_scanner_on_boot_entries"
             android:entryValues="@array/media_scanner_on_boot_values" />
 
+        <!-- Launch Default Music Player on Headset -->
+        <ListPreference
+            android:key="headset_connect_player"
+            android:title="@string/headset_connect_player_title"
+            android:entries="@array/headset_connect_player_entries"
+            android:entryValues="@array/headset_connect_player_values" />
+
         <com.msm.xtended.preferences.GlobalSettingSwitchPreference
             android:key="wake_when_plugged_or_unplugged"
             android:title="@string/wakeup_when_plugged_unplugged_title"
