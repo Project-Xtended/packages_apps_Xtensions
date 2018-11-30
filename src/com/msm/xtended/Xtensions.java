@@ -44,6 +44,7 @@ public class Xtensions extends SettingsPreferenceFragment {
         if (!XUtils.isPackageInstalled(getActivity(), KEY_DEVICE_PART_PACKAGE_NAME)) {
             getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_PART));
         }
+
     }
 
     @Override

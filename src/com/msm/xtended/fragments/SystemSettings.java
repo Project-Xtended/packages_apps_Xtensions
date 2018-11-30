@@ -25,9 +25,13 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 import com.android.settings.SettingsPreferenceFragment;
+import com.msm.xtended.preferences.XUtils;
 
 public class SystemSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
+
+    private static final String KEY_DISPLAY_MANAGER = "display_manager";
+    private static final String PACKAGE_DISPLAY_MANAGER = "org.omnirom.omnidisplaymanager";
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -40,6 +44,11 @@ public class SystemSettings extends SettingsPreferenceFragment implements
         Preference SmartPixels = findPreference("smart_pixels");
         if (!enableSmartPixels){
             getPreferenceScreen().removePreference(SmartPixels);
+        }
+
+        // Omni Display Manager
+        if (!XUtils.isPackageInstalled(getActivity(), PACKAGE_DISPLAY_MANAGER)) {
+            getPreferenceScreen().removePreference(findPreference(KEY_DISPLAY_MANAGER));
         }
     }
 

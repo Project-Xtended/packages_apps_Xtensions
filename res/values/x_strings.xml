@@ -1657,4 +1657,8 @@
     <string name="power_menu_transparency">Power/reboot menu opacity</string>
     <string name="power_menu_dialog_dim">Power/reboot dialog dim background amount</string>
 
+    <!-- Display Manager -->
+    <string name="omni_display_manager">Display Colors</string>
+    <string name="omni_display_manager_summary">Calibrate your display colors</string>
+
 </resources>
