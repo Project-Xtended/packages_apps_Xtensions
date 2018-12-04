@@ -70,7 +70,6 @@ public class StatusBarBattery extends SettingsPreferenceFragment implements
         int showTextSymbol = Settings.System.getInt(resolver,
                 Settings.System.TEXT_CHARGING_SYMBOL, 0);
         mTextSymbol.setValue(String.valueOf(batteryShowPercent));
-        mTextSymbol.setSummary(mTextSymbol.getEntry());
         mTextSymbol.setOnPreferenceChangeListener(this);
     }
 
@@ -103,7 +102,6 @@ public class StatusBarBattery extends SettingsPreferenceFragment implements
             int index = mTextSymbol.findIndexOfValue((String) newValue);
             Settings.System.putInt(resolver,
                     Settings.System.TEXT_CHARGING_SYMBOL, showTextSymbol);
-            mTextSymbol.setSummary(mTextSymbol.getEntries()[index]);
             return true;
         }
         return false;
