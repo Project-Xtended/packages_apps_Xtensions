@@ -1695,4 +1695,8 @@
     <string name="pa_pie_gravity_right">Right</string> 
     <string name="pa_pie_gravity_left">Left</string> 
 
+    <!-- DashBoard Layout -->
+    <string name="show_dashboard_columns_title">Use columns layout</string>
+    <string name="show_dashboard_columns_summary">In settings main page</string>
+
 </resources>

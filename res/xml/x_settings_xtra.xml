@@ -97,12 +97,18 @@
             android:summaryOn="@string/summary_dashboard_suggestions_enabled"
             android:summaryOff="@string/summary_dashboard_suggestions_disabled"
             android:defaultValue="true" />
-
-        <com.msm.xtended.preferences.SystemSettingSwitchPreference
-            android:key="remove_tile_summary"
+       
+        <SwitchPreference
+            android:key="hide_dashboard_summary"
             android:title="@string/tile_summary_title"
             android:summary="@string/tile_summary"
             android:defaultValue="false" />
+
+        <SwitchPreference
+            android:key="show_dashboard_columns"
+            android:title="@string/show_dashboard_columns_title"
+            android:summary="@string/show_dashboard_columns_summary"
+            android:persistent="false" />
 
     <PreferenceCategory 
         android:title="@string/corners_category" > 

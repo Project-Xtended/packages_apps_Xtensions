@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.res.Resources;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.SystemProperties;
 import android.os.UserHandle;
@@ -22,6 +23,7 @@ import android.support.v14.preference.SwitchPreference;
 import android.text.TextUtils;
 import android.provider.Settings;
 import com.android.settings.R;
+import com.android.settings.SettingsActivity;
 
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -48,6 +50,10 @@ public class XtraSettings extends SettingsPreferenceFragment implements
     private static final String HEADSET_CONNECT_PLAYER = "headset_connect_player";
     private static final String SYSUI_ROUNDED_CONTENT_PADDING = "sysui_rounded_content_padding";
     private static final String SYSUI_ROUNDED_SIZE = "sysui_rounded_size";
+    private static final String KEY_SHOW_DASHBOARD_COLUMNS = "show_dashboard_columns";
+    private static final String KEY_HIDE_DASHBOARD_SUMMARY = "hide_dashboard_summary";
+
+    private SharedPreferences mAppPreferences;
 
     private SystemSettingSeekBarPreference mContentPadding;
     private SystemSettingSeekBarPreference mCornerRadius;
@@ -111,6 +117,31 @@ public class XtraSettings extends SettingsPreferenceFragment implements
                 Settings.Secure.SYSUI_ROUNDED_SIZE, 1);
                 mCornerRadius.setValue(cornerRadius / 1);
                 mCornerRadius.setOnPreferenceChangeListener(this);
+
+        mAppPreferences = getActivity().getSharedPreferences(SettingsActivity.APP_PREFERENCES_NAME,
+                Context.MODE_PRIVATE);
+
+        SwitchPreference showColumnsLayout = (SwitchPreference) findPreference(KEY_SHOW_DASHBOARD_COLUMNS);
+        showColumnsLayout.setChecked(mAppPreferences.getInt(SettingsActivity.KEY_COLUMNS_COUNT, 1) == 2);
+        showColumnsLayout.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                if ((Boolean) newValue ) {
+                    mAppPreferences.edit().putInt(SettingsActivity.KEY_COLUMNS_COUNT, 2).commit();
+                } else {
+                    mAppPreferences.edit().putInt(SettingsActivity.KEY_COLUMNS_COUNT, 1).commit();
+                }
+                return true;
+            }
+        });
+
+        SwitchPreference hideColumnSummary = (SwitchPreference) findPreference(KEY_HIDE_DASHBOARD_SUMMARY);
+        hideColumnSummary.setChecked(mAppPreferences.getBoolean(SettingsActivity.KEY_HIDE_SUMMARY, false));
+        hideColumnSummary.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                mAppPreferences.edit().putBoolean(SettingsActivity.KEY_HIDE_SUMMARY, ((Boolean) newValue)).commit();
+                return true;
+            }
+        });
     }
 
     @Override
