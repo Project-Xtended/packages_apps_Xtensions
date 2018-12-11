@@ -937,6 +937,13 @@
     <string name="lockscreen_visualizer_enable_custom_summary">Use a preset color instead of the generated color</string>
     <string name="lockscreen_visualizer_custom_color">Visualizer Color</string>
 
+    <!-- Burn-in Protection -->
+    <string name="navigation_burnin_category">Burn-in Protection</string>
+    <string name="burn_in_protection_title">Enable</string>
+    <string name="burn_in_protection_summary">Shift navabr and statusbar icons to prevent burn-in</string>
+    <string name="burn_in_protection_interval_title">Interval of shift</string>
+    <string name="burn_in_protection_interval_summary">How often to make icons shift</string>
+
     <!-- Statusbar logo -->
     <string name="status_bar_logo_category_title">Statusbar Logo</string>
     <string name="status_bar_logo_category_summary">Enable to display logo in the status bar</string>
@@ -1174,6 +1181,10 @@
     <string name="lockscreen_weather_icon_color">Weather Icon Color</string>
     <string name="yes">YES</string>
 
+    <!-- Onehand UI mode -->
+    <string name="one_hand_mode_title">Enable using one-hand mode</string>
+    <string name="one_hand_mode_summary">Allow swiping across right or left on navbar to enable</string>
+
     <!-- Hide On Lockscreen -->
     <string name="hide_lockscreen_indicator_display_title">Hide bottom status text</string>
     <string name="hide_lockscreen_indicator_display_summary">Hide charging information and unlock hints</string>
@@ -1296,6 +1307,10 @@
     <!-- Force disable transition animation -->
     <string name="disable_transition_animations_title">Disable transition animations</string>
     <string name="disable_transition_animations_summary">Force disable all transition animations</string>
+
+    <!-- Navbar Animation -->
+    <string name="pixel_navbar_anim_title">Pixel animation</string>
+    <string name="pixel_navbar_anim_summary">Toggle home button animation</string>
 
     <!-- Hide header -->
     <string name="tuner_show_info_header_title">Information header</string>
@@ -1630,8 +1645,8 @@
     <string name="volume_keys_control_ring_tone_title">Control ring volume</string>
     <string name="volume_keys_control_ring_tone_summary">Keys control media slider by default. Enable to switch to ring tone slider.</string>
 
-    <string name="navigationbar_settings_title">Navigation Bar</string>
-    <string name="navigationbar_settings_summary">NavBar Customizations</string>
+    <string name="navigationbar_settings_title">SmartNav Bar</string>
+    <string name="navigationbar_settings_summary">Smart Nav Bar Customizations</string>
 
     <!-- Notification guts kill app button -->
     <string name="notification_guts_kill_app_button_title">Kill app button</string>
