@@ -41,4 +41,7 @@
     <dimen name="theme_preview_actionbar_size">15dp</dimen>
     <dimen name="theme_color_margin_side">20dp</dimen>
 
+    <!-- Color Blend -->
+    <dimen name="color_blend_preview_size">36dp</dimen>
+
 </resources>

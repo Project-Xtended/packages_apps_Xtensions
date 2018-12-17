@@ -191,3 +191,4 @@ public class ColorPickerDialog extends AlertDialog implements ColorPickerView.On
         mColorPicker.setColor(savedInstanceState.getInt("new_color"), true);
     }
 }
+
