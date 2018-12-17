@@ -1721,6 +1721,16 @@
     <string name="fast_charging_light_color_title">Color</string>
     <string name="fast_charging_light_color_summary"></string>
 
+    <!-- Battery Color Blend -->
+    <string name="battery_light_blend_category">Blend colors</string>
+    <string name="battery_light_blend_title">Enable color blend</string>
+    <string name="battery_light_blend_summary">Gradually change colors between full and empty</string>
+    <string name="battery_light_blend_colors_title">Color selection</string>
+    <string name="battery_light_blend_colors_summary">Color range used when blending colors</string>
+    <string name="battery_blend_start">Empty</string>
+    <string name="battery_blend_end">Full</string>
+    <string name="battery_blend_between">Between</string>
+	   
     <!-- Color Blend Preference -->
     <string name="color_blend_ok">@android:string/ok</string>
     <string name="color_blend_cancel">@android:string/cancel</string>
