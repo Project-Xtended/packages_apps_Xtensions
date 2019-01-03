@@ -61,6 +61,8 @@ import java.util.Collections;
 public class StatusBarSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String PREF_KEY_CUTOUT = "cutout_settings";
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -68,6 +70,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.x_settings_statusbar);
 
         final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        Preference mCutoutPref = (Preference) findPreference(PREF_KEY_CUTOUT);
     }
 
     @Override

@@ -59,6 +59,12 @@
             android:summary="@string/battery_percent_summary"
             android:fragment="com.xtended.fragments.StatusbarBatterySettings"/>
 
+         <Preference 
+            android:key="cutout_settings" 
+            android:fragment="com.xtended.fragments.CutoutFragment"
+            android:title="@string/cutout_main"
+            android:summary="@string/cutout_main_summary" />
+
         <com.xtended.support.preferences.SystemSettingSwitchPreference 
             android:key="show_fourg"
             android:title="@string/show_fourg_title"
