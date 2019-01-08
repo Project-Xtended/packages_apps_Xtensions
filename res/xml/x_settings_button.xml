@@ -37,8 +37,7 @@
             android:key="swap_navigation_keys"
             android:title="@string/swap_navigation_keys_title"
             android:summary="@string/swap_navigation_keys_title_summary"
-	    android:defaultValue="false"
-	    android:dependency="back_key" />
+	    android:defaultValue="false" />
 
         <com.msm.xtended.preferences.SystemSettingSwitchPreference
             android:key="anbi_enabled_option"
