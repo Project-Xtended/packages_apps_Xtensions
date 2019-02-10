@@ -26,6 +26,12 @@
         android:title="@string/doze_always_on_title"
         android:summary="@string/doze_always_on_summary" />
 
+    <com.xtended.support.preferences.SecureSettingSwitchPreference
+        android:key="doze_on_charge"
+        android:defaultValue="false"
+        android:title="@string/doze_on_charge_title"
+        android:summary="@string/doze_on_charge_summary" />
+
     <PreferenceCategory
         android:key="doze_sensor"
         android:title="@string/doze_sensor_title" >
