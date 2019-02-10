@@ -1066,6 +1066,10 @@
     <string name="hide_lockicon_title">Hide lock icon</string>
     <string name="hide_lockicon_summary">Hide the lock icon on lockscreen</string>
 
+    <!-- Doze on charge -->
+    <string name="doze_on_charge_title">Always on when charging</string>
+    <string name="doze_on_charge_summary">Show doze screen all the time when charging</string>
+
     <!-- Ambient edge lighting -->
     <string name="pulse_ambient_light_category">Screen edge lighting</string>
     <string name="pulse_ambient_light_title">Edge lighting</string>

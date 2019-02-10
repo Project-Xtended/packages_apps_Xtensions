@@ -76,8 +76,10 @@ public class XAmbientDecorSettings extends SettingsPreferenceFragment
     private static final String AMBIENT_LIGHT_CUSTOM_COLOR = "ambient_notification_light_color";
     private static final String AMBIENT_LIGHT_DURATION = "ambient_notification_light_duration";
     private static final String AMBIENT_LIGHT_REPEAT_COUNT = "ambient_notification_light_repeats";
+    private static final String AOD_CHARGE_KEY = "doze_on_charge";
 
     private SwitchPreference mDozeAlwaysOnPreference;
+    private SecureSettingSwitchPreference mDozeOnChargePreference;
     private SwitchPreference mTiltPreference;
     private SwitchPreference mPickUpPreference;
     private SwitchPreference mHandwavePreference;
@@ -104,6 +106,7 @@ public class XAmbientDecorSettings extends SettingsPreferenceFragment
                 (PreferenceCategory) getPreferenceScreen().findPreference(CATEG_DOZE_SENSOR);
 
         mDozeAlwaysOnPreference = (SwitchPreference) findPreference(KEY_DOZE_ALWAYS_ON);
+        mDozeOnChargePreference = (SecureSettingSwitchPreference) findPreference(AOD_CHARGE_KEY);
 
         mTiltPreference = (SwitchPreference) findPreference(KEY_DOZE_TILT_GESTURE);
         mTiltPreference.setOnPreferenceChangeListener(this);
@@ -135,6 +138,7 @@ public class XAmbientDecorSettings extends SettingsPreferenceFragment
         boolean mAlwaysOnAvailable = getResources().getBoolean(com.android.internal.R.bool.config_dozeAlwaysOnDisplayAvailable);
         if (!mAlwaysOnAvailable) {
             getPreferenceScreen().removePreference(mDozeAlwaysOnPreference);
+            getPreferenceScreen().removePreference(mDozeOnChargePreference);
         }
 
         mEdgeLightColorMode = (SystemSettingListPreference) findPreference(AMBIENT_LIGHT_COLOR);
