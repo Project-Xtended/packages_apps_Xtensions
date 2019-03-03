@@ -32,6 +32,14 @@
         android:dependency="network_traffic_state"
         android:persistent="false" />
 
+    <com.msm.xtended.preferences.CustomSeekBarPreference
+        android:key="network_traffic_font_size"
+        android:title="@string/nettraf_font_size"
+        android:max="21"
+        settings:min="14"
+        settings:defaultValue="15"
+        settings:units="dp" />
+
     <com.msm.xtended.preferences.SystemSettingSwitchPreference
         android:key="network_traffic_hidearrow"
         android:title="@string/network_traffic_hidearrow"
