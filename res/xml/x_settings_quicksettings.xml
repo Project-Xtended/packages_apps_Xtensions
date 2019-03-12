@@ -70,6 +70,12 @@
             android:persistent="false" />
     </PreferenceCategory>
 
+    <Preference
+         android:key="category_custom_header"
+         android:title="@string/statusbar_header_category_title"
+         android:summary="@string/statusbar_header_category_summary"
+         android:fragment="com.msm.xtended.fragments.StatusbarHeader" />
+
     <com.msm.xtended.preferences.SystemSettingSwitchPreference 
         android:key="qs_tile_title_visibility" 
         android:title="@string/qs_tile_title_visibility_title" 
