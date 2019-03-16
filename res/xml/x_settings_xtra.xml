@@ -75,12 +75,6 @@
             android:summary="@string/vibration_on_charge_state_changed_summary"
             android:defaultValue="true" />
 
-        <com.msm.xtended.preferences.SystemSettingSwitchPreference
-            android:key="ignore_rssnr"
-            android:title="@string/ignore_rssnr_title"
-            android:summary="@string/ignore_rssnr_summary"
-            android:defaultValue="false" />
-
     <PreferenceCategory
          android:title="@string/dashboard_cat" />
 
