@@ -1650,11 +1650,6 @@
     <string name="safe_headset_volume_summary">Prevent loud volume levels when headset is first plugged in</string>
     <string name="safe_headset_volume_warning_dialog_text">Listening at high volume for long periods may damage your hearing. Disable it with caution.</string>
 
-    <!-- Hide notch -->
-    <string name="statusbar_notch">Notch</string>
-    <string name="hide_notch_title">Hide notch</string>
-    <string name="hide_notch_summary">If enabled it hides notch and fills in side gaps</string>
-
     <!-- Volume dialog timeout -->
     <string name="volume_dialog_timeout_title">Volume dialog timeout</string>
 

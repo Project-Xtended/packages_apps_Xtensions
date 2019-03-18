@@ -129,16 +129,4 @@
         android:summary="@string/voicemail_breath_summary"
         android:persistent="false"/>
 
-
-    <PreferenceCategory
-        android:key="statusbar_notch"
-        android:title="@string/statusbar_notch">
-
-        <com.msm.xtended.preferences.SystemSettingSwitchPreference
-            android:key="statusbar_hide_notch"
-            android:title="@string/hide_notch_title"
-            android:summary="@string/hide_notch_summary"
-            android:defaultValue="false" />
-    </PreferenceCategory>
-
 </PreferenceScreen>
