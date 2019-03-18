@@ -44,6 +44,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
     private static final String SMS_BREATH = "sms_breath";
     private static final String MISSED_CALL_BREATH = "missed_call_breath";
     private static final String VOICEMAIL_BREATH = "voicemail_breath";
+    private static final String PREF_KEY_CUTOUT = "cutout_settings";
 
     private SwitchPreference mSmsBreath;
     private SwitchPreference mMissedCallBreath;
@@ -57,6 +58,10 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
 
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
+
+        Preference mCutoutPref = (Preference) findPreference(PREF_KEY_CUTOUT);
+        if (!hasPhysicalDisplayCutout(getContext()))
+            getPreferenceScreen().removePreference(mCutoutPref);
 
             // Breathing Notifications
             mSmsBreath = (SwitchPreference) findPreference(SMS_BREATH);
@@ -83,6 +88,11 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
                 prefSet.removePreference(mMissedCallBreath);
                 prefSet.removePreference(mVoicemailBreath);
             }
+    }
+
+    private static boolean hasPhysicalDisplayCutout(Context context) {
+        return context.getResources().getBoolean(
+                com.android.internal.R.bool.config_physicalDisplayCutout);
     }
 
     @Override
