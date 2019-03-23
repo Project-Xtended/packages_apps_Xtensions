@@ -232,6 +232,10 @@
 	<item>@string/lock_clock_font_neoneon</item>
         <item>@string/lock_clock_font_themeable</item>
 	<item>@string/lock_clock_font_samsung</item>
+        <item>@string/lock_clock_font_mexcellent</item>
+        <item>@string/lock_clock_font_burnstown</item>
+        <item>@string/lock_clock_font_dumbledor</item>
+	<item>@string/lock_clock_font_phantombold</item>
     </string-array>
 
     <string-array name="lock_clock_fonts_values" translatable="false">
@@ -267,6 +271,10 @@
 	<item>29</item>
 	<item>30</item>
 	<item>31</item>
+        <item>32</item>
+	<item>33</item>
+        <item>34</item>
+	<item>35</item>
     </string-array>
 
     <!-- HW Keys customization -->
