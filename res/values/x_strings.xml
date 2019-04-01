@@ -1858,4 +1858,7 @@
     <string name="soft_reboot_title">Rebooting</string>
     <string name="soft_reboot_message">Soft reboot is in progress, please be patient</string>
 
+    <!-- QS background opacity -->
+    <string name="qs_panel_alpha_title">QS Panel Opacity</string>
+
 </resources>

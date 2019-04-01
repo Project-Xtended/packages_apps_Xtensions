@@ -37,6 +37,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String PREF_ROWS_LANDSCAPE = "qs_rows_landscape";
     private static final String PREF_COLUMNS_PORTRAIT = "qs_columns_portrait";
     private static final String PREF_COLUMNS_LANDSCAPE = "qs_columns_landscape";
+    private static final String QS_PANEL_ALPHA = "qs_panel_alpha";
 
     private ListPreference mQuickPulldown;
     private ListPreference mSmartPulldown;
@@ -45,6 +46,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private SystemSettingSeekBarPreference mQsColumnsPortrait;
     private SystemSettingSeekBarPreference mQsColumnsLandscape;
     private SystemSettingSeekBarPreference mSysuiQqsCount;
+    private SystemSettingSeekBarPreference mQsPanelAlpha;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -96,6 +98,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mSysuiQqsCount = (SystemSettingSeekBarPreference) findPreference("sysui_qqs_count");
         mSysuiQqsCount.setValue(value);
         mSysuiQqsCount.setOnPreferenceChangeListener(this);
+
+        mQsPanelAlpha = (SystemSettingSeekBarPreference) findPreference(QS_PANEL_ALPHA);
+        int qsPanelAlpha = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.QS_PANEL_BG_ALPHA, 255, UserHandle.USER_CURRENT);
+        mQsPanelAlpha.setValue(qsPanelAlpha);
+        mQsPanelAlpha.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -136,6 +144,11 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             int val = (Integer) newValue;
             Settings.Secure.putIntForUser(getContentResolver(),
                     Settings.Secure.QQS_COUNT, val, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mQsPanelAlpha) {
+            int bgAlpha = (Integer) newValue;
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.QS_PANEL_BG_ALPHA, bgAlpha, UserHandle.USER_CURRENT);
             return true;
         }
         return false;
