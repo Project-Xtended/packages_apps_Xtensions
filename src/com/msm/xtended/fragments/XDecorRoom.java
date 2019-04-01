@@ -25,6 +25,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 import com.msm.xtended.preferences.XUtils;
+import android.graphics.drawable.AdaptiveIconDrawable;
 
 import com.android.settings.SettingsPreferenceFragment;
 
@@ -48,6 +49,8 @@ public class XDecorRoom extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
         PreferenceScreen prefSet = getPreferenceScreen();
         Resources res = getResources();
+
+       findPreference(AdaptiveIconDrawable.MASK_SETTING_PROP).setOnPreferenceChangeListener(this);
 
        // Status bar weather
        /*mStatusBarWeather = (ListPreference) findPreference(PREF_STATUS_BAR_WEATHER);
@@ -108,6 +111,10 @@ public class XDecorRoom extends SettingsPreferenceFragment implements
                    Integer.valueOf(value));
             int newIndex = mQsHeaderStyle.findIndexOfValue(value);
             mQsHeaderStyle.setSummary(mQsHeaderStyle.getEntries()[newIndex]);
+        } else if (AdaptiveIconDrawable.MASK_SETTING_PROP.equals(preference.getKey())) {
+            XUtils.showRebootDialog(getActivity(), getString(R.string.icon_shape_changed_title),
+                    getString(R.string.icon_shape_changed_message), true);
+            return true;
         }
         return true;
     }
