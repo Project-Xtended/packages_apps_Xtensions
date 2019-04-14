@@ -332,6 +332,7 @@
 
     <!-- Lock Clock Fonts -->
     <string name="lock_clock_font_title">LS Clock font style</string>
+    <string name="custom_text_clock_font_title">Text Clock font style</string>
     <string name="lock_clock_font_dialog_title">Select lockscreen clock font</string>
     <string name="lock_clock_font_stock">Normal (default)</string>
     <string name="lock_clock_font_bold">Bold</string>
@@ -377,6 +378,7 @@
     <!-- Lock Clock & Date Size -->
     <string name="lockdate_font_size_title">LS Date font size</string>
     <string name="lockclock_font_size_title">LS Clock font size</string>
+    <string name="custom_text_clock_font_size_title">Text Clock font size</string>
 
     <!-- Hide Lockscreen shortcuts on secure Lockscreen -->
     <string name="lockscreen_hide_shortcuts_title">Hide bottom shortcuts</string>
