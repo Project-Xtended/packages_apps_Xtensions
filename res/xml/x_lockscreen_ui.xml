@@ -62,6 +62,15 @@
         android:defaultValue="78" />
 
     <com.msm.xtended.preferences.CustomSeekBarPreference
+        android:key="custom_text_clock_font_size"
+        android:title="@string/custom_text_clock_font_size_title"
+        android:max="51"
+        settings:min="30"
+        settings:units="dp"
+        android:persistent="false"
+        android:defaultValue="32" />
+
+    <com.msm.xtended.preferences.CustomSeekBarPreference
         android:key="lockdate_font_size"
         android:title="@string/lockdate_font_size_title"
         android:max="25"
