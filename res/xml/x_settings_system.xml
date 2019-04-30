@@ -69,6 +69,12 @@
              android:title="@string/doze_settings_title"
              android:summary="@string/doze_settings_summary"
              android:fragment="com.msm.xtended.fragments.DozeSettings" />
+
+        <Preference
+            android:key="aggressive_battery"
+            android:title="@string/aggressive_battery_title"
+            android:summary="@string/aggressive_battery_summary"
+            android:fragment="com.msm.xtended.fragments.AggressiveBattery" />
   
         <com.msm.xtended.preferences.SystemSettingSwitchPreference
             android:key="sensor_block"
