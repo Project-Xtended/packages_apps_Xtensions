@@ -53,6 +53,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";
     private static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
     private static final String LOCK_SCREEN_VISUALIZER_CUSTOM_COLOR = "lock_screen_visualizer_custom_color";
+    private static final String KEY_LAVALAMP = "lockscreen_lavalamp_enabled";
 
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintVib;
@@ -60,6 +61,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     private CustomSeekBarPreference mMaxKeyguardNotifConfig;
     private SystemSettingSwitchPreference mFpKeystore;
     private ColorPickerPreference mVisualizerColor;
+    private SwitchPreference mLavaLamp;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -107,6 +109,8 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         mVisualizerColor.setAlphaSliderEnabled(true);
         mVisualizerColor.setOnPreferenceChangeListener(this);
 
+        mLavaLamp = (SwitchPreference) findPreference(KEY_LAVALAMP);
+        mLavaLamp.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -134,6 +138,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(resolver,
                     Settings.System.LOCK_SCREEN_VISUALIZER_CUSTOM_COLOR, intHex);
             preference.setSummary(hex);
+            return true;
+        } else if (preference == mLavaLamp) {
+            boolean value = (Boolean) newValue;
+            Settings.Secure.putInt(resolver,
+                Settings.Secure.LOCKSCREEN_LAVALAMP_ENABLED, value ? 1 : 0);
             return true;
         }
         return false;
