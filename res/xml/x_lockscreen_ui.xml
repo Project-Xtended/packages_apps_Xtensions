@@ -36,6 +36,12 @@
         android:summary="%s"
         android:defaultValue="0" />
 
+    <com.xtended.support.preferences.SecureSettingSwitchPreference
+        android:key="center_text_clock"
+        android:title="@string/center_text_clock_title"
+        android:summary="@string/center_text_clock_summary"
+        android:defaultValue="false" />
+
     <ListPreference
         android:key="lock_clock_fonts"
         android:title="@string/lock_clock_font_title"
