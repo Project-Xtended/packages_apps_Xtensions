@@ -1894,4 +1894,8 @@
     <string name="lockscreen_lavalamp_summary">Use a smooth lava lamp style color blend animation</string>
     <string name="lockscreen_lavalamp_speed_title">Color blend interval</string>
 
+    <!-- Q To X Clock -->
+    <string name="center_text_clock_title">Center Text Clock</string>
+    <string name="center_text_clock_summary">Tranform Q-Clock to X-Clock</string>
+
 </resources>
