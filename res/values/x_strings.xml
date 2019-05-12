@@ -309,6 +309,8 @@
     <string name="network_traffic_hidearrow">Hide arrows</string>
     <string name="network_traffic_hidearrow_summary">Hide the network traffic indicator arrows</string>
     <string name="nettraf_font_size">Single Net Font size</string>
+    <string name="network_traffic_statusbar">Status bar</string>
+    <string name="network_traffic_header">Expanded header</string>
 
     <!-- Hide Lockscreen shortcuts on secure Lockscreen -->
     <string name="lockscreen_hide_shortcuts_title">Hide Bottom Shortcuts</string>
@@ -1904,5 +1906,9 @@
     <!-- Q To X Clock -->
     <string name="center_text_clock_title">Center Text Clock</string>
     <string name="center_text_clock_summary">Tranform Q-Clock to X-Clock</string>
+
+    <!-- Network Traffic Location -->
+    <string name="network_traffic_location_title">Traffic indicator placement</string>
+    <string name="network_traffic_location_summary">Place indicator in either status bar or expanded header (recommended for displays with notch cutouts)</string>
 
 </resources>

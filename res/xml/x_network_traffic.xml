@@ -55,6 +55,15 @@
         settings:units=""
         android:dependency="network_traffic_state" />
 
+    <com.msm.xtended.preferences.SystemSettingListPreference
+        android:key="network_traffic_view_location"
+        android:title="@string/network_traffic_location_title"
+        android:summary="@string/network_traffic_location_summary"
+        android:entries="@array/network_traffic_location_entries"
+        android:entryValues="@array/network_traffic_location_values"
+        android:dependency="network_traffic_state"
+        android:defaultValue="1" />
+
 </PreferenceScreen>
 
 
