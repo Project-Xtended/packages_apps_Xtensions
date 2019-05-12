@@ -79,6 +79,8 @@
     <string name="network_traffic_hidearrow">Hide arrows</string>
     <string name="network_traffic_hidearrow_summary">Hide the network traffic indicator arrows</string>
     <string name="nettraf_font_size">Single Net Font size</string>
+    <string name="network_traffic_statusbar">Status bar</string>
+    <string name="network_traffic_header">Expanded header</string>
 
     <!-- HW Keys customization -->
     <string name="action_value_default_action" translatable="false">default</string>
@@ -959,4 +961,8 @@
     <string name="less_boring_heads_up_title">Dialer HeadsUp</string>
     <string name="less_boring_heads_up_summary">Show heads up only for dialer app and disable all others</string>
        
+    <!-- Network Traffic Location -->
+    <string name="network_traffic_location_title">Traffic indicator placement</string>
+    <string name="network_traffic_location_summary">Place indicator in either status bar or expanded header (recommended for displays with notch cutouts)</string>
+
 </resources>
