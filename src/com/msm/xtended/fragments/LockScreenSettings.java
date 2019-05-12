@@ -52,16 +52,12 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
     private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";
     private static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
-    private static final String LOCK_SCREEN_VISUALIZER_CUSTOM_COLOR = "lock_screen_visualizer_custom_color";
-    private static final String KEY_LAVALAMP = "lockscreen_lavalamp_enabled";
 
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintVib;
     private SwitchPreference mFaceUnlock;
     private CustomSeekBarPreference mMaxKeyguardNotifConfig;
     private SystemSettingSwitchPreference mFpKeystore;
-    private ColorPickerPreference mVisualizerColor;
-    private SwitchPreference mLavaLamp;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -99,18 +95,6 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         mMaxKeyguardNotifConfig.setValue(kgconf);
         mMaxKeyguardNotifConfig.setOnPreferenceChangeListener(this);
 
-        // Visualizer custom color
-        mVisualizerColor = (ColorPickerPreference) findPreference(LOCK_SCREEN_VISUALIZER_CUSTOM_COLOR);
-        int visColor = Settings.System.getInt(resolver,
-                Settings.System.LOCK_SCREEN_VISUALIZER_CUSTOM_COLOR, 0xff1976D2);
-        String visColorHex = String.format("#%08x", (0xff1976D2 & visColor));
-        mVisualizerColor.setSummary(visColorHex);
-        mVisualizerColor.setNewPreviewColor(visColor);
-        mVisualizerColor.setAlphaSliderEnabled(true);
-        mVisualizerColor.setOnPreferenceChangeListener(this);
-
-        mLavaLamp = (SwitchPreference) findPreference(KEY_LAVALAMP);
-        mLavaLamp.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -130,19 +114,6 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
             int kgconf = (Integer) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, kgconf);
-            return true;
-        } else if (preference == mVisualizerColor) {
-            String hex = ColorPickerPreference.convertToARGB(
-                    Integer.valueOf(String.valueOf(newValue)));
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(resolver,
-                    Settings.System.LOCK_SCREEN_VISUALIZER_CUSTOM_COLOR, intHex);
-            preference.setSummary(hex);
-            return true;
-        } else if (preference == mLavaLamp) {
-            boolean value = (Boolean) newValue;
-            Settings.Secure.putInt(resolver,
-                Settings.Secure.LOCKSCREEN_LAVALAMP_ENABLED, value ? 1 : 0);
             return true;
         }
         return false;

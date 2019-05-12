@@ -109,53 +109,11 @@
         android:dependency="lockscreen_media_metadata"
         android:defaultValue="0" />
 
-    <PreferenceCategory
-        android:key="lockscreen_visualizer"
-        android:title="@string/lockscreen_visualizer_category" />
-
-        <com.msm.xtended.preferences.SecureSettingSwitchPreference
-            android:key="lockscreen_visualizer_enabled"
-            android:title="@string/lockscreen_visualizer_enable"
-            android:summary="@string/lockscreen_visualizer_enable_summary"
-            android:defaultValue="false" />
-
-        <com.msm.xtended.preferences.SecureSettingSwitchPreference
-            android:key="ambient_visualizer"
-            android:title="@string/ambient_visualizer_title"
-            android:summary="@string/ambient_visualizer_summary"
-            android:dependency="lockscreen_visualizer_enabled"
-            android:defaultValue="false" />
-
-        <com.msm.xtended.preferences.SecureSettingSwitchPreference
-            android:key="lockscreen_lavalamp_enabled"
-            android:title="@string/lockscreen_lavalamp_title"
-            android:summary="@string/lockscreen_lavalamp_summary"
-            android:dependency="lockscreen_visualizer_enabled"
-            android:defaultValue="false" />
-
-        <com.msm.xtended.preferences.SecureSettingSeekBarPreference
-            android:key="lockscreen_lavalamp_speed"
-            android:title="@string/lockscreen_lavalamp_speed_title"
-            android:defaultValue="10000"
-            android:max="30000"
-            settings:min="200"
-            settings:interval="200"
-	    settings:units="ms"
-            android:dependency="lockscreen_lavalamp_enabled" />
-
-        <com.msm.xtended.preferences.SystemSettingSwitchPreference
-            android:key="lock_screen_visualizer_use_custom_color"
-            android:title="@string/lockscreen_visualizer_enable_custom"
-            android:summary="@string/lockscreen_visualizer_enable_custom_summary"
-            android:dependency="lockscreen_visualizer_enabled"
-            android:defaultValue="false" />
-
-        <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="lock_screen_visualizer_custom_color"
-            android:title="@string/battery_bar_color"
-            android:dependency="lock_screen_visualizer_use_custom_color"
-            android:defaultValue="0xffffffff"
-            android:dialogTitle="@string/lockscreen_visualizer_custom_color" />
+    <PreferenceScreen
+        android:key="lockscreen_visualizer_ui"
+        android:title="@string/visualizer_ui_title"
+        android:summary="@string/visualizer_ui_summary"
+        android:fragment="com.msm.xtended.fragments.VisualizerUI" />
 
 </PreferenceScreen>
 

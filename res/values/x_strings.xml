@@ -45,6 +45,8 @@
     <string name="animation_settings_summary">System Wide Animation Options</string>
     <string name="lockscreen_ui_title">Lockscreen UI</string>
     <string name="lockscreen_ui_summary">Change the looks of Lockscreen</string>
+    <string name="visualizer_ui_title">Lockscreen Visualizer</string>
+    <string name="visualizer_ui_summary">Customize the looks of Visualizer</string>
 
     <!-- General strings -->
     <string name="ok">OK</string>
