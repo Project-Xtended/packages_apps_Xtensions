@@ -568,4 +568,8 @@
     <string name="pulse_light_top_bottom">Only Top-Bottom</string>
     <string name="pulse_light_left_right">Only Left-Right</string>
 
+    <!--Less boring heads up -->
+    <string name="less_boring_heads_up_title">Less boring heads up</string>
+    <string name="less_boring_heads_up_summary">Quickly disable heads up for all apps but keep it enabled only for dialer</string>
+
 </resources>
