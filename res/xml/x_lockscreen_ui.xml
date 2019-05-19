@@ -31,6 +31,12 @@
         android:summary="@string/center_text_clock_summary"
         android:defaultValue="false" />
 
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference
+        android:key="left_align_view"
+        android:title="@string/left_align_view_title"
+        android:summary="@string/left_align_view_summary"
+        android:defaultValue="false" />
+
     <ListPreference
         android:key="lock_clock_fonts"
         android:title="@string/lock_clock_font_title"

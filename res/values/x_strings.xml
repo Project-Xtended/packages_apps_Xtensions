@@ -1910,6 +1910,8 @@
     <!-- Network Traffic Location -->
     <string name="network_traffic_location_title">Traffic indicator placement</string>
     <string name="network_traffic_location_summary">Place indicator in either status bar or expanded header (recommended for displays with notch cutouts)</string>
+    <string name="left_align_view_title">Left Align Date n Weather</string>
+    <string name="left_align_view_summary">Align Weather and Date View to Q-Clock</string>
 
     <!-- Battery estimates -->
     <string name="battery_estimates_title">Battery Estimates in QS</string>
