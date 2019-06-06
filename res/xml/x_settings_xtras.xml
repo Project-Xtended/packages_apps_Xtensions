@@ -32,6 +32,12 @@
             android:summary="@string/wakeup_when_plugged_unplugged_summary"
             android:defaultValue="true" />
 
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="charging_animation"
+            android:title="@string/charging_animation_title"
+            android:summary="@string/charging_animation_summary"
+            android:defaultValue="true" />
+
         <ListPreference
             android:key="ringtone_focus_mode"
             android:title="@string/ringtone_focus_mode_title"
