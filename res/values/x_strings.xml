@@ -1917,4 +1917,8 @@
     <string name="battery_estimates_title">Battery Estimates in QS</string>
     <string name="battery_estimates_summary">Show the estimated battery life in QS panel</string>
 
+    <!-- Charging animation -->
+    <string name="lockscreen_charging_animation_title">LS Charging animation</string>
+    <string name="lockscreen_charging_animation_summary">Display a Lottie animation when the device is charging</string>
+
 </resources>
