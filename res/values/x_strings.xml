@@ -675,4 +675,8 @@
     <string name="hide_lockicon_title">Hide lock icon</string>
     <string name="hide_lockicon_summary">Hide the lock icon on lockscreen</string>
 
+    <!-- Charging animation -->
+    <string name="lockscreen_charging_animation_title">LS Charging animation</string>
+    <string name="lockscreen_charging_animation_summary">Display a Lottie animation when the device is charging</string>
+
 </resources>
