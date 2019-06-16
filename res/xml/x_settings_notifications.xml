@@ -96,6 +96,12 @@
             android:entries="@array/flashlight_on_call_entries"
             android:entryValues="@array/flashlight_on_call_values" />
 
+        <com.msm.xtended.preferences.SystemSettingSwitchPreference
+            android:key="dialer_accent_enable"
+            android:title="@string/dialer_accent_enable_title"
+            android:summary="@string/dialer_accent_enable_summary"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

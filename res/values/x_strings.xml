@@ -1921,4 +1921,8 @@
     <string name="lockscreen_charging_animation_title">LS Charging animation</string>
     <string name="lockscreen_charging_animation_summary">Display a Lottie animation when the device is charging</string>
 
+    <!-- Disable InCall UI Accent -->	   
+    <string name="dialer_accent_enable_title">In-Call UI Accent</string>
+    <string name="dialer_accent_enable_summary">Enable Device Accent on InCall UI</string>
+
 </resources>
