@@ -1131,6 +1131,9 @@
         <item>@string/qstile_inkdrop</item>
         <item>@string/qstile_cookie</item>
         <item>@string/qstile_circleoutline</item>
+        <item>@string/qstile_neon</item>
+        <item>@string/qstile_oos</item>
+        <item>@string/qstile_triangle</item>
     </string-array>
 
     <string-array name="qs_selector_values" translatable="false">
@@ -1151,7 +1154,10 @@
         <item>14</item>
         <item>15</item>
         <item>16</item>
-		<item>17</item>
+	<item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
     </string-array>
 
     <!-- Smart pulldown -->
