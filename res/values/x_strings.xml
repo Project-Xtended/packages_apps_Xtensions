@@ -1929,4 +1929,9 @@
     <string name="dialer_accent_enable_title">In-Call UI Accent</string>
     <string name="dialer_accent_enable_summary">Enable Device Accent on InCall UI</string>
 
+    <!-- Powermenu Background -->
+    <string name="power_menu_bg_title">Background Filter</string>
+    <string name="power_menu_bg_summary">Enables Custom filter when powermenu is active</string>
+    <string name="power_menu_bg_style_title">Filter Type</string>
+
 </resources>
