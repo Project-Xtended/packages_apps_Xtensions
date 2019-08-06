@@ -1934,4 +1934,10 @@
     <string name="power_menu_bg_summary">Enables Custom filter when powermenu is active</string>
     <string name="power_menu_bg_style_title">Filter Type</string>
 
+    <!-- Lockscreen Date styles -->
+    <string name="lockscreen_date_selection_title">Date style</string>
+    <string name="lockscreen_date_selection_default">Default</string>
+    <string name="lockscreen_date_selection_str_box">Semi-transparent box</string>
+    <string name="lockscreen_date_selection_str_round">Semi-transparent box (round)</string>
+
 </resources>

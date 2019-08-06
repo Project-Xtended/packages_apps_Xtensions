@@ -23,6 +23,15 @@
         android:title="@string/lockscreen_clock_selection_title"
         android:entries="@array/lockscreen_clock_selection_entries"
         android:entryValues="@array/lockscreen_clock_selection_values"
+        android:dependency="lockscreen_clock"
+        android:defaultValue="0" />
+
+    <com.msm.xtended.preferences.SystemSettingListPreference
+        android:key="lockscreen_date_selection"
+        android:title="@string/lockscreen_date_selection_title"
+        android:entries="@array/lockscreen_date_selection_entries"
+        android:entryValues="@array/lockscreen_date_selection_values"
+        android:dependency="lockscreen_info"
         android:defaultValue="0" />
 
     <com.msm.xtended.preferences.SystemSettingSwitchPreference
