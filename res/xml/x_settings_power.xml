@@ -38,6 +38,21 @@
             settings:unitsLeft=""
             settings:unitsRight="%"
             android:defaultValue="50" />
+
+        <com.msm.xtended.preferences.SystemSettingSwitchPreference
+            android:key="power_menu_bg"
+            android:title="@string/power_menu_bg_title"
+            android:summary="@string/power_menu_bg_summary"
+            android:defaultValue="false" />
+
+        <com.msm.xtended.preferences.SystemSettingListPreference
+            android:key="power_menu_bg_style"
+            android:title="@string/power_menu_bg_style_title"
+            android:entries="@array/power_menu_bg_style_entries"
+            android:entryValues="@array/power_menu_bg_style_values"
+            android:dependency="power_menu_bg"
+            android:defaultValue="0" />
+
     </PreferenceCategory>
 
     <ListPreference
