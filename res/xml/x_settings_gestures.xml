@@ -82,6 +82,15 @@
             android:dependency="use_bottom_gesture_navigation"
             android:persistent="false" />
 
+        <com.msm.xtended.preferences.SystemSettingSeekBarPreference
+            android:key="bottom_gesture_navigation_feedback_duration"
+            android:entries="@array/bottom_gestures_feedback_time_labels"
+            android:entryValues="@array/bottom_gestures_feedback_time"
+            android:title="@string/bottom_gestures_feedback_duration_title"
+            android:summary="%s"
+            android:defaultValue="50"
+            android:dependency="use_bottom_gesture_navigation" />
+
     <com.msm.xtended.preferences.SystemSettingSwitchPreference 
         android:key="three_finger_gesture" 
         android:title="@string/three_finger_gesture" 
