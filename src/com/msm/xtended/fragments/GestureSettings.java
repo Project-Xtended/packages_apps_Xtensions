@@ -26,10 +26,12 @@ public class GestureSettings extends SettingsPreferenceFragment implements
             "torch_long_press_power_timeout";
     private static final String KEY_SWIPE_LENGTH = "gesture_swipe_length";
     private static final String KEY_SWIPE_TIMEOUT = "gesture_swipe_timeout";
+    private static final String KEY_SWIPE_START = "gesture_swipe_start";
 
     private ListPreference mTorchLongPressPowerTimeout;
     private SystemSettingSeekBarPreference mSwipeTriggerLength;
     private SystemSettingSeekBarPreference mSwipeTriggerTimeout;
+    private SystemSettingSeekBarPreference mSwipeTriggerStart;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,13 @@ public class GestureSettings extends SettingsPreferenceFragment implements
                 getResources().getInteger(com.android.internal.R.integer.nav_gesture_swipe_timout));
         mSwipeTriggerTimeout.setValue(triggerTimeout);
         mSwipeTriggerTimeout.setOnPreferenceChangeListener(this);
+
+        mSwipeTriggerStart = (SystemSettingSeekBarPreference) findPreference(KEY_SWIPE_START);
+        int triggerStart = Settings.System.getInt(resolver, Settings.System.BOTTOM_GESTURE_SWIPE_START,
+                getResources().getInteger(com.android.internal.R.integer.nav_gesture_swipe_start));
+        mSwipeTriggerStart.setValue(triggerStart);
+        mSwipeTriggerStart.setOnPreferenceChangeListener(this);
+
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -81,6 +90,11 @@ public class GestureSettings extends SettingsPreferenceFragment implements
             int value = (Integer) newValue;
             Settings.System.putInt(resolver,
                     Settings.System.BOTTOM_GESTURE_TRIGGER_TIMEOUT, value);
+            return true;
+        } else if (preference == mSwipeTriggerStart) {
+            int value = (Integer) newValue;
+            Settings.System.putIntForUser(resolver,
+                    Settings.System.BOTTOM_GESTURE_SWIPE_START, value, UserHandle.USER_CURRENT);
             return true;
         }
         return false;
