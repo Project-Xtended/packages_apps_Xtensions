@@ -64,6 +64,12 @@
             android:entries="@array/headset_connect_player_entries"
             android:entryValues="@array/headset_connect_player_values" />
 
+        <com.msm.xtended.preferences.SystemSettingSwitchPreference
+            android:key="charging_animation"
+            android:title="@string/charging_animation_title"
+            android:summary="@string/charging_animation_summary"
+            android:defaultValue="true" />
+
         <com.msm.xtended.preferences.GlobalSettingSwitchPreference
             android:key="wake_when_plugged_or_unplugged"
             android:title="@string/wakeup_when_plugged_unplugged_title"
