@@ -1955,4 +1955,12 @@
     <string name="charging_animation_title">Charging animation</string>
     <string name="charging_animation_summary">Display an animation when the device is plugged in</string>
 
+    <!-- QS themes -->
+    <string name="qs_themes_category_title">QS Themes</string>
+    <string name="qs_panel_color_title">QS Panel color</string>
+    <string name="qs_bg_wall_title">Use Wallpaper colors</string>
+    <string name="qs_bg_wall_summary">Set QS background color from Wallpaper</string>
+    <string name="qs_bg_use_fw">Use default colors</string>
+    <string name="qs_bg_use_fw_summary">Disable custom QS styles for external theme engines</string>
+
 </resources>
