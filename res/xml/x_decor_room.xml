@@ -28,6 +28,16 @@
                  android:targetClass="org.omnirom.omnistyle.BrowseThemesActivity" />
     </Preference>
 
+    <Preference
+        android:key="ambient_display_custom"
+	android:title="@string/ambient_display_screen_title"
+	android:summary="@string/ambient_display_screen_summary" >
+        <intent
+            android:action="com.android.settings.action.EXTRA_SETTINGS"
+            android:targetPackage="com.custom.ambient.display"
+            android:targetClass="com.custom.ambient.display.DozeSettings" />
+    </Preference>
+
     <com.msm.xtended.preferences.SystemSettingIntListPreference
          android:key="theming_settings_dashboard_icons"
          android:title="@string/theming_settings_dashboard_icons_title"

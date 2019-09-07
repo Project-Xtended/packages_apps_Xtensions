@@ -1835,6 +1835,10 @@
     <string name="theming_settings_dashboard_icons_plain">Oreo</string>
     <string name="theming_settings_dashboard_icons_plain_accent">Oreo (Accent)</string>
 
+    <!-- Custom Ambient Display Config -->
+    <string name="ambient_display_screen_title">Xtended Ambient Display</string>
+    <string name="ambient_display_screen_summary">Custom Ambient Display Configuration</string>
+
     <!-- Ambient visualizer -->
     <string name="ambient_visualizer_title">Ambient visualizer</string>
     <string name="ambient_visualizer_summary">Shows white visualization bars on ambient display unless custom color is selected</string>
