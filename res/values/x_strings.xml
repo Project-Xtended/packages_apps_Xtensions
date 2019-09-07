@@ -477,5 +477,9 @@
     <!-- Force disable transition animation -->
     <string name="disable_transition_animations_title">Disable transition animations</string>
     <string name="disable_transition_animations_summary">Force disable all transition animations</string>
+
+    <!-- Custom Ambient Display Config -->
+    <string name="ambient_display_screen_title">Xtended Ambient Display</string>
+    <string name="ambient_display_screen_summary">Custom Ambient Display Configuration</string>
        
 </resources>
