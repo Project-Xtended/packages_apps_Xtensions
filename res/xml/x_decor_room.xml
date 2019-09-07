@@ -29,6 +29,16 @@
     </PreferenceScreen>
 
     <Preference
+        android:key="ambient_display_custom"
+        android:title="@string/ambient_display_screen_title"
+        android:summary="@string/ambient_display_screen_summary" >
+        <intent
+            android:action="com.android.settings.action.EXTRA_SETTINGS"
+            android:targetPackage="com.custom.ambient.display"
+            android:targetClass="com.custom.ambient.display.DozeSettings" />
+    </Preference>
+
+    <Preference
          android:key="animations_category"
          android:title="@string/animation_settings_title"
          android:summary="@string/animation_settings_summary"
