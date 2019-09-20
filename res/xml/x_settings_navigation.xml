@@ -24,6 +24,12 @@
         android:title="@string/navbar_visibility"
         android:summary="@string/navbar_vis_summary" />
 
+    <com.msm.xtended.preferences.SecureSettingSwitchPreference
+        android:key="sysui_nav_bar_inverse"
+        android:title="@string/navbar_invert_layout_title"
+        android:summary="@string/navbar_invert_layout_summary"
+        android:defaultValue="true" />
+
     <Preference
         android:key="gesture_system_navigation"
         android:title="@string/system_navigation_title"
