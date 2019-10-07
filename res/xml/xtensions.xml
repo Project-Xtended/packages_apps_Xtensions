@@ -33,6 +33,7 @@
             android:title="@string/button_title"
             android:summary="@string/button_summary"
             android:fragment="com.msm.xtended.fragments.ButtonSettings"
+            android:icon="@drawable/ic_x_buttons"
             settings:allowDividerAbove="true" />
 
         <!-- Gestures -->
@@ -40,7 +41,8 @@
             android:key="gestures_category"
             android:title="@string/gestures_title" 
             android:summary="@string/gestures_summary"
-            android:fragment="com.msm.xtended.fragments.GestureSettings"
+	    android:fragment="com.msm.xtended.fragments.GestureSettings"
+            android:icon="@drawable/ic_x_gestures"
             settings:allowDividerAbove="true" />
 
         <!-- Lock Screen -->
@@ -48,7 +50,8 @@
             android:key="lockscreen_category"
             android:title="@string/lockscreen_title"
             android:summary="@string/lockscreen_summary"
-            android:fragment="com.msm.xtended.fragments.LockScreenSettings"
+   	    android:fragment="com.msm.xtended.fragments.LockScreenSettings"
+   	    android:icon="@drawable/ic_x_lockscreen"
             settings:allowDividerAbove="true" />
 
         <!-- Navigation Bar -->
@@ -57,6 +60,7 @@
             android:title="@string/navbar_title" 
             android:summary="@string/navbar_summary"
             android:fragment="com.msm.xtended.fragments.NavbarSettings"
+            android:icon="@drawable/ic_x_navbars"
             settings:allowDividerAbove="true" />
 
         <!-- Notifications -->
@@ -65,6 +69,7 @@
             android:title="@string/notifications_title"
             android:summary="@string/notifications_summary"
             android:fragment="com.msm.xtended.fragments.NotificationSettings"
+            android:icon="@drawable/ic_x_notif"
             settings:allowDividerAbove="true" />
 
         <!-- Power Menu -->
@@ -73,6 +78,7 @@
             android:title="@string/powermenu_title" 
             android:summary="@string/powermenu_summary"
             android:fragment="com.msm.xtended.fragments.PowerMenuSettings"
+            android:icon="@drawable/ic_x_powermenu"
             settings:allowDividerAbove="true" />
 
         <!-- Quick Settings panel -->
@@ -81,6 +87,7 @@
             android:title="@string/quicksettings_title"
             android:summary="@string/quicksettings_summary"
             android:fragment="com.msm.xtended.fragments.QuickSettings"
+            android:icon="@drawable/ic_x_quicksettings"
             settings:allowDividerAbove="true" />
 
         <!-- Recents -->
@@ -89,6 +96,7 @@
             android:title="@string/recents_title"
             android:summary="@string/recents_summary"
             android:fragment="com.msm.xtended.fragments.RecentsSettings"
+            android:icon="@drawable/ic_x_recents"
             settings:allowDividerAbove="true" />
 
         <!-- Status Bar -->
@@ -97,6 +105,7 @@
             android:title="@string/statusbar_title"
             android:summary="@string/statusbar_summary"
             android:fragment="com.msm.xtended.fragments.StatusBarSettings"
+            android:icon="@drawable/ic_x_statusbar"
             settings:allowDividerAbove="true" />
 
         <!-- System -->
@@ -105,6 +114,7 @@
             android:title="@string/system_title" 
             android:summary="@string/system_summary"
             android:fragment="com.msm.xtended.fragments.SystemSettings"
+            android:icon="@drawable/ic_x_system"
             settings:allowDividerAbove="true" />
 	
         <!-- Xtra -->
@@ -113,6 +123,7 @@
             android:title="@string/xtra_title" 
             android:summary="@string/xtra_summary"
             android:fragment="com.msm.xtended.fragments.XtraSettings"
+            android:icon="@drawable/ic_x_xtras"
             settings:allowDividerAbove="true" />
 
 </PreferenceScreen>
