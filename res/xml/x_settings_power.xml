@@ -50,7 +50,7 @@
     	 <com.msm.xtended.preferences.SystemSettingSwitchPreference
             android:key="global_actions_onthego"
 	    android:title="@string/global_actions_onthego"
-	    android:defaultValue="true" />
+	    android:defaultValue="false" />
 			
          <SwitchPreference
             android:key="powermenu_torch"
@@ -76,5 +76,10 @@
             android:key="powermenu_logout"
             android:title="@string/powermenu_logout"
             android:defaultValue="false" />
+
+    	 <com.msm.xtended.preferences.SystemSettingSwitchPreference
+            android:key="powermenu_emergency"
+            android:title="@string/powermenu_emergency"
+	    android:defaultValue="false" />
 			
 </PreferenceScreen>

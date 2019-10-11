@@ -173,6 +173,7 @@
     <string name="powermenu_logout">Logout</string>
     <string name="global_actions_onthego">OnTheGo</string>
     <string name="powermenu_torch">Flashlight</string>
+    <string name="powermenu_emergency">Emergency</string>
 
     <!-- Wakeup options -->
     <string name="wakeup_when_plugged_unplugged_title">Wake up on charge</string>
