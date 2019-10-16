@@ -36,6 +36,7 @@
             android:key="disable_nav_keys"
             android:title="@string/disable_navkeys_title"
             android:summary="@string/disable_navkeys_summary"
+            android:persistent="false"
             android:defaultValue="false" />
 
         <com.msm.xtended.preferences.SystemSettingSwitchPreference
