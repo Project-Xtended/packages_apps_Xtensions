@@ -44,4 +44,14 @@
          android:summary="@string/animation_settings_summary"
          android:fragment="com.msm.xtended.fragments.AnimationSettings" />
 
+    <PreferenceCategory
+        android:title="@string/ambient_display">
+
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference 
+            android:key="ambient_battery_percent" 
+            android:title="@string/ambient_battery_percent_title" 
+            android:summary="@string/ambient_battery_percent_summary" 
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
 </PreferenceScreen>
