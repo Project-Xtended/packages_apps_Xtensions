@@ -100,14 +100,14 @@
             android:icon="@drawable/ic_x_quicksettings"
             settings:allowDividerAbove="true" />
 
-        <!-- Recents -->
+        <!-- Recents
         <PreferenceScreen
             android:key="recents_category"
             android:title="@string/recents_title"
             android:summary="@string/recents_summary"
             android:fragment="com.msm.xtended.fragments.RecentsSettings"
             android:icon="@drawable/ic_x_recents"
-            settings:allowDividerAbove="true" />
+            settings:allowDividerAbove="true" /> -->
 
         <!-- Status Bar -->
         <PreferenceScreen
