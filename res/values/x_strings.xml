@@ -605,4 +605,11 @@
     <string name="screen_state_off_delay_title">Screen-off actions delay</string>
     <string name="screen_state_on_delay_title">Screen-on actions delay</string>
 
+    <!-- Lovkscreen unlock category -->
+    <string name="lock_screen_unlock_category_title">Lock screen unlocking</string>
+
+    <!-- Fingerprint unlock -->
+    <string name="fp_unlock_keystore_title">Force FP authentication</string>
+    <string name="fp_unlock_keystore_summary">Unlock device with fingerprint after reboot or lockdown</string>
+
 </resources>
