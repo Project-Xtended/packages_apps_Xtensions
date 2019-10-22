@@ -36,5 +36,11 @@
         android:summary="@string/lock_date_font_summary"
         android:persistent="false" />
 
+    <com.msm.xtended.preferences.SecureSettingSwitchPreference
+        android:key="hide_lock_shortcuts"
+        android:title="@string/lockscreen_hide_shortcuts_title"
+        android:summary="@string/lockscreen_hide_shortcuts_summary"
+        android:defaultValue="false" />
+
 </PreferenceScreen>
 
