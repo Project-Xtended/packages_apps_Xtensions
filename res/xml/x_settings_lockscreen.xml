@@ -49,6 +49,12 @@
         android:summary="@string/weather_summary"
         android:fragment="com.msm.xtended.fragments.OmniJawsSettings" />
 
+    <com.msm.xtended.preferences.SecureSettingSwitchPreference
+        android:key="hide_lock_shortcuts"
+        android:title="@string/lockscreen_hide_shortcuts_title"
+        android:summary="@string/lockscreen_hide_shortcuts_summary"
+        android:defaultValue="false" />
+
     <com.msm.xtended.preferences.SystemSettingSwitchPreference
         android:key="lockscreen_battery_info"
         android:title="@string/lockscreen_battery_info_title"
