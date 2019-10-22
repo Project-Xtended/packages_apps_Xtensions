@@ -414,4 +414,8 @@
     <string name="wakeup_when_plugged_unplugged_title">Wake up on charge</string>
     <string name="wakeup_when_plugged_unplugged_summary">Wake up device if charger is plugged/unplugged</string>
 
+    <!-- Hide Lockscreen shortcuts on secure Lockscreen -->
+    <string name="lockscreen_hide_shortcuts_title">Hide bottom shortcuts</string>
+    <string name="lockscreen_hide_shortcuts_summary">Hide left-right shortcuts on secure lock screens</string>
+
 </resources>
