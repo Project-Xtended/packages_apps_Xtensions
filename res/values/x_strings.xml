@@ -642,5 +642,13 @@
     <string name="smart_pixels_shift_times_20min">20 minutes</string>
     <string name="smart_pixels_shift_times_30min">30 minutes</string>
     <string name="smart_pixels_shift_times_1h">1 hour</string>
+
+    <!-- QS SystemInfo -->
+    <string name="qs_system_info_title">System Info</string>
+    <string name="qs_system_info_off">Off</string>
+    <string name="qs_system_info_cpu_temp">CPU temperature</string>
+    <string name="qs_system_info_battery_temp">Battery temperature</string>
+    <string name="qs_system_info_gpu_clock">GPU frequency</string>
+    <string name="qs_system_info_gpu_busy">GPU utilization</string>
        
 </resources>
