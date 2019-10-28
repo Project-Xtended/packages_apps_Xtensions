@@ -66,4 +66,8 @@
     <string name="maintainer_title">Maintainer</string>
     <string name="designer_title">Designer</string>
 
+    <!-- QuickSettings haptic feedback -->
+    <string name="quick_settings_vibrate_title">Vibrate on touch</string>
+    <string name="quick_settings_vibrate_summary">Vibrate when QS tiles are pressed</string>
+
 </resources>
