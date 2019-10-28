@@ -37,6 +37,12 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class QuickSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
+    private static final String PREF_COLUMNS_PORTRAIT = "qs_columns_portrait";
+    private static final String PREF_COLUMNS_LANDSCAPE = "qs_columns_landscape";
+
+    private CustomSeekBarPreference mQsColumnsPortrait;
+    private CustomSeekBarPreference mQsColumnsLandscape;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -46,11 +52,33 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         PreferenceScreen prefScreen = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
 
+        mQsColumnsPortrait = (CustomSeekBarPreference) findPreference(PREF_COLUMNS_PORTRAIT);
+        int columnsPortrait = Settings.System.getIntForUser(resolver,
+                Settings.System.OMNI_QS_LAYOUT_COLUMNS, 4, UserHandle.USER_CURRENT);
+        mQsColumnsPortrait.setValue(columnsPortrait);
+        mQsColumnsPortrait.setOnPreferenceChangeListener(this);
+
+        mQsColumnsLandscape = (CustomSeekBarPreference) findPreference(PREF_COLUMNS_LANDSCAPE);
+        int columnsLandscape = Settings.System.getIntForUser(resolver,
+                Settings.System.OMNI_QS_LAYOUT_COLUMNS_LANDSCAPE, 4, UserHandle.USER_CURRENT);
+        mQsColumnsLandscape.setValue(columnsLandscape);
+        mQsColumnsLandscape.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
     	ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mQsColumnsPortrait) {
+            int value = (Integer) newValue;
+            Settings.System.putIntForUser(resolver,
+                    Settings.System.OMNI_QS_LAYOUT_COLUMNS, value, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mQsColumnsLandscape) {
+            int value = (Integer) newValue;
+            Settings.System.putIntForUser(resolver,
+                    Settings.System.OMNI_QS_LAYOUT_COLUMNS_LANDSCAPE, value, UserHandle.USER_CURRENT);
+            return true;
+        }
         return false;
     }
 
