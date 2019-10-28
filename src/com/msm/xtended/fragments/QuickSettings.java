@@ -27,11 +27,19 @@ import android.view.View;
 import java.util.List;
 import java.util.ArrayList;
 
+import com.msm.xtended.preferences.CustomSeekBarPreference;
+
 public class QuickSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String QUICK_PULLDOWN = "quick_pulldown";
+    private static final String PREF_COLUMNS_PORTRAIT = "qs_columns_portrait";
+    private static final String PREF_COLUMNS_LANDSCAPE = "qs_columns_landscape";
+    private static final String PREF_COLUMNS_QUICKBAR = "qs_columns_quickbar";
 
+    private CustomSeekBarPreference mQsColumnsPortrait;
+    private CustomSeekBarPreference mQsColumnsLandscape;
+    private CustomSeekBarPreference mQsColumnsQuickbar;
     private ListPreference mQuickPulldown;
 
     @Override
@@ -49,6 +57,24 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN, 0, UserHandle.USER_CURRENT);
         mQuickPulldown.setValue(String.valueOf(quickPulldownValue));
         updatePulldownSummary(quickPulldownValue);
+
+        mQsColumnsPortrait = (CustomSeekBarPreference) findPreference(PREF_COLUMNS_PORTRAIT);
+        int columnsPortrait = Settings.System.getIntForUser(resolver,
+                Settings.System.QS_LAYOUT_COLUMNS, 4, UserHandle.USER_CURRENT);
+        mQsColumnsPortrait.setValue(columnsPortrait);
+        mQsColumnsPortrait.setOnPreferenceChangeListener(this);
+
+        mQsColumnsLandscape = (CustomSeekBarPreference) findPreference(PREF_COLUMNS_LANDSCAPE);
+        int columnsLandscape = Settings.System.getIntForUser(resolver,
+                Settings.System.QS_LAYOUT_COLUMNS_LANDSCAPE, 4, UserHandle.USER_CURRENT);
+        mQsColumnsLandscape.setValue(columnsLandscape);
+        mQsColumnsLandscape.setOnPreferenceChangeListener(this);
+
+        mQsColumnsQuickbar = (CustomSeekBarPreference) findPreference(PREF_COLUMNS_QUICKBAR);
+        int columnsQuickbar = Settings.System.getInt(resolver,
+                Settings.System.QS_QUICKBAR_COLUMNS, 6);
+        mQsColumnsQuickbar.setValue(columnsQuickbar);
+        mQsColumnsQuickbar.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -59,6 +85,21 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             Settings.System.putIntForUser(resolver, Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN,
                     quickPulldownValue, UserHandle.USER_CURRENT);
             updatePulldownSummary(quickPulldownValue);
+            return true;
+        } else if (preference == mQsColumnsQuickbar) {
+            int value = (Integer) newValue;
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.QS_QUICKBAR_COLUMNS, value, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mQsColumnsPortrait) {
+            int value = (Integer) newValue;
+            Settings.System.putIntForUser(resolver,
+                    Settings.System.QS_LAYOUT_COLUMNS, value, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mQsColumnsLandscape) {
+            int value = (Integer) newValue;
+            Settings.System.putIntForUser(resolver,
+                    Settings.System.QS_LAYOUT_COLUMNS_LANDSCAPE, value, UserHandle.USER_CURRENT);
             return true;
         }
         return false;
