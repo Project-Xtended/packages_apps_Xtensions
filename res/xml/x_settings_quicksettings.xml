@@ -68,4 +68,19 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+
+        android:title="@string/qs_panel_category_title">
+
+        <!-- QS system info --> 
+        <com.xtended.support.preferences.SystemSettingListPreference
+            android:key="qs_system_info"
+            android:title="@string/qs_system_info_title"
+            android:entries="@array/qs_system_info_entries"
+            android:entryValues="@array/qs_system_info_values"
+            android:defaultValue="0"
+            android:summary="%s" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
