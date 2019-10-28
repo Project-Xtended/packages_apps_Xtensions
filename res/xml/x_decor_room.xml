@@ -35,6 +35,12 @@
          android:fragment="com.msm.xtended.fragments.AnimationSettings" />
 
     <Preference
+         android:key="battery_mode"
+         android:title="@string/battery_mode_title"
+         android:summary="@string/battery_mode_summary"
+         android:fragment="com.msm.xtended.fragments.XBatteryMode" />
+
+    <Preference
          android:key="clock_settings"
          android:title="@string/clock_style_category_title"
          android:summary="@string/clock_style_category_summary"
