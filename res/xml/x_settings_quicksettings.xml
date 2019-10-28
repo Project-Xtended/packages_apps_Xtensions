@@ -50,6 +50,12 @@
 
     </PreferenceCategory>
 
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference 
+        android:key="qs_tile_title_visibility" 
+        android:title="@string/qs_tile_title_visibility_title" 
+        android:summary="@string/qs_tile_title_visibility_summary" 
+        android:defaultValue="true" /> 
+
     <com.msm.xtended.preferences.SystemSettingSwitchPreference
         android:key="quick_settings_vibrate"
         android:title="@string/quick_settings_vibrate_title"
