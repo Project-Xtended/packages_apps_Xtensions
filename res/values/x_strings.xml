@@ -859,4 +859,11 @@
     <string name="lockscreen_solid_fudge_factor_title">Sanity level</string>
     <string name="lockscreen_solid_units_opacity_title">Lines opacity</string>
 
+    <!-- Doze Brightness Config -->
+    <string name="doze_brightness_category">Doze Brightness Config</string>
+    <string name="ambient_pulse_brightness_title">Ambient notification brightness</string>
+    <string name="ambient_pulse_brightness_summary">Set brightness to use when notifcations are shown</string>
+    <string name="ambient_doze_brightness_title">Ambient display brightness</string>
+    <string name="ambient_doze_brightness_summary">Set brightness to use during ambient display on</string>
+
 </resources>

@@ -22,19 +22,22 @@ import com.android.settings.R;
 
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
+import com.msm.xtended.preferences.CustomSeekBarPreference;
 
 public class NotificationSettings extends SettingsPreferenceFragment
                          implements OnPreferenceChangeListener {
 
     private static final String TOAST_ICON_COLOR = "toast_icon_color";
     private static final String TOAST_TEXT_COLOR = "toast_text_color";
-
-    private ColorPickerPreference mIconColor;
-    private ColorPickerPreference mTextColor;
-
+    private static final String KEY_PULSE_BRIGHTNESS = "ambient_pulse_brightness";
+    private static final String KEY_DOZE_BRIGHTNESS = "ambient_doze_brightness";
     private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
 
     private Preference mChargingLeds;
+    private CustomSeekBarPreference mPulseBrightness;
+    private CustomSeekBarPreference mDozeBrightness;
+    private ColorPickerPreference mIconColor;
+    private ColorPickerPreference mTextColor;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -58,6 +61,26 @@ public class NotificationSettings extends SettingsPreferenceFragment
                         com.android.internal.R.bool.config_intrusiveBatteryLed)) {
             prefScreen.removePreference(mChargingLeds);
         }
+
+        int defaultDoze = getResources().getInteger(
+                com.android.internal.R.integer.config_screenBrightnessDoze);
+        int defaultPulse = getResources().getInteger(
+                com.android.internal.R.integer.config_screenBrightnessPulse);
+        if (defaultPulse == -1) {
+            defaultPulse = defaultDoze;
+        }
+
+        mPulseBrightness = (CustomSeekBarPreference) findPreference(KEY_PULSE_BRIGHTNESS);
+        int value = Settings.System.getInt(getContentResolver(),
+                Settings.System.OMNI_PULSE_BRIGHTNESS, defaultPulse);
+        mPulseBrightness.setValue(value);
+        mPulseBrightness.setOnPreferenceChangeListener(this);
+
+        mDozeBrightness = (CustomSeekBarPreference) findPreference(KEY_DOZE_BRIGHTNESS);
+        value = Settings.System.getInt(getContentResolver(),
+                Settings.System.OMNI_DOZE_BRIGHTNESS, defaultDoze);
+        mDozeBrightness.setValue(value);
+        mDozeBrightness.setOnPreferenceChangeListener(this);
 
         // Toast icon color
         mIconColor = (ColorPickerPreference) findPreference(TOAST_ICON_COLOR);
@@ -97,7 +120,17 @@ public class NotificationSettings extends SettingsPreferenceFragment
                 Settings.System.putInt(resolver,
                       Settings.System.TOAST_TEXT_COLOR, intHex);
                 return true;
-            }
+            } else if (preference == mPulseBrightness) {
+                int value = (Integer) newValue;
+                Settings.System.putInt(getContentResolver(),
+                      Settings.System.OMNI_PULSE_BRIGHTNESS, value);
+                return true;
+            } else if (preference == mDozeBrightness) {
+                int value = (Integer) newValue;
+                Settings.System.putInt(getContentResolver(),
+                      Settings.System.OMNI_DOZE_BRIGHTNESS, value);
+                return true;
+         }
         return false;
     }
 
