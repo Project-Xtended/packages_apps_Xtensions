@@ -29,15 +29,19 @@ import com.msm.xtended.preferences.SystemSettingSeekBarPreference;
 public class NotificationSettings extends SettingsPreferenceFragment
                          implements OnPreferenceChangeListener {
 
+    private static final String SMS_BREATH = "sms_breath";
+    private static final String MISSED_CALL_BREATH = "missed_call_breath";
+    private static final String VOICEMAIL_BREATH = "voicemail_breath";
+    private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
+    private static final String KEY_PULSE_BRIGHTNESS = "ambient_pulse_brightness";
+    private static final String KEY_DOZE_BRIGHTNESS = "ambient_doze_brightness";
+
     private Preference mChargingLeds;
     private SwitchPreference mSmsBreath;
     private SwitchPreference mMissedCallBreath;
     private SwitchPreference mVoicemailBreath;
-
-    private static final String SMS_BREATH = "sms_breath"; 
-    private static final String MISSED_CALL_BREATH = "missed_call_breath";
-    private static final String VOICEMAIL_BREATH = "voicemail_breath";
-    private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
+    private CustomSeekBarPreference mPulseBrightness;
+    private CustomSeekBarPreference mDozeBrightness;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -48,17 +52,26 @@ public class NotificationSettings extends SettingsPreferenceFragment
 
         PreferenceScreen prefScreen = getPreferenceScreen();
         PreferenceScreen prefSet = getPreferenceScreen();
-        PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);
-        if (!XUtils.isVoiceCapable(getActivity())) {
-            prefScreen.removePreference(incallVibCategory);
+
+        int defaultDoze = getResources().getInteger(
+                com.android.internal.R.integer.config_screenBrightnessDoze);
+        int defaultPulse = getResources().getInteger(
+                com.android.internal.R.integer.config_screenBrightnessPulse);
+        if (defaultPulse == -1) {
+            defaultPulse = defaultDoze;
         }
 
-        mChargingLeds = (Preference) findPreference("charging_light");
-        if (mChargingLeds != null
-                && !getResources().getBoolean(
-                        com.android.internal.R.bool.config_intrusiveBatteryLed)) {
-            prefScreen.removePreference(mChargingLeds);
-        }
+        mPulseBrightness = (CustomSeekBarPreference) findPreference(KEY_PULSE_BRIGHTNESS);
+        int value = Settings.System.getInt(getContentResolver(),
+                Settings.System.OMNI_PULSE_BRIGHTNESS, defaultPulse);
+        mPulseBrightness.setValue(value);
+        mPulseBrightness.setOnPreferenceChangeListener(this);
+
+        mDozeBrightness = (CustomSeekBarPreference) findPreference(KEY_DOZE_BRIGHTNESS);
+        value = Settings.System.getInt(getContentResolver(),
+                Settings.System.OMNI_DOZE_BRIGHTNESS, defaultDoze);
+        mDozeBrightness.setValue(value);
+        mDozeBrightness.setOnPreferenceChangeListener(this);
 
         // Breathing Notifications
         mSmsBreath = (SwitchPreference) findPreference(SMS_BREATH);
@@ -85,6 +98,17 @@ public class NotificationSettings extends SettingsPreferenceFragment
             prefSet.removePreference(mMissedCallBreath);
             prefSet.removePreference(mVoicemailBreath);
         }
+        PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);
+        if (!XUtils.isVoiceCapable(getActivity())) {
+            prefScreen.removePreference(incallVibCategory);
+        }
+
+        mChargingLeds = (Preference) findPreference("charging_light");
+        if (mChargingLeds != null
+                && !getResources().getBoolean(
+                        com.android.internal.R.bool.config_intrusiveBatteryLed)) {
+            prefScreen.removePreference(mChargingLeds);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -102,7 +126,17 @@ public class NotificationSettings extends SettingsPreferenceFragment
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getContentResolver(), VOICEMAIL_BREATH, value ? 1 : 0);
             return true;
-        }
+        } else if (preference == mPulseBrightness) {
+            int value = (Integer) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.OMNI_PULSE_BRIGHTNESS, value);
+            return true;
+         } else if (preference == mDozeBrightness) {
+            int value = (Integer) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.OMNI_DOZE_BRIGHTNESS, value);
+            return true;
+         }
         return false;
     }
 
