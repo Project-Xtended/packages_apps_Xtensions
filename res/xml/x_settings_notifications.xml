@@ -151,7 +151,6 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-
         android:key="incall_vib_options"
         android:title="@string/incall_vibration_category">
 

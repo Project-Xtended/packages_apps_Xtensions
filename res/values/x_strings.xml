@@ -1525,4 +1525,11 @@
     <string name="lockscreen_maxnotif_sumary">Enable adjustment of max lockscreen notifications</string>
     <string name="lockscreen_maxnotif_config">Max lockscreen notifications</string>
     
+    <!-- Doze Brightness Config -->
+    <string name="doze_brightness_category">Doze Brightness Config</string>
+    <string name="ambient_pulse_brightness_title">Ambient Display Brightness</string>
+    <string name="ambient_pulse_brightness_summary">Set brightness to use when ambient notifcations are shown</string>
+    <string name="ambient_doze_brightness_title">Always-On Display Brightness</string>
+    <string name="ambient_doze_brightness_summary">Set brightness to use during always-on display</string>
+
 </resources>
