@@ -49,6 +49,12 @@
          android:summary="@string/volte_icon_summary"
          android:defaultValue="true"/>
 
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference
+         android:key="bluetooth_show_battery"
+         android:title="@string/bluetooth_battery_title"
+         android:summary="@string/bluetooth_battery_summary"
+         android:defaultValue="false"/>
+
   <PreferenceCategory
         android:title="@string/breathing_notifications_category" />
 
