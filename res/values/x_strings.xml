@@ -586,4 +586,21 @@
     <string name="selinux_unrooted_summary">Couldn\'t detect root. You must have root to use these switches</string>
     <string name="cannot_get_su">Action failed because of missing superuser access</string>
 
+    <!-- Screen state service -->
+    <string name="battery_saving">Battery saving</string>
+    <string name="screen_state_toggles_title">Suspend actions</string>
+    <string name="screen_state_toggles_summary">Control how the device network and gps should behave when the screen is on/off</string>
+    <string name="screen_state_toggles_enable_title">Enable</string>
+    <string name="screen_state_toggles_enable_summary">Actions executed when the screen is turned off</string>
+    <string name="screen_state_toggles_mobile_title">Mobile network</string>
+    <string name="screen_state_toggles_location_title">Location</string>
+    <string name="screen_state_toggles_twog">Switch to 2G</string>
+    <string name="screen_state_toggles_twog_summary">Network mode will be switched to 2G on screen off</string>
+    <string name="screen_state_toggles_gps">Disable GPS</string>
+    <string name="screen_state_toggles_gps_summary">GPS based location service will be disabled on screen off</string>
+    <string name="screen_state_toggles_mobile_data">Disable mobile data</string> 
+    <string name="screen_state_toggles_mobile_data_summary">Mobile data will be disabled on screen off</string>
+    <string name="screen_state_off_delay_title">Screen-off actions delay</string>
+    <string name="screen_state_on_delay_title">Screen-on actions delay</string>
+
 </resources>

@@ -34,6 +34,18 @@
 
     <PreferenceCategory
 
+        android:title="@string/battery_saving">
+
+        <Preference
+            android:key="suspend_actions"
+            android:fragment="com.xtended.fragments.ScreenStateToggles"
+            android:title="@string/screen_state_toggles_title"
+            android:summary="@string/screen_state_toggles_summary" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+
         android:key="selinux"
         android:title="@string/selinux_category_title">
 
