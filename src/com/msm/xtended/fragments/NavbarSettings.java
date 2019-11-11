@@ -59,15 +59,9 @@ public class NavbarSettings extends SettingsPreferenceFragment implements OnPref
 
         // Navigation bar related options
         mEnableNavigationBar = (SwitchPreference) findPreference(ENABLE_NAV_BAR);
-
-        // Only visible on devices that have a navigation bar already
-        if (ActionUtils.hasNavbarByDefault(getActivity())) {
-            mEnableNavigationBar.setOnPreferenceChangeListener(this);
-            mHandler = new Handler();
-            updateNavBarOption();
-        } else {
-            prefScreen.removePreference(mEnableNavigationBar);
-        }
+        mEnableNavigationBar.setOnPreferenceChangeListener(this);
+        mHandler = new Handler();
+        updateNavBarOption();
     }
 
     @Override
@@ -88,7 +82,7 @@ public class NavbarSettings extends SettingsPreferenceFragment implements OnPref
                 public void run() {
                     mIsNavSwitchingMode = false;
                 }
-            }, 1000);
+            }, 500);
             return true;
         }
         return false;
