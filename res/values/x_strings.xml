@@ -68,7 +68,7 @@
 
     <!-- Statusbar net monitor -->
     <string name="traffic_title">Network Traffic</string>
-    <string name="traffic_summary">TNet traffic indicators</string>
+    <string name="traffic_summary">Net traffic indicators</string>
     <string name="network_traffic_state_title">Network Traffic</string>
     <string name="network_traffic_state_summary">Show net activity in statusbar</string>
     <string name="network_traffic_type">Select net activity type</string>
@@ -535,7 +535,7 @@
 
     <!-- Brightness icon-->
     <string name="brightness_icon_title">Brightness icon</string>
-    <string name="brightness_icon_summary">Show a brightness icon to the left of the brighness slider to adjust auto-brightness</string>
+    <string name="brightness_icon_summary">Show a brightness icon along with the brighness slider to adjust auto-brightness</string>
 
     <!-- FastCharge LED -->
     <string name="fast_color_cat_title">Fast charging</string>
@@ -822,8 +822,8 @@
 
     <!-- Battery mode -->
     <string name="battery_mode_title">Battery Styles</string>
-    <string name="battery_mode_summary">config sb n qs battery mode</string>
-    <string name="battery_percentage_title">Statusbar Battery Style</string>
+    <string name="battery_mode_summary">Config SB n QS Battery</string>
+    <string name="battery_percentage_title">Battery Percent</string>
     <string name="qs_battery_percentage_title">QS Battery Style</string>
     <string name="battery_percentage_off">Disabled</string>
     <string name="battery_percentage_next">Enabled</string>
@@ -831,7 +831,7 @@
     <string name="battery_percentage_estimate">Enabled (estimate)</string>
 
     <!-- Status bar - Battery -->
-    <string name="status_bar_battery_style_title">SB Battery style</string>
+    <string name="status_bar_battery_style_title">SB Battery Icon</string>
     <string name="status_bar_battery_style_icon_portrait">Icon portrait</string>
     <string name="status_bar_battery_style_icon_landscape">Icon landscape</string>
     <string name="status_bar_battery_style_circle">Circle</string>
