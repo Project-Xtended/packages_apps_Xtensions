@@ -47,7 +47,27 @@
             settings:min="6"
             android:defaultValue="6"
             android:persistent="false" />
+    </PreferenceCategory>
+    <PreferenceCategory 
+        android:title="@string/qs_rows_category"> 
 
+        <com.msm.xtended.preferences.CustomSeekBarPreference
+            android:key="qs_rows_portrait"
+            android:title="@string/qs_rows_portrait_title"
+            android:max="5"
+            settings:min="2"
+            settings:units=""
+            android:defaultValue="3"
+            android:persistent="false" />
+
+        <com.msm.xtended.preferences.CustomSeekBarPreference
+            android:key="qs_rows_landscape"
+            android:title="@string/qs_rows_landscape_title"
+            android:max="3"
+            settings:min="1"
+            settings:units=""
+            android:defaultValue="2"
+            android:persistent="false" />
     </PreferenceCategory>
 
     <com.msm.xtended.preferences.SystemSettingSwitchPreference 
