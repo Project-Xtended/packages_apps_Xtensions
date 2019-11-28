@@ -1038,4 +1038,8 @@
     <string name="notification_sound_vib_screen_on_title">Noisy notifications if screen on</string>
     <string name="notification_sound_vib_screen_on_summary">Play sound and vibration for notifications when screen is on</string>
 
+    <!-- QS Footer Text -->
+    <string name="qs_footer_text_title">QS footer text</string>
+    <string name="qs_footer_text_summary">Display text at bottom of QS panel</string>
+
 </resources>
