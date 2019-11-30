@@ -43,6 +43,8 @@ import java.util.Locale;
 import android.text.TextUtils;
 import android.view.View;
 
+import com.xtended.support.preferences.SystemSettingEditTextPreference;
+
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 import android.provider.SearchIndexableResource;
@@ -54,8 +56,10 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String QS_BATTERY_PERCENTAGE = "qs_battery_percentage";
+    private static final String X_FOOTER_TEXT_STRING = "x_footer_text_string";
 
     private SwitchPreference mQsBatteryPercent;
+    private SystemSettingEditTextPreference mFooterString;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -71,7 +75,19 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.QS_SHOW_BATTERY_PERCENT, 0) == 1));
         mQsBatteryPercent.setOnPreferenceChangeListener(this);
+
+        mFooterString = (SystemSettingEditTextPreference) findPreference(X_FOOTER_TEXT_STRING);
+        mFooterString.setOnPreferenceChangeListener(this);
+        String footerString = Settings.System.getString(getContentResolver(),
+                X_FOOTER_TEXT_STRING);
+        if (footerString != null && footerString != "")
+            mFooterString.setText(footerString);
+        else {
+            mFooterString.setText("Xtended");
+            Settings.System.putString(getActivity().getContentResolver(),
+                    Settings.System.X_FOOTER_TEXT_STRING, "Xtended");
         }
+    }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -80,6 +96,17 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(resolver,
                     Settings.System.QS_SHOW_BATTERY_PERCENT,
                     (Boolean) newValue ? 1 : 0);
+            return true;
+        } else if (preference == mFooterString) {
+            String value = (String) newValue;
+            if (value != "" && value != null)
+                Settings.System.putString(getActivity().getContentResolver(),
+                        Settings.System.X_FOOTER_TEXT_STRING, value);
+            else {
+                mFooterString.setText("Xtended");
+                Settings.System.putString(getActivity().getContentResolver(),
+                        Settings.System.X_FOOTER_TEXT_STRING, "Xtended");
+            }
             return true;
         }
         return false;

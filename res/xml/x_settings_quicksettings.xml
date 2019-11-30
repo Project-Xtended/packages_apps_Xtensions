@@ -142,4 +142,12 @@
         android:summary="@string/qs_footer_text_summary"
         android:defaultValue="false"/>
 
+    <!-- QS footer text string -->
+    <com.xtended.support.preferences.SystemSettingEditTextPreference
+        android:key="x_footer_text_string"
+        android:title="@string/qs_footer_text_string_title"
+        android:summary="@string/qs_footer_text_string_summary"
+        android:dependency="omni_footer_text_show"
+        android:defaultValue="Xtended" />
+
 </PreferenceScreen>
