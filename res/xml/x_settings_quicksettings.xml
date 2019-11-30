@@ -108,6 +108,20 @@
             android:summary="@string/qs_footer_settings_icon_summary"
             android:defaultValue="true" />
 
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="omni_footer_text_show"
+            android:title="@string/qs_footer_text_title"
+            android:summary="@string/qs_footer_text_summary"
+            android:defaultValue="false"/>
+
+        <!-- QS footer text string -->
+        <com.xtended.support.preferences.SystemSettingEditTextPreference
+            android:key="x_footer_text_string"
+            android:title="@string/qs_footer_text_string_title"
+            android:summary="qs_footer_text_string_summary"
+            android:dependency="omni_footer_text_show"
+            android:defaultValue="Xtended" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -141,11 +155,5 @@
             android:max="255"
             settings:min="0" />
     </PreferenceCategory>
-
-    <com.xtended.support.preferences.SystemSettingSwitchPreference
-        android:key="omni_footer_text_show"
-        android:title="@string/qs_footer_text_title"
-        android:summary="@string/qs_footer_text_summary"
-        android:defaultValue="false"/>
 
 </PreferenceScreen>

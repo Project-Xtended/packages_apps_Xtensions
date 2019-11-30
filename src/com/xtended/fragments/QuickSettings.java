@@ -43,11 +43,21 @@ import java.util.Locale;
 import android.text.TextUtils;
 import android.view.View;
 
+import com.xtended.support.preferences.SystemSettingEditTextPreference;
+
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settingslib.search.SearchIndexable;
+import android.provider.SearchIndexableResource;
+
 import java.util.List;
 import java.util.ArrayList;
 
 public class QuickSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
+
+    private static final String X_FOOTER_TEXT_STRING = "x_footer_text_string";
+
+    private SystemSettingEditTextPreference mFooterString;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -56,11 +66,36 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.x_settings_quicksettings);
 
         PreferenceScreen prefScreen = getPreferenceScreen();
+        ContentResolver resolver = getActivity().getContentResolver();
+
+        mFooterString = (SystemSettingEditTextPreference) findPreference(X_FOOTER_TEXT_STRING);
+        mFooterString.setOnPreferenceChangeListener(this);
+        String footerString = Settings.System.getString(getContentResolver(),
+                X_FOOTER_TEXT_STRING);
+        if (footerString != null && footerString != "")
+            mFooterString.setText(footerString);
+        else {
+            mFooterString.setText("Xtended");
+            Settings.System.putString(getActivity().getContentResolver(),
+                    Settings.System.X_FOOTER_TEXT_STRING, "Xtended");
         }
+    }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mFooterString) {
+            String value = (String) newValue;
+            if (value != "" && value != null)
+                Settings.System.putString(getActivity().getContentResolver(),
+                        Settings.System.X_FOOTER_TEXT_STRING, value);
+            else {
+                mFooterString.setText("Xtended");
+                Settings.System.putString(getActivity().getContentResolver(),
+                        Settings.System.X_FOOTER_TEXT_STRING, "Xtended");
+            }
+            return true;
+        }
         return false;
     }
 
