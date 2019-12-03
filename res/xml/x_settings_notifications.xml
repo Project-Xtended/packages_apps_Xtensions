@@ -25,6 +25,12 @@
         android:summary="@string/heads_up_summary"
         android:fragment="com.msm.xtended.fragments.HeadsUpSettings" />
 
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference 
+        android:key="notification_sound_vib_screen_on" 
+        android:title="@string/notification_sound_vib_screen_on_title" 
+        android:summary="@string/notification_sound_vib_screen_on_summary"
+        android:defaultValue="true" />
+
     <PreferenceCategory
         android:key="light_cat"
         android:title="@string/light_settings_header" >
