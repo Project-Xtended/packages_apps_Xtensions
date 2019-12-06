@@ -1101,4 +1101,10 @@
     <string name="lockscreen_charging_animation_title">LS Charging animation</string>
     <string name="lockscreen_charging_animation_summary">Display a Lottie animation when the device is charging</string>
 
+    <!-- Ambient edge lighting -->
+    <string name="notification_screen_title">Screen</string>
+    <string name="pulse_ambient_light_title">Edge lighting</string>
+    <string name="pulse_ambient_light_summary">Light up the side edges of the screen on notification pulse</string>
+    <string name="pulse_ambient_light_color_title">Edge light color</string>
+
 </resources>

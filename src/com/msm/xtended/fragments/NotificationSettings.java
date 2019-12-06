@@ -32,12 +32,14 @@ public class NotificationSettings extends SettingsPreferenceFragment
     private static final String KEY_PULSE_BRIGHTNESS = "ambient_pulse_brightness";
     private static final String KEY_DOZE_BRIGHTNESS = "ambient_doze_brightness";
     private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
+    private static final String PULSE_AMBIENT_LIGHT_COLOR = "pulse_ambient_light_color";
 
     private Preference mChargingLeds;
     private CustomSeekBarPreference mPulseBrightness;
     private CustomSeekBarPreference mDozeBrightness;
     private ColorPickerPreference mIconColor;
     private ColorPickerPreference mTextColor;
+    private ColorPickerPreference mEdgeLightColorPreference;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -99,6 +101,19 @@ public class NotificationSettings extends SettingsPreferenceFragment
         mTextColor.setNewPreviewColor(intColor);
         mTextColor.setSummary(hexColor);
         mTextColor.setOnPreferenceChangeListener(this);
+
+        mEdgeLightColorPreference = (ColorPickerPreference) findPreference(PULSE_AMBIENT_LIGHT_COLOR);
+        int edgeLightColor = Settings.System.getInt(getContentResolver(),
+                Settings.System.PULSE_AMBIENT_LIGHT_COLOR, 0xFF3980FF);
+        mEdgeLightColorPreference.setNewPreviewColor(edgeLightColor);
+        mEdgeLightColorPreference.setAlphaSliderEnabled(false);
+        String edgeLightColorHex = String.format("#%08x", (0xFF3980FF & edgeLightColor));
+        if (edgeLightColorHex.equals("#ff3980ff")) {
+            mEdgeLightColorPreference.setSummary(R.string.default_string);
+        } else {
+            mEdgeLightColorPreference.setSummary(edgeLightColorHex);
+        }
+        mEdgeLightColorPreference.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -130,6 +145,18 @@ public class NotificationSettings extends SettingsPreferenceFragment
                 Settings.System.putInt(getContentResolver(),
                       Settings.System.OMNI_DOZE_BRIGHTNESS, value);
                 return true;
+            } else if (preference == mEdgeLightColorPreference) {
+                String hex = ColorPickerPreference.convertToARGB(
+                       Integer.valueOf(String.valueOf(newValue)));
+                if (hex.equals("#ff3980ff")) {
+                    preference.setSummary(R.string.default_string);
+                } else {
+                    preference.setSummary(hex);
+                }
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.PULSE_AMBIENT_LIGHT_COLOR, intHex);
+            return true;
          }
         return false;
     }
