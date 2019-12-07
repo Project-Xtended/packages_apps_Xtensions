@@ -966,7 +966,7 @@
         <item>3</item>
     </string-array>
 
-    <!-- Settings dashboard icon style -->
+    <!-- Settings dashboard icon style 
     <string-array name="theming_settings_dashboard_icons_entries" translatable="false">
         <item>@string/theming_settings_dashboard_icons_default2</item>
         <item>@string/theming_settings_dashboard_icons_default_accent2</item>
@@ -979,7 +979,7 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
-    </string-array>
+    </string-array> -->
 
     <!-- VoLTE Icon Type -->
     <string-array name="volte_icon_type_entries" translatable="false">
