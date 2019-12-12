@@ -43,7 +43,7 @@
         <com.msm.xtended.preferences.CustomSeekBarPreference
             android:key="qs_columns_quickbar"
             android:title="@string/sysui_qqs_count_title"
-            android:max="8"
+            android:max="7"
             settings:min="6"
             android:defaultValue="6"
             android:persistent="false" />
@@ -76,7 +76,7 @@
         android:summary="@string/qs_tile_title_visibility_summary" 
         android:defaultValue="true" /> 
 
-    <com.msm.xtended.preferences.SystemSettingSwitchPreference
+    <com.msm.xtended.preferences.SecureSettingSwitchPreference
         android:key="quick_settings_vibrate"
         android:title="@string/quick_settings_vibrate_title"
         android:summary="@string/quick_settings_vibrate_summary"
