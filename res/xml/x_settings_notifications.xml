@@ -37,6 +37,12 @@
         android:summary="@string/notification_sound_vib_screen_on_summary"
         android:defaultValue="true" />
 
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference
+        android:key="hide_smart_replies"
+        android:title="@string/hide_smart_replies_title"
+        android:summary="@string/hide_smart_replies_summary"
+        android:defaultValue="false"/>
+
     <PreferenceCategory
         android:title="@string/statusbar_notifi_cat">
 
