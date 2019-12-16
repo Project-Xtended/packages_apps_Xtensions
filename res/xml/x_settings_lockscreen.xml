@@ -49,6 +49,13 @@
         android:summary="@string/weather_summary"
         android:fragment="com.msm.xtended.fragments.OmniJawsSettings" />
 
+    <!-- FOD icon picker -->
+    <Preference
+        android:key="fod_icon_picker_category"
+        android:title="@string/fod_icon_picker_title"
+        android:summary="@string/fod_icon_picker_summary"
+        android:fragment="com.msm.xtended.fragments.FODIconPickerFragment" />
+
     <Preference
         android:key="lockscreen_visualizer_ui"
         android:title="@string/visualizer_ui_title"
