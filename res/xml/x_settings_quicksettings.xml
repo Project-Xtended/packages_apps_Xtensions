@@ -82,6 +82,15 @@
         android:summary="@string/quick_settings_vibrate_summary"
         android:defaultValue="false"/>
 
+    <com.msm.xtended.preferences.CustomSeekBarPreference
+        android:key="qs_panel_alpha"
+        android:title="@string/qs_panel_alpha_title"
+        android:summary="@string/qs_panel_alpha_summary"
+        android:max="100"
+        settings:min="0"
+        android:defaultValue="100"
+        android:persistent="false" />
+
     <com.msm.xtended.preferences.SystemSettingSwitchPreference
         android:key="omni_footer_text_show"
         android:title="@string/qs_footer_text_title"
