@@ -23,6 +23,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import com.msm.xtended.preferences.CustomSeekBarPreference;
+import com.msm.xtended.preferences.SystemSettingSeekBarPreference;
 
 public class NotificationSettings extends SettingsPreferenceFragment
                          implements OnPreferenceChangeListener {
@@ -34,6 +35,7 @@ public class NotificationSettings extends SettingsPreferenceFragment
     private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
     private static final String PULSE_AMBIENT_LIGHT_COLOR = "pulse_ambient_light_color";
     private static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
+    private static final String PULSE_AMBIENT_LIGHT_DURATION = "pulse_ambient_light_duration";
 
     private Preference mChargingLeds;
     private CustomSeekBarPreference mPulseBrightness;
@@ -42,6 +44,7 @@ public class NotificationSettings extends SettingsPreferenceFragment
     private ColorPickerPreference mTextColor;
     private ColorPickerPreference mEdgeLightColorPreference;
     private ListPreference mFlashlightOnCall;
+    private SystemSettingSeekBarPreference mEdgeLightDurationPreference;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -127,6 +130,12 @@ public class NotificationSettings extends SettingsPreferenceFragment
         if (!XUtils.deviceSupportsFlashLight(getActivity())) {
             prefScreen.removePreference(FlashOnCall);
         }
+
+        mEdgeLightDurationPreference = (SystemSettingSeekBarPreference) findPreference(PULSE_AMBIENT_LIGHT_DURATION);
+        mEdgeLightDurationPreference.setOnPreferenceChangeListener(this);
+        int duration = Settings.System.getInt(getContentResolver(),
+                Settings.System.PULSE_AMBIENT_LIGHT_DURATION, 2);
+        mEdgeLightDurationPreference.setValue(duration);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -175,6 +184,11 @@ public class NotificationSettings extends SettingsPreferenceFragment
                Settings.System.putInt(resolver,
                      Settings.System.FLASHLIGHT_ON_CALL, flashlightValue);
                mFlashlightOnCall.setValue(String.valueOf(flashlightValue));
+               return true;
+            } else if (preference == mEdgeLightDurationPreference) {
+               int value = (Integer) newValue;
+               Settings.System.putInt(getContentResolver(),
+                    Settings.System.PULSE_AMBIENT_LIGHT_DURATION, value);
                return true;
             }
         return false;
