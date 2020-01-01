@@ -1339,4 +1339,7 @@
     <string name="developer_title">Developer</string>
     <string name="maintainer_title">Maintainer</string>
     <string name="designer_title">Designer</string>
+
+    <string name="enable_oneui">OneUI</string>
+    <string name="enable_oneui_summary">Show spacer above settings actionbar for easier use with one hand\nNOTE: restart settings app to see effect</string>
 </resources>
