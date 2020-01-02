@@ -25,18 +25,24 @@ import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
 
 import com.android.internal.logging.nano.MetricsProto;
+import com.android.settings.SettingsPreferenceFragment;
+import com.msm.xtended.preferences.SystemSettingSeekBarPreference;
+import com.msm.xtended.preferences.SecureSettingListPreference;
 
 import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
 
 public class VisualizerUI extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String KEY_AUTOCOLOR = "lockscreen_visualizer_autocolor";
     private static final String KEY_LAVALAMP = "lockscreen_lavalamp_enabled";
+    private static final String LOCKSCREEN_MEDIA_FILTER = "lockscreen_albumart_filter";
+    private static final String LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
 
     private SwitchPreference mAutoColor;
     private SwitchPreference mLavaLamp;
+    private SecureSettingListPreference mLockscreenMediaFilter;
+    private SystemSettingSeekBarPreference mLockscreenMediaBlur;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -63,6 +69,24 @@ public class VisualizerUI extends SettingsPreferenceFragment implements
 
         mLavaLamp = (SwitchPreference) findPreference(KEY_LAVALAMP);
         mLavaLamp.setOnPreferenceChangeListener(this);
+
+        mLockscreenMediaBlur = (SystemSettingSeekBarPreference) findPreference(LOCKSCREEN_MEDIA_BLUR);
+        mLockscreenMediaBlur.setOnPreferenceChangeListener(this);
+        int lsBlurValue = Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKSCREEN_MEDIA_BLUR, 100);
+        mLockscreenMediaBlur.setValue(lsBlurValue);
+
+        mLockscreenMediaFilter = (SecureSettingListPreference) findPreference(LOCKSCREEN_MEDIA_FILTER);
+        mLockscreenMediaFilter.setOnPreferenceChangeListener(this);
+        int lsFilter = Settings.Secure.getInt(getContentResolver(),
+                Settings.Secure.LOCKSCREEN_ALBUMART_FILTER, 0);
+        mLockscreenMediaFilter.setValue(String.valueOf(lsFilter));
+        mLockscreenMediaFilter.setOnPreferenceChangeListener(this);
+        if (lsFilter == 3 || lsFilter == 4) {
+            mLockscreenMediaBlur.setEnabled(true);
+        } else {
+            mLockscreenMediaBlur.setEnabled(false);
+        }
     }
 
     @Override
@@ -76,6 +100,23 @@ public class VisualizerUI extends SettingsPreferenceFragment implements
             } else {
                 mAutoColor.setSummary(getActivity().getString(
                         R.string.lockscreen_autocolor_summary));
+            }
+            return true;
+        } else if (preference == mLockscreenMediaBlur) {
+            int lsBlurValue = (Integer) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_MEDIA_BLUR, lsBlurValue);
+            return true;
+        } else if (preference == mLockscreenMediaFilter) {
+            int lsFilterValue = Integer.parseInt(((String) newValue).toString());
+            Settings.Secure.putInt(getContentResolver(),
+                    Settings.Secure.LOCKSCREEN_ALBUMART_FILTER, lsFilterValue);
+            mLockscreenMediaFilter.setValue(String.valueOf(lsFilterValue));
+            if (lsFilterValue == 0 ||
+                      lsFilterValue == 1 || lsFilterValue == 2) {
+                mLockscreenMediaBlur.setEnabled(false);
+            } else {
+                mLockscreenMediaBlur.setEnabled(true);
             }
             return true;
         }
