@@ -1362,4 +1362,8 @@
     <string name="fod_pressed_state_icon_white">Icon (White)</string>
     <string name="fod_pressed_state_solid_color">Solid color (usually Green)</string>
 
+    <!-- FOD icon use wallpaper color -->
+    <string name="fod_wallpaper_color">Use wallpaper color for FOD icon</string>
+    <string name="fod_wallpaper_color_summary">Uses adjusted primary wallpaper color for FOD icon\nNOTE: might look good only with some wallpapers</string>
+
 </resources>
