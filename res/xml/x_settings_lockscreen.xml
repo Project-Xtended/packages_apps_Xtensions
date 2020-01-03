@@ -76,6 +76,13 @@
             android:defaultValue="0"
             android:dependency="fod_recognizing_animation" />
 
+        <!-- FOD use wallpaper color -->
+        <com.msm.xtended.preferences.SystemSettingSwitchPreference
+            android:key="fod_icon_wallpaper_color"
+            android:title="@string/fod_wallpaper_color"
+            android:summary="@string/fod_wallpaper_color_summary"
+            android:defaultValue="false" />
+
         <com.msm.xtended.preferences.SystemSettingListPreference
             android:key="fod_pressed_state"
             android:icon="@drawable/ic_fp"
