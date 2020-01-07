@@ -461,4 +461,8 @@
     <string name="lock_item_right">Right alligned</string>
     <string name="lockscreen_item_padding_title">Lockscreen items padding</string>
 
+    <!-- RGB Accent Picker -->
+    <string name="accent_color">Accent picker</string>
+    <string name="accent_summary">System wide accent picker</string>
+
 </resources>

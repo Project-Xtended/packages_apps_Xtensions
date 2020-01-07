@@ -18,4 +18,11 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
         android:title="@string/themeroom_title">
 
+    <com.xtended.support.colorpicker.ColorPickerPreference
+        android:key="accent_color"
+        android:title="@string/accent_color"
+        android:summary="@string/accent_summary"
+        android:defaultValue="0xffffff"
+        android:persistent="false" />
+
 </PreferenceScreen>
