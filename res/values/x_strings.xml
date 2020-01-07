@@ -465,4 +465,8 @@
     <string name="accent_color">Accent picker</string>
     <string name="accent_summary">System wide accent picker</string>
 
+    <!-- RGB Gradient Picker -->
+    <string name="gradient_color">Gradient picker</string>
+    <string name="gradient_summary">Gradient effect picker</string>
+
 </resources>
