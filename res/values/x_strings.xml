@@ -419,6 +419,8 @@
     <string name="lockscreen_clock_default_bold">Default (bold)</string>
     <string name="lockscreen_clock_sammy">Sammy</string>
     <string name="lockscreen_clock_sammy_bold">Sammy (bold)</string>
+    <string name="lockscreen_clock_sammy_accent_hour">Sammy accent(hours)</string>
+    <string name="lockscreen_clock_sammy_accent_mins">Sammy accent(minutes)</string>
     <string name="lockscreen_clock_text_style">Text clock</string>
 
 </resources>
