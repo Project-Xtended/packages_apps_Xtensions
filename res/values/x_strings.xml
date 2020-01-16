@@ -422,5 +422,6 @@
     <string name="lockscreen_clock_sammy_accent_hour">Sammy accent(hours)</string>
     <string name="lockscreen_clock_sammy_accent_mins">Sammy accent(minutes)</string>
     <string name="lockscreen_clock_text_style">Text clock</string>
+    <string name="lockscreen_clock_analog_style">Analog Q style</string>
 
 </resources>
