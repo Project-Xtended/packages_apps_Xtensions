@@ -1232,4 +1232,8 @@
     <string name="lockscreen_clock_sammy_accent_mins">Sammy Accent(minutes)</string>
     <string name="lockscreen_clock_text_style">Text clock</string>
 
+    <!-- Lock icon -->
+    <string name="hide_lockicon_title">Hide lock icon</string>
+    <string name="hide_lockicon_summary">Hide the lock icon on lockscreen</string>
+
 </resources>
