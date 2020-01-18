@@ -330,6 +330,9 @@
     <!-- Lockscreen ui category -->
     <string name="lock_screen_elements_category_title">Lock screen elements</string>
 
+    <!-- Lockscreen clock category -->
+    <string name="lock_screen_clock_category_title">Lock screen clock</string>
+
     <!-- Lock Clock Fonts -->
     <string name="lock_clock_font_title">LS Clock font style</string>
     <string name="custom_text_clock_font_title">Text Clock font style</string>
@@ -371,6 +374,9 @@
     <string name="lock_clock_font_dumbledor">Dumbledor</string>
     <string name="lock_clock_font_phantombold">PhantomBold</string>
 
+    <!-- Lockscreen date category -->
+    <string name="lock_screen_date_category_title">Lock screen date</string>
+
     <!-- Lock Date Fonts -->
     <string name="lock_date_font_title">LS Date font style</string>
     <string name="lock_date_font_dialog_title">Select lockscreen date font</string>
@@ -401,6 +407,9 @@
     <string name="lockscreen_colors_reset_title">Reset lockscreen colors</string>
     <string name="lockscreen_colors_reset_message">Are you sure you want to reset these colors to default?</string>
     <string name="yes">YES</string>
+
+    <!-- Lockscreen owner info category -->
+    <string name="lock_screen_owner_category_title">Lock screen owner info</string>
 
     <!-- LS Owner info Font & Size -->
     <string name="lock_ownerinfo_font_title">LS Owner info font style</string>
