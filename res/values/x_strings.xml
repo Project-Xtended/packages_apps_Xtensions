@@ -686,4 +686,11 @@
     <string name="fprint_success_vib_title">Fingerprint authentication vibration</string>
     <string name="fprint_success_vib_summary">Vibrate on successful fingerprint authentication</string>
 
+    <!-- Statusbar icons category -->
+    <string name="statusbar_icons_category_title">Status bar icons</string>
+
+    <!-- Show LTE/4G switch -->
+    <string name="show_fourg_title">Show 4G instead of LTE</string>
+    <string name="show_fourg_summary">Replaces LTE statusbar indicators with 4G</string>
+
 </resources>
