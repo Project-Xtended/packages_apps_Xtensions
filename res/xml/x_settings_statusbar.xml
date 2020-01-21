@@ -49,4 +49,15 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/statusbar_icons_category_title">
+
+        <com.xtended.support.preferences.SystemSettingSwitchPreference 
+            android:key="show_fourg_icon"
+            android:title="@string/show_fourg_title"
+            android:summary="@string/show_fourg_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
