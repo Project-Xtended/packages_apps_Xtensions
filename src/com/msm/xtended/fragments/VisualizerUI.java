@@ -73,7 +73,7 @@ public class VisualizerUI extends SettingsPreferenceFragment implements
         mLockscreenMediaBlur = (SystemSettingSeekBarPreference) findPreference(LOCKSCREEN_MEDIA_BLUR);
         mLockscreenMediaBlur.setOnPreferenceChangeListener(this);
         int lsBlurValue = Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKSCREEN_MEDIA_BLUR, 100);
+                Settings.System.LOCKSCREEN_MEDIA_BLUR, 25);
         mLockscreenMediaBlur.setValue(lsBlurValue);
 
         mLockscreenMediaFilter = (SecureSettingListPreference) findPreference(LOCKSCREEN_MEDIA_FILTER);
