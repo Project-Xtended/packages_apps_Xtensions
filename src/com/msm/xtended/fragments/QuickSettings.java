@@ -73,13 +73,13 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
         mQsColumnsPortrait = (CustomSeekBarPreference) findPreference(PREF_COLUMNS_PORTRAIT);
         int columnsPortrait = Settings.System.getIntForUser(resolver,
-                Settings.System.QS_LAYOUT_COLUMNS, 4, UserHandle.USER_CURRENT);
+                Settings.System.QS_LAYOUT_COLUMNS, 3, UserHandle.USER_CURRENT);
         mQsColumnsPortrait.setValue(columnsPortrait);
         mQsColumnsPortrait.setOnPreferenceChangeListener(this);
 
         mQsColumnsLandscape = (CustomSeekBarPreference) findPreference(PREF_COLUMNS_LANDSCAPE);
         int columnsLandscape = Settings.System.getIntForUser(resolver,
-                Settings.System.QS_LAYOUT_COLUMNS_LANDSCAPE, 4, UserHandle.USER_CURRENT);
+                Settings.System.QS_LAYOUT_COLUMNS_LANDSCAPE, 3, UserHandle.USER_CURRENT);
         mQsColumnsLandscape.setValue(columnsLandscape);
         mQsColumnsLandscape.setOnPreferenceChangeListener(this);
 

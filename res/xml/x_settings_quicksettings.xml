@@ -71,7 +71,7 @@
             android:max="8"
             settings:min="3"
             settings:units=""
-            android:defaultValue="4"
+            android:defaultValue="3"
             android:persistent="false" />
 
         <com.msm.xtended.preferences.CustomSeekBarPreference
@@ -80,7 +80,7 @@
             android:max="8"
             settings:min="3"
             settings:units=""
-            android:defaultValue="4"
+            android:defaultValue="3"
             android:persistent="false" />
 
         <com.msm.xtended.preferences.CustomSeekBarPreference
@@ -106,8 +106,8 @@
         <com.msm.xtended.preferences.CustomSeekBarPreference
             android:key="qs_rows_landscape"
             android:title="@string/qs_rows_landscape_title"
-            android:max="3"
-            settings:min="1"
+            android:max="4"
+            settings:min="2"
             settings:units=""
             android:defaultValue="2"
             android:persistent="false" />
