@@ -202,10 +202,22 @@
         android:summary="@string/qs_running_services_summary"
         android:defaultValue="false" />
 
-    <com.msm.xtended.preferences.SystemSettingSwitchPreference
-        android:key="qs_blur"
-        android:title="@string/blur_quicksettings"
-        android:summary="@string/blur_quicksettings_subtitle"
-        android:defaultValue="true" />
+    <PreferenceCategory
+        android:title="QS Blur" />
+       <com.msm.xtended.preferences.SystemSettingSwitchPreference
+           android:key="qs_blur"
+           android:title="@string/blur_quicksettings"
+           android:summary="@string/blur_quicksettings_subtitle"
+           android:defaultValue="true" />
+
+       <com.msm.xtended.preferences.CustomSeekBarPreference
+           android:key="qs_blur_alpha"
+           android:title="@string/qs_blur_alpha_title"
+           android:summary="@string/qs_blur_alpha_summary"
+           android:max="100"
+           settings:min="1"
+           settings:units="%"
+           android:persistent="false"
+           android:dependency="qs_blur" />
 
 </PreferenceScreen>
