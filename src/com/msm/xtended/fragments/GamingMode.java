@@ -241,12 +241,11 @@ public class GamingMode extends SettingsPreferenceFragment
                     // Do nothing
                 }
             }
+           // Keep these at the top
+           mAddGamingPref.setOrder(0);
+           // Add 'add' options
+           mGamingPrefList.addPreference(mAddGamingPref);
         }
-
-        // Keep these at the top
-        mAddGamingPref.setOrder(0);
-        // Add 'add' options
-        mGamingPrefList.addPreference(mAddGamingPref);
     }
 
     @Override
