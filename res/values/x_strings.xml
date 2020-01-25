@@ -1269,4 +1269,8 @@
     <string name="qs_settings_button_title">Settings Icon</string>
     <string name="qs_settings_button_summary">Disable the settings icon in the footer</string>
 
+    <!-- QS blur -->
+    <string name="blur_quicksettings">Blur behind quick settings (beta)</string>
+    <string name="blur_quicksettings_subtitle">blurs darkened background behind quick settings</string>
+
 </resources>
