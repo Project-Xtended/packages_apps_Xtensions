@@ -1265,4 +1265,8 @@
     <string name="center_text_clock_title">Center Text Clock</string>
     <string name="center_text_clock_summary">Tranform Q-Clock to X-Clock</string>
 
+    <!-- QS Settings Button Icon -->
+    <string name="qs_settings_button_title">Settings Icon</string>
+    <string name="qs_settings_button_summary">Disable the settings icon in the footer</string>
+
 </resources>
