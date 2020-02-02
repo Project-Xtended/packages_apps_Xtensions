@@ -1471,7 +1471,16 @@
     <string name="gesture_anywhere_56">56px</string>
     <string name="gesture_anywhere_64">64px</string>
     <string name="gesture_anywhere_68">68px</string>
+    
     <!-- Summaries For Forgotten Ones -->
     <string name="gesture_anywhere_summary">Gesture Anywhere Settings</string>
        
+    <!-- FOD pressed state behavior -->
+    <string name="fod_pressed_state_title">FOD pressed state behavior</string>
+    <string name="fod_pressed_state_summary">Choose the appropriate pressed state behavior for your device</string>
+    <string name="fod_pressed_state_footer">Icons/colors may vary depending on which device you are using.</string>
+    <string name="fod_pressed_state_icon">Icon (usually Cyan)</string>
+    <string name="fod_pressed_state_icon_white">Icon (White)</string>
+    <string name="fod_pressed_state_solid_color">Solid color (usually Green)</string>
+
 </resources>
