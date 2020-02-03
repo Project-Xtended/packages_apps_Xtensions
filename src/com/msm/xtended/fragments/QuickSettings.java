@@ -44,6 +44,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String KEY_QS_PANEL_ALPHA = "qs_panel_alpha";
     private static final String QS_PANEL_COLOR = "qs_panel_color";
     private static final String QS_BLUR_ALPHA = "qs_blur_alpha";
+    private static final String QS_BLUR_INTENSITY = "qs_blur_intensity";
     static final int DEFAULT_QS_PANEL_COLOR = 0xffffffff;
 
     private CustomSeekBarPreference mQsColumnsPortrait;
@@ -56,6 +57,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private CustomSeekBarPreference mQsPanelAlpha;
     private ColorPickerPreference mQsPanelColor;
     private CustomSeekBarPreference mQsBlurAlpha;
+    private CustomSeekBarPreference mQsBlurIntensity;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -134,6 +136,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 Settings.System.QS_BLUR_ALPHA, 100, UserHandle.USER_CURRENT);
         mQsBlurAlpha.setValue(qsBlurAlpha);
         mQsBlurAlpha.setOnPreferenceChangeListener(this);
+
+        mQsBlurIntensity = (CustomSeekBarPreference) findPreference(QS_BLUR_INTENSITY);
+        int qsBlurIntensity = Settings.System.getIntForUser(resolver,
+                Settings.System.QS_BLUR_INTENSITY, 100, UserHandle.USER_CURRENT);
+        mQsBlurIntensity.setValue(qsBlurIntensity);
+        mQsBlurIntensity.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -199,6 +207,11 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             int value = (Integer) newValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.QS_BLUR_ALPHA, value);
+            return true;
+        } else if (preference == mQsBlurIntensity) {
+            int valueInt = (Integer) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.QS_BLUR_INTENSITY, valueInt);
             return true;
         }
         return false;
