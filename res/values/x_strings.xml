@@ -65,7 +65,7 @@
 
     <!-- OnePlus Shit -->
     <string name="device_part_title">OnePlus Shit</string>
-    <string name="device_part_summary">OnePlus Speicific Features</string>
+    <string name="device_part_summary">OnePlus Specific Features</string>
 
     <!-- Statusbar net monitor -->
     <string name="traffic_title">Network Traffic</string>
