@@ -107,4 +107,8 @@
     <string name="navbar_layout_leftleaning">Left-leaning</string>
     <string name="navbar_layout_rightleaning">Right-leaning</string>
 
+    <!-- Navbar Typing Arrow Keys -->
+    <string name="navigation_bar_arrow_keys_title">Show arrow keys while typing</string>
+    <string name="navigation_bar_arrow_keys_summary">Display left and right cursor buttons in navigation bar while typing</string>
+
 </resources>
