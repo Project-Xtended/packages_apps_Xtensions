@@ -27,6 +27,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.UserHandle;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -49,6 +50,8 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
     private static final String KEY_NAVIGATION_BAR_ENABLED = "force_show_navbar";
 
     private SwitchPreference mNavigationBar;
+    private boolean mIsNavSwitchingMode = false;
+    private Handler mHandler;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -57,6 +60,8 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
 
         final ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        mHandler = new Handler();
 
         final boolean defaultToNavigationBar = getResources().getBoolean(
                 com.android.internal.R.bool.config_showNavigationBar);
@@ -77,8 +82,18 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mNavigationBar) {
             boolean value = (Boolean) newValue;
+            if (mIsNavSwitchingMode) {
+                return false;
+            }
+            mIsNavSwitchingMode = true;
             Settings.System.putInt(resolver, Settings.System
             .FORCE_SHOW_NAVBAR, value ? 1 : 0);
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mIsNavSwitchingMode = false;
+                }
+            }, 1500);
             return true;
         }
         return false;
