@@ -37,7 +37,10 @@ import com.android.settings.SettingsPreferenceFragment;
 public class NotificationSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String CATEGORY_LED = "light_cat";
+
     private Preference mChargingLeds;
+    private Preference mNotifLeds;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -47,11 +50,16 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
 
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
-        mChargingLeds = (Preference) findPreference("charging_light");
-        if (mChargingLeds != null
-                && !getResources().getBoolean(
-                        com.android.internal.R.bool.config_intrusiveBatteryLed)) {
-            prefScreen.removePreference(mChargingLeds);
+        final PreferenceCategory lightCat = (PreferenceCategory) prefScreen
+                .findPreference(CATEGORY_LED);
+        final boolean variableIntrusiveLed = getResources().getBoolean(
+                    com.android.internal.R.bool.config_intrusiveBatteryLed);
+
+        if (variableIntrusiveLed) {
+            mChargingLeds = (Preference) findPreference("charging_light");
+            mNotifLeds = (Preference) findPreference("notification_light");
+        } else {
+            prefScreen.removePreference(lightCat);
         }
     }
 
