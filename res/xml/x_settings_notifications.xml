@@ -141,6 +141,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="light_cat"
         android:title="@string/notification_led_category_title" >
 
         <Preference
