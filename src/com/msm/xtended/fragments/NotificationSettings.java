@@ -37,8 +37,10 @@ public class NotificationSettings extends SettingsPreferenceFragment
     private static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
     private static final String PULSE_AMBIENT_LIGHT_DURATION = "pulse_ambient_light_duration";
     private static final String PULSE_AMBIENT_LIGHT_REPEAT_COUNT = "pulse_ambient_light_repeat_count";
+    private static final String CATEGORY_LED = "light_cat";
 
     private Preference mChargingLeds;
+    private Preference mNotifLeds;
     private CustomSeekBarPreference mPulseBrightness;
     private CustomSeekBarPreference mDozeBrightness;
     private ColorPickerPreference mIconColor;
@@ -59,16 +61,21 @@ public class NotificationSettings extends SettingsPreferenceFragment
         String hexColor = String.format("#%08x", (0xffffffff & 0xffffffff));
 
         PreferenceScreen prefScreen = getPreferenceScreen();
+        final PreferenceCategory lightCat = (PreferenceCategory) prefScreen
+                .findPreference(CATEGORY_LED);
+        final boolean variableIntrusiveLed = getResources().getBoolean(
+                    com.android.internal.R.bool.config_intrusiveBatteryLed);
+
         PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);
         if (!XUtils.isVoiceCapable(getActivity())) {
             prefScreen.removePreference(incallVibCategory);
         }
 
-        mChargingLeds = (Preference) findPreference("charging_light");
-        if (mChargingLeds != null
-                && !getResources().getBoolean(
-                        com.android.internal.R.bool.config_intrusiveBatteryLed)) {
-            prefScreen.removePreference(mChargingLeds);
+        if (variableIntrusiveLed) {
+            mChargingLeds = (Preference) findPreference("charging_light");
+            mNotifLeds = (Preference) findPreference("notification_light");
+        } else {
+            prefScreen.removePreference(lightCat);
         }
 
         int defaultDoze = getResources().getInteger(
@@ -212,3 +219,4 @@ public class NotificationSettings extends SettingsPreferenceFragment
         return MetricsProto.MetricsEvent.XTENSIONS;
     }
 }
+

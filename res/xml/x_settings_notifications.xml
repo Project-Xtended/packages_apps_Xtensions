@@ -67,6 +67,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="light_cat"
         android:title="@string/light_settings_header" >
 
         <Preference
