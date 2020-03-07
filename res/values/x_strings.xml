@@ -584,4 +584,16 @@
     <string name="volte_icon_title">VoLTE icon</string>
     <string name="volte_icon_summary">Display VoLTE icon</string>
 
+    <!-- VoLTE Icon Type -->
+    <string name="volte_icon_style_title">Select VoLTE/HD Icon</string>
+    <string name="volte_icon_oos10">OOS 10 (Default)</string>
+    <string name="volte_icon_asus">VoLTE Asus Icon</string>
+    <string name="volte_icon_volte">VoLTE Icon</string>
+    <string name="volte_icon_oos">VoLTE OnePlus Icon</string>
+    <string name="volte_icon_hd">HD Icon</string>
+    <string name="volte_icon_hd2">HD CAF Icon</string>
+    <string name="volte_icon_miui">MIUI 11 Icon</string>
+    <string name="volte_icon_emui">EMUI Icon</string>
+    <string name="volte_icon_vo">Vo Only Icon</string>
+
 </resources>
