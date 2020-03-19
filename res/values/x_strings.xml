@@ -1028,4 +1028,16 @@
     <string name="unit_milliseconds">milliseconds</string>
     <string name="unit_pixels">dp</string>
 
+    <!-- Theme Reset Option -->
+    <string name="theme_option_reset_title">Reset</string>
+    <string name="theme_option_reset_message">Are you sure you want to reset?</string>
+
+    <!-- General strings -->
+    <string name="unit_percent">\u0025</string>
+    <string name="enabled">Enabled</string>
+    <string name="choose_app">Choose application</string>
+    <string name="help">Help</string>
+    <string name="reset_message">Reset all entries to default?</string>
+    <string name="attention">Attention</string>
+
 </resources>
