@@ -1330,13 +1330,6 @@
     <string name="fod_icon_picker_summary">Choose your favorite fingerprint icon</string>
     <string name="fod_icon_picker_footer">In order to add your own icon, select the top left icon and use the OnePlus 6T FP Customizer app to select the icon you want.</string>
 
-    <!-- FOD pressed state effect -->
-    <string name="fod_pressed_state_title">Pressed icon effect</string>
-    <string name="fod_pressed_state_footer">Icons/colors may vary depending on which device you are using.</string>
-    <string name="fod_pressed_state_icon">Icon (usually Cyan)</string>
-    <string name="fod_pressed_state_icon_white">Icon (White)</string>
-    <string name="fod_pressed_state_solid_color">Solid color (usually Green)</string>
-
     <!-- Nav Bar Arrow Keys -->
     <string name="navigation_bar_arrow_keys_title">Show arrow keys while typing</string>
     <string name="navigation_bar_arrow_keys_summary">Display left and right cursor buttons in navigation bar while typing</string>
