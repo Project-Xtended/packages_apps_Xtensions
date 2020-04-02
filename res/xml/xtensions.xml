@@ -25,7 +25,7 @@
             android:icon="@drawable/ic_x_opshit">
             <intent android:action="android.intent.action.MAIN"
                android:targetPackage="com.oneplus.shit.settings"
-               android:targetClass ="com.oneplus.shit.settings.ShitPanelSettings" />
+               android:targetClass="com.oneplus.shit.settings.ShitPanelSettings" />
         </PreferenceScreen>
 
         <!-- Buttons -->
@@ -135,6 +135,15 @@
             android:fragment="com.msm.xtended.fragments.XtraSettings"
             android:icon="@drawable/ic_x_xtras"
             settings:allowDividerAbove="false" />
+
+        <!-- The team -->
+        <PreferenceScreen
+            android:key="the_team"
+            android:title="@string/xtended_about_nfo"
+	   		android:summary="@string/xtended_about_info_summary_title"
+	   		android:icon="@drawable/ic_x_team">
+            <intent android:action="com.msm.xtended.TeamActivity"/>  			
+        </PreferenceScreen>
 
 </PreferenceScreen>
 
