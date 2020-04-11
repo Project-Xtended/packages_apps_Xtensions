@@ -1338,4 +1338,5 @@
 	<string name="dialog_team_title">The team</string>
     <string name="developer_title">Developer</string>
     <string name="maintainer_title">Maintainer</string>
+    <string name="designer_title">Designer</string>
 </resources>
