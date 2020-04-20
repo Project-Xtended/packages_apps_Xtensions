@@ -27,7 +27,10 @@ import android.view.View;
 import java.util.List;
 import java.util.ArrayList;
 
+import com.android.internal.util.xtended.XtendedUtils;
+
 import com.msm.xtended.preferences.CustomSeekBarPreference;
+import com.msm.xtended.preferences.SystemSettingSwitchPreference;
 import com.msm.xtended.preferences.SystemSettingEditTextPreference;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
@@ -45,6 +48,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String QS_PANEL_COLOR = "qs_panel_color";
     private static final String QS_BLUR_ALPHA = "qs_blur_alpha";
     private static final String QS_BLUR_INTENSITY = "qs_blur_intensity";
+    private static final String PREF_QSBG_NEW_TINT = "qs_panel_bg_use_new_tint";
     static final int DEFAULT_QS_PANEL_COLOR = 0xffffffff;
 
     private CustomSeekBarPreference mQsColumnsPortrait;
@@ -58,6 +62,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private ColorPickerPreference mQsPanelColor;
     private CustomSeekBarPreference mQsBlurAlpha;
     private CustomSeekBarPreference mQsBlurIntensity;
+    private SystemSettingSwitchPreference mQsBgNewTint;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -142,6 +147,11 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 Settings.System.QS_BLUR_INTENSITY, 100, UserHandle.USER_CURRENT);
         mQsBlurIntensity.setValue(qsBlurIntensity);
         mQsBlurIntensity.setOnPreferenceChangeListener(this);
+
+        mQsBgNewTint = (SystemSettingSwitchPreference) findPreference(PREF_QSBG_NEW_TINT);
+        mQsBgNewTint.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.QS_PANEL_BG_USE_NEW_TINT, 1) == 1));
+        mQsBgNewTint.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -212,6 +222,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             int valueInt = (Integer) newValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.QS_BLUR_INTENSITY, valueInt);
+            return true;
+        } else if (preference == mQsBgNewTint) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.QS_PANEL_BG_USE_NEW_TINT, value ? 1 : 0);
+            XtendedUtils.showSystemUiRestartDialog(getContext());
             return true;
         }
         return false;

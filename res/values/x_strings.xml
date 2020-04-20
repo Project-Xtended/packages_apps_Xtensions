@@ -1342,4 +1342,9 @@
 
     <string name="enable_oneui">OneUI</string>
     <string name="enable_oneui_summary">Show spacer above settings actionbar for easier use with one hand\nNOTE: restart settings app to see effect</string>
+
+    <!-- QS BG Tint -->
+    <string name="qs_bg_use_new_tint">Tint QS Tile</string>
+    <string name="qs_bg_use_new_tint_summary">Use accent color for qs tile icons and background</string>
+
 </resources>
