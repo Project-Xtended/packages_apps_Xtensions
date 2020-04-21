@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 
+/*
 package com.msm.xtended.fragments;
 
 import android.content.Context;
@@ -290,7 +291,6 @@ public class AlarmBlocker extends SettingsPreferenceFragment {
     }
 
     private void showAlert() {
-        /* Display the warning dialog */
         mAlertDialog = new AlertDialog.Builder(getActivity()).create();
         mAlertDialog.setTitle(R.string.alarm_blocker_warning_title);
         mAlertDialog.setMessage(getResources().getString(R.string.alarm_blocker_warning));
@@ -304,3 +304,4 @@ public class AlarmBlocker extends SettingsPreferenceFragment {
         mAlertDialog.show();
     }
 }
+*/

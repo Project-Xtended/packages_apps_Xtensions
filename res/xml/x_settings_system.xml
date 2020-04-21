@@ -25,18 +25,6 @@
             android:fragment="com.msm.xtended.fragments.SmartPixels" />
 
         <Preference
-             android:key="wakelock_blocker"
-             android:title="@string/wakelock_blocker_title"
-             android:summary="@string/wakelock_blocker_summary"
-             android:fragment="com.msm.xtended.fragments.WakeLockBlocker" />
-
-        <Preference
-             android:id="@+id/alarm_blocker"
-             android:title="@string/alarm_blocker"
-             android:summary="@string/alarm_blocker_summary"
-             android:fragment="com.msm.xtended.fragments.AlarmBlocker" />
-
-        <Preference
             android:key="suspend_actions"
             android:title="@string/screen_state_toggles_title" 
             android:summary="@string/screen_state_toggles_summary_opt"

@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+/*
 package com.msm.xtended.fragments;
 
 import android.content.Context;
@@ -291,7 +292,6 @@ public class WakeLockBlocker extends SettingsPreferenceFragment {
     }
 
     private void showAlert() {
-        /* Display the warning dialog */
         mAlertDialog = new AlertDialog.Builder(getActivity()).create();
         mAlertDialog.setTitle(R.string.wakelock_blocker_warning_title);
         mAlertDialog.setMessage(getResources().getString(R.string.wakelock_blocker_warning));
@@ -304,4 +304,5 @@ public class WakeLockBlocker extends SettingsPreferenceFragment {
                 });
         mAlertDialog.show();
     }
-}
+}*/
+
