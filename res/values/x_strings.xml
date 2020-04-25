@@ -1350,4 +1350,8 @@
     <string name="hide_smart_replies_title">Hide smart replies</string>
     <string name="hide_smart_replies_summary">Hide smart replies to save screen space with peeking notifications</string>
 
+    <!-- R Notification headers -->
+    <string name="notification_headers_title">R-Style Notifications</string>
+    <string name="notification_headers_summary">Whether to show R style notification headers (Requires a SystemUI restart)</string>
+
 </resources>

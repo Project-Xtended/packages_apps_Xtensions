@@ -49,6 +49,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String QS_BLUR_ALPHA = "qs_blur_alpha";
     private static final String QS_BLUR_INTENSITY = "qs_blur_intensity";
     private static final String PREF_QSBG_NEW_TINT = "qs_panel_bg_use_new_tint";
+    private static final String PREF_R_NOTIF_HEADER = "notification_headers";
     static final int DEFAULT_QS_PANEL_COLOR = 0xffffffff;
 
     private CustomSeekBarPreference mQsColumnsPortrait;
@@ -63,6 +64,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private CustomSeekBarPreference mQsBlurAlpha;
     private CustomSeekBarPreference mQsBlurIntensity;
     private SystemSettingSwitchPreference mQsBgNewTint;
+    private SystemSettingSwitchPreference mNotifHeader;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -152,6 +154,11 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mQsBgNewTint.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.QS_PANEL_BG_USE_NEW_TINT, 1) == 1));
         mQsBgNewTint.setOnPreferenceChangeListener(this);
+
+        mNotifHeader = (SystemSettingSwitchPreference) findPreference(PREF_R_NOTIF_HEADER);
+        mNotifHeader.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.NOTIFICATION_HEADERS, 1) == 1));
+        mNotifHeader.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -227,6 +234,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.QS_PANEL_BG_USE_NEW_TINT, value ? 1 : 0);
+            XtendedUtils.showSystemUiRestartDialog(getContext());
+            return true;
+        } else if (preference == mNotifHeader) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NOTIFICATION_HEADERS, value ? 1 : 0);
             XtendedUtils.showSystemUiRestartDialog(getContext());
             return true;
         }
