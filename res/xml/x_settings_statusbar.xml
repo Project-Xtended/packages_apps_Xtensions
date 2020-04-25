@@ -46,6 +46,12 @@
                 android:targetClass="com.android.systemui.tuner.StatusbarItemsActivity" />
         </Preference>
 
+        <Preference
+            android:key="statusbar_battery"
+            android:title="@string/battery_percent_title"
+            android:summary="@string/battery_percent_summary"
+            android:fragment="com.xtended.fragments.StatusbarBatterySettings"/>
+
         <com.xtended.support.preferences.SystemSettingSwitchPreference 
             android:key="show_fourg"
             android:title="@string/show_fourg_title"
