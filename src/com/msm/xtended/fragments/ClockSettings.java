@@ -65,6 +65,8 @@ public class ClockSettings extends SettingsPreferenceFragment implements
     public static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
     private static final int CUSTOM_CLOCK_DATE_FORMAT_INDEX = 18;
     private static final String STATUS_BAR_CLOCK_DATE_POSITION = "statusbar_clock_date_position";
+    private static final String CLOCK_DATE_AUTO_HIDE_HDUR = "status_bar_clock_auto_hide_hduration";
+    private static final String CLOCK_DATE_AUTO_HIDE_SDUR = "status_bar_clock_auto_hide_sduration";
 
     static final int DEFAULT_STATUS_CLOCK_COLOR = 0xffffffff;
 
@@ -79,6 +81,8 @@ public class ClockSettings extends SettingsPreferenceFragment implements
     private CustomSeekBarPreference mClockSize;
     private ListPreference mClockFontStyle;
     private ListPreference mClockDatePosition;
+    private CustomSeekBarPreference mHideDuration;
+    private CustomSeekBarPreference mShowDuration;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -132,6 +136,18 @@ public class ClockSettings extends SettingsPreferenceFragment implements
                 Settings.System.STATUS_BAR_CLOCK_FONT_STYLE, 0);
         mClockFontStyle.setValue(String.valueOf(showClockFont));
         mClockFontStyle.setOnPreferenceChangeListener(this);
+        
+        mHideDuration = (CustomSeekBarPreference) findPreference(CLOCK_DATE_AUTO_HIDE_HDUR);
+        int hideVal = Settings.System.getIntForUser(resolver,
+                Settings.System.STATUS_BAR_CLOCK_AUTO_HIDE_HDURATION, 60, UserHandle.USER_CURRENT);
+        mHideDuration.setValue(hideVal);
+        mHideDuration.setOnPreferenceChangeListener(this);
+
+        mShowDuration = (CustomSeekBarPreference) findPreference(CLOCK_DATE_AUTO_HIDE_SDUR);
+        int showVal = Settings.System.getIntForUser(resolver,
+                Settings.System.STATUS_BAR_CLOCK_AUTO_HIDE_SDURATION, 5, UserHandle.USER_CURRENT);
+        mShowDuration.setValue(showVal);
+        mShowDuration.setOnPreferenceChangeListener(this);
 
         if (DateFormat.is24HourFormat(getActivity())) {
             mStatusBarAmPm.setEnabled(false);
@@ -199,7 +215,17 @@ public class ClockSettings extends SettingsPreferenceFragment implements
         AlertDialog dialog;
 	ContentResolver resolver = getActivity().getContentResolver();
 
-        if (preference == mStatusBarClockShow) {
+        if (preference == mHideDuration) {
+            int HDuration = (Integer) newValue;
+            Settings.System.putIntForUser(resolver,
+                    Settings.System.STATUS_BAR_CLOCK_AUTO_HIDE_HDURATION, HDuration, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mShowDuration) {
+            int SDuration = (Integer) newValue;
+            Settings.System.putIntForUser(resolver,
+                    Settings.System.STATUS_BAR_CLOCK_AUTO_HIDE_SDURATION, SDuration, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mStatusBarClockShow) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUS_BAR_CLOCK, value ? 1 : 0);

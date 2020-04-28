@@ -265,6 +265,12 @@
     <string name="clock_date_format">Date format</string>
     <string name="clock_date_string_edittext_title">Must be in DateFormat eg. MM/dd/yy</string>
     <string name="clock_date_string_edittext_summary">Enter string</string>
+    <string name="status_bar_clock_auto_hide_title">Auto-hide</string>
+    <string name="status_bar_clock_auto_hide_summary">Hide and display clock for regular interval to save statusbar space</string>
+    <string name="status_bar_clock_auto_hide_hdur_title">Hide duration</string>
+    <string name="status_bar_clock_auto_hide_hdur_summary">Number of seconds to hide clock</string>
+    <string name="status_bar_clock_auto_hide_sdur_title">Show duration</string>
+    <string name="status_bar_clock_auto_hide_sdur_summary">Number of seconds to wait before hiding clock</string>
     
     <!-- Volume Wake -->
     <string name="volume_rocker_wake_title">Volume rocker wake</string>
