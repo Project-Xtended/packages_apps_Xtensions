@@ -52,12 +52,14 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
     private static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
     private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker_category";
+    private static final String FOD_ANIMATION = "fod_anim";
 
     private CustomSeekBarPreference mMaxKeyguardNotifConfig;
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintVib;
     private SystemSettingSwitchPreference mFpKeystore;
     private PreferenceCategory mFODIconPickerCategory;
+    private Preference mFODAnimation;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -67,6 +69,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
         Resources resources = getResources();
+        Context mContext = getContext();
 
         mMaxKeyguardNotifConfig = (CustomSeekBarPreference) findPreference(LOCKSCREEN_MAX_NOTIF_CONFIG);
         int kgconf = Settings.System.getInt(getContentResolver(),
@@ -90,6 +93,14 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         if (mFODIconPickerCategory != null
                 && !getResources().getBoolean(com.android.internal.R.bool.config_needCustomFODView)) {
            prefScreen.removePreference(mFODIconPickerCategory);
+        }
+
+        boolean showFODAnimationPicker = mContext.getResources().getBoolean(R.bool.showFODAnimationPicker);
+        mFODAnimation = (Preference) findPreference(FOD_ANIMATION);
+        if ((mFODIconPickerCategory != null && mFODAnimation != null &&
+             !getResources().getBoolean(com.android.internal.R.bool.config_needCustomFODView)) ||
+                (mFODIconPickerCategory != null && mFODAnimation != null && !showFODAnimationPicker)) {
+            mFODIconPickerCategory.removePreference(mFODAnimation);
         }
     }
 
