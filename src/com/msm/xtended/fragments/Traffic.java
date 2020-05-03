@@ -107,7 +107,7 @@ public class Traffic extends SettingsPreferenceFragment implements OnPreferenceC
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.EXTENSIONS;
+        return MetricsEvent.XTENDED;
     }
 
     @Override
