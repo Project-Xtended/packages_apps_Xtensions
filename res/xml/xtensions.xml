@@ -136,23 +136,23 @@
             android:icon="@drawable/ic_x_xtras"
             settings:allowDividerAbove="false" />
 
-        <!-- The team -->
+        <!-- The team 
         <PreferenceScreen
             android:key="the_team"
             android:title="@string/xtended_about_nfo"
 	   		android:summary="@string/xtended_about_info_summary_title"
 	   		android:icon="@drawable/ic_x_team">
             <intent android:action="com.msm.xtended.TeamActivity"/>  			
-        </PreferenceScreen>
+        </PreferenceScreen>-->
 
-        <!-- The team -->
+        <!-- The team 
         <PreferenceScreen
             android:key="the_team"
             android:title="@string/credits_to_these_teams"
             android:summary="@string/credits_summary"
             android:icon="@drawable/ic_x_team">
                <intent android:action="com.msm.xtended.ThanksActivity"/>  			
-        </PreferenceScreen>
+        </PreferenceScreen>-->
 
 </PreferenceScreen>
 
