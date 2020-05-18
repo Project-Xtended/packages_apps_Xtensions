@@ -45,6 +45,7 @@ import com.android.settings.R;
 import android.os.SELinux;
 import android.util.Log;
 
+import com.xtended.utils.XUtils;
 import com.xtended.utils.SuShell;
 import com.xtended.utils.SuTask;
 
@@ -66,6 +67,7 @@ public class XtraSettings extends SettingsPreferenceFragment implements
     private static final String TAG = "XtraSettings";
 
     private static final String SELINUX_CATEGORY = "selinux";
+    private static final String SELINUX_EXPLANATION = "selinux_explanation";
     private static final String PREF_SELINUX_MODE = "selinux_mode";
     private static final String PREF_SELINUX_PERSISTENCE = "selinux_persistence";
 
@@ -82,15 +84,28 @@ public class XtraSettings extends SettingsPreferenceFragment implements
 
       // SELinux
       Preference selinuxCategory = findPreference(SELINUX_CATEGORY);
+      Preference selinuxExp = findPreference(SELINUX_EXPLANATION);
       mSelinuxMode = (SwitchPreference) findPreference(PREF_SELINUX_MODE);
       mSelinuxMode.setChecked(SELinux.isSELinuxEnforced());
-      mSelinuxMode.setOnPreferenceChangeListener(this);
 
       mSelinuxPersistence = (SwitchPreference) findPreference(PREF_SELINUX_PERSISTENCE);
-      mSelinuxPersistence.setOnPreferenceChangeListener(this);
       mSelinuxPersistence.setChecked(getContext()
           .getSharedPreferences("selinux_pref", Context.MODE_PRIVATE)
           .contains(PREF_SELINUX_MODE));
+
+      // Disabling root required switches if unrooted and letting the user know
+
+      if (!XUtils.isRooted(getContext())) {
+        Log.e(TAG, "Root not found");
+        mSelinuxMode.setEnabled(false);
+        mSelinuxPersistence.setEnabled(false);
+        mSelinuxPersistence.setChecked(false);
+        selinuxExp.setSummary(selinuxExp.getSummary() + "\n" +
+            getResources().getString(R.string.selinux_unrooted_summary));
+      } else {
+        mSelinuxPersistence.setOnPreferenceChangeListener(this);
+        mSelinuxMode.setOnPreferenceChangeListener(this);
+      }
     }
 
     @Override
