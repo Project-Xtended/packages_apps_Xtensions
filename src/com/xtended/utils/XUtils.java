@@ -34,9 +34,12 @@ import android.net.ConnectivityManager;
 import android.os.UserManager;
 import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.DisplayInfo;
 import android.view.Surface;
 import android.view.WindowManager;
+
+import java.lang.Runtime;
 
 public final class XUtils {
     private static final String TAG = "XUtils";
@@ -48,6 +51,9 @@ public final class XUtils {
 
     // Device type reference
     private static int sDeviceType = -1;
+
+    // Magisk app name
+    private static final String MAGISK_APP = "com.topjohnwu.magisk";
 
     /**
      * Returns whether the device is voice-capable (meaning, it is also a phone).
@@ -203,6 +209,32 @@ public final class XUtils {
         } catch (CameraAccessException e) {
             // Ignore
         }
+        return false;
+    }
+
+    /**
+     * Checks if the device is rooted
+     * @param context context for magisk app detection
+     * @return <code>true</code> if root found, <code>false</code> otherwise
+     */
+    public static boolean isRooted(Context context) {
+        // check by existence of magisk app
+        try {
+            PackageManager pm = context.getPackageManager();
+            if (isPackageInstalled(context, MAGISK_APP, false) &&
+                    isSystemPackage(pm, pm.getPackageInfo(MAGISK_APP, 0))) {
+                return true;
+            }
+        } catch (NameNotFoundException e) { /* Do nothing */ }
+
+        // check by existence of su binary
+        try {
+            Runtime.getRuntime().exec("su -c echo");
+            return true;
+        } catch (Exception e) {
+            Log.i(TAG, "su binaries not found");
+        }
+
         return false;
     }
 }
