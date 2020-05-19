@@ -1364,4 +1364,8 @@
     <string name="power_menu_bg_summary">Enables Custom filter when powermenu is active</string>
     <string name="power_menu_bg_style_title">Filter Type</string>
 
+    <!-- QS BG Random Colors -->
+    <string name="qs_tiles_bg_disco_title">Random Color QS Tile</string>
+    <string name="qs_bg_use_new_tint_summary">Use random color tint for qs tile icons and background</string>
+
 </resources>

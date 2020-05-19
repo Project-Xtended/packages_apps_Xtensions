@@ -29,6 +29,13 @@
             android:defaultValue="true" />
 
         <com.msm.xtended.preferences.SystemSettingSwitchPreference
+            android:key="qs_tiles_bg_disco"
+            android:title="@string/qs_tiles_bg_disco_title"
+            android:summary="@string/qs_tiles_bg_disco_summary"
+            android:defaultValue="false"
+            android:dependency="qs_panel_bg_use_new_tint" />
+
+        <com.msm.xtended.preferences.SystemSettingSwitchPreference
             android:key="notification_headers"
             android:title="@string/notification_headers_title"
             android:summary="@string/notification_headers_summary"
