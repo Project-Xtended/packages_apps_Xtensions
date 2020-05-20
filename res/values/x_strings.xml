@@ -1342,6 +1342,9 @@
     <!-- QS BG Tint -->
     <string name="qs_bg_use_new_tint">Tint QS Tile</string>
     <string name="qs_bg_use_new_tint_summary">Use accent color for qs tile icons and background</string>
+    <string name="qs_tint_off">Tint QS Tile</string>
+    <string name="qs_tint_random">Random Color</string>
+    <string name="qs_tint_accent">Accent Color</string>
 
     <!-- QS DataUsage Toggle -->
     <string name="qs_datausage_title">Show data usage in qs header</string>
