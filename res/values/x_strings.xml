@@ -1368,4 +1368,8 @@
     <string name="power_menu_bg_summary">Enables Custom filter when powermenu is active</string>
     <string name="power_menu_bg_style_title">Filter Type</string>
 
+    <!-- Gradient Panel QS Bg -->
+    <string name="qs_new_bg_title">Gradient Qs Background</string>
+    <string name="qs_new_bg_summary">Whether to enable gradient based qs panel background</string>
+
 </resources>
