@@ -1372,4 +1372,8 @@
     <string name="qs_new_bg_title">Gradient Qs Background</string>
     <string name="qs_new_bg_summary">Whether to enable gradient based qs panel background</string>
 
+    <!-- Translucent lockscreen notifications background -->
+    <string name="translucent_lockscreen_notifications_bg_title">Translucent notifications background</string>
+    <string name="translucent_lockscreen_notifications_bg_summary">Whether to disable translucent bg of notification on keyguard</string>
+
 </resources>

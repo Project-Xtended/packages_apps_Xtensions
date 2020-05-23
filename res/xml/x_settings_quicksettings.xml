@@ -35,7 +35,7 @@
             android:key="qs_new_bg_enabled"
             android:title="@string/qs_new_bg_title"
             android:summary="@string/qs_new_bg_summary"
-            android:defaultValue="false" />
+            android:defaultValue="true" />
 
         <com.msm.xtended.preferences.SystemSettingSwitchPreference
             android:key="notification_headers"
