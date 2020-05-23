@@ -1581,4 +1581,16 @@
     <string name="lock_screen_custom_clock_face_typographic">Typographic</string>
     <string name="lock_screen_custom_clock_face_typographic_alt">Typographic (Center)</string>
     <string name="lock_screen_custom_clock_face_tux">Tux</string>
+
+    <!-- New QS Bg -->
+    <string name="qs_new_bg_title">Gradient Qs Background</string>
+    <string name="qs_new_bg_summary">Whether to enable gradient based qs panel background</string>
+    <string name="qs_new_bg_default">Default Qs Primary</string>
+    <string name="qs_new_bg_accent">Accent Qs Bg Bottom</string>
+    <string name="qs_new_bg_gradient">Gradient Qs Bg Bottom</string>
+    <string name="qs_new_bg_rev_grad">Reverse-Gradient Qs Bg Bottom</string>
+    <string name="qs_new_bg_accent_brdr">Accent Qs Bg with Border</string>
+    <string name="qs_new_bg_gradient_brdr">Gradient Qs Bg with Border</string>
+    <string name="qs_new_bg_rev_grad_brdr">Reverse-Gradient Qs Bg with Border</string>
+
 </resources>

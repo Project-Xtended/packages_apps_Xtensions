@@ -70,6 +70,7 @@ import com.android.settingslib.core.lifecycle.Lifecycle;
 import com.xtended.support.colorpicker.ColorPickerPreference;
 import com.xtended.display.QsTileStylePreferenceController;
 import com.xtended.support.preferences.CustomSeekBarPreference;
+import com.xtended.support.preferences.SystemSettingIntListPreference;
 import com.xtended.support.preferences.SystemSettingSwitchPreference;
 
 import com.android.internal.util.xtended.ThemesUtils;
@@ -97,6 +98,8 @@ public class XThemeRoom extends DashboardFragment implements
     private static final String GRADIENT_COLOR_PROP = "persist.sys.theme.gradientcolor";
     private static final String KEY_QS_PANEL_ALPHA = "qs_panel_alpha";
     private static final String FILE_QSPANEL_SELECT = "file_qspanel_select";
+    private static final String PREF_QS_NEW_BG = "qs_new_bg_enabled";
+    private static final String PREF_QS_NEW_IMAGE = "qs_panel_type_background";
     private static final int REQUEST_PICK_IMAGE = 0;
     private static final int MENU_RESET = Menu.FIRST;
 
@@ -111,6 +114,8 @@ public class XThemeRoom extends DashboardFragment implements
     private ColorPickerPreference mGradientColor;
     private CustomSeekBarPreference mQsPanelAlpha;
     private Preference mQsPanelImage;
+    private SystemSettingIntListPreference mQsNewBgEnabled;
+    private SystemSettingSwitchPreference mQsNewImage;
 
     private IntentFilter mIntentFilter;
     private static FontPickerPreferenceController mFontPickerPreference;
@@ -158,6 +163,18 @@ public class XThemeRoom extends DashboardFragment implements
         mNavbarPicker.setOnPreferenceChangeListener(this);
 
         mQsPanelImage = findPreference(FILE_QSPANEL_SELECT);
+
+        mQsNewImage = (SystemSettingSwitchPreference) findPreference(PREF_QS_NEW_IMAGE);
+
+        mQsNewBgEnabled = (SystemSettingIntListPreference) findPreference(PREF_QS_NEW_BG);
+        int val = Settings.System.getIntForUser(getActivity().getContentResolver(),
+                Settings.System.QS_NEW_BG_ENABLED, 0, UserHandle.USER_CURRENT);
+        mQsNewBgEnabled.setOnPreferenceChangeListener(this);
+        if (val > 0) {
+            mQsNewImage.setEnabled(false);
+        } else {
+            mQsNewImage.setEnabled(true);
+        }
 
         setupAccentPref();
         setupGradientPref();
@@ -355,6 +372,16 @@ public class XThemeRoom extends DashboardFragment implements
                     handleOverlays(false, context, ThemesUtils.SYSTEM_SLIDER_MEMEROUNDSTROKE);
                     handleOverlays(true, context, ThemesUtils.SYSTEM_SLIDER_MEMESTROKE);
                    break;
+            }
+            return true;
+        } else if (preference == mQsNewBgEnabled) {
+            int val = Integer.parseInt((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.QS_NEW_BG_ENABLED, val);
+            if (val > 0) {
+                mQsNewImage.setEnabled(false);
+            } else {
+                mQsNewImage.setEnabled(true);
             }
             return true;
         }

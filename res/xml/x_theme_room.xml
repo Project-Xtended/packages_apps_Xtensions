@@ -183,6 +183,15 @@
             android:defaultValue="100"
             android:persistent="false" />
 
+        <!-- Qs New Background -->
+        <com.xtended.support.preferences.SystemSettingIntListPreference
+            android:key="qs_new_bg_enabled"
+            android:title="@string/qs_new_bg_title"
+            android:summary="%s"
+            android:entries="@array/qs_new_bg_entries"
+            android:entryValues="@array/qs_new_bg_values"
+            android:defaultValue="0" />
+
        <com.xtended.support.preferences.SystemSettingSwitchPreference
            android:key="qs_panel_type_background"
            android:title="@string/qs_bg_type_title"
