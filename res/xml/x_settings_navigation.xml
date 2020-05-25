@@ -39,11 +39,4 @@
         android:dependency="enable_nav_bar"
         android:defaultValue="true" />
 
-    <com.msm.xtended.preferences.SystemSettingSwitchPreference
-        android:key="navigation_bar_menu_arrow_keys"
-        android:title="@string/navigation_bar_arrow_keys_title"
-        android:summary="@string/navigation_bar_arrow_keys_summary"
-        android:dependency="enable_nav_bar"
-        android:defaultValue="false" />
-
 </PreferenceScreen>
