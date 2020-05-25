@@ -1379,4 +1379,8 @@
     <string name="qs_label_tint_accent">Accent Color Tint</string>
     <string name="qs_label_tint_gradient">Gradient Color Tint</string>
 
+    <!-- QS footer warnings -->
+    <string name="qs_footer_warnings_title">QS footer warnings</string>
+    <string name="qs_footer_warnings_summary">Display a warning at bottom of QS panel when network is monitored by external apps or vpn</string>
+
 </resources>
