@@ -226,6 +226,12 @@
             android:defaultValue="false"/>
     </PreferenceCategory>
 
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference
+        android:key="qs_footer_warnings"
+        android:title="@string/qs_footer_warnings_title"
+        android:summary="@string/qs_footer_warnings_summary"
+        android:defaultValue="true" />
+
     <com.msm.xtended.preferences.SecureSettingSwitchPreference
         android:key="status_bar_locked_on_secure_keyguard"
         android:title="@string/lockscreen_qs_disabled_title"
