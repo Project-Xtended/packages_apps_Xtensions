@@ -1129,4 +1129,8 @@
     <string name="qs_footer_text_string_title">Customize footer text</string>
     <string name="qs_footer_text_string_summary">Set to empty for default MSM-Xtended</string> 
 
+    <!-- QS footer warnings -->
+    <string name="qs_footer_warnings_title">QS footer warnings</string>
+    <string name="qs_footer_warnings_summary">Display a warning at bottom of QS panel when network is monitored by external apps or vpn</string>
+
 </resources>
