@@ -44,12 +44,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String PREF_ROWS_PORTRAIT = "qs_rows_portrait";
     private static final String PREF_ROWS_LANDSCAPE = "qs_rows_landscape";
     private static final String X_FOOTER_TEXT_STRING = "x_footer_text_string";
-    private static final String KEY_QS_PANEL_ALPHA = "qs_panel_alpha";
-    private static final String QS_PANEL_COLOR = "qs_panel_color";
-    private static final String QS_BLUR_ALPHA = "qs_blur_alpha";
-    private static final String QS_BLUR_INTENSITY = "qs_blur_intensity";
-    private static final String PREF_R_NOTIF_HEADER = "notification_headers";
-    static final int DEFAULT_QS_PANEL_COLOR = 0xffffffff;
 
     private CustomSeekBarPreference mQsColumnsPortrait;
     private CustomSeekBarPreference mQsColumnsLandscape;
@@ -58,11 +52,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private CustomSeekBarPreference mQsRowsLandscape;
     private ListPreference mQuickPulldown;
     private SystemSettingEditTextPreference mFooterString;
-    private CustomSeekBarPreference mQsPanelAlpha;
-    private ColorPickerPreference mQsPanelColor;
-    private CustomSeekBarPreference mQsBlurAlpha;
-    private CustomSeekBarPreference mQsBlurIntensity;
-    private SystemSettingSwitchPreference mNotifHeader;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -121,37 +110,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             Settings.System.putString(getActivity().getContentResolver(),
                     Settings.System.X_FOOTER_TEXT_STRING, "MSM-Xtended");
         }
-
-        mQsPanelAlpha = (CustomSeekBarPreference) findPreference(KEY_QS_PANEL_ALPHA);
-        int qsPanelAlpha = Settings.System.getInt(getContentResolver(),
-                Settings.System.QS_PANEL_BG_ALPHA, 255);
-        mQsPanelAlpha.setValue((int)(((double) qsPanelAlpha / 255) * 100));
-        mQsPanelAlpha.setOnPreferenceChangeListener(this);
-
-        mQsPanelColor = (ColorPickerPreference) findPreference(QS_PANEL_COLOR);
-        mQsPanelColor.setOnPreferenceChangeListener(this);
-        int intColor = Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.QS_PANEL_BG_COLOR, DEFAULT_QS_PANEL_COLOR, UserHandle.USER_CURRENT);
-        String hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mQsPanelColor.setSummary(hexColor);
-        mQsPanelColor.setNewPreviewColor(intColor);
-
-        mQsBlurAlpha = (CustomSeekBarPreference) findPreference(QS_BLUR_ALPHA);
-        int qsBlurAlpha = Settings.System.getIntForUser(resolver,
-                Settings.System.QS_BLUR_ALPHA, 100, UserHandle.USER_CURRENT);
-        mQsBlurAlpha.setValue(qsBlurAlpha);
-        mQsBlurAlpha.setOnPreferenceChangeListener(this);
-
-        mQsBlurIntensity = (CustomSeekBarPreference) findPreference(QS_BLUR_INTENSITY);
-        int qsBlurIntensity = Settings.System.getIntForUser(resolver,
-                Settings.System.QS_BLUR_INTENSITY, 100, UserHandle.USER_CURRENT);
-        mQsBlurIntensity.setValue(qsBlurIntensity);
-        mQsBlurIntensity.setOnPreferenceChangeListener(this);
-
-        mNotifHeader = (SystemSettingSwitchPreference) findPreference(PREF_R_NOTIF_HEADER);
-        mNotifHeader.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.NOTIFICATION_HEADERS, 1) == 1));
-        mNotifHeader.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -198,36 +156,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 Settings.System.putString(getActivity().getContentResolver(),
                         Settings.System.X_FOOTER_TEXT_STRING, "MSM-Xtended");
             }
-            return true;
-        } else if (preference == mQsPanelAlpha) {
-            int bgAlpha = (Integer) newValue;
-            int trueValue = (int) (((double) bgAlpha / 100) * 255);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.QS_PANEL_BG_ALPHA, trueValue);
-            return true;
-        } else if (preference == mQsPanelColor) {
-            String hex = ColorPickerPreference.convertToARGB(
-                    Integer.valueOf(String.valueOf(newValue)));
-            preference.setSummary(hex);
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putIntForUser(getContentResolver(),
-                    Settings.System.QS_PANEL_BG_COLOR, intHex, UserHandle.USER_CURRENT);
-            return true;
-        } else if (preference == mQsBlurAlpha) {
-            int value = (Integer) newValue;
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.QS_BLUR_ALPHA, value);
-            return true;
-        } else if (preference == mQsBlurIntensity) {
-            int valueInt = (Integer) newValue;
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.QS_BLUR_INTENSITY, valueInt);
-            return true;
-        } else if (preference == mNotifHeader) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.NOTIFICATION_HEADERS, value ? 1 : 0);
-            XtendedUtils.showSystemUiRestartDialog(getContext());
             return true;
         }
         return false;
