@@ -81,9 +81,4 @@
          android:summary="@string/battery_bar_summary"
          android:fragment="com.msm.xtended.fragments.BatterybarSettings" />
 
-     <com.msm.xtended.preferences.SystemSettingSwitchPreference
-         android:key="settings_spacer"
-         android:title="@string/enable_oneui"
-         android:summary="@string/enable_oneui_summary"
-         android:defaultValue="false" />
 </PreferenceScreen>
