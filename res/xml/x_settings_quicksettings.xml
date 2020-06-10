@@ -81,6 +81,15 @@
             android:defaultValue="0"
             android:summary="%s" />
 
+        <!-- QS Header data uasge -->
+        <com.xtended.support.preferences.SystemSettingListPreference
+            android:key="qs_datausage"
+            android:title="@string/qs_datausage_title"
+            android:entries="@array/qs_datausage_entries"
+            android:entryValues="@array/qs_datausage_values"
+            android:summary="%s"
+            android:defaultValue="0" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
