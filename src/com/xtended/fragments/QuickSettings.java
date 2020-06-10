@@ -56,11 +56,9 @@ import java.util.ArrayList;
 public class QuickSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
-    private static final String QS_BATTERY_PERCENTAGE = "qs_battery_percentage";
     private static final String X_FOOTER_TEXT_STRING = "x_footer_text_string";
     private static final String QS_SYSTEM_INFO = "qs_system_info";
 
-    private SwitchPreference mQsBatteryPercent;
     private SystemSettingListPreference mQsSystemInfo;
     private SystemSettingEditTextPreference mFooterString;
 
@@ -75,12 +73,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
         final boolean enableSystemInfo = getResources().getBoolean(
                     R.bool.enable_SystemInfo);
-
-        mQsBatteryPercent = (SwitchPreference) findPreference(QS_BATTERY_PERCENTAGE);
-        mQsBatteryPercent.setChecked((Settings.System.getInt(
-                getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.QS_SHOW_BATTERY_PERCENT, 0) == 1));
-        mQsBatteryPercent.setOnPreferenceChangeListener(this);
 
         mFooterString = (SystemSettingEditTextPreference) findPreference(X_FOOTER_TEXT_STRING);
         mFooterString.setOnPreferenceChangeListener(this);
@@ -104,12 +96,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mQsBatteryPercent) {
-            Settings.System.putInt(resolver,
-                    Settings.System.QS_SHOW_BATTERY_PERCENT,
-                    (Boolean) newValue ? 1 : 0);
-            return true;
-        } else if (preference == mFooterString) {
+        if (preference == mFooterString) {
             String value = (String) newValue;
             if (value != "" && value != null)
                 Settings.System.putString(getActivity().getContentResolver(),

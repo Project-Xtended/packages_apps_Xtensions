@@ -1992,4 +1992,10 @@
     <string name="swap_navigation_keys_title">Swap Hw Buttons</string>
     <string name="swap_navigation_keys_title_summary">Swap the order of recents and back buttons</string>
 
+    <!-- QS Battery Location -->
+    <string name="qs_battery_header_title">QS Battery Location</string>
+    <string name="qs_battery_off">Off</string>
+    <string name="qs_battery_on_signal">Qs Signal Group</string>
+    <string name="qs_battery_on_header">Qs Header</string>
+
 </resources>
