@@ -1489,4 +1489,10 @@
     <string name="fod_wallpaper_color">Use wallpaper color for FOD icon</string>
     <string name="fod_wallpaper_color_summary">Uses adjusted primary wallpaper color for FOD icon\nNOTE: might look good only with some wallpapers</string>
 
+    <!-- QS Battery Location -->
+    <string name="qs_battery_header_title">QS Battery Location</string>
+    <string name="qs_battery_off">Off</string>
+    <string name="qs_battery_on_signal">Qs Signal Group</string>
+    <string name="qs_battery_on_header">Qs Header</string>
+
 </resources>
