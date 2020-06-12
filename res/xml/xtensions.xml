@@ -25,7 +25,7 @@
             android:icon="@drawable/ic_x_opshit">
             <intent android:action="android.intent.action.MAIN"
                android:targetPackage="com.oneplus.shit.settings"
-               android:targetClass="com.oneplus.shit.settings.ShitPanelSettings" />
+               android:targetClass="com.oneplus.shit.settings.ShitPanelActivity" />
         </PreferenceScreen>
 
         <!-- Buttons -->
