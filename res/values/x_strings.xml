@@ -1108,13 +1108,6 @@
     <string name="corner_fwvals">Use framework values</string>
     <string name="corner_fwvals_summary">Useful if the device actually has rounded corners</string>
 
-    <!-- Settings dashboard icon style 
-    <string name="theming_settings_dashboard_icons_title">Settings dashboard icons</string>
-    <string name="theming_settings_dashboard_icons_default2">Default background</string>
-    <string name="theming_settings_dashboard_icons_default_accent2">Accent background</string>
-    <string name="theming_settings_dashboard_icons_plain">Plain</string>
-    <string name="theming_settings_dashboard_icons_plain_accent">Plain accent</string> -->
-
     <!-- Charging animation -->
     <string name="lockscreen_charging_animation_title">LS Charging animation</string>
     <string name="lockscreen_charging_animation_summary">Display a Lottie animation when the device is charging</string>
