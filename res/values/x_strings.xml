@@ -828,4 +828,10 @@
     <string name="pixel_navbar_anim_title">Pixel animation</string>
     <string name="pixel_navbar_anim_summary">Toggle home button animation</string>
 
+    <!-- VoWiFi icon -->
+    <string name="vowifi_icon_title">VoWiFi icon</string>
+    <string name="vowifi_icon_enabled">VoWiFi icon enabled</string> 
+    <string name="vowifi_icon_disabled">VoWiFi icon disabled</string>
+    <string name="vowifi_icon_enabled_volte_disabled">VoWiFi instead of VoLTE icon</string>
+
 </resources>
