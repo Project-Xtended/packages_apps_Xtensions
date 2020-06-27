@@ -35,19 +35,23 @@ import androidx.preference.PreferenceManager;
 import androidx.preference.SwitchPreference;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
+import com.android.settings.gestures.SystemNavigationGestureSettings;
 import android.provider.Settings;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.internal.util.hwkeys.ActionUtils;
+import com.android.internal.util.xtended.XtendedUtils;
 import com.android.settings.R;
 
 public class NavbarSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String ENABLE_NAV_BAR = "enable_nav_bar";
+    private static final String KEY_GESTURE_SYSTEM = "gesture_system_navigation";
 
     private SwitchPreference mEnableNavigationBar;
+    private Preference mGestureSystemNavigation;
     private boolean mIsNavSwitchingMode = false;
     private Handler mHandler;
 
@@ -56,6 +60,8 @@ public class NavbarSettings extends SettingsPreferenceFragment implements OnPref
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.x_settings_navigation);
         final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        mGestureSystemNavigation = (Preference) findPreference(KEY_GESTURE_SYSTEM);
 
         // Navigation bar related options
         mEnableNavigationBar = (SwitchPreference) findPreference(ENABLE_NAV_BAR);
@@ -102,5 +108,16 @@ public class NavbarSettings extends SettingsPreferenceFragment implements OnPref
         boolean enabled = Settings.System.getIntForUser(getActivity().getContentResolver(),
                 Settings.System.FORCE_SHOW_NAVBAR, 1, UserHandle.USER_CURRENT) != 0;
         mEnableNavigationBar.setChecked(enabled);
+
+        if (XtendedUtils.isThemeEnabled("com.android.internal.systemui.navbar.threebutton")) {
+            mGestureSystemNavigation.setSummary(getString(R.string.legacy_navigation_title));
+        } else if (XtendedUtils.isThemeEnabled("com.android.internal.systemui.navbar.twobutton")) {
+            mGestureSystemNavigation.setSummary(getString(R.string.swipe_up_to_switch_apps_title));
+        } else if (XtendedUtils.isThemeEnabled("com.android.internal.systemui.navbar.gestural")
+                || XtendedUtils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_wide_back")
+                || XtendedUtils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_extra_wide_back")
+                || XtendedUtils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_narrow_back")) {
+            mGestureSystemNavigation.setSummary(getString(R.string.edge_to_edge_navigation_title));
+        }
     }
 }
