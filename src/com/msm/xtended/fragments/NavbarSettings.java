@@ -43,15 +43,23 @@ import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.internal.util.hwkeys.ActionUtils;
 import com.android.internal.util.xtended.XtendedUtils;
+
+import com.msm.xtended.preferences.SystemSettingSwitchPreference;
+
 import com.android.settings.R;
 
 public class NavbarSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String ENABLE_NAV_BAR = "enable_nav_bar";
     private static final String KEY_GESTURE_SYSTEM = "gesture_system_navigation";
+    private static final String KEY_NAVIGATION_BAR_ARROWS = "navigation_bar_menu_arrow_keys";
+    private static final String KEY_PIXEL_NAV_ANIMATION = "pixel_nav_animation";
 
     private SwitchPreference mEnableNavigationBar;
     private Preference mGestureSystemNavigation;
+    private SystemSettingSwitchPreference mNavigationArrows;
+    private SystemSettingSwitchPreference mPixelNavAnimation;
+
     private boolean defaultToNavigationBar;
     private boolean navigationBarEnabled;
     private boolean mIsNavSwitchingMode = false;
@@ -77,6 +85,9 @@ public class NavbarSettings extends SettingsPreferenceFragment implements OnPref
                 Settings.System.FORCE_SHOW_NAVBAR,
                 defaultToNavigationBar ? 1 : 0) == 1));
         mEnableNavigationBar.setOnPreferenceChangeListener(this);
+
+        mNavigationArrows = (SystemSettingSwitchPreference) findPreference(KEY_NAVIGATION_BAR_ARROWS);
+        mPixelNavAnimation = (SystemSettingSwitchPreference) findPreference(KEY_PIXEL_NAV_ANIMATION);
 
         mHandler = new Handler();
         updateNavBarOption();
