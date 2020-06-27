@@ -52,6 +52,8 @@ public class NavbarSettings extends SettingsPreferenceFragment implements OnPref
 
     private SwitchPreference mEnableNavigationBar;
     private Preference mGestureSystemNavigation;
+    private boolean defaultToNavigationBar;
+    private boolean navigationBarEnabled;
     private boolean mIsNavSwitchingMode = false;
     private Handler mHandler;
 
@@ -63,9 +65,19 @@ public class NavbarSettings extends SettingsPreferenceFragment implements OnPref
 
         mGestureSystemNavigation = (Preference) findPreference(KEY_GESTURE_SYSTEM);
 
+        defaultToNavigationBar = getResources().getBoolean(
+                com.android.internal.R.bool.config_showNavigationBar);
+        navigationBarEnabled = Settings.System.getIntForUser(
+                resolver, Settings.System.FORCE_SHOW_NAVBAR,
+                defaultToNavigationBar ? 1 : 0, UserHandle.USER_CURRENT) != 0;
+
         // Navigation bar related options
         mEnableNavigationBar = (SwitchPreference) findPreference(ENABLE_NAV_BAR);
+        mEnableNavigationBar.setChecked((Settings.System.getInt(getContentResolver(),
+                Settings.System.FORCE_SHOW_NAVBAR,
+                defaultToNavigationBar ? 1 : 0) == 1));
         mEnableNavigationBar.setOnPreferenceChangeListener(this);
+
         mHandler = new Handler();
         updateNavBarOption();
     }
@@ -74,21 +86,20 @@ public class NavbarSettings extends SettingsPreferenceFragment implements OnPref
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mEnableNavigationBar) {
+            boolean value = (Boolean) newValue;
             if (mIsNavSwitchingMode) {
                 return false;
             }
             mIsNavSwitchingMode = true;
-            boolean isNavBarChecked = ((Boolean) newValue);
-            mEnableNavigationBar.setEnabled(false);
-            writeNavBarOption(isNavBarChecked);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.FORCE_SHOW_NAVBAR, value ? 1 : 0);
             updateNavBarOption();
-            mEnableNavigationBar.setEnabled(true);
             mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     mIsNavSwitchingMode = false;
                 }
-            }, 500);
+            }, 1000);
             return true;
         }
         return false;
@@ -99,15 +110,9 @@ public class NavbarSettings extends SettingsPreferenceFragment implements OnPref
         return MetricsProto.MetricsEvent.XTENSIONS;
     }
 
-    private void writeNavBarOption(boolean enabled) {
-        Settings.System.putIntForUser(getActivity().getContentResolver(),
-                Settings.System.FORCE_SHOW_NAVBAR, enabled ? 1 : 0, UserHandle.USER_CURRENT);
-    }
-
     private void updateNavBarOption() {
         boolean enabled = Settings.System.getIntForUser(getActivity().getContentResolver(),
                 Settings.System.FORCE_SHOW_NAVBAR, 1, UserHandle.USER_CURRENT) != 0;
-        mEnableNavigationBar.setChecked(enabled);
 
         if (XtendedUtils.isThemeEnabled("com.android.internal.systemui.navbar.threebutton")) {
             mGestureSystemNavigation.setSummary(getString(R.string.legacy_navigation_title));
