@@ -73,17 +73,9 @@ public class NavbarSettings extends SettingsPreferenceFragment implements OnPref
 
         mGestureSystemNavigation = (Preference) findPreference(KEY_GESTURE_SYSTEM);
 
-        defaultToNavigationBar = getResources().getBoolean(
-                com.android.internal.R.bool.config_showNavigationBar);
-        navigationBarEnabled = Settings.System.getIntForUser(
-                resolver, Settings.System.FORCE_SHOW_NAVBAR,
-                defaultToNavigationBar ? 1 : 0, UserHandle.USER_CURRENT) != 0;
-
         // Navigation bar related options
         mEnableNavigationBar = (SwitchPreference) findPreference(ENABLE_NAV_BAR);
-        mEnableNavigationBar.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.System.FORCE_SHOW_NAVBAR,
-                defaultToNavigationBar ? 1 : 0) == 1));
+        mEnableNavigationBar.setChecked(isNavbarVisible());
         mEnableNavigationBar.setOnPreferenceChangeListener(this);
 
         mNavigationArrows = (SystemSettingSwitchPreference) findPreference(KEY_NAVIGATION_BAR_ARROWS);
@@ -121,10 +113,13 @@ public class NavbarSettings extends SettingsPreferenceFragment implements OnPref
         return MetricsProto.MetricsEvent.XTENSIONS;
     }
 
-    private void updateNavBarOption() {
-        boolean enabled = Settings.System.getIntForUser(getActivity().getContentResolver(),
-                Settings.System.FORCE_SHOW_NAVBAR, 1, UserHandle.USER_CURRENT) != 0;
+    private boolean isNavbarVisible() {
+        boolean defaultToNavigationBar = ActionUtils.hasNavbarByDefault(getActivity());
+        return Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.FORCE_SHOW_NAVBAR, defaultToNavigationBar ? 1 : 0) == 1;
+    }
 
+    private void updateNavBarOption() {
         if (XtendedUtils.isThemeEnabled("com.android.internal.systemui.navbar.threebutton")) {
             mGestureSystemNavigation.setSummary(getString(R.string.legacy_navigation_title));
         } else if (XtendedUtils.isThemeEnabled("com.android.internal.systemui.navbar.twobutton")) {
