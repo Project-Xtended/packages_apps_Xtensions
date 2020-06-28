@@ -1488,4 +1488,8 @@
     <string name="qs_battery_on_signal">Qs Signal Group</string>
     <string name="qs_battery_on_header">Qs Header</string>
 
+    <!-- IME button space -->
+    <string name="navigation_bar_ime_space_title">IME button space</string>
+    <string name="navigation_bar_ime_space_summary">Show IME button space below keyboard</string>
+
 </resources>
