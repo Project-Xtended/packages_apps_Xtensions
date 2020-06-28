@@ -53,11 +53,13 @@ public class NavbarSettings extends SettingsPreferenceFragment implements OnPref
     private static final String ENABLE_NAV_BAR = "enable_nav_bar";
     private static final String KEY_GESTURE_SYSTEM = "gesture_system_navigation";
     private static final String KEY_NAVIGATION_BAR_ARROWS = "navigation_bar_menu_arrow_keys";
+    private static final String KEY_NAVIGATION_IME_SPACE = "navigation_bar_ime_space";
     private static final String KEY_PIXEL_NAV_ANIMATION = "pixel_nav_animation";
 
     private SwitchPreference mEnableNavigationBar;
     private Preference mGestureSystemNavigation;
     private SystemSettingSwitchPreference mNavigationArrows;
+    private SystemSettingSwitchPreference mNavigationIMESpace;
     private SystemSettingSwitchPreference mPixelNavAnimation;
 
     private boolean defaultToNavigationBar;
@@ -77,6 +79,9 @@ public class NavbarSettings extends SettingsPreferenceFragment implements OnPref
         mEnableNavigationBar = (SwitchPreference) findPreference(ENABLE_NAV_BAR);
         mEnableNavigationBar.setChecked(isNavbarVisible());
         mEnableNavigationBar.setOnPreferenceChangeListener(this);
+
+        mNavigationIMESpace = (SystemSettingSwitchPreference) findPreference(KEY_NAVIGATION_IME_SPACE);
+        mNavigationIMESpace.setOnPreferenceChangeListener(this);
 
         mNavigationArrows = (SystemSettingSwitchPreference) findPreference(KEY_NAVIGATION_BAR_ARROWS);
         mPixelNavAnimation = (SystemSettingSwitchPreference) findPreference(KEY_PIXEL_NAV_ANIMATION);
@@ -104,6 +109,10 @@ public class NavbarSettings extends SettingsPreferenceFragment implements OnPref
                 }
             }, 1000);
             return true;
+        } else if (preference == mNavigationIMESpace) {
+            updateNavBarOption();
+            SystemNavigationGestureSettings.updateNavigationBarOverlays(getActivity());
+            return true;
         }
         return false;
     }
@@ -129,6 +138,23 @@ public class NavbarSettings extends SettingsPreferenceFragment implements OnPref
                 || XtendedUtils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_extra_wide_back")
                 || XtendedUtils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_narrow_back")) {
             mGestureSystemNavigation.setSummary(getString(R.string.edge_to_edge_navigation_title));
+        }
+
+        int navbarWidth = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.NAVIGATION_HANDLE_WIDTH, 1, UserHandle.USER_CURRENT);
+        boolean navbarSpaceEnabled = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.NAVIGATION_BAR_IME_SPACE, 1, UserHandle.USER_CURRENT) != 0;
+
+        if (navbarWidth == 0) {
+            mNavigationIMESpace.setVisible(true);
+        } else {
+            mNavigationIMESpace.setVisible(false);
+        }
+
+        if (navbarWidth == 0 && !navbarSpaceEnabled) {
+            mNavigationArrows.setEnabled(false);
+        } else {
+            mNavigationArrows.setEnabled(true);
         }
     }
 }
