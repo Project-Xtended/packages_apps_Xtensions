@@ -80,18 +80,16 @@ public class BatterybarSettings extends SettingsPreferenceFragment implements
         mBatteryBar = (ListPreference) findPreference(PREF_BATT_BAR);
         mBatteryBar.setOnPreferenceChangeListener(this);
         mBatteryBar.setValue((Settings.System.getInt(resolver, Settings.System.BATTERY_BAR_LOCATION, 0)) + "");
-        mBatteryBar.setSummary(mBatteryBar.getEntry());
 
         mBatteryBarStyle = (ListPreference) findPreference(PREF_BATT_BAR_STYLE);
         mBatteryBarStyle.setOnPreferenceChangeListener(this);
         mBatteryBarStyle.setValue((Settings.System.getInt(resolver,
                 Settings.System.BATTERY_BAR_STYLE, 0)) + "");
-        mBatteryBarStyle.setSummary(mBatteryBarStyle.getEntry());
 
         mBatteryBarColor = (ColorPickerPreference) findPreference(PREF_BATT_BAR_COLOR);
         mBatteryBarColor.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(resolver,
-                "status_bar_benzo_logo_color_dark_mode", 0xffffffff);
+                Settings.System.BATTERY_BAR_COLOR, 0xffffffff);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mBatteryBarColor.setSummary(hexColor);
         mBatteryBarColor.setNewPreviewColor(intColor);
@@ -100,7 +98,7 @@ public class BatterybarSettings extends SettingsPreferenceFragment implements
         mBatteryBarChargingColor = (ColorPickerPreference) findPreference(PREF_BATT_BAR_CHARGING_COLOR);
         mBatteryBarChargingColor.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(resolver,
-                "battery_bar_charging_color", 0xFF00FF00);
+                Settings.System.BATTERY_BAR_CHARGING_COLOR, 0xFF00FF00);
         hexColor = String.format("#%08x", (0xFF00FF00 & intColor));
         mBatteryBarChargingColor.setSummary(hexColor);
         mBatteryBarChargingColor.setNewPreviewColor(intColor);
@@ -109,7 +107,7 @@ public class BatterybarSettings extends SettingsPreferenceFragment implements
         mBatteryBarBatteryLowColorWarn = (ColorPickerPreference) findPreference(PREF_BATT_BAR_LOW_COLOR_WARNING);
         mBatteryBarBatteryLowColorWarn.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(resolver,
-                "battery_bar_battery_low_color_warning", 0xFFFF6600);
+                Settings.System.BATTERY_BAR_BATTERY_LOW_COLOR_WARNING, 0xFFFF6600);
         hexColor = String.format("#%08x", (0xFFFF6600 & intColor));
         mBatteryBarBatteryLowColorWarn.setSummary(hexColor);
         mBatteryBarBatteryLowColorWarn.setNewPreviewColor(intColor);
@@ -118,7 +116,7 @@ public class BatterybarSettings extends SettingsPreferenceFragment implements
         mBatteryBarBatteryLowColor = (ColorPickerPreference) findPreference(PREF_BATT_BAR_LOW_COLOR);
         mBatteryBarBatteryLowColor.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(resolver,
-                 "battery_bar_low_color", 0xffffffff);
+                 Settings.System.BATTERY_BAR_LOW_COLOR, 0xffffffff);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mBatteryBarBatteryLowColor.setSummary(hexColor);
         mBatteryBarBatteryLowColor.setNewPreviewColor(intColor);
@@ -145,7 +143,6 @@ public class BatterybarSettings extends SettingsPreferenceFragment implements
         mBatteryBarThickness.setOnPreferenceChangeListener(this);
         mBatteryBarThickness.setValue((Settings.System.getInt(resolver,
                 Settings.System.BATTERY_BAR_THICKNESS, 1)) + "");
-        mBatteryBarThickness.setSummary(mBatteryBarThickness.getEntry());
 
         updateBatteryBarOptions();
     }
@@ -158,7 +155,7 @@ public class BatterybarSettings extends SettingsPreferenceFragment implements
             preference.setSummary(hex);
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(resolver,
-                    "battery_bar_color", intHex);
+                    Settings.System.BATTERY_BAR_COLOR, intHex);
             return true;
         } else if (preference == mBatteryBarChargingColor) {
             String hex = ColorPickerPreference.convertToARGB(
@@ -166,7 +163,7 @@ public class BatterybarSettings extends SettingsPreferenceFragment implements
             preference.setSummary(hex);
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(resolver,
-                    "battery_bar_charging_color", intHex);
+                    Settings.System.BATTERY_BAR_CHARGING_COLOR, intHex);
             return true;
         } else if (preference == mBatteryBarBatteryLowColor) {
             String hex = ColorPickerPreference.convertToARGB(
@@ -174,7 +171,7 @@ public class BatterybarSettings extends SettingsPreferenceFragment implements
             preference.setSummary(hex);
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(resolver,
-                    "battery_bar_low_color", intHex);
+                    Settings.System.BATTERY_BAR_LOW_COLOR, intHex);
             return true;
         } else if (preference == mBatteryBarBatteryLowColorWarn) {
             String hex = ColorPickerPreference.convertToARGB(
@@ -182,7 +179,7 @@ public class BatterybarSettings extends SettingsPreferenceFragment implements
             preference.setSummary(hex);
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(resolver,
-                    "battery_bar_battery_low_color_warning", intHex);
+                    Settings.System.BATTERY_BAR_BATTERY_LOW_COLOR_WARNING, intHex);
             return true;
         } else if (preference == mBatteryBarBatteryHighColor) {
             String hex = ColorPickerPreference.convertToARGB(
@@ -190,28 +187,22 @@ public class BatterybarSettings extends SettingsPreferenceFragment implements
             preference.setSummary(hex);
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(resolver,
-                    "battery_bar_high_color", intHex);
+                    Settings.System.BATTERY_BAR_HIGH_COLOR, intHex);
             return true;
         } else if (preference == mBatteryBar) {
             int val = Integer.valueOf((String) newValue);
-            int index = mBatteryBar.findIndexOfValue((String) newValue);
             Settings.System.putInt(resolver, Settings.System.BATTERY_BAR_LOCATION, val);
-            mBatteryBar.setSummary(mBatteryBar.getEntries()[index]);
             updateBatteryBarOptions();
             return true;
         } else if (preference == mBatteryBarStyle) {
             int val = Integer.parseInt((String) newValue);
-            int index = mBatteryBarStyle.findIndexOfValue((String) newValue);
             Settings.System.putInt(resolver,
                     Settings.System.BATTERY_BAR_STYLE, val);
-            mBatteryBarStyle.setSummary(mBatteryBarStyle.getEntries()[index]);
             return true;
         } else if (preference == mBatteryBarThickness) {
             int val = Integer.parseInt((String) newValue);
-            int index = mBatteryBarThickness.findIndexOfValue((String) newValue);
             Settings.System.putInt(resolver,
                     Settings.System.BATTERY_BAR_THICKNESS, val);
-            mBatteryBarThickness.setSummary(mBatteryBarThickness.getEntries()[index]);
             return true;
        }
        return false;

@@ -22,18 +22,21 @@
         <ListPreference
             android:key="battery_bar_list"
             android:title="@string/battery_bar_location"
+            android:summary="%s"
             android:entries="@array/battery_bar_entries"
             android:entryValues="@array/battery_bar_values" />
 
         <ListPreference
             android:key="battery_bar_style"
             android:title="@string/battery_bar_style_title"
+            android:summary="%s"
             android:entries="@array/battery_bar_style_entries"
             android:entryValues="@array/battery_bar_style_values" />
 
         <ListPreference
             android:key="battery_bar_thickness"
             android:title="@string/battery_bar_thickness_title"
+            android:summary="%s"
             android:entries="@array/battery_bar_thickness_entries"
             android:entryValues="@array/battery_bar_thickness_values" />
 
