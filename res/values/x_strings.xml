@@ -502,4 +502,8 @@
     <string name="qs_label_tint_accent">Accent color tint</string>
     <string name="qs_label_tint_gradient">Gradient color tint</string>
 
+    <!-- Qs Tile Icon Bright-Dark -->
+    <string name="qs_icon_primary_title">Qs tile icon bright|dark</string>
+    <string name="qs_icon_primary_summary">Make Qs icon bright-dark if gradient tint enabled</string>
+
 </resources>
