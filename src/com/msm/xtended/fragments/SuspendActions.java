@@ -46,6 +46,7 @@ public class SuspendActions extends SettingsPreferenceFragment implements
 
     private static final String SCREEN_STATE_TOOGLES_ENABLE = "screen_state_toggles_enable_key";
     private static final String SCREEN_STATE_TOOGLES_TWOG = "screen_state_toggles_twog";
+    private static final String SCREEN_STATE_TOGGLES_THREEG = "screen_state_toggles_threeg";
     private static final String SCREEN_STATE_TOOGLES_GPS = "screen_state_toggles_gps";
     private static final String SCREEN_STATE_TOOGLES_MOBILE_DATA = "screen_state_toggles_mobile_data";
     private static final String SCREEN_STATE_ON_DELAY = "screen_state_on_delay";
@@ -57,6 +58,7 @@ public class SuspendActions extends SettingsPreferenceFragment implements
 
     private SwitchPreference mEnableScreenStateToggles;
     private SwitchPreference mEnableScreenStateTogglesTwoG;
+    private SwitchPreference mEnableScreenStateTogglesThreeG;
     private SwitchPreference mEnableScreenStateTogglesGps;
     private SwitchPreference mEnableScreenStateTogglesMobileData;
     private CustomSeekBarPreference mMinutesOffDelay;
@@ -103,10 +105,14 @@ public class SuspendActions extends SettingsPreferenceFragment implements
         mEnableScreenStateTogglesTwoG = (SwitchPreference) findPreference(
                 SCREEN_STATE_TOOGLES_TWOG);
 
+        mEnableScreenStateTogglesThreeG = (SwitchPreference) findPreference(
+                SCREEN_STATE_TOGGLES_THREEG);
+
         ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
 
         if (!cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE)){
             getPreferenceScreen().removePreference(mEnableScreenStateTogglesTwoG);
+            getPreferenceScreen().removePreference(mEnableScreenStateTogglesThreeG);
         } else {
             mEnableScreenStateTogglesTwoG.setChecked((
                     Settings.System.getInt(resolver, Settings.System.SCREEN_STATE_TWOG, 0) == 1));
@@ -122,6 +128,10 @@ public class SuspendActions extends SettingsPreferenceFragment implements
             mEnableScreenStateTogglesMobileData.setChecked((
                     Settings.System.getInt(resolver, Settings.System.SCREEN_STATE_MOBILE_DATA, 0) == 1));
             mEnableScreenStateTogglesMobileData.setOnPreferenceChangeListener(this);
+            mEnableScreenStateTogglesThreeG.setChecked((
+                Settings.System.getIntForUser(resolver,
+                Settings.System.SCREEN_STATE_THREEG, 0, UserHandle.USER_CURRENT) == 1));
+            mEnableScreenStateTogglesThreeG.setOnPreferenceChangeListener(this);
         }
 
         // Only enable these controls if this user is allowed to change location
@@ -177,6 +187,14 @@ public class SuspendActions extends SettingsPreferenceFragment implements
             boolean value = (Boolean) newValue;
             Settings.System.putInt(resolver,
                     Settings.System.SCREEN_STATE_TWOG, value ? 1 : 0);
+
+            Intent intent = new Intent("android.intent.action.SCREEN_STATE_SERVICE_UPDATE");
+            mContext.sendBroadcast(intent);
+            return true;
+        } else if (preference == mEnableScreenStateTogglesThreeG) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putIntForUser(resolver,
+                    Settings.System.SCREEN_STATE_THREEG, value ? 1 : 0, UserHandle.USER_CURRENT);
 
             Intent intent = new Intent("android.intent.action.SCREEN_STATE_SERVICE_UPDATE");
             mContext.sendBroadcast(intent);
