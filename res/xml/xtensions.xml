@@ -28,6 +28,15 @@
                android:targetClass="com.oneplus.shit.settings.ShitPanelActivity" />
         </PreferenceScreen>
 
+        <!-- Theme Room -->
+        <PreferenceScreen
+            android:key="theme_room"
+            android:title="@string/themeroom_title"
+            android:summary="@string/themeroom_summary"
+            android:fragment="com.android.settings.xtended.XThemeRoom"
+            android:icon="@drawable/ic_x_themeroom"
+            settings:allowDividerAbove="false" />
+
         <!-- Buttons -->
         <PreferenceScreen
             android:key="buttonsettings_category"
