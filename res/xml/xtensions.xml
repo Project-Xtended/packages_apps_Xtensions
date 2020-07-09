@@ -18,91 +18,85 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
         android:title="@string/x_settings_title">
 
+        <!-- Xtended Logo Header -->
+        <Preference
+            android:key="xtended_about"
+            android:layout="@layout/xtended_about" />
+
         <!-- Theme Room -->
-        <PreferenceScreen
+        <com.xtended.ui.XtendedPreference
             android:key="theme_room"
             android:title="@string/themeroom_title"
-            android:summary="@string/themeroom_summary"
             android:fragment="com.xtended.fragments.XThemeRoom"
             android:icon="@drawable/ic_x_themeroom" />
 
         <!-- Animations -->
-        <PreferenceScreen
+        <com.xtended.ui.XtendedPreference
             android:key="animations_category"
             android:title="@string/animations_title"
-            android:summary="@string/animations_summary"
             android:fragment="com.xtended.fragments.AnimationSettings"
             android:icon="@drawable/ic_x_animations" />
 
         <!-- Buttons -->
-        <PreferenceScreen
+        <com.xtended.ui.XtendedPreference
             android:key="buttonsettings_category"
             android:title="@string/buttons_title"
-            android:summary="@string/buttons_summary"
             android:fragment="com.xtended.fragments.ButtonSettings"
             android:icon="@drawable/ic_x_buttons" />
 
         <!-- Gestures -->
-        <PreferenceScreen
+        <com.xtended.ui.XtendedPreference
             android:key="gestures_category"
             android:title="@string/gestures_title"
-            android:summary="@string/gestures_summary"
 	    android:fragment="com.xtended.fragments.GestureSettings"
             android:icon="@drawable/ic_x_gestures" />
 
         <!-- Lock screen -->
-        <PreferenceScreen
+        <com.xtended.ui.XtendedPreference
             android:key="lockscreen_category"
             android:title="@string/lockscreen_title"
-            android:summary="@string/lockscreen_summary"
    	    android:fragment="com.xtended.fragments.LockScreenSettings"
    	    android:icon="@drawable/ic_x_lockscreen" />
 
         <!-- Navigation bar -->
-        <PreferenceScreen
+        <com.xtended.ui.XtendedPreference
             android:key="navigationbar_category"
             android:title="@string/navbar_title"
-            android:summary="@string/navbar_summary"
             android:fragment="com.xtended.fragments.NavbarSettings"
             android:icon="@drawable/ic_x_navbar" />
 
         <!-- Notifications -->
-        <PreferenceScreen
+        <com.xtended.ui.XtendedPreference
             android:key="notifications_category"
             android:title="@string/notifications_title"
-            android:summary="@string/notifications_summary"
             android:fragment="com.xtended.fragments.NotificationSettings"
             android:icon="@drawable/ic_x_notifications" />
 
         <!-- Power menu -->
-        <PreferenceScreen
+        <com.xtended.ui.XtendedPreference
             android:key="powermenu_category"
             android:title="@string/powermenu_title"
-            android:summary="@string/powermenu_summary"
             android:fragment="com.xtended.fragments.PowerMenuSettings"
             android:icon="@drawable/ic_x_powermenu" />
 
         <!-- Quick settings -->
-        <PreferenceScreen
+        <com.xtended.ui.XtendedPreference
             android:key="quicksettings_category"
             android:title="@string/quicksettings_title"
-            android:summary="@string/quicksettings_summary"
             android:fragment="com.xtended.fragments.QuickSettings"
             android:icon="@drawable/ic_x_quicksettings" />
 
         <!-- Status bar -->
-        <PreferenceScreen
+        <com.xtended.ui.XtendedPreference
             android:key="statusbar_category"
             android:title="@string/statusbar_title"
-            android:summary="@string/statusbar_summary"
             android:fragment="com.xtended.fragments.StatusBarSettings"
             android:icon="@drawable/ic_x_statusbar" />
 
         <!-- Xtras -->
-        <PreferenceScreen
+        <com.xtended.ui.XtendedPreference
             android:key="xtras_category"
             android:title="@string/xtras_title"
-            android:summary="@string/xtras_summary"
             android:fragment="com.xtended.fragments.XtraSettings"
             android:icon="@drawable/ic_x_xtras" />
 
