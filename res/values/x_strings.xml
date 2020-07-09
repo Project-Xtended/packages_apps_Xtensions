@@ -26,17 +26,6 @@
     <string name="quicksettings_title">Quick settings</string>
     <string name="statusbar_title">Status bar</string>
     <string name="xtras_title">Xtras</string>
-    <string name="themeroom_summary">Themes-accents-gradients and more</string>
-    <string name="animations_summary">Animations options</string>
-    <string name="buttons_summary">Buttons options</string>
-    <string name="gestures_summary">Gestures menu</string>
-    <string name="lockscreen_summary">Lock screen customizations</string>
-    <string name="navbar_summary">Navbar menu</string>
-    <string name="notifications_summary">Notifications options</string>
-    <string name="powermenu_summary">Power menu customizations</string>
-    <string name="quicksettings_summary">Quick settings options</string>
-    <string name="statusbar_summary">Status bar customizations</string>
-    <string name="xtras_summary">Some extra options</string>
 
     <!-- General strings -->
     <string name="ok">OK</string>
