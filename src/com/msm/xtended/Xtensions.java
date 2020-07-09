@@ -28,22 +28,14 @@ import android.preference.Preference;
 import com.android.settings.R;
 
 import com.android.settings.SettingsPreferenceFragment;
-import com.msm.xtended.preferences.XUtils;
 
 public class Xtensions extends SettingsPreferenceFragment {
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        final String KEY_DEVICE_PART = "oneplus_shit";
-        final String KEY_DEVICE_PART_PACKAGE_NAME = "com.oneplus.shit.settings";
 
         addPreferencesFromResource(R.xml.xtensions);
-
-        // OnePlus Shit
-        if (!XUtils.isPackageInstalled(getActivity(), KEY_DEVICE_PART_PACKAGE_NAME)) {
-            getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_PART));
-        }
     }
 
     @Override
