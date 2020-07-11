@@ -16,18 +16,18 @@
     <!-- Categories -->
     <string name="button_title">Buttons</string>
     <string name="gestures_title">Gestures</string>
-    <string name="lockscreen_title">Lock Screen</string>
-    <string name="xtra_title">Xtra Options</string>
-    <string name="navbar_title">Navigation bar</string>
-    <string name="powermenu_title">Power Menu</string>
-    <string name="quicksettings_title">Quick Settings</string>
-    <string name="recents_title">Recents Menu</string>
-    <string name="statusbar_title">Statusbar Settings</string>
-    <string name="volume_title">Volume rockers</string>
+    <string name="lockscreen_title">Lockscreen</string>
+    <string name="xtra_title">Xtras</string>
+    <string name="navbar_title">Navigations</string>
+    <string name="powermenu_title">Powermenu</string>
+    <string name="quicksettings_title">QuickSettings</string>
+    <string name="recents_title">Recents</string>
+    <string name="statusbar_title">Statusbar</string>
+    <string name="volume_title">Volume Button</string>
     <string name="notifications_title">Notifications</string>
-    <string name="system_title">System Settings</string>
-    <string name="button_summary">Buttons Options</string>
-    <string name="gestures_summary">Gestures Menu</string>
+    <string name="system_title">System</string>
+    <string name="button_summary">Hardware-Volume Button Menus</string>
+    <string name="gestures_summary">AOSP n Normal Gestures Menu</string>
     <string name="lockscreen_summary">Lock Screen Customizations</string>
     <string name="xtra_summary">Some Misc. Options</string>
     <string name="navbar_summary">Nav Bar Menus</string>
@@ -37,7 +37,7 @@
     <string name="statusbar_summary">Status Bar Customizations</string>
     <string name="notifications_summary">Notifications Options</string>
     <string name="system_summary">Modify Generic System Settings</string>
-    <string name="decorroom_title">Decor Room</string>
+    <string name="decorroom_title">DecorRoom</string>
     <string name="decorroom_summary">Our Fav Decoration Options</string>
     <string name="animation_settings_title">Animations</string>
     <string name="animation_settings_summary">System Wide Animation Options</string>
@@ -50,6 +50,12 @@
     <string name="save">Save</string>
     <string name="default_string">Default</string>
     <string name="unit_percent">\u0025</string>
+    <string name="add">Add</string>
+    <string name="enabled">Enabled</string>
+    <string name="choose_app">Choose application</string>
+    <string name="help">Help</string>
+    <string name="reset_message">Reset all entries to default?</string>
+    <string name="attention">Attention</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
     <string name="press_color_to_apply">Press on color below to apply</string>
@@ -519,6 +525,8 @@
     <string name="screen_state_toggles_location_title">Location</string>
     <string name="screen_state_toggles_twog">Switch to 2G</string>
     <string name="screen_state_toggles_twog_summary">Network mode will be switched to 2G on screen off</string>
+    <string name="screen_state_toggles_threeg">Switch to 3G</string>
+    <string name="screen_state_toggles_threeg_summary">Network mode will be switched to 3G on screen off</string>
     <string name="screen_state_toggles_gps">Disable GPS</string>
     <string name="screen_state_toggles_gps_summary">GPS based location service will be disabled on screen off</string>
     <string name="screen_state_toggles_mobile_data">Disable mobile data</string>
@@ -1319,4 +1327,26 @@
     <string name="qs_battery_off">Off</string>
     <string name="qs_battery_on_signal">Qs Signal Group</string>
     <string name="qs_battery_on_header">Qs Header</string>
+    <!-- IME button space -->
+    <string name="navigation_bar_ime_space_title">IME button space</string>
+    <string name="navigation_bar_ime_space_summary">Show IME button space below keyboard</string>
+    <!-- KeyBoard Features -->
+    <string name="keyboard_ime_title">Keyboard and IME</string>
+    <string name="keyboard_ime_summary">Options for keyboard configs</string>
+    <!-- Keyboard and IME  -->
+    <string name="disable_fullscreen_keyboard_title">Disable fullscreen keyboard</string>
+    <string name="disable_fullscreen_keyboard_summary">Landscape keyboard will never take up entire screen</string>
+    <string name="keyboard_rotation_toggle_title">Auto keyboard rotation</string>
+    <string name="keyboard_rotation_toggle_summary">Force auto-rotate when keyboard is shown</string>
+    <string name="keyboard_rotation_timeout_title">Auto-rotate timeout</string>
+    <string name="keyboard_rotation_timeout_summary">Disables auto-rotate sensor <xliff:g id="rotate_timeout">%1$s</xliff:g> seconds after keyboard is hidden</string>
+    <string name="keyboard_rotation_dialog">This feature forces auto-rotate to turn on temporarily while the keyboard is shown.  It has no effect when auto-rotate is already enabled.</string>
+    <string name="show_enter_key_title">Show enter key</string>
+    <string name="show_enter_key_summary">Force keyboard to show enter instead of emoticon key</string>
+    <string name="ime_switcher_notify">Selector notification</string>
+    <string name="ime_switcher_notify_summary">Display input method selector notification</string>
+    <!-- Headset ringtone audio focus -->
+    <string name="ringtone_focus_mode_title">Ringtone audio focus</string>
+    <string name="ringtone_focus_mode_dynamic">Headset only if music is active</string>
+    <string name="ringtone_focus_mode_stock">Both speaker and headset</string>
 </resources>
