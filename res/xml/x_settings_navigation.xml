@@ -40,6 +40,13 @@
                 android:targetClass="com.android.systemui.tuner.NavBarActivity" />
     </Preference>
 
+    <Preference
+        android:key="pulse"
+        android:title="@string/pulse_settings"
+        android:summary="@string/pulse_settings_summary"
+        android:dependency="enable_nav_bar"
+        android:fragment="com.msm.xtended.fragments.PulseSettings" />
+
     <com.msm.xtended.preferences.SystemSettingSwitchPreference
         android:key="pixel_nav_animation"
         android:title="@string/pixel_navbar_anim_title"
