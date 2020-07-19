@@ -16,9 +16,14 @@
 
 package com.xtended.ui;
 
+import android.annotation.ColorInt;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuff.Mode;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.preference.Preference;
@@ -32,8 +37,13 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.core.widget.ImageViewCompat;
+
 import com.android.settings.R;
 import com.android.settings.Utils;
+
+import java.util.List;
+import java.util.Random;
 
 public class XtendedPreference extends Preference {
 
@@ -41,16 +51,19 @@ public class XtendedPreference extends Preference {
 
     private boolean mAllowDividerAbove;
     private boolean mAllowDividerBelow;
+    private ImageView mBackground;
+    private int mColorRandom;
+    private int mColorRandomAlpha;
 
     public XtendedPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
-
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.Preference);
 
         mAllowDividerAbove = TypedArrayUtils.getBoolean(a, R.styleable.Preference_allowDividerAbove,
                 R.styleable.Preference_allowDividerAbove, false);
         mAllowDividerBelow = TypedArrayUtils.getBoolean(a, R.styleable.Preference_allowDividerBelow,
                 R.styleable.Preference_allowDividerBelow, false);
+
         a.recycle();
 
         setLayoutResource(R.layout.xtended_preference);
@@ -70,6 +83,24 @@ public class XtendedPreference extends Preference {
         holder.itemView.setClickable(selectable);
         holder.setDividerAllowedAbove(mAllowDividerAbove);
         holder.setDividerAllowedBelow(mAllowDividerBelow);
+
+        mBackground = (ImageView) holder.findViewById(R.id.buttonshape);
+        mColorRandom = getRandomColor();
+        mColorRandomAlpha = adjustAlpha(mColorRandom, 0.5f);
+        mBackground.setColorFilter(mColorRandomAlpha);
     }
 
+    public int getRandomColor(){
+    Random rnd = new Random();
+       return Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+    }
+
+    @ColorInt
+    private static int adjustAlpha(@ColorInt int color, float factor) {
+        int alpha = Math.round(Color.alpha(color) * factor);
+        int red = Color.red(color);
+        int green = Color.green(color);
+        int blue = Color.blue(color);
+        return Color.argb(alpha, red, green, blue);
+    }
 }
