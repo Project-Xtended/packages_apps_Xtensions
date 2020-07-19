@@ -21,9 +21,12 @@ package com.xtended;
 import com.android.internal.logging.nano.MetricsProto;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.TypedValue;
+import android.view.KeyEvent;
 import android.view.Surface;
 import android.preference.Preference;
 import com.android.settings.R;
@@ -42,5 +45,11 @@ public class Xtensions extends SettingsPreferenceFragment {
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.XTENSIONS;
+    }
+
+    public static int getThemeAccentColor (final Context context) {
+        final TypedValue value = new TypedValue ();
+        context.getTheme ().resolveAttribute (android.R.attr.colorAccent, value, true);
+        return value.data;
     }
 }
