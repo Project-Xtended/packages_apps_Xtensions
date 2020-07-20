@@ -20,16 +20,26 @@ import android.annotation.ColorInt;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
+import android.content.om.IOverlayManager;
+import android.content.om.OverlayInfo;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuff.Mode;
+import android.os.Bundle;
+import android.os.RemoteException;
+import android.os.SystemProperties;
+import android.os.ServiceManager;
+import android.os.UserHandle;
+import android.provider.Settings;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.TypedValue;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,11 +62,12 @@ public class XtendedPreference extends Preference {
     private boolean mAllowDividerAbove;
     private boolean mAllowDividerBelow;
     private ImageView mBackground;
-    private int mColorRandom;
-    private int mColorRandomAlpha;
+    private int mColorAccent;
+    private int mColorAlpha;
 
     public XtendedPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
+
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.Preference);
 
         mAllowDividerAbove = TypedArrayUtils.getBoolean(a, R.styleable.Preference_allowDividerAbove,
@@ -76,6 +87,7 @@ public class XtendedPreference extends Preference {
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
         super.onBindViewHolder(holder);
+        final Context context = getContext();
         holder.itemView.setOnClickListener(mClickListener);
 
         final boolean selectable = isSelectable();
@@ -84,15 +96,16 @@ public class XtendedPreference extends Preference {
         holder.setDividerAllowedAbove(mAllowDividerAbove);
         holder.setDividerAllowedBelow(mAllowDividerBelow);
 
+        mColorAccent = getThemeAccentColor(context);
+        mColorAlpha = adjustAlpha(mColorAccent, 0.75f);
         mBackground = (ImageView) holder.findViewById(R.id.buttonshape);
-        mColorRandom = getRandomColor();
-        mColorRandomAlpha = adjustAlpha(mColorRandom, 0.5f);
-        mBackground.setColorFilter(mColorRandomAlpha);
+        mBackground.setColorFilter(mColorAlpha);
     }
 
-    public int getRandomColor(){
-    Random rnd = new Random();
-       return Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+    public static int getThemeAccentColor (final Context context) {
+        final TypedValue value = new TypedValue ();
+        context.getTheme ().resolveAttribute (android.R.attr.colorAccent, value, true);
+        return value.data;
     }
 
     @ColorInt
