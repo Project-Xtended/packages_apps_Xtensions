@@ -20,10 +20,18 @@ import android.annotation.ColorInt;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
+import android.content.om.IOverlayManager;
+import android.content.om.OverlayInfo;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuff.Mode;
+import android.os.Bundle;
+import android.os.RemoteException;
+import android.os.SystemProperties;
+import android.os.ServiceManager;
+import android.os.UserHandle;
+import android.provider.Settings;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.preference.Preference;
@@ -53,10 +61,14 @@ public class XtendedPreference extends Preference {
     private boolean mAllowDividerBelow;
     private ImageView mBackground;
     private int mColorRandom;
-    private int mColorRandomAlpha;
+    private int mColorAccent;
+    private int mColorGradient;
+    private int mColorAlpha;
+    private int xtensionStyle;
 
     public XtendedPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
+
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.Preference);
 
         mAllowDividerAbove = TypedArrayUtils.getBoolean(a, R.styleable.Preference_allowDividerAbove,
@@ -76,6 +88,7 @@ public class XtendedPreference extends Preference {
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
         super.onBindViewHolder(holder);
+        final Context context = getContext();
         holder.itemView.setOnClickListener(mClickListener);
 
         final boolean selectable = isSelectable();
@@ -85,9 +98,24 @@ public class XtendedPreference extends Preference {
         holder.setDividerAllowedBelow(mAllowDividerBelow);
 
         mBackground = (ImageView) holder.findViewById(R.id.buttonshape);
+        setStyleColor(context);
+        mBackground.setColorFilter(mColorAlpha);
+    }
+
+    private void setStyleColor(Context context) {
+        xtensionStyle = Settings.System.getIntForUser(context.getContentResolver(),
+                    Settings.System.XTENSIONS_STYLE, 0, UserHandle.USER_CURRENT);
+
         mColorRandom = getRandomColor();
-        mColorRandomAlpha = adjustAlpha(mColorRandom, 0.5f);
-        mBackground.setColorFilter(mColorRandomAlpha);
+        mColorAccent = context.getResources().getColor(com.android.internal.R.color.gradient_start);
+	mColorGradient = context.getResources().getColor(com.android.internal.R.color.gradient_end);
+        if (xtensionStyle == 0) {
+            mColorAlpha = adjustAlpha(mColorAccent, 0.9f);
+        } else if (xtensionStyle == 1) {
+            mColorAlpha = adjustAlpha(mColorGradient, 0.9f);
+        } else {
+            mColorAlpha = adjustAlpha(mColorRandom, 0.9f);
+        }
     }
 
     public int getRandomColor(){
