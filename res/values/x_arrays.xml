@@ -509,4 +509,17 @@
         <item>3</item>
     </string-array>
 
+    <!-- Xtensions Styling -->
+    <string-array name="xtensions_style_entries" translatable="false">
+        <item>@string/xtensions_style_accent</item>
+        <item>@string/xtensions_style_gradient</item>
+        <item>@string/xtensions_style_random</item>
+    </string-array>
+
+    <string-array name="xtensions_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
 </resources>

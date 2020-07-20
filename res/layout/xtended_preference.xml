@@ -31,11 +31,11 @@
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-	android:layout_marginTop="10dp"
-	android:layout_marginBottom="10dp"
+	android:layout_marginTop="7dp"
+	android:layout_marginBottom="7dp"
 	android:layout_gravity="center_vertical"
         android:scaleType="center"
-        android:tint="#bbffffff"
+        android:tint="#ffffffff"
         android:src="@drawable/buttonshape"/>
 
     <ImageView
@@ -45,7 +45,7 @@
         android:layout_alignLeft="@id/buttonshape"
 	android:layout_marginLeft="20dp"
 	android:layout_marginRight="20dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         android:layout_gravity="center_vertical"
         android:gravity="center"
         android:background="@*android:color/transparent"/>
@@ -70,7 +70,7 @@
 	android:fontFamily="@*android:string/config_bodyFontFamily"
 	android:textStyle="bold"
 	android:textAlignment="center"
-        android:textSize="20sp"
-        android:textColor="@*android:color/gradient_end"/>
+        android:textSize="18sp"
+        android:textColor="?android:attr/textColorPrimary"/>
 
 </RelativeLayout>
