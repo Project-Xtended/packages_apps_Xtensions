@@ -25,6 +25,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 import com.android.settings.SettingsPreferenceFragment;
+import com.msm.xtended.preferences.XUtils;
 
 public class XDecorRoom extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
@@ -33,8 +34,15 @@ public class XDecorRoom extends SettingsPreferenceFragment implements
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
+        final String KEY_DEVICE_PART = "oneplus_shit";
+        final String KEY_DEVICE_PART_PACKAGE_NAME = "com.oneplus.shit.settings";
+
         addPreferencesFromResource(R.xml.x_decor_room);
 
+        // OnePlus Shit
+        if (!XUtils.isPackageInstalled(getActivity(), KEY_DEVICE_PART_PACKAGE_NAME)) {
+            getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_PART));
+        }
     }
 
     @Override
