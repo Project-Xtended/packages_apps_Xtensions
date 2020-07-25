@@ -141,6 +141,14 @@
             android:summary="%s"
             android:defaultValue="1" />
 
+        <com.msm.xtended.preferences.SecureSettingListPreference
+            android:key="qqs_show_brightness_slider"
+            android:title="@string/qqs_brightness_slider_title"
+            android:entries="@array/qs_brightness_slider_entries"
+            android:entryValues="@array/qs_brightness_slider_values"
+            android:summary="%s"
+            android:defaultValue="2" />
+
         <com.msm.xtended.preferences.SystemSettingSwitchPreference
             android:key="qs_show_brightness_icon"
             android:title="@string/brightness_icon_title"
