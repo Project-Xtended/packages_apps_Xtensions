@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "255966fa_bba4d351",
+        "filename": "src/com/msm/xtended/Xtensions.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-07-25T05:32:51Z",
+      "side": 1,
+      "message": "Test",
+      "revId": "e32dabb808c78b5121fbe336d86993c527677b5a",
+      "serverId": "6b265ed6-232d-44c2-b4b1-e94f7fafe08e",
+      "unresolved": true
+    }
+  ]
+}
