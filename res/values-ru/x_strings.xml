@@ -16,18 +16,18 @@
     <!-- Categories -->
     <string name="button_title">Кнопки</string>
     <string name="gestures_title">Жесты</string>
-    <string name="lockscreen_title">Lockscreen</string>
+    <string name="lockscreen_title">Экран блокировки</string>
     <string name="xtra_title">Xtras</string>
-    <string name="navbar_title">Navigations</string>
-    <string name="powermenu_title">Powermenu</string>
-    <string name="quicksettings_title">QuickSettings</string>
-    <string name="recents_title">Recents</string>
-    <string name="statusbar_title">Statusbar</string>
-    <string name="volume_title">Volume Button</string>
+    <string name="navbar_title">Навигации</string>
+    <string name="powermenu_title">Меню питания</string>
+    <string name="quicksettings_title">Быстрые настройки</string>
+    <string name="recents_title">Недавние</string>
+    <string name="statusbar_title">Строка состояния</string>
+    <string name="volume_title">Кнопка громкости</string>
     <string name="notifications_title">Уведомления</string>
-    <string name="system_title">System</string>
-    <string name="button_summary">Hardware-Volume Button Menus</string>
-    <string name="gestures_summary">AOSP n Normal Gestures Menu</string>
+    <string name="system_title">Система</string>
+    <string name="button_summary">Меню кнопок Громкости</string>
+    <string name="gestures_summary">AOSP и обычное меню жестов</string>
     <string name="lockscreen_summary">Настройки экрана блокировки</string>
     <string name="xtra_summary">Другие настройки</string>
     <string name="navbar_summary">Настройки бара навигации</string>
@@ -37,7 +37,7 @@
     <string name="statusbar_summary">Настройки строки состояния</string>
     <string name="notifications_summary">Параметры уведомлений</string>
     <string name="system_summary">Изменить общие системные настройки</string>
-    <string name="decorroom_title">DecorRoom</string>
+    <string name="decorroom_title">Комната Декора</string>
     <string name="decorroom_summary">Наши настройки украшения</string>
     <string name="animation_settings_title">Анимация</string>
     <string name="animation_settings_summary">Параметры анимации в системе</string>
@@ -50,12 +50,12 @@
     <string name="save">Сохранить</string>
     <string name="default_string">По умолчанию</string>
     <string name="unit_percent">\u0025</string>
-    <string name="add">Add</string>
-    <string name="enabled">Enabled</string>
-    <string name="choose_app">Choose application</string>
-    <string name="help">Help</string>
-    <string name="reset_message">Reset all entries to default?</string>
-    <string name="attention">Attention</string>
+    <string name="add">Добавить</string>
+    <string name="enabled">Включено</string>
+    <string name="choose_app">Выбрать приложение</string>
+    <string name="help">Помощь</string>
+    <string name="reset_message">Сбросить все параметры к умолчаниям?</string>
+    <string name="attention">Внимание</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Выбор цвета</string>
     <string name="press_color_to_apply">Нажмите на оттенок , чтобы применить его</string>
@@ -525,8 +525,8 @@
     <string name="screen_state_toggles_location_title">Местоположение</string>
     <string name="screen_state_toggles_twog">Переключиться в 2G</string>
     <string name="screen_state_toggles_twog_summary">Режим сети будет переключен в 2G когда выключится экран</string>
-    <string name="screen_state_toggles_threeg">Switch to 3G</string>
-    <string name="screen_state_toggles_threeg_summary">Network mode will be switched to 3G on screen off</string>
+    <string name="screen_state_toggles_threeg">Переключение на 3G</string>
+    <string name="screen_state_toggles_threeg_summary">Мобильная сеть будет переключена на 3G при выключении экрана</string>
     <string name="screen_state_toggles_gps">Отключить GPS</string>
     <string name="screen_state_toggles_gps_summary">Не использовать GPS при выключенном экране</string>
     <string name="screen_state_toggles_mobile_data">Отключить передачу данных</string>
@@ -1325,25 +1325,58 @@
     <string name="qs_battery_on_signal">Значки сигналов в шторке</string>
     <string name="qs_battery_on_header">Заголовок быстрых настроек</string>
     <!-- IME button space -->
-    <string name="navigation_bar_ime_space_title">IME button space</string>
-    <string name="navigation_bar_ime_space_summary">Show IME button space below keyboard</string>
+    <string name="navigation_bar_ime_space_title">Отступ кнопки IME</string>
+    <string name="navigation_bar_ime_space_summary">Показывать отступ кнопки IME под клавиатурой</string>
     <!-- KeyBoard Features -->
-    <string name="keyboard_ime_title">Keyboard and IME</string>
-    <string name="keyboard_ime_summary">Options for keyboard configs</string>
+    <string name="keyboard_ime_title">Клавиатура и IME</string>
+    <string name="keyboard_ime_summary">Опции для настройки клавиатуры</string>
     <!-- Keyboard and IME  -->
-    <string name="disable_fullscreen_keyboard_title">Disable fullscreen keyboard</string>
-    <string name="disable_fullscreen_keyboard_summary">Landscape keyboard will never take up entire screen</string>
-    <string name="keyboard_rotation_toggle_title">Auto keyboard rotation</string>
-    <string name="keyboard_rotation_toggle_summary">Force auto-rotate when keyboard is shown</string>
-    <string name="keyboard_rotation_timeout_title">Auto-rotate timeout</string>
-    <string name="keyboard_rotation_timeout_summary">Disables auto-rotate sensor <xliff:g id="rotate_timeout">%1$s</xliff:g> seconds after keyboard is hidden</string>
-    <string name="keyboard_rotation_dialog">This feature forces auto-rotate to turn on temporarily while the keyboard is shown.  It has no effect when auto-rotate is already enabled.</string>
-    <string name="show_enter_key_title">Show enter key</string>
-    <string name="show_enter_key_summary">Force keyboard to show enter instead of emoticon key</string>
-    <string name="ime_switcher_notify">Selector notification</string>
-    <string name="ime_switcher_notify_summary">Display input method selector notification</string>
+    <string name="disable_fullscreen_keyboard_title">Отключить полноэкранную клавиатуру</string>
+    <string name="disable_fullscreen_keyboard_summary">Клавиатура в альбомной ориентации не будет занимать весь экран</string>
+    <string name="keyboard_rotation_toggle_title">Автоповорот клавиатуры</string>
+    <string name="keyboard_rotation_toggle_summary">Принудительный автоповорот при отображении клавиатуры</string>
+    <string name="keyboard_rotation_timeout_title">Задержка при автоповороте</string>
+    <string name="keyboard_rotation_timeout_summary">Отключить датчик автоповорота на <xliff:g id="rotate_timeout">%1$s</xliff:g> секунд после скрытия клавиатуры</string>
+    <string name="keyboard_rotation_dialog">Эта функция заставляет автоповорот временно включаться, пока отображается клавиатура. Это не имеет никакого эффекта, когда автоповорот уже включен.</string>
+    <string name="show_enter_key_title">Показывать клавишу ввода</string>
+    <string name="show_enter_key_summary">Принудительно показывать клавишу ввода, вместо клавиши смайликов</string>
+    <string name="ime_switcher_notify">Уведомление переключателя</string>
+    <string name="ime_switcher_notify_summary">Показывать уведомление переключателя метода ввода</string>
     <!-- Headset ringtone audio focus -->
-    <string name="ringtone_focus_mode_title">Ringtone audio focus</string>
-    <string name="ringtone_focus_mode_dynamic">Headset only if music is active</string>
-    <string name="ringtone_focus_mode_stock">Both speaker and headset</string>
+    <string name="ringtone_focus_mode_title">Аудиофокус рингтона</string>
+    <string name="ringtone_focus_mode_dynamic">Только гарнитура при активной музыке</string>
+    <string name="ringtone_focus_mode_stock">Динамик и гарнитура</string>
+    <!-- Pulse -->
+    <string name="pulse_help_policy_notice_summary">Pulse does not work with some audio sources when listening on device speaker</string>
+    <string name="pulse_settings">Pulse</string>
+    <string name="pulse_settings_summary">Navigation bar audio graphic equalizer</string>
+    <string name="show_pulse_title">Show Pulse</string>
+    <string name="show_pulse_summary">Audio graphic equalizer on the navigation bar</string>
+    <string name="pulse_render_mode_title">Render mode</string>
+    <string name="pulse_render_mode_fading_bars">Fading blocks</string>
+    <string name="pulse_render_mode_solid_lines">Solid lines</string>
+    <string name="pulse_color">Color</string>
+    <string name="pulse_color_mode">Color mode</string>
+    <string name="pulse_color_accent">Accent</string>
+    <string name="pulse_color_custom">Custom</string>
+    <string name="pulse_color_lava_lamp">Lava lamp</string>
+    <string name="pulse_color_auto">Album art</string>
+    <string name="pulse_color_chooser">Choose color</string>
+    <string name="smoothing_enabled_title">Turn on smoothing</string>
+    <string name="smoothing_enabled_summary">Each bar is animated more smoothly</string>
+    <string name="pulse_advanced_category">Advanced</string>
+    <string name="pulse_legacy_mode_advanced_category">Fading blocks mode settings</string>
+    <string name="pulse_custom_fudge_factor">Sanity level</string>
+    <string name="lavamp_speed_title">Lava lamp speed</string>
+    <string name="pulse_solid_units_count">Solid lines count</string>
+    <string name="pulse_solid_lines_count">Solid lines count</string>
+    <string name="pulse_solid_units_opacity">Solid lines opacity</string>
+    <string name="pulse_solid_dimen_category">Solid lines mode settings</string>
+    <string name="pulse_custom_dimen">Bar width</string>
+    <string name="pulse_custom_div">Bar spacing</string>
+    <string name="pulse_filled_block_size">Block size</string>
+    <string name="pulse_empty_block_size">Block spacing</string>
+    <!-- Show VoWiFi icon on statusbar -->
+    <string name="vowifi_icon_title">VoWiFi Icon</string>
+    <string name="vowifi_icon_summary">Show VoWiFi icon</string>
 </resources>
