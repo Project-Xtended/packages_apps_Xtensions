@@ -133,18 +133,13 @@
     <PreferenceCategory 
         android:title="@string/brightness_slider_config">
 
-        <com.msm.xtended.preferences.SecureSettingSwitchPreference
-            android:key="qs_show_brightness_slider" 
-            android:title="@string/qs_brightness_slider_title" 
-            android:summary="@string/qs_brightness_slider_summary" 
-            android:defaultValue="true"/>
-
-        <com.msm.xtended.preferences.SecureSettingSwitchPreference
-            android:key="qs_brightness_position_bottom"
-            android:title="@string/qs_brightness_position_bottom_title"
-            android:summary="@string/qs_brightness_position_bottom_summary"
-            android:dependency="qs_show_brightness_slider"
-            android:defaultValue="false" />
+        <com.msm.xtended.preferences.SecureSettingListPreference
+            android:key="qs_show_brightness_slider"
+            android:title="@string/qs_brightness_slider_title"
+            android:entries="@array/qs_brightness_slider_entries"
+            android:entryValues="@array/qs_brightness_slider_values"
+            android:summary="%s"
+            android:defaultValue="1" />
 
         <com.msm.xtended.preferences.SystemSettingSwitchPreference
             android:key="qs_show_brightness_icon"
