@@ -352,9 +352,9 @@
     <string name="summary_dashboard_suggestions_disabled">Dashboard suggestions are disabled</string>
 
     <!-- Statusbar Clock Font Style, Size & Color -->
-    <string name="status_bar_clock_font_style_title">Clock font style</string>
-    <string name="status_bar_clock_font_size_title">Clock font size</string>
-    <string name="status_bar_clock_color_title">Clock font color</string>
+    <string name="status_bar_clock_font_style_title">SB Clock Font style</string>
+    <string name="status_bar_clock_font_size_title">SB Clock font size</string>
+    <string name="status_bar_clock_color_title">SB Clock font color</string>
     <string name="clock_date_right">Right of time</string>
     <string name="clock_date_left">Left of time</string>
     <string name="clock_date_position">Date position</string>
@@ -1556,5 +1556,11 @@
     <!-- Show VoWiFi icon on statusbar -->
     <string name="vowifi_icon_title">VoWiFi Icon</string>
     <string name="vowifi_icon_summary">Show VoWiFi icon</string>
+
+    <!-- Qs Header Clock Font Style, Size & Color -->
+    <string name="sb_clock_styling">SB Clock Styling</string>
+    <string name="qs_clock_styling">Qs Clock Styling</string>
+    <string name="qs_clock_font_style_title">Qs Clock Font style</string>
+    <string name="qs_clock_font_size_title">Qs Clock Font size</string>
 
 </resources>
