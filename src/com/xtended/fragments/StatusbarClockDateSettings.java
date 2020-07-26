@@ -73,6 +73,7 @@ public class StatusbarClockDateSettings extends SettingsPreferenceFragment
     private static final String STATUS_BAR_CLOCK_COLOR = "status_bar_clock_color";
     private static final String STATUS_BAR_CLOCK_SIZE  = "status_bar_clock_size";
     private static final String STATUS_BAR_CLOCK_FONT_STYLE  = "status_bar_clock_font_style";
+    private static final String QS_HEADER_CLOCK_COLOR = "qs_header_clock_color";
     private static final String QS_HEADER_CLOCK_SIZE = "qs_header_clock_size";
     private static final String QS_HEADER_CLOCK_FONT_STYLE = "qs_header_clock_font_style";
     public static final int CLOCK_DATE_STYLE_LOWERCASE = 1;
@@ -92,6 +93,7 @@ public class StatusbarClockDateSettings extends SettingsPreferenceFragment
     private ColorPickerPreference mClockColor;
     private CustomSeekBarPreference mClockSize;
     private ListPreference mClockFontStyle;
+    private ColorPickerPreference mQsClockColor;
     private CustomSeekBarPreference mQsClockSize;
     private ListPreference mQsClockFontStyle;
 
@@ -147,6 +149,14 @@ public class StatusbarClockDateSettings extends SettingsPreferenceFragment
                 Settings.System.STATUS_BAR_CLOCK_FONT_STYLE, 0);
         mClockFontStyle.setValue(String.valueOf(showClockFont));
         mClockFontStyle.setOnPreferenceChangeListener(this);
+
+        mQsClockColor = (ColorPickerPreference) findPreference(QS_HEADER_CLOCK_COLOR);
+        mQsClockColor.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(resolver,
+                Settings.System.QS_HEADER_CLOCK_COLOR, 0xffffffff);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mQsClockColor.setSummary(hexColor);
+        mQsClockColor.setNewPreviewColor(intColor);
 
         mQsClockSize = (CustomSeekBarPreference) findPreference(QS_HEADER_CLOCK_SIZE);
         int qsClockSize = Settings.System.getInt(resolver,
@@ -271,6 +281,14 @@ public class StatusbarClockDateSettings extends SettingsPreferenceFragment
             Settings.System.putInt(resolver, Settings.System.
                 STATUS_BAR_CLOCK_FONT_STYLE, showClockFont);
             mClockFontStyle.setSummary(mClockFontStyle.getEntries()[index]);
+            return true;
+        } else if (preference == mQsClockColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(resolver,
+                    Settings.System.QS_HEADER_CLOCK_COLOR, intHex);
             return true;
         }  else if (preference == mQsClockSize) {
             int width = ((Integer)newValue).intValue();
