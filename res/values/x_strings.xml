@@ -288,9 +288,9 @@
     <string name="clock_date_left">Left of time</string>
 
     <!-- Statusbar Clock Font Style, Size & Color -->
-    <string name="status_bar_clock_font_style_title">Clock font style</string>
-    <string name="status_bar_clock_font_size_title">Clock font size</string>
-    <string name="status_bar_clock_color_title">Clock font color</string>
+    <string name="status_bar_clock_font_style_title">SB Clock font style</string>
+    <string name="status_bar_clock_font_size_title">SB Clock font size</string>
+    <string name="status_bar_clock_color_title">SB Clock font color</string>
        
     <!-- All Clock Fonts -->
     <string name="all_clock_font_stock">Normal (default)</string>
@@ -477,5 +477,11 @@
     <string name="volte_icon_hd">HD Icons</string>
     <string name="volte_icon_miui">MiUi Icons</string>
     <string name="volte_icon_emui">EMUI Icons</string>
+
+    <!-- Qs Header Clock Font Style, Size & Color -->
+    <string name="sb_clock_styling">SB Clock Styling</string>
+    <string name="qs_clock_styling">Qs Clock Styling</string>
+    <string name="qs_clock_font_style_title">Qs Clock Font style</string>
+    <string name="qs_clock_font_size_title">Qs Clock Font size</string>
 
 </resources>
