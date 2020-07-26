@@ -153,6 +153,7 @@
 
         <com.xtended.support.preferences.CustomSeekBarPreference
             android:key="qs_header_clock_size"
+            android:dependency="status_bar_clock"
             android:title="@string/qs_clock_font_size_title"
             android:max="30"
             settings:min="10"
@@ -161,12 +162,19 @@
 
         <ListPreference
             android:key="qs_header_clock_font_style"
+            android:dependency="status_bar_clock"
             android:dialogTitle="@string/qs_clock_font_style_title"
             android:title="@string/qs_clock_font_style_title"
             android:entries="@array/lock_clock_fonts_entries"
             android:entryValues="@array/lock_clock_fonts_values"
             android:summary="%s"
             android:defaultValue="0" />
+
+        <com.xtended.support.colorpicker.ColorPickerPreference
+            android:key="qs_header_clock_color"
+            android:dependency="status_bar_clock"
+            android:title="@string/qs_clock_color_title"
+            android:defaultValue="0xffffffff" />
 
     </PreferenceCategory>
 

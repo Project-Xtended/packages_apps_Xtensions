@@ -1342,5 +1342,6 @@
     <string name="qs_clock_styling">Qs Clock Styling</string>
     <string name="qs_clock_font_style_title">Qs Clock Font style</string>
     <string name="qs_clock_font_size_title">Qs Clock Font size</string>
+    <string name="qs_clock_color_title">Qs Clock Color</string>
 
 </resources>
