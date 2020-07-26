@@ -61,6 +61,8 @@ public class ClockSettings extends SettingsPreferenceFragment implements
     private static final String STATUS_BAR_CLOCK_COLOR = "status_bar_clock_color";
     private static final String STATUS_BAR_CLOCK_SIZE  = "status_bar_clock_size";
     private static final String STATUS_BAR_CLOCK_FONT_STYLE  = "status_bar_clock_font_style";
+    private static final String QS_HEADER_CLOCK_SIZE = "qs_header_clock_size";
+    private static final String QS_HEADER_CLOCK_FONT_STYLE = "qs_header_clock_font_style";
     public static final int CLOCK_DATE_STYLE_LOWERCASE = 1;
     public static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
     private static final int CUSTOM_CLOCK_DATE_FORMAT_INDEX = 18;
@@ -80,6 +82,8 @@ public class ClockSettings extends SettingsPreferenceFragment implements
     private ColorPickerPreference mClockColor;
     private CustomSeekBarPreference mClockSize;
     private ListPreference mClockFontStyle;
+    private CustomSeekBarPreference mQsClockSize;
+    private ListPreference mQsClockFontStyle;
     private ListPreference mClockDatePosition;
     private CustomSeekBarPreference mHideDuration;
     private CustomSeekBarPreference mShowDuration;
@@ -136,7 +140,19 @@ public class ClockSettings extends SettingsPreferenceFragment implements
                 Settings.System.STATUS_BAR_CLOCK_FONT_STYLE, 0);
         mClockFontStyle.setValue(String.valueOf(showClockFont));
         mClockFontStyle.setOnPreferenceChangeListener(this);
-        
+
+        mQsClockSize = (CustomSeekBarPreference) findPreference(QS_HEADER_CLOCK_SIZE);
+        int qsClockSize = Settings.System.getInt(resolver,
+                Settings.System.QS_HEADER_CLOCK_SIZE, 14);
+        mQsClockSize.setValue(qsClockSize / 1);
+        mQsClockSize.setOnPreferenceChangeListener(this);
+
+        mQsClockFontStyle = (ListPreference) findPreference(QS_HEADER_CLOCK_FONT_STYLE);
+        int qsClockFont = Settings.System.getInt(resolver,
+                Settings.System.QS_HEADER_CLOCK_FONT_STYLE, 0);
+        mQsClockFontStyle.setValue(String.valueOf(qsClockFont));
+        mQsClockFontStyle.setOnPreferenceChangeListener(this);
+
         mHideDuration = (CustomSeekBarPreference) findPreference(CLOCK_DATE_AUTO_HIDE_HDUR);
         int hideVal = Settings.System.getIntForUser(resolver,
                 Settings.System.STATUS_BAR_CLOCK_AUTO_HIDE_HDURATION, 60, UserHandle.USER_CURRENT);
@@ -268,6 +284,18 @@ public class ClockSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(resolver, Settings.System.
                 STATUS_BAR_CLOCK_FONT_STYLE, showClockFont);
             mClockFontStyle.setSummary(mClockFontStyle.getEntries()[index]);
+            return true;
+        }  else if (preference == mQsClockSize) {
+            int width = ((Integer)newValue).intValue();
+            Settings.System.putInt(resolver,
+                    Settings.System.QS_HEADER_CLOCK_SIZE, width);
+            return true;
+        }  else if (preference == mQsClockFontStyle) {
+            int qsClockFont = Integer.valueOf((String) newValue);
+            int index = mQsClockFontStyle.findIndexOfValue((String) newValue);
+            Settings.System.putInt(resolver, Settings.System.
+                QS_HEADER_CLOCK_FONT_STYLE, qsClockFont);
+            mQsClockFontStyle.setSummary(mQsClockFontStyle.getEntries()[index]);
             return true;
         } else if (preference == mClockDateDisplay) {
             int clockDateDisplay = Integer.valueOf((String) newValue);
