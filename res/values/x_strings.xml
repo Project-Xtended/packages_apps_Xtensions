@@ -1576,4 +1576,8 @@
     <!-- QQS brightness slider -->
     <string name="qqs_brightness_slider_title">Quick Qs Brightness slider</string>
 
+    <!-- Brightness buttons -->
+    <string name="qs_show_brightness_buttons_title">Brightness control buttons</string>
+    <string name="qs_show_brightness_buttons_summary">Show buttons beside the brightness slider to adjust brightness</string>
+
 </resources>
