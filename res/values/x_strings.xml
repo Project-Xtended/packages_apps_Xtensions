@@ -557,8 +557,8 @@
     <string name="qs_brightness_position_bottom_summary">Show a brightness slider on bottom quick settings</string>
 
     <!-- Brightness icon-->
-    <string name="brightness_icon_title">Brightness icon</string>
-    <string name="brightness_icon_summary">Show a brightness icon along with the brighness slider to adjust auto-brightness</string>
+    <string name="brightness_icon_title">Auto-Brightness icon</string>
+    <string name="brightness_icon_summary">Show a auto brightness icon along with the brighness slider</string>
 
     <!-- FastCharge LED -->
     <string name="fast_color_cat_title">Fast charging</string>

@@ -150,7 +150,7 @@
             android:defaultValue="2" />
 
         <com.msm.xtended.preferences.SecureSettingSwitchPreference
-            android:key="qs_show_brightness_icon"
+            android:key="qs_show_auto_brightness"
             android:title="@string/brightness_icon_title"
             android:summary="@string/brightness_icon_summary"
             android:dependency="qs_show_brightness_slider"
