@@ -1580,4 +1580,8 @@
     <string name="qs_show_brightness_buttons_title">Brightness control buttons</string>
     <string name="qs_show_brightness_buttons_summary">Show buttons beside the brightness slider to adjust brightness</string>
 
+    <!-- Qs drag handle -->
+    <string name="qs_show_drag_handle_title">Qs Drag Handle</string>
+    <string name="qs_show_drag_handle_summary">Show Qs footer handle</string>
+
 </resources>
