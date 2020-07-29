@@ -1256,7 +1256,7 @@
 
     <!-- QS Running Services Icon -->
     <string name="qs_running_services_title">Running Services Icon</string>
-    <string name="qs_running_services_summary">Disable the tile running services icon in the footer</string>
+    <string name="qs_running_services_summary">Running services icon in the footer</string>
 
     <!-- Navbar Animation -->
     <string name="pixel_navbar_anim_title">Pixel animation</string>
@@ -1307,7 +1307,7 @@
 
     <!-- QS Settings Button Icon -->
     <string name="qs_settings_button_title">Settings Icon</string>
-    <string name="qs_settings_button_summary">Disable the settings icon in the footer</string>
+    <string name="qs_settings_button_summary">Settings icon in the footer</string>
 
     <!-- QS blur -->
     <string name="blur_quicksettings">Blur behind quick settings (beta)</string>
