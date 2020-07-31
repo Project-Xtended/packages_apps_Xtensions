@@ -92,6 +92,7 @@
     <string name="network_traffic_layout">Activity layout</string>
     <string name="network_traffic_layout_h">Horizontal</string>
     <string name="network_traffic_layout_v">Vertical</string>
+    <string name="net_traffic_font">Fonts</string>
 
     <!-- HW Keys customization -->
     <string name="action_value_default_action" translatable="false">default</string>
@@ -391,7 +392,6 @@
     <string name="lock_clock_font_notoserif_bold_italic">NotoSerif Bold Italic</string>
     <string name="lock_clock_font_gobold">GoBold Light</string>
     <string name="lock_clock_font_roadrage">Road Rage</string>
-    <string name="lock_clock_font_snowstorm">Snowstorm</string>
     <string name="lock_clock_font_googlesans">Google Sans</string>
     <string name="lock_clock_font_neoneon">Neoneon</string>
     <string name="lock_clock_font_themeable">Themeable (or VCR OSD Mono)</string>
