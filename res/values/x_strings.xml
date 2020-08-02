@@ -1140,6 +1140,8 @@
     <string name="pulse_ambient_light_layout_title">Edge Light View</string>
     <string name="pulse_ambient_light_layout_solid">Solid</string>
     <string name="pulse_ambient_light_layout_faded">Faded</string>
+    <string name="pulse_ambient_random_color_title">Random color</string>
+    <string name="pulse_ambient_random_color_summary">Sets random colors to pulse edge light</string>
 
     <!-- Tiles animation style -->
     <string name="qs_tiles">QS Tiles</string>
