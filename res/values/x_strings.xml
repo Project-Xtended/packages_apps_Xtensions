@@ -726,4 +726,29 @@
     <string name="pulse_ambient_light_repeat_count_title">Edge Light Repeat count</string>
     <string name="pulse_ambient_light_repeat_count_summary">Set max repeat count. 0 for infinite</string>
 
+    <!-- Ambient Customization -->
+    <string name="ambient_text_category_title">Ambient-AOD Customization</string>
+    <string name="ambient_text_category_summary">Customizing the looks of ambient-aod</string>
+    <string name="ambient_text_title">Ambient Text</string>
+    <string name="ambient_text_summary">Show Ambient Text in AoD</string>
+    <string name="ambient_text_animation_title">Ambient Text Animation</string>
+    <string name="ambient_text_animation_summary">Show a Animation when show AoD</string>
+    <string name="ambient_text_size_title">Ambient Text Size</string>
+    <string name="ambient_text_font_title">Ambient Text Font</string>
+    <string name="ambient_text_string_title">Set Ambient Text</string>
+    <string name="ambient_text_align_title">Ambient Text Align</string>
+    <string name="ambient_text_align_start_top">Right n Top</string>
+    <string name="ambient_text_align_start_center">Right n Center</string>
+    <string name="ambient_text_align_start_bottom">Right n Bottom</string>
+    <string name="ambient_text_align_center">Center</string>
+    <string name="ambient_text_align_end_top">Left n Top</string>
+    <string name="ambient_text_align_end_center">Left n Center</string>
+    <string name="ambient_text_align_end_bottom">Left n Bottom</string>
+    <string name="ambient_text_type_color_title">Ambient Text Type Color</string>
+    <string name="ambient_text_color_title">Ambient Text Color</string>
+    <string name="ambient_notification_light_color_mode_wall">Wallpaper color</string>
+    <string name="ambient_image_title">Ambient Image</string>
+    <string name="file_header_select_title">Select local image</string>
+    <string name="file_header_select_summary">Select image from storage</string>
+
 </resources>
