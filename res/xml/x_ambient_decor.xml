@@ -149,4 +149,10 @@
 
     </PreferenceCategory>
 
+    <Preference
+         android:key="ambient_customization"
+         android:title="@string/ambient_text_category_title"
+         android:summary="@string/ambient_text_category_summary"
+         android:fragment="com.xtended.fragments.AmbientCustomizations" />
+
 </PreferenceScreen>
