@@ -27,6 +27,7 @@
         android:dialogTitle="@string/lockscreen_clock_dialog_title"
         android:entries="@array/lockscreen_clock_titles"
         android:entryValues="@array/lockscreen_clock_values"
+        android:summary="%s"
         android:defaultValue="2" />
 
     <ListPreference
@@ -67,11 +68,14 @@
         android:persistent="false"
         android:defaultValue="40" />
 
-    <com.msm.xtended.preferences.SecureSettingSwitchPreference
+    <com.msm.xtended.preferences.SecureSettingListPreference
         android:key="center_text_clock"
         android:title="@string/center_text_clock_title"
-        android:summary="@string/center_text_clock_summary"
-        android:defaultValue="false" />
+        android:dialogTitle="@string/center_text_clock_title"
+        android:entries="@array/lockscreen_item_alignment_entries"
+        android:entryValues="@array/lockscreen_item_alignment_values"
+        android:summary="%s"
+        android:defaultValue="1" />
 
     <PreferenceCategory
         android:title="Lock Date"/>
@@ -82,6 +86,7 @@
         android:dialogTitle="@string/lockscreen_date_dialog_title"
         android:entries="@array/lockscreen_date_selection_entries"
         android:entryValues="@array/lockscreen_date_selection_values"
+        android:summary="%s"
         android:defaultValue="0" />
 
     <ListPreference
@@ -102,6 +107,15 @@
         settings:units="dp"
         android:defaultValue="18"
         android:persistent="false" />
+
+    <com.msm.xtended.preferences.SecureSettingListPreference
+        android:key="lock_date_alignment"
+        android:title="@string/lockscreen_date_alignment_title"
+        android:dialogTitle="@string/lockscreen_date_alignment_title"
+        android:entries="@array/lockscreen_item_alignment_entries"
+        android:entryValues="@array/lockscreen_item_alignment_values"
+        android:summary="%s"
+        android:defaultValue="1" />
 
     <PreferenceCategory
         android:title="Owner Info"/>
@@ -124,6 +138,23 @@
         settings:units="dp"
         android:defaultValue="21"
         android:persistent="false" />
+
+    <com.msm.xtended.preferences.SecureSettingListPreference
+        android:key="lock_ownerinfo_alignment"
+        android:title="@string/lockscreen_ownerinfo_alignment_title"
+        android:dialogTitle="@string/lockscreen_ownerinfo_alignment_title"
+        android:entries="@array/lockscreen_item_alignment_entries"
+        android:entryValues="@array/lockscreen_item_alignment_values"
+        android:summary="%s"
+        android:defaultValue="1" />
+
+    <com.msm.xtended.preferences.SecureSettingSeekBarPreference
+        android:key="lockscreen_item_padding"
+        android:title="@string/lockscreen_item_padding_title"
+        android:max="65"
+        settings:min="0"
+        settings:units="dp"
+        android:defaultValue="35" />
 
     <PreferenceScreen
     	android:key="lockscreen_colors"
