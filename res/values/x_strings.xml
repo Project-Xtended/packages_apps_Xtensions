@@ -455,6 +455,7 @@
     <string name="lock_item_center">Center alligned</string>
     <string name="lock_item_right">Right alligned</string>
     <string name="lockscreen_item_padding_title">Lockscreen items padding</string>
+    <string name="lockscreen_weather_alignment_title">LS Weather Alignment</string>
 
     <!-- RGB Accent Picker -->
     <string name="accent_color">Accent picker</string>
