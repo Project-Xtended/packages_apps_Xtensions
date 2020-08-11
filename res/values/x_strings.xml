@@ -1309,7 +1309,7 @@
     <string name="lockscreen_date_selection_str_border_gradient">Dark with gradient borders</string>
 
     <!-- Q To X Clock -->
-    <string name="center_text_clock_title">Text Clock Alignment</string>
+    <string name="center_text_clock_title">Lock Clock Alignment</string>
 
     <!-- QS Settings Button Icon -->
     <string name="qs_settings_button_title">Settings Icon</string>
