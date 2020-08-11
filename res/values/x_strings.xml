@@ -381,7 +381,7 @@
     <string name="lockscreen_date_selection_str_border_gradient">Dark with gradient borders</string>
 
     <!-- Q To X Clock -->
-    <string name="center_text_clock_title">Text Clock Alignment</string>
+    <string name="center_text_clock_title">Lock Clock Alignment</string>
 
     <!-- Lockscreen Item Alignments -->
     <string name="lockscreen_date_alignment_title">LS Date Alignment</string>
