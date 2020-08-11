@@ -449,10 +449,11 @@
     <string name="lockscreen_date_selection_str_border_accent">Dark with accented borders</string>
     <string name="lockscreen_date_selection_str_border_gradient">Dark with gradient borders</string>
 
-    <!-- Text clock allignment -->
-    <string name="text_clock_allignment_title">Text Clock allignment</string>
+    <!-- Lockscreen items allignment category -->
+    <string name="lock_screen_items_allignment_category_title">Lockscreen items allignment</string>
 
     <!-- Lockscreen item allignments -->
+    <string name="lockscreen_clock_allignment_title">LS Clock allignment</string>
     <string name="lockscreen_date_allignment_title">LS Date allignment</string>
     <string name="lockscreen_ownerinfo_allignment_title">LS Owner info allignment</string>
     <string name="lock_item_left">Left alligned</string>
