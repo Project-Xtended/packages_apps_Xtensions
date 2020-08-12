@@ -25,6 +25,12 @@
                 android:targetClass="com.android.systemui.tuner.StatusbarItemsActivity" />
     </Preference>
 
+     <com.msm.xtended.preferences.SystemSettingSwitchPreference
+         android:key="statusbar_dual_row"
+         android:title="@string/statusbar_dual_row_title"
+         android:summary="@string/statusbar_dual_row_summary"
+         android:defaultValue="false" />
+
     <Preference
          android:key="network_traffic"
          android:title="@string/traffic_title"

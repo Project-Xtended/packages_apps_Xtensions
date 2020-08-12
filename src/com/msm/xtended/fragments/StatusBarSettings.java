@@ -29,6 +29,7 @@ import android.view.View;
 import com.android.settings.SettingsPreferenceFragment;
 import com.msm.xtended.preferences.CustomSeekBarPreference;
 import com.msm.xtended.preferences.SystemSettingSwitchPreference;
+import com.android.internal.util.xtended.XtendedUtils;
 import com.android.settings.Utils;
 import android.util.Log;
 
@@ -44,7 +45,9 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
     private static final String SMS_BREATH = "sms_breath";
     private static final String MISSED_CALL_BREATH = "missed_call_breath";
     private static final String VOICEMAIL_BREATH = "voicemail_breath";
+    private static final String STATUSBAR_DUAL_ROW = "statusbar_dual_row";
 
+    private SystemSettingSwitchPreference mStatusbarDualRow;
     private SwitchPreference mSmsBreath;
     private SwitchPreference mMissedCallBreath;
     private SwitchPreference mVoicemailBreath;
@@ -58,6 +61,11 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
         PreferenceScreen prefSet = getPreferenceScreen();
 
         ContentResolver resolver = getActivity().getContentResolver();
+
+ 	mStatusbarDualRow = (SystemSettingSwitchPreference) findPreference(STATUSBAR_DUAL_ROW);
+        mStatusbarDualRow.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.STATUSBAR_DUAL_ROW, 0) == 1));
+        mStatusbarDualRow.setOnPreferenceChangeListener(this);
 
             // Breathing Notifications
             mSmsBreath = (SwitchPreference) findPreference(SMS_BREATH);
@@ -101,6 +109,12 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
             } else if (preference == mVoicemailBreath) {
                 boolean value = (Boolean) objValue;
                 Settings.System.putInt(getContentResolver(), VOICEMAIL_BREATH, value ? 1 : 0);
+                return true;
+            } else if (preference == mStatusbarDualRow) {
+                boolean value = (Boolean) objValue;
+                Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_DUAL_ROW, value ? 1 : 0);
+                XtendedUtils.showSystemUiRestartDialog(getContext());
                 return true;
             }
         return false;
