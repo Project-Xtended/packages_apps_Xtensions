@@ -408,6 +408,7 @@
     <string name="lock_item_right">Right Aligned</string>
     <string name="lockscreen_item_padding_title">Lockscreen Items Padding</string>
     <string name="lockscreen_weather_alignment_title">LS Weather Alignment</string>
+    <string name="lockscreen_weather_selection_title">WeatherView Background Style</string>
 
     <!-- HW Keys customization -->
     <string name="action_value_default_action" translatable="false">default</string>
