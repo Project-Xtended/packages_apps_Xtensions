@@ -39,10 +39,10 @@
     </Preference>
 
     <Preference
-         android:key="ambient_customization"
-         android:title="@string/ambient_text_category_title"
-         android:summary="@string/ambient_text_category_summary"
-         android:fragment="com.msm.xtended.fragments.AmbientCustomizations" />
+         android:key="ambient_decor"
+         android:title="@string/ambient_decor_title"
+         android:summary="@string/ambient_decor_summary"
+         android:fragment="com.msm.xtended.fragments.AmbientDecorSettings" />
 
     <Preference
          android:key="animations_category"

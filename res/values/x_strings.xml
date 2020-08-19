@@ -44,6 +44,8 @@
     <string name="animation_settings_summary">System Wide Animation Options</string>
     <string name="lockscreen_ui_title">Lockscreen UI</string>
     <string name="lockscreen_ui_summary">Change the looks of Lockscreen</string>
+    <string name="ambient_decor_title">Xtended Ambient Options</string>
+    <string name="ambient_decor_summary">Our own ambient decoration menu</string>
 
     <!-- General strings -->
     <string name="ok">OK</string>
@@ -1133,7 +1135,7 @@
     <string name="lockscreen_charging_animation_wear">Wear Your Mask</string>
 
     <!-- Ambient edge lighting -->
-    <string name="notification_screen_title">Screen</string>
+    <string name="notification_screen_title">Ambient-AOD Lighting</string>
     <string name="pulse_ambient_light_title">Edge lighting</string>
     <string name="pulse_ambient_light_summary">Light up the side edges of the screen on notification pulse</string>
     <string name="pulse_ambient_light_color_title">Edge light color</string>
