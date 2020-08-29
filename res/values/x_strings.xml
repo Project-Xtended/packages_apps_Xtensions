@@ -747,6 +747,7 @@
     <string name="ambient_text_type_color_title">Ambient Text Type Color</string>
     <string name="ambient_text_color_title">Ambient Text Color</string>
     <string name="ambient_notification_light_color_mode_wall">Wallpaper color</string>
+    <string name="ambient_notification_light_color_mode_random">Random color</string>
     <string name="ambient_image_title">Ambient Image</string>
     <string name="file_header_select_title">Select local image</string>
     <string name="file_header_select_summary">Select image from storage</string>
