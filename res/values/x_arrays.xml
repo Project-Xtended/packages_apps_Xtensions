@@ -1427,11 +1427,13 @@
         <item>@string/ambient_notification_light_color_mode_accent</item>
         <item>@string/ambient_notification_light_color_mode_wall</item>
         <item>@string/ambient_notification_light_color_mode_custom</item>
+        <item>@string/ambient_notification_light_color_mode_random</item>
     </string-array>
     <string-array name="ambient_text_type_color_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
+        <item>3</item>
     </string-array>
 
     <!-- Lockscreen Item Alignments -->
