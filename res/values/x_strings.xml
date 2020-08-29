@@ -1138,9 +1138,8 @@
     <string name="notification_screen_title">Ambient-AOD Lighting</string>
     <string name="pulse_ambient_light_title">Edge lighting</string>
     <string name="pulse_ambient_light_summary">Light up the side edges of the screen on notification pulse</string>
-    <string name="pulse_ambient_light_color_title">Edge light color</string>
-    <string name="pulse_ambient_auto_color_title">Auto color</string>
-    <string name="pulse_ambient_auto_color_summary">Sets edge light color to the primary color of wallpaper</string>
+    <string name="pulse_ambient_light_color_title">Edge light custom color</string>
+    <string name="pulse_ambient_type_color_title">Edge light color type</string>
     <string name="pulse_ambient_light_duration_title">Duration</string>
     <string name="pulse_ambient_light_duration_summary">Sets the ambient light animation duration</string>
     <string name="pulse_ambient_light_repeat_count_title">Edge Light Repeat count</string>
@@ -1148,8 +1147,6 @@
     <string name="pulse_ambient_light_layout_title">Edge Light View</string>
     <string name="pulse_ambient_light_layout_solid">Solid</string>
     <string name="pulse_ambient_light_layout_faded">Faded</string>
-    <string name="pulse_ambient_random_color_title">Random color</string>
-    <string name="pulse_ambient_random_color_summary">Sets random colors to pulse edge light</string>
 
     <!-- Tiles animation style -->
     <string name="qs_tiles">QS Tiles</string>

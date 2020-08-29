@@ -31,12 +31,14 @@ public class AmbientDecorSettings extends SettingsPreferenceFragment
     private static final String KEY_PULSE_BRIGHTNESS = "ambient_pulse_brightness";
     private static final String KEY_DOZE_BRIGHTNESS = "ambient_doze_brightness";
     private static final String PULSE_AMBIENT_LIGHT_COLOR = "pulse_ambient_light_color";
+    private static final String PULSE_AMBIENT_TYPE_COLOR = "pulse_ambient_type_color";
     private static final String PULSE_AMBIENT_LIGHT_DURATION = "pulse_ambient_light_duration";
     private static final String PULSE_AMBIENT_LIGHT_REPEAT_COUNT = "pulse_ambient_light_repeat_count";
 
     private Preference mChargingLeds;
     private CustomSeekBarPreference mPulseBrightness;
     private CustomSeekBarPreference mDozeBrightness;
+    private ListPreference mAmbientColorType;
     private ColorPickerPreference mEdgeLightColorPreference;
     private SystemSettingSeekBarPreference mEdgeLightDurationPreference;
     private SystemSettingSeekBarPreference mEdgeLightRepeatCountPreference;
@@ -71,6 +73,13 @@ public class AmbientDecorSettings extends SettingsPreferenceFragment
                 Settings.System.OMNI_DOZE_BRIGHTNESS, defaultDoze);
         mDozeBrightness.setValue(value);
         mDozeBrightness.setOnPreferenceChangeListener(this);
+
+        // ambient light color type
+        mAmbientColorType = (ListPreference) findPreference(PULSE_AMBIENT_TYPE_COLOR);
+        mAmbientColorType.setValue(String.valueOf(Settings.System.getInt(
+                getContentResolver(), Settings.System.PULSE_AMBIENT_TYPE_COLOR, 0)));
+        mAmbientColorType.setSummary(mAmbientColorType.getEntry());
+        mAmbientColorType.setOnPreferenceChangeListener(this);
 
         mEdgeLightColorPreference = (ColorPickerPreference) findPreference(PULSE_AMBIENT_LIGHT_COLOR);
         int edgeLightColor = Settings.System.getInt(getContentResolver(),
@@ -109,6 +118,18 @@ public class AmbientDecorSettings extends SettingsPreferenceFragment
              int value = (Integer) newValue;
              Settings.System.putInt(getContentResolver(),
                   Settings.System.OMNI_DOZE_BRIGHTNESS, value);
+             return true;
+         } else if (preference == mAmbientColorType) {
+             int value = Integer.valueOf((String) newValue);
+             int index = mAmbientColorType.findIndexOfValue((String) newValue);
+             mAmbientColorType.setSummary(mAmbientColorType.getEntries()[index]);
+             Settings.System.putInt(resolver,
+                    Settings.System.PULSE_AMBIENT_TYPE_COLOR, value);
+             if (value == 2) {
+                 mEdgeLightColorPreference.setEnabled(true);
+  	     } else {
+	         mEdgeLightColorPreference.setEnabled(false);
+	     }
              return true;
          } else if (preference == mEdgeLightColorPreference) {
              String hex = ColorPickerPreference.convertToARGB(
