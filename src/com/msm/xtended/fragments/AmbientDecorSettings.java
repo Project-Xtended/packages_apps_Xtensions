@@ -123,7 +123,7 @@ public class AmbientDecorSettings extends SettingsPreferenceFragment
              int value = Integer.valueOf((String) newValue);
              int index = mAmbientColorType.findIndexOfValue((String) newValue);
              mAmbientColorType.setSummary(mAmbientColorType.getEntries()[index]);
-             Settings.System.putInt(resolver,
+             Settings.System.putInt(getContentResolver(),
                     Settings.System.PULSE_AMBIENT_TYPE_COLOR, value);
              if (value == 2) {
                  mEdgeLightColorPreference.setEnabled(true);

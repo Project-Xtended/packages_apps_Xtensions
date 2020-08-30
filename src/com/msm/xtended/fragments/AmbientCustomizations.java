@@ -156,10 +156,16 @@ public class AmbientCustomizations extends SettingsPreferenceFragment implements
             mAmbientTextFonts.setSummary(mAmbientTextFonts.getEntry());
             return true;
         } else if (preference == mAmbientTextTypeColor) {
-            Settings.System.putInt(getContentResolver(), Settings.System.AMBIENT_TEXT_TYPE_COLOR,
-                    Integer.valueOf((String) newValue));
-            mAmbientTextTypeColor.setValue(String.valueOf(newValue));
-            mAmbientTextTypeColor.setSummary(mAmbientTextTypeColor.getEntry());
+            int value = Integer.valueOf((String) newValue);
+            int index = mAmbientTextTypeColor.findIndexOfValue((String) newValue);
+            mAmbientTextTypeColor.setSummary(mAmbientTextTypeColor.getEntries()[index]);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.AMBIENT_TEXT_TYPE_COLOR, value);
+            if (value == 2) {
+                mAmbientTextColor.setEnabled(true);
+            } else {
+                mAmbientTextColor.setEnabled(false);
+            }
             return true;
         } else if (preference == mAmbientTextColor) {
             String hex = ColorPickerPreference.convertToARGB(
