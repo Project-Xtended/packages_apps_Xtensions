@@ -912,25 +912,6 @@
     <!-- Lock screen media blur -->
     <string name="lockscreen_media_blur_title">Media artwork blur level</string>
 
-    <!-- Lock screen visualizer -->
-    <string name="lockscreen_visualizer_enable">Music Visualizer</string>
-    <string name="lockscreen_visualizer_enable_summary">Show visualizer bars while playing music</string>
-
-    <!-- LS Pulse Visualizer -->
-    <string name="visualizer_ui_title">Lockscreen Visualizer</string>
-    <string name="visualizer_ui_summary">Customize the looks of Visualizer</string>
-    <string name="lockscreen_lava_lamp_category">Lava Lamp Settings</string>
-    <string name="lockscreen_autocolor_title">Automatic color</string>
-    <string name="lockscreen_autocolor_summary">Sync color with lockscreen background</string>
-    <string name="lockscreen_autocolor_lavalamp">Requires lava lamp disabled</string>
-    <string name="lockscreen_lavalamp_title">Lava lamp</string>
-    <string name="lockscreen_lavalamp_summary">Use a smooth lava lamp style color blend animation</string>
-    <string name="lockscreen_lavalamp_speed_title">Color blend interval</string>
-    <string name="lockscreen_solid_lines_category">Solid Lines</string>
-    <string name="lockscreen_solid_units_count_title">Lines count</string>
-    <string name="lockscreen_solid_fudge_factor_title">Sanity level</string>
-    <string name="lockscreen_solid_units_opacity_title">Lines opacity</string>
-
     <!-- Doze Brightness Config -->
     <string name="doze_brightness_category">Doze Brightness Config</string>
     <string name="ambient_pulse_brightness_title">Ambient notification brightness</string>
@@ -1077,10 +1058,6 @@
     <string name="qs_footer_text_summary">Display text at bottom of QS panel</string>
     <string name="qs_footer_text_string_title">Customize footer text</string>
     <string name="qs_footer_text_string_summary">Set to empty for default MSM-Xtended</string> 
-
-    <!-- Ambient visualizer -->
-    <string name="ambient_visualizer_title">Ambient visualizer</string>
-    <string name="ambient_visualizer_summary">Shows white visualization bars on ambient display unless custom color is selected</string>
 
     <!-- Gaming mode -->
     <string name="gaming_mode_title">Gaming Mode</string>

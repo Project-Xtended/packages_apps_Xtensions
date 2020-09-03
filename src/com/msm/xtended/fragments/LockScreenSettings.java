@@ -42,6 +42,8 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import com.msm.xtended.preferences.CustomSeekBarPreference;
 import com.msm.xtended.preferences.SystemSettingSwitchPreference;
+import com.msm.xtended.preferences.SystemSettingSeekBarPreference;
+import com.msm.xtended.preferences.SecureSettingListPreference;
 
 import com.msm.xtended.preferences.XUtils;
 
@@ -53,6 +55,8 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     private static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
     private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker_category";
     private static final String FOD_ANIMATION = "fod_anim";
+    private static final String LOCKSCREEN_MEDIA_FILTER = "lockscreen_albumart_filter";
+    private static final String LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
 
     private CustomSeekBarPreference mMaxKeyguardNotifConfig;
     private FingerprintManager mFingerprintManager;
@@ -60,6 +64,8 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     private SystemSettingSwitchPreference mFpKeystore;
     private PreferenceCategory mFODIconPickerCategory;
     private Preference mFODAnimation;
+    private SecureSettingListPreference mLockscreenMediaFilter;
+    private SystemSettingSeekBarPreference mLockscreenMediaBlur;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -102,6 +108,24 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
                 (mFODIconPickerCategory != null && mFODAnimation != null && !showFODAnimationPicker)) {
             mFODIconPickerCategory.removePreference(mFODAnimation);
         }
+
+        mLockscreenMediaBlur = (SystemSettingSeekBarPreference) findPreference(LOCKSCREEN_MEDIA_BLUR);
+        mLockscreenMediaBlur.setOnPreferenceChangeListener(this);
+        int lsBlurValue = Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKSCREEN_MEDIA_BLUR, 25);
+        mLockscreenMediaBlur.setValue(lsBlurValue);
+
+        mLockscreenMediaFilter = (SecureSettingListPreference) findPreference(LOCKSCREEN_MEDIA_FILTER);
+        mLockscreenMediaFilter.setOnPreferenceChangeListener(this);
+        int lsFilter = Settings.Secure.getInt(getContentResolver(),
+                Settings.Secure.LOCKSCREEN_ALBUMART_FILTER, 0);
+        mLockscreenMediaFilter.setValue(String.valueOf(lsFilter));
+        mLockscreenMediaFilter.setOnPreferenceChangeListener(this);
+        if (lsFilter == 3 || lsFilter == 4) {
+            mLockscreenMediaBlur.setEnabled(true);
+        } else {
+            mLockscreenMediaBlur.setEnabled(false);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -116,6 +140,24 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.FINGERPRINT_SUCCESS_VIB, value ? 1 : 0);
+            return true;
+
+        } else if (preference == mLockscreenMediaBlur) {
+            int lsBlurValue = (Integer) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_MEDIA_BLUR, lsBlurValue);
+            return true;
+        } else if (preference == mLockscreenMediaFilter) {
+            int lsFilterValue = Integer.parseInt(((String) newValue).toString());
+            Settings.Secure.putInt(getContentResolver(),
+                    Settings.Secure.LOCKSCREEN_ALBUMART_FILTER, lsFilterValue);
+            mLockscreenMediaFilter.setValue(String.valueOf(lsFilterValue));
+            if (lsFilterValue == 0 ||
+                      lsFilterValue == 1 || lsFilterValue == 2) {
+                mLockscreenMediaBlur.setEnabled(false);
+            } else {
+                mLockscreenMediaBlur.setEnabled(true);
+            }
             return true;
         }
         return false;
