@@ -41,6 +41,9 @@ public class StatusBarLogo extends SettingsPreferenceFragment implements
     private ListPreference mShowLogo;
     private ListPreference mLogoStyle;
     private ColorPickerPreference mStatusBarLogoColor;
+    private ListPreference mShowQsLogo;
+    private ListPreference mQsLogoStyle;
+    private ColorPickerPreference mQsLogoColor;
     static final int DEFAULT_LOGO_COLOR = 0xffff8800;
 
     @Override
@@ -48,6 +51,9 @@ public class StatusBarLogo extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.x_statusbar_logo);
+
+        String hexColor;
+        int intColor;
 
         mShowLogo = (ListPreference) findPreference("status_bar_logo");
         mShowLogo.setOnPreferenceChangeListener(this);
@@ -67,11 +73,35 @@ public class StatusBarLogo extends SettingsPreferenceFragment implements
 
         mStatusBarLogoColor = (ColorPickerPreference) findPreference("status_bar_logo_color");
         mStatusBarLogoColor.setOnPreferenceChangeListener(this);
-        int intColor = Settings.System.getInt(getContentResolver(),
+        intColor = Settings.System.getInt(getContentResolver(),
                 Settings.System.STATUS_BAR_LOGO_COLOR, DEFAULT_LOGO_COLOR);
-        String hexColor = String.format("#%08x", (DEFAULT_LOGO_COLOR & intColor));
+        hexColor = String.format("#%08x", (DEFAULT_LOGO_COLOR & intColor));
         mStatusBarLogoColor.setSummary(hexColor);
         mStatusBarLogoColor.setNewPreviewColor(intColor);
+
+        mShowQsLogo = (ListPreference) findPreference("qs_panel_logo");
+        mShowQsLogo.setOnPreferenceChangeListener(this);
+        int showQsLogo = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.QS_PANEL_LOGO,
+                0, UserHandle.USER_CURRENT);
+        mShowQsLogo.setValue(String.valueOf(showQsLogo));
+        mShowQsLogo.setSummary(mShowQsLogo.getEntry());
+
+        mQsLogoStyle = (ListPreference) findPreference("qs_panel_logo_style");
+        mQsLogoStyle.setOnPreferenceChangeListener(this);
+        int logoQsStyle = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.QS_PANEL_LOGO_STYLE,
+                0, UserHandle.USER_CURRENT);
+        mQsLogoStyle.setValue(String.valueOf(logoQsStyle));
+        mQsLogoStyle.setSummary(mQsLogoStyle.getEntry());
+
+        mQsLogoColor = (ColorPickerPreference) findPreference("qs_panel_logo_color");
+        mQsLogoColor.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                Settings.System.QS_PANEL_LOGO_COLOR, DEFAULT_LOGO_COLOR);
+        hexColor = String.format("#%08x", (DEFAULT_LOGO_COLOR & intColor));
+        mQsLogoColor.setSummary(hexColor);
+        mQsLogoColor.setNewPreviewColor(intColor);
     }
 
     @Override
@@ -109,6 +139,30 @@ public class StatusBarLogo extends SettingsPreferenceFragment implements
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(resolver,
                     Settings.System.STATUS_BAR_LOGO_COLOR, intHex);
+            return true;
+        } else if (preference.equals(mShowQsLogo)) {
+            int showQsLogo = Integer.parseInt(((String) newValue).toString());
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.QS_PANEL_LOGO, showQsLogo, UserHandle.USER_CURRENT);
+            int index = mShowQsLogo.findIndexOfValue((String) newValue);
+            mShowQsLogo.setSummary(
+                    mShowQsLogo.getEntries()[index]);
+            return true;
+        } else if (preference.equals(mQsLogoStyle)) {
+            int logoQsStyle = Integer.parseInt(((String) newValue).toString());
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.QS_PANEL_LOGO_STYLE, logoQsStyle, UserHandle.USER_CURRENT);
+            int index = mQsLogoStyle.findIndexOfValue((String) newValue);
+            mQsLogoStyle.setSummary(
+                    mQsLogoStyle.getEntries()[index]);
+            return true;
+        } else if (preference.equals(mQsLogoColor)) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(resolver,
+                    Settings.System.QS_PANEL_LOGO_COLOR, intHex);
             return true;
         }
         return false;
