@@ -31,7 +31,14 @@
         android:summary="@string/show_pulse_summary"
         android:defaultValue="false" />
 
+    <com.xtended.support.preferences.SecureSettingSwitchPreference
+        android:key="ambient_pulse_enabled"
+        android:title="@string/show_ambient_pulse_title"
+        android:summary="@string/show_ambient_pulse_summary"
+        android:defaultValue="true" />
+
     <com.xtended.support.preferences.SecureSettingListPreference
+        android:key="pulse_render_style"
         android:title="@string/pulse_render_mode_title"
         android:entries="@array/pulse_render_mode_entries"
         android:entryValues="@array/pulse_render_mode_values"
