@@ -1630,4 +1630,8 @@
     <string name="statusbar_dual_row_title">Dual Row</string>
     <string name="statusbar_dual_row_summary">Enable dual row statusbar for notifications</string>
 
+    <!-- Rotation button -->
+    <string name="show_rotation_button_title">Rotation button</string>
+    <string name="show_rotation_button_summary">Display rotation button on navigation bar when available</string>
+
 </resources>
