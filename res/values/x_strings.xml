@@ -1512,6 +1512,8 @@
     <string name="show_pulse_title">Show Pulse on NavBar</string>
     <string name="show_pulse_ls_title">Show Pulse on Lockscreen</string>
     <string name="show_pulse_summary">Audio graphic equalizer during music play</string>
+    <string name="show_ambient_pulse_title">Ambient Pulse</string>
+    <string name="show_ambient_pulse_summary">Audio graphic equalizer on the ambient screen</string>
     <string name="pulse_render_mode_title">Render mode</string>
     <string name="pulse_render_mode_fading_bars">Fading blocks</string>
     <string name="pulse_render_mode_solid_lines">Solid lines</string>
