@@ -418,4 +418,8 @@
     <string name="lockscreen_hide_shortcuts_title">Hide bottom shortcuts</string>
     <string name="lockscreen_hide_shortcuts_summary">Hide left-right shortcuts on secure lock screens</string>
 
+    <!-- Old mobile type -->
+    <string name="use_old_mobiletype_title">Old mobiletype</string>
+    <string name="use_old_mobiletype_summary">Use pre-p mobiletype icons for signal (Reboot required)</string>
+
 </resources>
