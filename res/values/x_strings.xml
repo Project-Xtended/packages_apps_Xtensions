@@ -1700,4 +1700,8 @@
     <string name="charging_animation_bg_title">Charging Background</string>
     <string name="charging_animation_bg_summary">Enabling this option will make the background on System Animation to black</string>
 
+    <!-- Old mobile type -->
+    <string name="use_old_mobiletype_title">Old mobiletype</string>
+    <string name="use_old_mobiletype_summary">Use pre-p mobiletype icons for signal (Reboot required)</string>
+
 </resources>
