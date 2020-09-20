@@ -111,6 +111,15 @@
            android:summary="%s"
            android:defaultValue="1" />
 
+        <!-- Navbar styles -->
+        <ListPreference
+            android:key="theme_navbar_style"
+            android:title="@string/theme_navbar_picker_title"
+            android:dialogTitle="@string/theme_navbar_picker_summary"
+            android:summary="%s"
+            android:entries="@array/navbar_name_entries"
+            android:entryValues="@array/navbar_picker_values"/>
+
     </PreferenceCategory>
 
     <!-- Gvisual mod -->
