@@ -103,19 +103,20 @@ public class XtendedPreference extends Preference {
     }
 
     private void setStyleColor(Context context) {
-        xtensionStyle = Settings.System.getIntForUser(context.getContentResolver(),
-                    Settings.System.XTENSIONS_STYLE, 0, UserHandle.USER_CURRENT);
+       /* xtensionStyle = Settings.System.getIntForUser(context.getContentResolver(),
+                    Settings.System.XTENSIONS_STYLE, 0, UserHandle.USER_CURRENT);*/
 
         mColorRandom = getRandomColor();
         mColorAccent = context.getResources().getColor(com.android.internal.R.color.gradient_start);
 	mColorGradient = context.getResources().getColor(com.android.internal.R.color.gradient_end);
-        if (xtensionStyle == 0) {
+        mColorAlpha = adjustAlpha(mColorRandom, 0.9f);
+       /* if (xtensionStyle == 0) {
             mColorAlpha = adjustAlpha(mColorAccent, 0.9f);
         } else if (xtensionStyle == 1) {
             mColorAlpha = adjustAlpha(mColorGradient, 0.9f);
         } else {
             mColorAlpha = adjustAlpha(mColorRandom, 0.9f);
-        }
+        }*/
     }
 
     public int getRandomColor(){

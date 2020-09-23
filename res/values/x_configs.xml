@@ -16,11 +16,6 @@
  -->
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- config which cpus should be should scanned and shown
-    e.g. 0,2 means it will show only cpu 0 and cpu 2-->
-    <string name="config_cpufreq_show_cpus">0</string>
 
-    <!-- wether cpufreq_stats are stored in msecs or 10msec unit -->
-    <bool name="config_cpufreq_msecs">false</bool>
 </resources>
 

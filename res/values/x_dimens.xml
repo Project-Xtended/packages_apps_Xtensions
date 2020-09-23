@@ -17,7 +17,6 @@
 
 <resources>
     <dimen name="picker_circle_preview_size">26dp</dimen>
-    <dimen name="alert_dialog_padding_material">20dp</dimen>
 
     <!-- Shortcut picker -->
     <dimen name="shortcut_picker_left_padding">70dip</dimen>
@@ -26,16 +25,7 @@
     <dimen name="seek_bar_preference_cham_value_x_offset">0dp</dimen>
     <dimen name="seek_bar_preference_cham_value_y_offset">-16dp</dimen>
     
-    <!-- FOD icon picker -->
-    <dimen name="fod_picker_item_margin">10dp</dimen>
-    <dimen name="fod_picker_item_size">100dp</dimen>
-    <dimen name="fod_picker_item_padding">20dp</dimen>
-
     <!-- The Team -->
     <dimen name="team_recycler_height">500dp</dimen>
-
-    <!-- Gesture Anywhere -->
-    <dimen name="ga_gesture_thumbnail_inset">8dip</dimen>
-    <dimen name="ga_gesture_thumbnail_size">64dip</dimen>
 
 </resources>

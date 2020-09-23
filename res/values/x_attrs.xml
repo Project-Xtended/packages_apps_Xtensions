@@ -22,15 +22,6 @@
         <attr name="defaultText" format="string|reference" />
     </declare-styleable>
 
-    <!-- Value to pass to callback when restore button is pressed -->
-    <declare-styleable name="ColorPickerPreference">
-        <attr name="defaultColorValue" format="integer" />
-        <attr name="ledPreview" format="boolean" />
-        <attr name="alphaSlider" format="boolean" />
-        <attr name="showPreview" format="boolean" />
-        <attr name="showReset" format="boolean" />
-    </declare-styleable>
-	
     <declare-styleable name="SeekBarPreference">
         <!-- preference -->
         <attr name="unitsLeft" format="string|reference" />

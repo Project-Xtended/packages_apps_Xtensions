@@ -50,23 +50,6 @@ import com.msm.xtended.preferences.XUtils;
 public class LockScreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";
-    private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
-    private static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
-    private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker_category";
-    private static final String FOD_ANIMATION = "fod_anim";
-    private static final String LOCKSCREEN_MEDIA_FILTER = "lockscreen_albumart_filter";
-    private static final String LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
-
-    private CustomSeekBarPreference mMaxKeyguardNotifConfig;
-    private FingerprintManager mFingerprintManager;
-    private SwitchPreference mFingerprintVib;
-    private SystemSettingSwitchPreference mFpKeystore;
-    private PreferenceCategory mFODIconPickerCategory;
-    private Preference mFODAnimation;
-    private SecureSettingListPreference mLockscreenMediaFilter;
-    private SystemSettingSeekBarPreference mLockscreenMediaBlur;
-
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -75,91 +58,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
         Resources resources = getResources();
-        Context mContext = getContext();
-
-        mMaxKeyguardNotifConfig = (CustomSeekBarPreference) findPreference(LOCKSCREEN_MAX_NOTIF_CONFIG);
-        int kgconf = Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, 3);
-        mMaxKeyguardNotifConfig.setValue(kgconf);
-        mMaxKeyguardNotifConfig.setOnPreferenceChangeListener(this);
-
-        mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
-        mFingerprintVib = (SwitchPreference) findPreference(FINGERPRINT_VIB);
-        mFpKeystore = (SystemSettingSwitchPreference) findPreference(FP_UNLOCK_KEYSTORE);
-        if (mFingerprintManager == null){
-            prefScreen.removePreference(mFingerprintVib);
-            prefScreen.removePreference(mFpKeystore);
-        } else {
-        mFingerprintVib.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.System.FINGERPRINT_SUCCESS_VIB, 1) == 1));
-        mFingerprintVib.setOnPreferenceChangeListener(this);
-        }
-
-        mFODIconPickerCategory = (PreferenceCategory) findPreference(FOD_ICON_PICKER_CATEGORY);
-        if (mFODIconPickerCategory != null
-                && !getResources().getBoolean(com.android.internal.R.bool.config_needCustomFODView)) {
-           prefScreen.removePreference(mFODIconPickerCategory);
-        }
-
-        boolean showFODAnimationPicker = mContext.getResources().getBoolean(R.bool.showFODAnimationPicker);
-        mFODAnimation = (Preference) findPreference(FOD_ANIMATION);
-        if ((mFODIconPickerCategory != null && mFODAnimation != null &&
-             !getResources().getBoolean(com.android.internal.R.bool.config_needCustomFODView)) ||
-                (mFODIconPickerCategory != null && mFODAnimation != null && !showFODAnimationPicker)) {
-            mFODIconPickerCategory.removePreference(mFODAnimation);
-        }
-
-        mLockscreenMediaBlur = (SystemSettingSeekBarPreference) findPreference(LOCKSCREEN_MEDIA_BLUR);
-        mLockscreenMediaBlur.setOnPreferenceChangeListener(this);
-        int lsBlurValue = Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKSCREEN_MEDIA_BLUR, 25);
-        mLockscreenMediaBlur.setValue(lsBlurValue);
-
-        mLockscreenMediaFilter = (SecureSettingListPreference) findPreference(LOCKSCREEN_MEDIA_FILTER);
-        mLockscreenMediaFilter.setOnPreferenceChangeListener(this);
-        int lsFilter = Settings.Secure.getInt(getContentResolver(),
-                Settings.Secure.LOCKSCREEN_ALBUMART_FILTER, 0);
-        mLockscreenMediaFilter.setValue(String.valueOf(lsFilter));
-        mLockscreenMediaFilter.setOnPreferenceChangeListener(this);
-        if (lsFilter == 3 || lsFilter == 4) {
-            mLockscreenMediaBlur.setEnabled(true);
-        } else {
-            mLockscreenMediaBlur.setEnabled(false);
-        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
 
-        if (preference == mMaxKeyguardNotifConfig) {
-            int kgconf = (Integer) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, kgconf);
-            return true;
-        } else if (preference == mFingerprintVib) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.FINGERPRINT_SUCCESS_VIB, value ? 1 : 0);
-            return true;
-
-        } else if (preference == mLockscreenMediaBlur) {
-            int lsBlurValue = (Integer) newValue;
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_MEDIA_BLUR, lsBlurValue);
-            return true;
-        } else if (preference == mLockscreenMediaFilter) {
-            int lsFilterValue = Integer.parseInt(((String) newValue).toString());
-            Settings.Secure.putInt(getContentResolver(),
-                    Settings.Secure.LOCKSCREEN_ALBUMART_FILTER, lsFilterValue);
-            mLockscreenMediaFilter.setValue(String.valueOf(lsFilterValue));
-            if (lsFilterValue == 0 ||
-                      lsFilterValue == 1 || lsFilterValue == 2) {
-                mLockscreenMediaBlur.setEnabled(false);
-            } else {
-                mLockscreenMediaBlur.setEnabled(true);
-            }
-            return true;
-        }
         return false;
     }
 

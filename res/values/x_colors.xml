@@ -15,10 +15,5 @@
 -->
 
 <resources>
-    <!-- FOD icon picker-->
-    <color name="fod_item_background_stroke_color">#d6d6d6</color>
-
-    <!-- Gesture Anywhere -->
-    <color name="ga_gesture_color">@*android:color/gradient_end</color>
 
 </resources>
