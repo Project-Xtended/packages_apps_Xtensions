@@ -73,4 +73,7 @@
     <string name="powermenu_emergency">Emergency</string>
     <string name="powermenu_torch">Flashlight</string>
 
+    <!-- On the Go in Power UI -->
+    <string name="global_actions_onthego_title">On-The-Go</string>
+
 </resources>
