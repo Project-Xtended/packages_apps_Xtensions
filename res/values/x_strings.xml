@@ -201,5 +201,6 @@
     <string name="global_actions_emergency">Emergency</string>
     <string name="global_actions_max_columns_title">Max actions to show</string>
     <string name="global_actions_max_columns_summary">Set how many actions to show before buttons move to overflow menu</string>
+    <string name="global_actions_onthego_title">On-The-Go</string>
 
 </resources>
