@@ -485,4 +485,14 @@
     <string name="clock_style_title">Clock style</string> 
     <string name="clock_style_summary">Customize lockscreen clock</string> 
 
+    <!-- QS Themes Category -->
+    <string name="qs_themes_category_title">QS themes</string>
+
+    <!-- QS BG Tint -->
+    <string name="qs_bg_use_new_tint">Tint QS tiles</string>
+    <string name="qs_bg_use_new_tint_summary">Use accent color for qs tile icons and background</string>
+    <string name="qs_tint_off">Gradient effect</string>
+    <string name="qs_tint_random">Random color</string>
+    <string name="qs_tint_accent">Accent color</string>
+
 </resources>
