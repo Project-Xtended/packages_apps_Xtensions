@@ -138,16 +138,16 @@ public class ButtonSettings extends ActionFragment implements
                 if (variableBrightness) {
                     hwkeyCat.removePreference(mButtonBrightness_sw);
                     if (mButtonBrightness != null) {
-                        int ButtonBrightness = Settings.System.getInt(getContentResolver(),
-                                Settings.System.BUTTON_BRIGHTNESS, 120);
-                        mButtonBrightness.setValue(ButtonBrightness / 1);
+                        float ButtonBrightness = Settings.System.getFloat(getContentResolver(),
+                                Settings.System.BUTTON_BRIGHTNESS, 0.4f);
+                        mButtonBrightness.setValue((int)(ButtonBrightness * 100.0f));
                         mButtonBrightness.setOnPreferenceChangeListener(this);
                     }
                 } else {
                     hwkeyCat.removePreference(mButtonBrightness);
                     if (mButtonBrightness_sw != null) {
-                        mButtonBrightness_sw.setChecked((Settings.System.getInt(getContentResolver(),
-                                Settings.System.BUTTON_BRIGHTNESS, 1) == 1));
+                        mButtonBrightness_sw.setChecked((Settings.System.getFloat(getContentResolver(),
+                                Settings.System.BUTTON_BRIGHTNESS, 1.0f) == 1));
                         mButtonBrightness_sw.setOnPreferenceChangeListener(this);
                     }
                 }
@@ -226,14 +226,14 @@ public class ButtonSettings extends ActionFragment implements
                     .setSummary(mBacklightTimeout.getEntries()[BacklightTimeoutIndex]);
             return true;
         } else if (preference == mButtonBrightness) {
-            int value = (Integer) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.BUTTON_BRIGHTNESS, value * 1);
+            float value = (Integer) newValue;
+            Settings.System.putFloat(getActivity().getContentResolver(),
+                    Settings.System.BUTTON_BRIGHTNESS, value / 100.0f);
             return true;
         } else if (preference == mButtonBrightness_sw) {
             boolean value = (Boolean) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.BUTTON_BRIGHTNESS, value ? 1 : 0);
+            Settings.System.putFloat(getActivity().getContentResolver(),
+                    Settings.System.BUTTON_BRIGHTNESS, value ? 1.0f : -1.0f);
             return true;
         } else if (preference == mHwKeyDisable) {
             boolean value = (Boolean) newValue;
