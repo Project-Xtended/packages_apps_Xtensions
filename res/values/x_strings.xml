@@ -183,4 +183,8 @@
     <string name="navbar_tuner_title">Navbar tuner</string>
     <string name="navbar_tuner_summary">Customize navbar tuner</string>
 
+    <!-- Lockscreen shortcuts -->
+    <string name="lockscreen_tuner_title">Lockscreen shortcuts</string>
+    <string name="lockscreen_tuner_summary">Modify the shortcuts shown in the lockscreen</string>
+
 </resources>
