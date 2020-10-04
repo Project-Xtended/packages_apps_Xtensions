@@ -40,6 +40,14 @@
             android:defaultValue="4"
             android:persistent="false" />
 
+        <com.msm.xtended.preferences.CustomSeekBarPreference
+            android:key="qs_columns_quickbar"
+            android:title="@string/sysui_qqs_count_title"
+            android:max="8"
+            settings:min="6"
+            android:defaultValue="6"
+            android:persistent="false" />
+
     </PreferenceCategory>
 
     <com.msm.xtended.preferences.SystemSettingSwitchPreference
