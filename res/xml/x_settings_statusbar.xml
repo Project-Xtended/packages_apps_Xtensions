@@ -25,6 +25,12 @@
                 android:targetClass="com.android.systemui.tuner.StatusbarItemsActivity" />
      </Preference>
 
+    <Preference
+         android:key="battery_mode"
+         android:title="@string/battery_mode_title"
+         android:summary="@string/battery_mode_summary"
+         android:fragment="com.msm.xtended.fragments.XBatteryMode" />
+
      <Preference
             android:key="traffic" 
             android:fragment="com.msm.xtended.fragments.Traffic"

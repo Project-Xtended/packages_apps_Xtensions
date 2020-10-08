@@ -34,9 +34,4 @@
          android:summary="@string/animation_settings_summary"
          android:fragment="com.msm.xtended.fragments.AnimationSettings" />
 
-    <Preference android:key="battery_mode" 
-         android:title="@string/battery_mode_title" 
-         android:summary="@string/battery_mode_summary"
-         android:fragment="com.msm.xtended.fragments.XBatteryMode" />
-
 </PreferenceScreen>
