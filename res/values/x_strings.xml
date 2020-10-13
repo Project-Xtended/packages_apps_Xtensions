@@ -394,11 +394,9 @@
     <string name="lockscreen_phone_icon_color">Lockscreen bottom left shortcut</string>
     <string name="lockscreen_camera_icon_color">Lockscreen bottom right shortcut</string>
     <string name="lockscreen_indication_text_color">Lockscreen indication text</string>
-<!--
     <string name="lockscreen_weather_temp_color">Weather temp color</string>
     <string name="lockscreen_weather_city_color">Weather city color</string>
     <string name="lockscreen_weather_icon_color">Weather icon color</string>
--->
     <string name="lockscreen_colors_reset_title">Reset lockscreen colors</string>
     <string name="lockscreen_colors_reset_message">Are you sure you want to reset these colors to default?</string>
     <string name="yes">YES</string>
