@@ -63,6 +63,13 @@
             settings:unitsLeft=""
             settings:unitsRight="ms" />
 
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="volume_panel_on_left"
+            android:title="@string/volume_panel_on_left_title"
+            android:summary="@string/volume_panel_on_left_summary"
+            android:defaultValue="false"
+            settings:controller="com.xtended.display.VolumePanelOnLeftPreferenceController" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

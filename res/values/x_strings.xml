@@ -882,4 +882,8 @@
     <string name="torch_long_press_power_timeout_5min">5 minutes</string>
     <string name="torch_long_press_power_timeout_10min">10 minutes</string>
 
+    <!-- Volume panel on left switch -->
+    <string name="volume_panel_on_left_title">Volume panel on left</string>
+    <string name="volume_panel_on_left_summary">Change volume panel from right side to left side</string>
+
 </resources>
