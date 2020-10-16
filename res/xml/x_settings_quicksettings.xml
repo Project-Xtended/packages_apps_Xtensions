@@ -94,11 +94,12 @@
 
     </PreferenceCategory>
 
-    <com.msm.xtended.preferences.SystemSettingSwitchPreference 
+    <com.msm.xtended.preferences.SystemSettingListPreference 
         android:key="qs_datausage" 
         android:title="@string/qs_datausage_title" 
-        android:summary="@string/qs_datausage_subtitle"
-        android:defaultValue="false" />
+        android:entries="@array/qs_datausage_entries"
+        android:entryValues="@array/qs_datausage_values"
+        android:defaultValue="0" />
 
     <com.msm.xtended.preferences.SystemSettingSwitchPreference
         android:key="omni_footer_text_show"
