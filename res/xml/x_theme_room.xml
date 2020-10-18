@@ -145,6 +145,27 @@
             android:defaultValue="100"
             android:persistent="false" />
 
+       <com.xtended.support.preferences.SystemSettingSwitchPreference
+           android:key="qs_panel_type_background"
+           android:title="@string/qs_bg_type_title"
+           android:summary="@string/qs_bg_type_summary"
+           android:defaultValue="false" />
+
+       <Preference
+           android:key="file_qspanel_select"
+           android:title="@string/file_header_select_title"
+           android:summary="@string/file_header_select_summary"
+           android:dependency="qs_panel_type_background"
+           android:persistent="false" >
+       </Preference>
+
+       <com.xtended.support.preferences.SystemSettingSwitchPreference
+           android:key="qs_panel_custom_image_blur"
+           android:title="@string/qs_bg_blur_image_title"
+           android:summary="@string/qs_bg_blur_image_summary"
+           android:dependency="qs_panel_type_background"
+           android:defaultValue="false" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

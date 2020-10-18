@@ -1137,4 +1137,10 @@
     <string name="qs_panel_alpha_title">Quick Settings opacity</string>
     <string name="qs_panel_alpha_summary">Configure opacity of background</string>
 
+    <!-- QS Themes Type Background -->
+    <string name="qs_bg_type_title">QS Panel Background</string>
+    <string name="qs_bg_type_summary">Enable custom qs background</string>
+    <string name="qs_bg_blur_image_title">Blur Image</string>
+    <string name="qs_bg_blur_image_summary">Blur Custom Image</string>
+
 </resources>
