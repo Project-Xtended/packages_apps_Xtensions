@@ -59,6 +59,8 @@ import com.android.settingslib.core.lifecycle.Lifecycle;
 
 import com.xtended.support.colorpicker.ColorPickerPreference;
 import com.xtended.display.QsTileStylePreferenceController;
+import com.xtended.support.preferences.CustomSeekBarPreference;
+import com.xtended.support.preferences.SystemSettingSwitchPreference;
 
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
@@ -76,6 +78,7 @@ public class XThemeRoom extends DashboardFragment implements
     private static final String ACCENT_COLOR_PROP = "persist.sys.theme.accentcolor";
     private static final String GRADIENT_COLOR = "gradient_color";
     private static final String GRADIENT_COLOR_PROP = "persist.sys.theme.gradientcolor";
+    private static final String KEY_QS_PANEL_ALPHA = "qs_panel_alpha";
     private static final int MENU_RESET = Menu.FIRST;
 
     static final int DEFAULT = 0xff1a73e8;
@@ -83,6 +86,7 @@ public class XThemeRoom extends DashboardFragment implements
     private IOverlayManager mOverlayService;
     private ColorPickerPreference mThemeColor;
     private ColorPickerPreference mGradientColor;
+    private CustomSeekBarPreference mQsPanelAlpha;
 
     @Override
     protected String getLogTag() {
@@ -102,6 +106,7 @@ public class XThemeRoom extends DashboardFragment implements
                 .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
         setupAccentPref();
         setupGradientPref();
+        getQsPanelAlphaPref();
         setHasOptionsMenu(true);
     }
 
@@ -148,6 +153,12 @@ public class XThemeRoom extends DashboardFragment implements
                  mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
              }
+        } else if (preference == mQsPanelAlpha) {
+            int bgAlpha = (Integer) newValue;
+            int trueValue = (int) (((double) bgAlpha / 100) * 255);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.QS_PANEL_BG_ALPHA, trueValue);
+            return true;
         }
         return true;
     }
@@ -170,6 +181,14 @@ public class XThemeRoom extends DashboardFragment implements
                 : Color.parseColor("#" + colorVal);
         mGradientColor.setNewPreviewColor(color);
         mGradientColor.setOnPreferenceChangeListener(this);
+    }
+
+    private void getQsPanelAlphaPref() {
+        mQsPanelAlpha = (CustomSeekBarPreference) findPreference(KEY_QS_PANEL_ALPHA);
+        int qsPanelAlpha = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.QS_PANEL_BG_ALPHA, 255);
+        mQsPanelAlpha.setValue((int)(((double) qsPanelAlpha / 255) * 100));
+        mQsPanelAlpha.setOnPreferenceChangeListener(this);
     }
 
     @Override
