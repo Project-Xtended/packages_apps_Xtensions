@@ -694,4 +694,8 @@
     <string name="status_bar_notif_count_title">Show notification count</string>
     <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
 
+    <!-- Heads up options -->
+    <string name="less_boring_heads_up_title">Dialer HeadsUp</string>
+    <string name="less_boring_heads_up_summary">Show heads up only for dialer n clock app and disable all others</string>
+
 </resources>

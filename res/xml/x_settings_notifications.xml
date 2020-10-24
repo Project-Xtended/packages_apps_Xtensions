@@ -25,6 +25,12 @@
         android:summary="@string/heads_up_summary"
         android:fragment="com.msm.xtended.fragments.HeadsUpSettings" />
 
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference
+        android:key="less_boring_heads_up"
+        android:title="@string/less_boring_heads_up_title"
+        android:summary="@string/less_boring_heads_up_summary"
+        android:defaultValue="true" />
+
     <com.msm.xtended.preferences.SystemSettingSwitchPreference 
         android:key="notification_sound_vib_screen_on" 
         android:title="@string/notification_sound_vib_screen_on_title" 
