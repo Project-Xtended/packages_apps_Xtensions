@@ -817,4 +817,8 @@
     <string name="qs_show_auto_brightness_title">Auto brightness icon</string>
     <string name="qs_show_auto_brightness_summary">Show an auto brightness toggle near the brightness slider</string>
 
+    <!-- Lock screen cover art -->
+    <string name="media_art_title">Media artwork</string>
+    <string name="media_art_summary">Show media cover art as the lockscreen background</string>
+
 </resources>
