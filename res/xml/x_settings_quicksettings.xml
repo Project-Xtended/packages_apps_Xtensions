@@ -48,8 +48,6 @@
             android:defaultValue="6"
             android:persistent="false" />
 
-    </PreferenceCategory>
-
     <com.msm.xtended.preferences.SystemSettingSwitchPreference 
         android:key="qs_tile_title_visibility" 
         android:title="@string/qs_tile_title_visibility_title" 
@@ -61,6 +59,40 @@
         android:title="@string/quick_settings_vibrate_title"
         android:summary="@string/quick_settings_vibrate_summary"
         android:defaultValue="false"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/qs_brightness_category">
+
+        <com.msm.xtended.preferences.SystemSettingSwitchPreference
+            android:key="qs_show_brightness"
+            android:title="@string/qs_show_brightness_title"
+            android:summary="@string/qs_show_brightness_summary"
+            android:defaultValue="true" />
+
+        <com.msm.xtended.preferences.SystemSettingSwitchPreference
+            android:key="qs_brightness_position_bottom"
+            android:title="@string/qs_brightness_position_bottom_title"
+            android:summary="@string/qs_brightness_position_bottom_summary"
+            android:dependency="qs_show_brightness"
+            android:defaultValue="false" />
+
+        <com.msm.xtended.preferences.SystemSettingSwitchPreference
+            android:key="qs_show_auto_brightness"
+            android:title="@string/qs_show_auto_brightness_title"
+            android:summary="@string/qs_show_auto_brightness_summary"
+            android:dependency="qs_show_brightness"
+            android:defaultValue="true" />
+
+        <com.msm.xtended.preferences.SystemSettingSwitchPreference
+            android:key="qs_show_brightness_above_footer"
+            android:title="@string/qs_show_brightness_above_footer_title"
+            android:summary="@string/qs_show_brightness_above_footer_summary"
+            android:dependency="qs_show_brightness"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
 
     <com.msm.xtended.preferences.SystemSettingSwitchPreference
         android:key="omni_footer_text_show"
