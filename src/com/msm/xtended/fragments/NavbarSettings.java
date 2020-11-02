@@ -51,7 +51,7 @@ import com.android.internal.util.hwkeys.ActionUtils;
 
 public class NavbarSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
-    private static final String NAVBAR_VISIBILITY = "navbar_visibility";
+    private static final String NAVBAR_VISIBILITY = "navigation_bar_show_new";
 
     private SwitchPreference mNavbarVisibility;
 
