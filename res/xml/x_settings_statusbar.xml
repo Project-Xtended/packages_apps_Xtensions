@@ -46,6 +46,13 @@
                 android:targetClass="com.android.systemui.tuner.StatusbarItemsActivity" />
         </Preference>
 
+        <!--Network traffic -->
+        <Preference 
+            android:key="network_traffic"
+            android:fragment="com.xtended.fragments.NetworkTraffic"
+            android:title="@string/traffic_title"
+            android:summary="@string/traffic_summary" />
+
         <Preference
             android:key="statusbar_battery"
             android:title="@string/battery_percent_title"
