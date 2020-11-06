@@ -773,4 +773,7 @@
     <string name="qs_datausage_daily">Daily usage</string>
     <string name="qs_datausage_monthly">Monthly usage</string>
 
+    <!-- QS tiles title -->
+    <string name="qs_tile_title_visibility_title">Show QS tiles title</string>
+
 </resources>
