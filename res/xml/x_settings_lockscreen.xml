@@ -50,6 +50,15 @@
             android:defaultValue="25"
             settings:units="dp"/>
 
+        <com.xtended.support.preferences.SystemSettingListPreference
+            android:key="lockscreen_albumart_filter"
+            android:title="@string/lockscreen_albumart_filter_title"
+            android:summary="%s"
+            android:entries="@array/lockscreen_albumart_filter_entries"
+            android:entryValues="@array/lockscreen_albumart_filter_values"
+            android:dependency="show_lockscreen_media_art"
+            android:defaultValue="0" />
+
     </PreferenceCategory>
 
     <com.xtended.support.preferences.SystemSettingSwitchPreference
