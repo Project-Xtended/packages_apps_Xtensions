@@ -21,6 +21,7 @@ package com.xtended.fragments;
 import com.android.internal.logging.nano.MetricsProto;
 
 import static android.os.UserHandle.USER_SYSTEM;
+import static android.os.UserHandle.USER_CURRENT;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -58,6 +59,9 @@ import android.view.MenuInflater;
 import java.util.Arrays;
 import java.util.HashSet;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.development.OverlayCategoryPreferenceController;
 import com.android.settingslib.core.AbstractPreferenceController;
@@ -84,6 +88,8 @@ public class XThemeRoom extends DashboardFragment implements
 
     private static final String TAG = "XThemeRoom";
 
+    private static final String CUSTOM_CLOCK_FACE = Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_FACE;
+    private static final String DEFAULT_CLOCK = "com.android.keyguard.clock.DefaultClockController";
     private static final String PREF_NAVBAR_STYLE = "theme_navbar_style";
     private static final String BRIGHTNESS_SLIDER_STYLE = "brightness_slider_style";
     private static final String SYSTEM_SLIDER_STYLE = "system_slider_style";
@@ -103,6 +109,7 @@ public class XThemeRoom extends DashboardFragment implements
     private ListPreference mBrightnessSliderStyle;
     private ListPreference mNavbarPicker;
     private ListPreference mSystemSliderStyle;
+    private ListPreference mLockClockStyles;
     private ColorPickerPreference mThemeColor;
     private ColorPickerPreference mGradientColor;
     private CustomSeekBarPreference mQsPanelAlpha;
@@ -110,6 +117,8 @@ public class XThemeRoom extends DashboardFragment implements
 
     private IntentFilter mIntentFilter;
     private static FontPickerPreferenceController mFontPickerPreference;
+
+    private Context mContext;
 
     private BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
         @Override
@@ -152,6 +161,12 @@ public class XThemeRoom extends DashboardFragment implements
         mNavbarPicker.setOnPreferenceChangeListener(this);
 
         mQsPanelImage = findPreference(FILE_QSPANEL_SELECT);
+
+        mLockClockStyles = (ListPreference) findPreference(CUSTOM_CLOCK_FACE);
+        String mLockClockStylesValue = getLockScreenCustomClockFace();
+        mLockClockStyles.setValue(mLockClockStylesValue);
+        mLockClockStyles.setSummary(mLockClockStyles.getEntry());
+        mLockClockStyles.setOnPreferenceChangeListener(this);
 
         setupAccentPref();
         setupGradientPref();
@@ -215,7 +230,12 @@ public class XThemeRoom extends DashboardFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mThemeColor) {
+        if (preference == mLockClockStyles) {
+            setLockScreenCustomClockFace((String) newValue);
+            int index = mLockClockStyles.findIndexOfValue((String) newValue);
+            mLockClockStyles.setSummary(mLockClockStyles.getEntries()[index]);
+            return true;
+        } else if (preference == mThemeColor) {
             int color = (Integer) newValue;
             String hexColor = String.format("%08X", (0xFFFFFFFF & color));
             SystemProperties.set(ACCENT_COLOR_PROP, hexColor);
@@ -494,6 +514,30 @@ public class XThemeRoom extends DashboardFragment implements
         mThemeColor = (ColorPickerPreference) findPreference(ACCENT_COLOR);
         SystemProperties.set(ACCENT_COLOR_PROP, "-1");
         mThemeColor.setNewPreviewColor(DEFAULT);
+    }
+
+    private String getLockScreenCustomClockFace() {
+        String value = Settings.Secure.getStringForUser(mContext.getContentResolver(),
+                CUSTOM_CLOCK_FACE, USER_CURRENT);
+
+        if (value == null || value.isEmpty()) value = DEFAULT_CLOCK;
+
+        try {
+            JSONObject json = new JSONObject(value);
+            return json.getString("clock");
+        } catch (JSONException ex) {
+        }
+        return value;
+    }
+
+    private void setLockScreenCustomClockFace(String value) {
+        try {
+            JSONObject json = new JSONObject();
+            json.put("clock", value);
+            Settings.Secure.putStringForUser(mContext.getContentResolver(), CUSTOM_CLOCK_FACE,
+                    json.toString(), USER_CURRENT);
+        } catch (JSONException ex) {
+        }
     }
 
     @Override
