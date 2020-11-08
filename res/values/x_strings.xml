@@ -616,6 +616,7 @@
     <string name="volte_icon_emui">EMUI Icon</string>
     <string name="volte_icon_vo">Vo Only Icon</string>
     <string name="volte_icon_android1hd">Android One HD Icon</string>
+    <string name="volte_icon_volit">VoLIT Icon</string>
 
     <!-- LockWeather Switches -->
     <string name="lockscreen_weather_show_city_title">Show city name</string>
