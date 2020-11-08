@@ -561,6 +561,7 @@
 
     <!-- VoLTE Icon Type -->
     <string-array name="volte_icon_type_entries" translatable="false">
+        <item>@string/volte_icon_android1hd</item>
         <item>@string/volte_icon_vo</item>
         <item>@string/volte_icon_asus</item>
         <item>@string/volte_icon_hd</item>
@@ -573,6 +574,7 @@
     </string-array>
 
     <string-array name="volte_icon_type_values" translatable="false">
+        <item>9</item>
         <item>8</item>
         <item>7</item>
         <item>6</item>
