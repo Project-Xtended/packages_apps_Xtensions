@@ -40,6 +40,12 @@
             android:summary="@string/hide_smart_replies_summary"
             android:defaultValue="false"/>
 
+       <com.xtended.support.preferences.SystemSettingSwitchPreference 
+           android:key="notification_headers" 
+           android:title="@string/notification_headers_title" 
+           android:summary="@string/notification_headers_summary"
+           android:defaultValue="true" />
+
        <com.xtended.support.preferences.SystemSettingSwitchPreference
             android:key="status_bar_notif_count"
             android:title="@string/status_bar_notif_count_title"

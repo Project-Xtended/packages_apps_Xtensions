@@ -31,6 +31,7 @@ import androidx.preference.Preference.OnPreferenceChangeListener;
 
 import com.android.internal.logging.nano.MetricsProto;
 import android.os.Bundle;
+import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
@@ -41,14 +42,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.android.internal.util.xtended.XtendedUtils;
+import com.xtended.support.preferences.SystemSettingSwitchPreference;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class NotificationSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
+    private static final String NOTIFICATION_HEADERS = "notification_headers";
 
     private Preference mChargingLeds;
+    private SystemSettingSwitchPreference mNotificationHeader;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -56,6 +60,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.x_settings_notifications);
 
+        ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
         mChargingLeds = (Preference) findPreference("charging_light");
@@ -69,10 +74,22 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
         if (!XtendedUtils.isVoiceCapable(getActivity())) {
             prefScreen.removePreference(incallVibCategory);
         }
+
+        mNotificationHeader = findPreference(NOTIFICATION_HEADERS);
+        mNotificationHeader.setChecked((Settings.System.getInt(resolver,
+                Settings.System.NOTIFICATION_HEADERS, 1) == 1));
+        mNotificationHeader.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mNotificationHeader) {
+          boolean value = (Boolean) newValue;
+          Settings.System.putInt(resolver,
+                    Settings.System.NOTIFICATION_HEADERS, value ? 1 : 0);
+          XtendedUtils.showSystemUiRestartDialog(getContext());
+          return true;
+        }
         return false;
     }
 
