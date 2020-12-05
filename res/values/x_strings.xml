@@ -42,6 +42,11 @@
     <string name="lockscreen_battery_info_title">Charging info</string>
     <string name="lockscreen_battery_info_summary">Show charging current, voltage, wattage and battery temperature on lock screen while charging</string>
 
+    <!-- Lockscreen charge temperature unit -->
+    <string name="lockscreen_charge_temp_unit_title">Temperature unit</string>
+    <string name="lockscreen_charge_temp_unit_farhenheit">Farhenheit</string>
+    <string name="lockscreen_charge_temp_unit_celsius">Celsius</string>
+
     <!-- QuickSettings general category -->
     <string name="quick_settings_general_category_title">General</string>
 
