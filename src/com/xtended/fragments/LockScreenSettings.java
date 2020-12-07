@@ -50,9 +50,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
 
     private static final String UDFPS_HAPTIC_FEEDBACK = "udfps_haptic_feedback";
     private static final String SCREEN_OFF_FOD = "screen_off_fod";
+    private static final String FOD_NIGHT_LIGHT = "fod_night_light";
 
     private SystemSettingSwitchPreference mUdfpsHapticFeedback;
     private SystemSettingSwitchPreference mScreenOffFod;
+    private SystemSettingSwitchPreference mFodNightLight;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -64,9 +66,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
 
         mUdfpsHapticFeedback = (SystemSettingSwitchPreference) findPreference(UDFPS_HAPTIC_FEEDBACK);
         mScreenOffFod = (SystemSettingSwitchPreference) findPreference(SCREEN_OFF_FOD);
+        mFodNightLight = (SystemSettingSwitchPreference) findPreference(FOD_NIGHT_LIGHT);
         if (!FodUtils.hasFodSupport(getActivity())) {
             prefScreen.removePreference(mUdfpsHapticFeedback);
             prefScreen.removePreference(mScreenOffFod);
+            prefScreen.removePreference(mFodNightLight);
         }
     }
 
