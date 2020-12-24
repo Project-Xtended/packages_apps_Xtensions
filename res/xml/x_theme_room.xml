@@ -88,6 +88,19 @@
 
     </PreferenceCategory>
 
+    <!-- Gvisual mod -->
+    <PreferenceCategory
+
+        android:title="@string/gvisual_title">
+
+        <PreferenceScreen
+            android:key="gvisual"
+            android:title="@string/gvisual_title"
+            android:summary="@string/gvisual_summary"
+            android:fragment="com.xtended.fragments.GvisualSettings" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory
 
         android:title="@string/qs_themes_category_title" >
