@@ -20,6 +20,15 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/fod_icon_picker_title">
 
+    <com.xtended.support.preferences.SystemSettingListPreference
+        android:key="fod_color"
+        android:dialogTitle="@string/fod_pressed_color_title"
+        android:title="@string/fod_pressed_color_title"
+        android:summary="%s"
+        android:entries="@array/fod_pressed_color_entries"
+        android:entryValues="@array/fod_pressed_color_values"
+        android:defaultValue="0" />
+
     <!-- FOD recognizing animation -->
     <com.xtended.support.preferences.SystemSettingSwitchPreference
         android:key="fod_recognizing_animation"
@@ -42,5 +51,7 @@
         android:layout="@layout/fod_picker_preference"
         android:selectable="false"/>
 
+    <Preference
+        android:summary="@string/fod_pressed_color_footer" />
 
 </PreferenceScreen>
