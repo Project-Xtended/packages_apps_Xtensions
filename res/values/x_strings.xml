@@ -1623,4 +1623,8 @@
     <string name="gaming_mode_danmaku_blacklist">Blacklist</string>
     <string name="gaming_mode_menu_opacity_title">Menu opacity level</string>
 
+    <!-- FOD on doze -->
+    <string name="fod_on_doze_title">FOD on doze</string>
+    <string name="fod_on_doze_summary">Show fingerprint on display during ambient display and AoD. This only hides the icon and will not disable functionality.</string>
+
 </resources>

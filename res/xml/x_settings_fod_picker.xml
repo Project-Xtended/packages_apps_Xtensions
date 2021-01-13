@@ -52,6 +52,13 @@
         android:summary="@string/fod_night_light_summary"
         android:defaultValue="@*android:bool/disable_fod_night_light"  />
 
+     <!-- FOD on Doze -->
+     <com.xtended.support.preferences.SecureSettingSwitchPreference
+        android:key="fod_on_doze"
+        android:title="@string/fod_on_doze_title"
+        android:summary="@string/fod_on_doze_summary"
+        android:defaultValue="true" />
+
     <!-- Preview -->
     <com.xtended.preferences.FODIconPicker
         android:key="fod_icon"
