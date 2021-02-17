@@ -743,5 +743,7 @@
     <string name="navbar_orchid">Orchid</string>
     <string name="navbar_red">Red</string>
     <string name="navbar_purp">Purple</string>
+    <string name="navbar_blue">Blue</string>
+    <string name="navbar_rose">Rose</string>
 
 </resources>
