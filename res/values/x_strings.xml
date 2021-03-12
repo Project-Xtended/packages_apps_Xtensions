@@ -620,4 +620,8 @@
     <string name="status_bar_notif_count_title">Show notifications count</string>
     <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
 
+    <!-- Force expanded notifications -->
+    <string name="force_expanded_notifications_title">Force expand notifications</string>
+    <string name="force_expanded_notifications_summary">Always keep notifications expanded. Warning! This feature has known to cause some performance regression in notification panel. Use at your own risk</string>
+
 </resources>
