@@ -693,4 +693,12 @@
     <string name="show_fourg_title">Show 4G instead of LTE</string>
     <string name="show_fourg_summary">Replaces LTE statusbar indicators with 4G</string>
 
+    <!-- Settings dashboard icon style -->
+    <string name="theming_settings_dashboard_icons_title">Settings dashboard icons</string>
+    <string name="theming_settings_dashboard_icons_default">Default background / Transparent foreground</string>
+    <string name="theming_settings_dashboard_icons_white">Default background / White foreground</string>
+    <string name="theming_settings_dashboard_icons_accent">Accent background / Transparent foreground</string>
+    <string name="theming_settings_dashboard_icons_plain">Transparent background / Plain foreground</string>
+    <string name="theming_settings_dashboard_icons_plain_accent">Transparent background / Accent foreground</string>
+
 </resources>
