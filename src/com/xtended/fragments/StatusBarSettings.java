@@ -21,6 +21,7 @@ package com.xtended.fragments;
 import com.android.internal.logging.nano.MetricsProto;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -50,6 +51,7 @@ import android.util.Log;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 import android.provider.SearchIndexableResource;
+import com.android.internal.util.xtended.XtendedUtils;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -72,6 +74,12 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
         Preference mCutoutPref = (Preference) findPreference(PREF_KEY_CUTOUT);
+
+        String hasDisplayCutout = getResources().getString(com.android.internal.R.string.config_mainBuiltInDisplayCutout);
+
+        if (TextUtils.isEmpty(hasDisplayCutout)) {
+            getPreferenceScreen().removePreference(mCutoutPref);
+        }
     }
 
     @Override
