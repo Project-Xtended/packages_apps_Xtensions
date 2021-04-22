@@ -18,6 +18,14 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
         android:title="@string/x_settings_title">
 
+        <!-- Animations -->
+        <PreferenceScreen
+            android:key="animations_category"
+            android:title="@string/animations_title"
+            android:summary="@string/animations_summary"
+            android:fragment="com.xtended.fragments.AnimationSettings"
+            android:icon="@drawable/ic_x_animations" />
+
         <!-- Buttons -->
         <PreferenceScreen
             android:key="buttonsettings_category"
