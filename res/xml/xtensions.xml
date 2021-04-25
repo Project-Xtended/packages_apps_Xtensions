@@ -18,6 +18,14 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
         android:title="@string/x_settings_title">
 
+        <!-- Theme Room -->
+        <PreferenceScreen
+            android:key="theme_room"
+            android:title="@string/themeroom_title"
+            android:summary="@string/themeroom_summary"
+            android:fragment="com.xtended.fragments.XThemeRoom"
+            android:icon="@drawable/ic_x_themeroom" />
+
         <!-- Animations -->
         <PreferenceScreen
             android:key="animations_category"
