@@ -62,4 +62,38 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/theme_customization_category">
+
+        <Preference
+            android:key="dark_ui_mode"
+            android:title="@string/dark_ui_mode"
+            android:summary="@string/dark_ui_mode_summary"
+            android:fragment="com.android.settings.display.darkmode.DarkModeSettingsFragment"
+            settings:controller="com.android.settings.display.DarkUIPreferenceController" />
+
+        <ListPreference
+            android:key="android.theme.customization.font"
+             android:title="@string/theme_customization_font_title"/>
+
+        <ListPreference
+            android:key="android.theme.customization.adaptive_icon_shape"
+            android:title="@string/theme_customization_icon_shape_title"/>
+
+        <ListPreference
+            android:key="android.theme.customization.icon_pack.android"
+            android:title="@string/theme_customization_sysui_icon_title"/>
+
+        <Preference
+            android:key="clock_style"
+            android:title="@string/clock_style_title"
+            android:summary="@string/clock_style_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:targetPackage="com.android.wallpaper"
+                android:targetClass="com.android.customization.picker.LockClockPickerActivity" />
+        </Preference>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
