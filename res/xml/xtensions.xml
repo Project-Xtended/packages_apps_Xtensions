@@ -18,10 +18,11 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
         android:title="@string/x_settings_title">
 
-        <!-- Xtended Logo Header -->
-        <Preference
-            android:key="xtended_about"
-            android:layout="@layout/xtended_about" />
+        <!-- Xtensions Logo Header -->
+        <com.android.settingslib.widget.LayoutPreference
+            android:key="xtensions_header"
+            android:layout="@layout/xtensions_header"
+            android:selectable="false"/>
 
         <!-- Theme Room -->
         <com.xtended.ui.XtendedPreference
