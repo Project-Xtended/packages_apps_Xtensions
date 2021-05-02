@@ -41,6 +41,7 @@ import android.provider.Settings;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto;
+import com.android.internal.util.xtended.XtendedUtils;
 import com.android.settings.R;
 
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -53,12 +54,26 @@ import java.util.List;
 public class NavbarSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String LAYOUT_SETTINGS = "navbar_layout_views";
+    private static final String NAVIGATION_BAR_INVERSE = "navbar_inverse_layout";
+
+    private Preference mLayoutSettings;
+    private SwitchPreference mSwapNavButtons;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.x_settings_navigation);
 
         final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        mLayoutSettings = findPreference(LAYOUT_SETTINGS);
+        mSwapNavButtons = findPreference(NAVIGATION_BAR_INVERSE);
+
+        if (!XtendedUtils.isThemeEnabled("com.android.internal.systemui.navbar.threebutton")) {
+            prefScreen.removePreference(mLayoutSettings);
+        }
+            prefScreen.removePreference(mSwapNavButtons);
     }
 
     @Override
