@@ -42,15 +42,20 @@ import android.provider.Settings;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto;
+import com.android.internal.util.xtended.XtendedUtils;
 import com.android.settings.R;
 
 public class NavbarSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String KEY_NAVIGATION_BAR_ENABLED = "force_show_navbar";
+    private static final String LAYOUT_SETTINGS = "navbar_layout_views";
+    private static final String NAVIGATION_BAR_INVERSE = "navbar_inverse_layout";
 
     private SwitchPreference mNavigationBar;
     private boolean mIsNavSwitchingMode = false;
+    private Preference mLayoutSettings;
+    private SwitchPreference mSwapNavButtons;
     private Handler mHandler;
 
     @Override
@@ -75,6 +80,13 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
                 defaultToNavigationBar ? 1 : 0) == 1));
         mNavigationBar.setOnPreferenceChangeListener(this);
 
+        mLayoutSettings = findPreference(LAYOUT_SETTINGS);
+        mSwapNavButtons = findPreference(NAVIGATION_BAR_INVERSE);
+
+        if (!XtendedUtils.isThemeEnabled("com.android.internal.systemui.navbar.threebutton")) {
+            mLayoutSettings.setEnabled(false);
+            mSwapNavButtons.setEnabled(false);
+        }
     }
 
     @Override
