@@ -39,6 +39,8 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 import com.xtended.support.preferences.CustomSeekBarPreference;
+import com.xtended.support.preferences.SystemSettingListPreference;
+import com.xtended.support.preferences.SecureSettingListPreference;
 
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
@@ -58,6 +60,8 @@ public class LockscreenUi extends SettingsPreferenceFragment implements
     private static final String DATE_FONT_SIZE  = "lockdate_font_size";
     private static final String LOCK_OWNERINFO_FONTS = "lock_ownerinfo_fonts";
     private static final String LOCKOWNER_FONT_SIZE = "lockowner_font_size";
+    private static final String PREF_LS_CLOCK_SELECTION = "lockscreen_clock_selection";
+    private static final String PREF_LS_CLOCK_ANIM_SELECTION = "lockscreen_clock_animation_selection";
 
     private ListPreference mLockClockFonts;
     private ListPreference mTextClockFonts;
@@ -67,6 +71,8 @@ public class LockscreenUi extends SettingsPreferenceFragment implements
     private CustomSeekBarPreference mCustomTextClockFontSize;
     private CustomSeekBarPreference mDateFontSize;
     private CustomSeekBarPreference mOwnerInfoFontSize;
+    private SecureSettingListPreference mLockClockSelection;
+    private SystemSettingListPreference mLockClockAnimSelection;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -128,6 +134,18 @@ public class LockscreenUi extends SettingsPreferenceFragment implements
         mOwnerInfoFontSize.setValue(Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCKOWNER_FONT_SIZE,21));
         mOwnerInfoFontSize.setOnPreferenceChangeListener(this);
+
+        mLockClockAnimSelection = (SystemSettingListPreference) findPreference(PREF_LS_CLOCK_ANIM_SELECTION);
+
+        mLockClockSelection = (SecureSettingListPreference) findPreference(PREF_LS_CLOCK_SELECTION);
+        int val = Settings.Secure.getIntForUser(resolver,
+                Settings.Secure.LOCKSCREEN_CLOCK_SELECTION, 2, UserHandle.USER_CURRENT);
+        mLockClockSelection.setOnPreferenceChangeListener(this);
+        if (val > 3 && val < 8) {
+            mLockClockAnimSelection.setEnabled(true);
+        } else {
+            mLockClockAnimSelection.setEnabled(false);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -176,6 +194,16 @@ public class LockscreenUi extends SettingsPreferenceFragment implements
             int top = (Integer) newValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKOWNER_FONT_SIZE, top*1);
+            return true;
+        } else if (preference == mLockClockSelection) {
+            int val = Integer.parseInt((String) newValue);
+            Settings.Secure.putInt(resolver,
+                    Settings.Secure.LOCKSCREEN_CLOCK_SELECTION, val);
+            if (val > 3 && val < 8) {
+                mLockClockAnimSelection.setEnabled(true);
+            } else {
+                mLockClockAnimSelection.setEnabled(false);
+            }
             return true;
         }
         return false;
