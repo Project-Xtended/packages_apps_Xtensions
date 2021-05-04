@@ -24,10 +24,14 @@ import android.content.Context;
 import android.content.ContentResolver;
 import android.app.WallpaperManager;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.hardware.fingerprint.FingerprintManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.UserHandle;
 import androidx.preference.SwitchPreference;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -62,6 +66,7 @@ public class LockscreenUi extends SettingsPreferenceFragment implements
     private static final String LOCKOWNER_FONT_SIZE = "lockowner_font_size";
     private static final String PREF_LS_CLOCK_SELECTION = "lockscreen_clock_selection";
     private static final String PREF_LS_CLOCK_ANIM_SELECTION = "lockscreen_clock_animation_selection";
+    private static final String LOTTIE_ANIMATION_SIZE = "lockscreen_clock_animation_size";
 
     private ListPreference mLockClockFonts;
     private ListPreference mTextClockFonts;
@@ -73,6 +78,7 @@ public class LockscreenUi extends SettingsPreferenceFragment implements
     private CustomSeekBarPreference mOwnerInfoFontSize;
     private SecureSettingListPreference mLockClockSelection;
     private SystemSettingListPreference mLockClockAnimSelection;
+    private CustomSeekBarPreference mLottieAnimationSize;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -82,6 +88,16 @@ public class LockscreenUi extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
         Resources resources = getResources();
+
+        Resources res = null;
+        Context ctx = getContext();
+        float density = Resources.getSystem().getDisplayMetrics().density;
+
+        try {
+            res = ctx.getPackageManager().getResourcesForApplication("com.android.systemui");
+        } catch (NameNotFoundException e) {
+            e.printStackTrace();
+        }
 
         // Lockscren Clock Fonts
         mLockClockFonts = (ListPreference) findPreference(LOCK_CLOCK_FONTS);
@@ -137,14 +153,22 @@ public class LockscreenUi extends SettingsPreferenceFragment implements
 
         mLockClockAnimSelection = (SystemSettingListPreference) findPreference(PREF_LS_CLOCK_ANIM_SELECTION);
 
+        mLottieAnimationSize = (CustomSeekBarPreference) findPreference(LOTTIE_ANIMATION_SIZE);
+        int lottieSize = Settings.System.getIntForUser(ctx.getContentResolver(),
+                Settings.System.LOCKSCREEN_CLOCK_ANIMATION_SIZE, res.getIdentifier("com.android.systemui:dimen/lottie_animation_width_height", null, null), UserHandle.USER_CURRENT);
+        mLottieAnimationSize.setValue(lottieSize);
+        mLottieAnimationSize.setOnPreferenceChangeListener(this);
+
         mLockClockSelection = (SecureSettingListPreference) findPreference(PREF_LS_CLOCK_SELECTION);
         int val = Settings.Secure.getIntForUser(resolver,
                 Settings.Secure.LOCKSCREEN_CLOCK_SELECTION, 2, UserHandle.USER_CURRENT);
         mLockClockSelection.setOnPreferenceChangeListener(this);
         if (val > 3 && val < 8) {
             mLockClockAnimSelection.setEnabled(true);
+            mLottieAnimationSize.setEnabled(true);
         } else {
             mLockClockAnimSelection.setEnabled(false);
+            mLottieAnimationSize.setEnabled(false);
         }
     }
 
@@ -195,14 +219,21 @@ public class LockscreenUi extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKOWNER_FONT_SIZE, top*1);
             return true;
+        } else if (preference == mLottieAnimationSize) {
+            int value = (Integer) newValue;
+            Settings.System.putIntForUser(getContext().getContentResolver(),
+                    Settings.System.LOCKSCREEN_CLOCK_ANIMATION_SIZE, value, UserHandle.USER_CURRENT);
+            return true;
         } else if (preference == mLockClockSelection) {
             int val = Integer.parseInt((String) newValue);
             Settings.Secure.putInt(resolver,
                     Settings.Secure.LOCKSCREEN_CLOCK_SELECTION, val);
             if (val > 3 && val < 8) {
                 mLockClockAnimSelection.setEnabled(true);
+                mLottieAnimationSize.setEnabled(true);
             } else {
                 mLockClockAnimSelection.setEnabled(false);
+                mLottieAnimationSize.setEnabled(false);
             }
             return true;
         }
