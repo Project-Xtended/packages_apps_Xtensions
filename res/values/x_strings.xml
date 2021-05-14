@@ -15,23 +15,25 @@
     <string name="x_settings_title">X-Tensions</string>
 
     <!-- Categories -->
-    <string name="themeroom_title">Theme room</string>
+    <string name="themeroom_title">ThemeRoom</string>
     <string name="animations_title">Animations</string>
     <string name="buttons_title">Buttons</string>
     <string name="gestures_title">Gestures</string>
-    <string name="lockscreen_title">Lock screen</string>
+    <string name="lockscreen_title">LockScreen</string>
     <string name="navbar_title">Navigation</string>
     <string name="notifications_title">Notifications</string>
-    <string name="powermenu_title">Power menu</string>
-    <string name="quicksettings_title">Quick settings</string>
-    <string name="statusbar_title">Status bar</string>
+    <string name="powermenu_title">PowerMenu</string>
+    <string name="quicksettings_title">QuickSettings</string>
+    <string name="statusbar_title">StatusBar</string>
     <string name="xtras_title">Xtras</string>
+    <string name="ambient_decor_title">AmbientDecor</string>
 
     <!-- General strings -->
     <string name="ok">OK</string>
     <string name="reset">Reset</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
+    <string name="default_string">Default</string>
 
     <string name="system_navigation_summary">Configure navigation menus</string>
 

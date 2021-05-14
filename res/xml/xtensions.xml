@@ -24,6 +24,13 @@
             android:layout="@layout/xtensions_header"
             android:selectable="false"/>
 
+        <!-- Ambient Decor -->
+        <com.xtended.ui.XtendedPreference
+            android:key="ambient_category"
+            android:title="@string/ambient_decor_title"
+            android:fragment="com.xtended.fragments.XAmbientDecorSettings"
+            android:icon="@drawable/ic_x_animations" />
+
         <!-- Animations -->
         <com.xtended.ui.XtendedPreference
             android:key="animations_category"
