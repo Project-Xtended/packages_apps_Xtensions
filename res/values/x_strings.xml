@@ -26,6 +26,7 @@
     <string name="quicksettings_title">Quick settings</string>
     <string name="statusbar_title">Status bar</string>
     <string name="xtras_title">Xtras</string>
+    <string name="ambient_decor_title">Ambient Xtended</string>
 
     <!-- General strings -->
     <string name="ok">OK</string>
