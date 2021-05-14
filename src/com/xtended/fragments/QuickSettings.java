@@ -53,6 +53,10 @@ import java.util.ArrayList;
 public class QuickSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
+    private static final String QS_BATTERY_PERCENTAGE = "qs_battery_percentage";
+
+    private SwitchPreference mQsBatteryPercent;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -60,11 +64,24 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.x_settings_quicksettings);
 
         PreferenceScreen prefScreen = getPreferenceScreen();
+        ContentResolver resolver = getActivity().getContentResolver();
+
+        mQsBatteryPercent = (SwitchPreference) findPreference(QS_BATTERY_PERCENTAGE);
+        mQsBatteryPercent.setChecked((Settings.System.getInt(
+                getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.QS_SHOW_BATTERY_PERCENT, 0) == 1));
+        mQsBatteryPercent.setOnPreferenceChangeListener(this);
         }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mQsBatteryPercent) {
+            Settings.System.putInt(resolver,
+                    Settings.System.QS_SHOW_BATTERY_PERCENT,
+                    (Boolean) newValue ? 1 : 0);
+            return true;
+        }
         return false;
     }
 

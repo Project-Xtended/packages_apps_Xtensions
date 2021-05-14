@@ -77,6 +77,12 @@
 
         android:title="@string/qs_panel_category_title">
 
+        <!-- QS battery estimate -->
+        <SwitchPreference
+            android:key="qs_battery_percentage"
+            android:title="@string/qs_battery_percentage_title"
+            android:summary="@string/qs_battery_percentage_summary" />
+
         <!-- QS system info --> 
         <com.xtended.support.preferences.SystemSettingListPreference
             android:key="qs_system_info"
