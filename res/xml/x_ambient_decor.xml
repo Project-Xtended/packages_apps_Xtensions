@@ -16,4 +16,54 @@
     android:title="@string/ambient_decor_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <com.xtended.support.preferences.SecureSettingSwitchPreference
+        android:key="doze_enabled"
+        android:title="@string/doze_title"
+        android:summary="@string/doze_summary" />
+
+    <com.xtended.support.preferences.SecureSettingSwitchPreference
+        android:key="doze_always_on"
+        android:title="@string/doze_always_on_title"
+        android:summary="@string/doze_always_on_summary" />
+
+    <PreferenceCategory
+        android:key="doze_sensor"
+        android:title="@string/doze_sensor_title" >
+
+        <com.xtended.support.preferences.SecureSettingSwitchPreference
+            android:key="doze_tilt_gesture"
+            android:defaultValue="false"
+            android:title="@string/tilt_title"
+            android:summary="@string/tilt_summary" />
+
+        <com.xtended.support.preferences.SecureSettingSwitchPreference
+            android:key="doze_pick_up_gesture"
+            android:defaultValue="false"
+            android:title="@string/pickup_title"
+            android:summary="@string/pickup_summary" />
+
+        <com.xtended.support.preferences.SecureSettingSwitchPreference
+            android:key="doze_handwave_gesture"
+            android:defaultValue="false"
+            android:title="@string/handwave_title"
+            android:summary="@string/handwave_summary" />
+
+        <com.xtended.support.preferences.SecureSettingSwitchPreference
+            android:key="doze_pocket_gesture"
+            android:defaultValue="false"
+            android:title="@string/pocket_title"
+            android:summary="@string/pocket_summary" />
+
+        <com.xtended.support.preferences.SecureSettingSeekBarPreference
+            android:key="doze_gesture_vibrate"
+            android:title="@string/doze_vibrate"
+            android:summary="@string/doze_vibrate_summary"
+            android:defaultValue="0"
+            android:max="2000"
+            settings:min="0"
+            settings:interval="10"
+            settings:units="@string/unit_milliseconds" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
