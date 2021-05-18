@@ -29,6 +29,13 @@
             android:title="@string/themeroom_title"
             android:fragment="com.xtended.fragments.XThemeRoom"
             android:icon="@drawable/ic_x_themeroom" />
+            
+        <!-- Ambient Decor -->
+        <com.xtended.ui.XtendedPreference
+            android:key="ambient_category"
+            android:title="@string/ambient_decor_title"
+            android:fragment="com.xtended.fragments.XAmbientDecorSettings"
+            android:icon="@drawable/ic_ambient" />
 
         <!-- Animations -->
         <com.xtended.ui.XtendedPreference
@@ -43,13 +50,6 @@
             android:title="@string/buttons_title"
             android:fragment="com.xtended.fragments.ButtonSettings"
             android:icon="@drawable/ic_x_buttons" />
-
-        <!-- Ambient Decor -->
-        <com.xtended.ui.XtendedPreference
-            android:key="ambient_category"
-            android:title="@string/ambient_decor_title"
-            android:fragment="com.xtended.fragments.XAmbientDecorSettings"
-            android:icon="@drawable/ic_x_animations" />
 
         <!-- Gestures -->
         <com.xtended.ui.XtendedPreference
