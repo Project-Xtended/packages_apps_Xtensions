@@ -75,16 +75,12 @@ public final class DozeUtils {
 
     public static boolean isDozeEnabled(Context context) {
         return Settings.Secure.getIntForUser(context.getContentResolver(),
-                Settings.Secure.DOZE_ENABLED, context.getResources().getBoolean(
-                com.android.internal.R.bool.config_doze_enabled_by_default) ? 1 : 0,
-                UserHandle.USER_CURRENT) != 0;
+                Settings.Secure.DOZE_ENABLED, 1, UserHandle.USER_CURRENT) != 0;
     }
 
     public static boolean isDozeAlwaysOnEnabled(Context context) {
         return Settings.Secure.getIntForUser(context.getContentResolver(),
-                Settings.Secure.DOZE_ALWAYS_ON, context.getResources().getBoolean(
-                com.android.internal.R.bool.config_dozeAlwaysOnEnabled) ? 1 : 0,
-                UserHandle.USER_CURRENT) != 0;
+                Settings.Secure.DOZE_ALWAYS_ON, 0, UserHandle.USER_CURRENT) != 0;
     }
 
     public static void enableService(Context context) {
