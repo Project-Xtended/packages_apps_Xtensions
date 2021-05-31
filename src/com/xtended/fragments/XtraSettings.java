@@ -28,9 +28,11 @@ import android.content.Context;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.res.Resources;
+import android.database.ContentObserver;
 import android.os.Bundle;
 import android.os.SystemProperties;
 import android.os.UserHandle;
+import android.text.format.DateFormat;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
@@ -50,15 +52,17 @@ import com.xtended.utils.XUtils;
 import com.xtended.utils.SuShell;
 import com.xtended.utils.SuTask;
 
-import java.util.Arrays;
-import java.util.HashSet;
-
 import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 import android.provider.SearchIndexableResource;
+
+import java.time.format.DateTimeFormatter;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 import com.xtended.support.preferences.CustomSeekBarPreference;
@@ -79,6 +83,8 @@ public class XtraSettings extends SettingsPreferenceFragment implements
     private static final String SYSUI_ROUNDED_CONTENT_PADDING = "sysui_rounded_content_padding";
     private static final String SYSUI_ROUNDED_FWVALS = "sysui_rounded_fwvals";
     private static final String SMART_PIXELS = "smart_pixels";
+
+    private Preference mSleepMode;
 
     private SwitchPreference mSelinuxMode;
     private SwitchPreference mSelinuxPersistence;
@@ -160,6 +166,10 @@ public class XtraSettings extends SettingsPreferenceFragment implements
         // Rounded use Framework Values
         mRoundedFwvals = (SecureSettingSwitchPreference) findPreference(SYSUI_ROUNDED_FWVALS);
         mRoundedFwvals.setOnPreferenceChangeListener(this);
+
+        mSleepMode = findPreference("sleep_mode");
+
+        updateSleepModeSummary();
     }
 
     private void updateSmartPixelsPreference() {
@@ -172,6 +182,63 @@ public class XtraSettings extends SettingsPreferenceFragment implements
             prefSet.removePreference(smartPixels);
          }
      }
+
+
+    private void updateSleepModeSummary() {
+        if (mSleepMode == null) return;
+        boolean enabled = Settings.Secure.getIntForUser(getActivity().getContentResolver(),
+                Settings.Secure.SLEEP_MODE_ENABLED, 0, UserHandle.USER_CURRENT) == 1;
+        int mode = Settings.Secure.getIntForUser(getActivity().getContentResolver(),
+                Settings.Secure.SLEEP_MODE_AUTO_MODE, 0, UserHandle.USER_CURRENT);
+        String timeValue = Settings.Secure.getStringForUser(getActivity().getContentResolver(),
+                Settings.Secure.SLEEP_MODE_AUTO_TIME, UserHandle.USER_CURRENT);
+        if (timeValue == null || timeValue.equals("")) timeValue = "20:00,07:00";
+        String[] time = timeValue.split(",", 0);
+        String outputFormat = DateFormat.is24HourFormat(getContext()) ? "HH:mm" : "h:mm a";
+        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern(outputFormat);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+        LocalTime sinceValue = LocalTime.parse(time[0], formatter);
+        LocalTime tillValue = LocalTime.parse(time[1], formatter);
+        String detail;
+        switch (mode) {
+            default:
+            case 0:
+                detail = getActivity().getString(enabled
+                        ? R.string.night_display_summary_on_auto_mode_never
+                        : R.string.night_display_summary_off_auto_mode_never);
+                break;
+            case 1:
+                detail = getActivity().getString(enabled
+                        ? R.string.night_display_summary_on_auto_mode_twilight
+                        : R.string.night_display_summary_off_auto_mode_twilight);
+                break;
+            case 2:
+                if (enabled) {
+                    detail = getActivity().getString(R.string.night_display_summary_on_auto_mode_custom, tillValue.format(outputFormatter));
+                } else {
+                    detail = getActivity().getString(R.string.night_display_summary_off_auto_mode_custom, sinceValue.format(outputFormatter));
+                }
+                break;
+            case 3:
+                if (enabled) {
+                    detail = getActivity().getString(R.string.night_display_summary_on_auto_mode_custom, tillValue.format(outputFormatter));
+                } else {
+                    detail = getActivity().getString(R.string.night_display_summary_off_auto_mode_twilight);
+                }
+                break;
+            case 4:
+                if (enabled) {
+                    detail = getActivity().getString(R.string.night_display_summary_on_auto_mode_twilight);
+                } else {
+                    detail = getActivity().getString(R.string.night_display_summary_off_auto_mode_custom, sinceValue.format(outputFormatter));
+                }
+                break;
+        }
+        String summary = getActivity().getString(enabled
+                ? R.string.night_display_summary_on
+                : R.string.night_display_summary_off, detail);
+        mSleepMode.setSummary(summary);
+    }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -205,6 +272,18 @@ public class XtraSettings extends SettingsPreferenceFragment implements
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateSleepModeSummary();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        updateSleepModeSummary();
     }
 
     @Override

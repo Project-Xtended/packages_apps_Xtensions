@@ -24,6 +24,12 @@
             android:summary="@string/gaming_title_summary"
             android:fragment="com.xtended.fragments.GamingModeSettings" />
 
+        <Preference
+    	    android:key="sleep_mode"
+	    android:title="@string/sleep_mode_title"
+            android:summary="@string/sleep_mode_title_summary"
+            android:fragment="com.xtended.fragments.SleepMode" />
+
         <com.xtended.support.preferences.SystemSettingListPreference
             android:key="screenshot_type"
             android:entries="@array/screenshot_type_entries"
