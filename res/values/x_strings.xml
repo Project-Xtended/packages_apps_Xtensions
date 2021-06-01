@@ -1298,4 +1298,8 @@
     <string name="smart_pulldown_dismissable">no dismissable</string>
     <string name="smart_pulldown_ongoing">no ongoing</string>
 
+    <!-- Navbar Visibility-->
+    <string name="navbar_visibility">Navigation bar</string>
+    <string name="navbar_summary">Toggle navigation bar on-off</string>
+
 </resources>

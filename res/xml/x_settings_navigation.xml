@@ -18,23 +18,29 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
 	android:title="@string/navbar_title">
 
-    <Preference
-        android:key="gesture_system_navigation"
-        android:title="@string/system_navigation_title"
-        android:fragment="com.android.settings.gestures.SystemNavigationGestureSettings"
-        settings:controller="com.android.settings.gestures.SystemNavigationPreferenceController" />
-
     <PreferenceCategory
-
         android:title="@string/nav_bar_category_title">
 
-    <Preference
+        <SwitchPreference
+            android:key="navigation_bar_show_new"
+            android:title="@string/navbar_visibility"
+            android:summary="@string/navbar_summary" />
+
+        <Preference
+            android:key="gesture_system_navigation"
+            android:title="@string/system_navigation_title"
+            android:fragment="com.android.settings.gestures.SystemNavigationGestureSettings"
+            settings:controller="com.android.settings.gestures.SystemNavigationPreferenceController"
+            android:dependency="navigation_bar_show_new"/>
+
+        <Preference
             android:title="@string/navbar_tuner_title"
-            android:summary="@string/navbar_tuner_summary" >
+            android:summary="@string/navbar_tuner_summary"
+            android:dependency="navigation_bar_show_new" >
             <intent android:action="android.intent.action.MAIN"
                 android:targetPackage="com.android.systemui"
                 android:targetClass="com.android.systemui.tuner.NavBarActivity" />
-    </Preference>
+       </Preference>
 
         <com.xtended.support.preferences.SecureSettingListPreference
             android:key="navbar_layout_views"
@@ -42,18 +48,21 @@
             android:summary="%s"
             android:entries="@array/navbar_layout_entries"
             android:entryValues="@array/navbar_layout_values"
-            android:defaultValue="default" />
+            android:defaultValue="default"
+            android:dependency="navigation_bar_show_new"/>
 
         <com.xtended.support.preferences.SecureSettingSwitchPreference
             android:key="navbar_inverse_layout"
             android:title="@string/navbar_invert_layout_title"
-            android:defaultValue="false" />
+            android:defaultValue="false"
+            android:dependency="navigation_bar_show_new"/>
 
         <com.xtended.support.preferences.SystemSettingSwitchPreference
             android:key="pixel_nav_animation"
             android:title="@string/pixel_navbar_anim_title"
             android:summary="@string/pixel_navbar_anim_summary"
-            android:defaultValue="true" />
+            android:defaultValue="true"
+            android:dependency="navigation_bar_show_new"/>
 
     </PreferenceCategory>
 
