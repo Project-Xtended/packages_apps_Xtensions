@@ -1558,6 +1558,7 @@
 
     <!-- Lock screen Clocks -->
     <string name="lock_screen_custom_clock_face_title">Lockscreen clock style</string>
+    <string name="lock_screen_custom_clock_face_summary">Set custom lockscreen clock style</string>
     <string name="lock_screen_custom_clock_face_default">Default</string>
     <string name="lock_screen_custom_clock_face_default_bold">Default (Bold)</string>
     <string name="lock_screen_custom_clock_face_alt_typographic">Typographic (New)</string> 

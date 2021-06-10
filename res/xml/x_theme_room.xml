@@ -43,12 +43,11 @@
             android:defaultValue="0xffffff"
             android:persistent="false" />
 
-        <ListPreference
-            android:key="lock_screen_custom_clock_face"
-            android:summary="%s"
+       <Preference
+            android:key="lockscreen_clock"
             android:title="@string/lock_screen_custom_clock_face_title"
-            android:entries="@array/lock_screen_custom_clock_face_entries"
-            android:entryValues="@array/lock_screen_custom_clock_face_values" />
+            android:summary="@string/lock_screen_custom_clock_face_summary"
+            android:fragment="com.xtended.fragments.LockscreenClock" />
 
         <com.android.settings.display.FontDialogPreference
             android:key="custom_font"

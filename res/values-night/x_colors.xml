@@ -13,4 +13,6 @@
 
 <resources>
     <color name="fod_item_background_stroke_color">#555555</color>
+
+    <color name="option_border_default">#ffffff</color>
 </resources>
