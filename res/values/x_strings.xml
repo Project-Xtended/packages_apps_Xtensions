@@ -1324,4 +1324,13 @@
     <string name="brightness_slider_style_memeroundstroke">Meme round stroke</string>
     <string name="brightness_slider_style_memestroke">Meme stroke</string>
 
+    <!-- System-wide Slider Styles -->
+    <string name="system_slider_style_title">System Slider styles</string>
+    <string name="system_slider_style_default">Default</string>
+    <string name="system_slider_style_daniel">Daniel</string>
+    <string name="system_slider_style_mememini">Meme mini</string>
+    <string name="system_slider_style_memeround">Meme round</string>
+    <string name="system_slider_style_memeroundstroke">Meme round stroke</string>
+    <string name="system_slider_style_memestroke">Meme stroke</string>
+
 </resources>
