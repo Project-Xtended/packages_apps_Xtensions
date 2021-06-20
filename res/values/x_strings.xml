@@ -1196,6 +1196,7 @@
     <string name="switch_retro">Retro</string>
     <string name="switch_oos">OxygenOS 11</string>
     <string name="switch_fluid">Fluid</string>
+    <string name="switch_android_s">Android S</string>
 
     <!-- Display cutout options -->
     <string name="cutout_main">Display Cutout</string>
