@@ -121,12 +121,6 @@
             android:dependency="lockscreen_media_metadata"
             android:defaultValue="0" />
 
-        <Preference
-            android:key="lockscreen_visualizer"
-            android:fragment="com.xtended.fragments.Visualizer"
-            android:title="@string/lockscreen_visualizer_enable"
-            android:summary="@string/lockscreen_visualizer_enable_summary" />
-
     </PreferenceCategory>
 
     <!-- FOD icon picker -->
