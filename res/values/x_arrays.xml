@@ -1163,6 +1163,7 @@
         <item>@string/volume_panel_tiled</item>
         <item>@string/volume_panel_miui</item>
         <item>@string/volume_panel_oos</item>
+        <item>@string/volume_panel_p404</item>
     </string-array>
 
     <string-array name="volume_panel_values" translatable="false">
@@ -1172,6 +1173,7 @@
         <item>@string/volume_panel_tiled_val</item>
         <item>@string/volume_panel_miui_val</item>
         <item>@string/volume_panel_oos_val</item>
+        <item>@string/volume_panel_p404_val</item>
     </string-array>
 
     <!-- Smart Pixels -->
