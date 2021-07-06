@@ -661,4 +661,8 @@
     <string name="statusbar_left_padding">Statusbar left padding</string>
     <string name="statusbar_right_padding">Statusbar right padding</string>
 
+    <!-- Pulse on Music Track -->
+    <string name="pulse_on_new_tracks_title">Music ticker</string>
+    <string name="pulse_on_new_tracks_summary">Show Ambient Display when a new music track is played</string>
+
 </resources>
