@@ -39,7 +39,8 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 import com.xtended.support.preferences.CustomSeekBarPreference;
-
+import com.xtended.support.preferences.SystemSettingSeekBarPreference;
+import com.xtended.utils.XUtils;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 import android.provider.SearchIndexableResource;
@@ -58,6 +59,7 @@ public class LockscreenUi extends SettingsPreferenceFragment implements
     private static final String DATE_FONT_SIZE  = "lockdate_font_size";
     private static final String LOCK_OWNERINFO_FONTS = "lock_ownerinfo_fonts";
     private static final String LOCKOWNER_FONT_SIZE = "lockowner_font_size";
+    private static final String KEY_LOCKSCREEN_BLUR = "lockscreen_blur";
 
     private ListPreference mLockClockFonts;
     private ListPreference mTextClockFonts;
@@ -67,6 +69,7 @@ public class LockscreenUi extends SettingsPreferenceFragment implements
     private CustomSeekBarPreference mCustomTextClockFontSize;
     private CustomSeekBarPreference mDateFontSize;
     private CustomSeekBarPreference mOwnerInfoFontSize;
+    private SystemSettingSeekBarPreference mLockscreenBlur;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -128,6 +131,11 @@ public class LockscreenUi extends SettingsPreferenceFragment implements
         mOwnerInfoFontSize.setValue(Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCKOWNER_FONT_SIZE,21));
         mOwnerInfoFontSize.setOnPreferenceChangeListener(this);
+
+        mLockscreenBlur = (SystemSettingSeekBarPreference) findPreference(KEY_LOCKSCREEN_BLUR);
+        if (!XUtils.isBlurSupported()) {
+            prefScreen.removePreference(mLockscreenBlur);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {

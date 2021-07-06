@@ -171,6 +171,15 @@
         settings:units="dp"
         settings:interval="1"/>
 
+    <com.xtended.support.preferences.SystemSettingSeekBarPreference
+        android:key="lockscreen_blur"
+        android:title="@string/lockscreen_blur_title"
+        android:max="100"
+        settings:min="0"
+        settings:units="%"
+        settings:interval="5"
+        android:defaultValue="0" />
+
     <Preference
         android:key="omnijaws_settings"
         android:title="@string/weather_title"
