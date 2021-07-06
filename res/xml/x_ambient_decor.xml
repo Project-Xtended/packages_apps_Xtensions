@@ -34,6 +34,12 @@
         android:title="@string/doze_on_charge_title"
         android:summary="@string/doze_on_charge_summary" />
 
+    <com.xtended.support.preferences.SystemSettingSwitchPreference
+        android:key="pulse_on_new_tracks"
+        android:title="@string/pulse_on_new_tracks_title"
+        android:summary="@string/pulse_on_new_tracks_summary"
+        android:defaultValue="true" />
+
     <PreferenceCategory
         android:key="doze_sensor"
         android:title="@string/doze_sensor_title" >
