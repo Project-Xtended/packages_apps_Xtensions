@@ -1324,10 +1324,6 @@
     <string name="system_slider_style_memeroundstroke">Meme round stroke</string>
     <string name="system_slider_style_memestroke">Meme stroke</string>
 
-    <!-- Colored Statusbar Icons -->
-    <string name="statusbar_icons_style">Colored notification icons</string>
-    <string name="statusbar_icons_style_summary">Choose the style of your statusbar notification icons (requires SystemUI restart)</string>
-
     <!-- Qs Header Clock Font Style, Size & Color -->
     <string name="sb_clock_styling">SB Clock Styling</string>
     <string name="qs_clock_styling">Qs Clock Styling</string>
