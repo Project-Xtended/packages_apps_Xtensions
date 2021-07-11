@@ -737,4 +737,10 @@
     <string name="qs_footer_settings_icon_title">Settings shortcut</string>
     <string name="qs_footer_settings_icon_summary">Display settings icons in footer</string>
 
+    <!-- Custom Signal bar icons -->
+    <string name="custom_signal_bar_title">Signal icons</string>
+
+    <!-- Custom Wi-Fi bar icons -->
+    <string name="custom_wifi_bar_title">Wi-Fi icon</string>
+
 </resources>
