@@ -206,6 +206,10 @@ public class XThemeRoom extends DashboardFragment implements
         controllers.add(new OverlayCategoryPreferenceController(context,
                 "android.theme.customization.icon_pack.android"));
         controllers.add(new QsTileStylePreferenceController(context));
+        controllers.add(new OverlayCategoryPreferenceController(context,
+                "android.theme.customization.signal_icon"));
+        controllers.add(new OverlayCategoryPreferenceController(context,
+                "android.theme.customization.wifi_icon"));
         return controllers;
     }
 

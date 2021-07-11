@@ -1505,5 +1505,10 @@
     <string name="show_app_volume_title">Show app volume</string>
     <string name="show_app_volume_summary">Show app volume in volume panel (Only works for Stock Volume panel)</string>
 
-</resources>
+    <!-- Custom Signal bar icons -->
+    <string name="custom_signal_bar_title">Signal icons</string>
 
+    <!-- Custom Wi-Fi bar icons -->
+    <string name="custom_wifi_bar_title">Wi-Fi icon</string>
+
+</resources>
