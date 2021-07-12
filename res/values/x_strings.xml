@@ -447,6 +447,10 @@
     <string name="lockscreen_date_selection_str_gradient">Gradient</string>
     <string name="lockscreen_date_selection_str_border_accent">Dark with accented borders</string>
     <string name="lockscreen_date_selection_str_border_gradient">Dark with gradient borders</string>
+    <string name="lockscreen_date_selection_str_box_gradient_fd">X Accent-Gradient box full date</string>
+    <string name="lockscreen_date_selection_str_border_gradient_fd">X Accent-Gradient borders full date</string>
+    <string name="lockscreen_date_selection_str_box_gradient_ad">X Accent-Gradient box</string>
+    <string name="lockscreen_date_selection_str_border_gradient_ad">X Accent-Gradient borders</string>
 
     <!-- Lockscreen items allignment category -->
     <string name="lock_screen_items_allignment_category_title">Lockscreen items allignment</string>

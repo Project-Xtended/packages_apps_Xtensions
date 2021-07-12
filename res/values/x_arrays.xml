@@ -460,6 +460,10 @@
         <item>@string/lockscreen_date_selection_str_gradient</item>
         <item>@string/lockscreen_date_selection_str_border_accent</item>
         <item>@string/lockscreen_date_selection_str_border_gradient</item>
+        <item>@string/lockscreen_date_selection_str_box_gradient_fd</item>
+        <item>@string/lockscreen_date_selection_str_border_gradient_fd</item>
+        <item>@string/lockscreen_date_selection_str_box_gradient_ad</item>
+        <item>@string/lockscreen_date_selection_str_border_gradient_ad</item>
     </string-array>
 
     <string-array name="lockscreen_date_selection_values" translatable="false">
@@ -474,6 +478,10 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
     </string-array>
 
     <!-- Lockscreen items allignment -->
@@ -1031,6 +1039,8 @@
         <item>@string/lockscreen_date_selection_str_gradient</item>
         <item>@string/lockscreen_date_selection_str_border_accent</item>
         <item>@string/lockscreen_date_selection_str_border_gradient</item>
+        <item>@string/lockscreen_date_selection_str_box_gradient_ad</item>
+        <item>@string/lockscreen_date_selection_str_border_gradient_ad</item>
     </string-array>
 
     <string-array name="lockscreen_weather_bg_values" translatable="false">
@@ -1043,6 +1053,8 @@
         <item>6</item>
         <item>7</item>
         <item>8</item>
+        <item>9</item>
+        <item>10</item>
     </string-array>
 
     <!-- FOD Recognizing fingerprint animations -->
