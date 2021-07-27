@@ -1225,6 +1225,8 @@
 
     <!-- Volume Panel Plugin -->
     <string name="volume_panel">Volume Panel Style</string>
+    <string name="audio_panel_theme_default">Xtended Default</string>
+    <string name="volume_panel_stock_val">com.android.systemui.volume</string>
     <string name="volume_panel_aosp">AOSP</string>
     <string name="volume_panel_compact">Compact</string>
     <string name="volume_panel_oreo">Oreo</string>
