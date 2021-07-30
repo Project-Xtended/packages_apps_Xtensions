@@ -51,14 +51,12 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
-    private static final String NOTIFICATION_HEADERS = "notification_headers";
     private static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
     private static final String SMS_BREATH = "sms_breath";
     private static final String MISSED_CALL_BREATH = "missed_call_breath";
     private static final String VOICEMAIL_BREATH = "voicemail_breath";
 
     private Preference mChargingLeds;
-    private SystemSettingSwitchPreference mNotificationHeader;
     private ListPreference mFlashlightOnCall;
     private SwitchPreference mSmsBreath;
     private SwitchPreference mMissedCallBreath;
@@ -84,11 +82,6 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
         if (!XtendedUtils.isVoiceCapable(getActivity())) {
             prefScreen.removePreference(incallVibCategory);
         }
-
-        mNotificationHeader = findPreference(NOTIFICATION_HEADERS);
-        mNotificationHeader.setChecked((Settings.System.getInt(resolver,
-                Settings.System.NOTIFICATION_HEADERS, 1) == 1));
-        mNotificationHeader.setOnPreferenceChangeListener(this);
 
         mFlashlightOnCall = (ListPreference) findPreference(FLASHLIGHT_ON_CALL);
         Preference FlashOnCall = findPreference("flashlight_on_call");
@@ -131,13 +124,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mNotificationHeader) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(resolver,
-                      Settings.System.NOTIFICATION_HEADERS, value ? 1 : 0);
-            XtendedUtils.showSystemUiRestartDialog(getContext());
-            return true;
-        } else if (preference == mFlashlightOnCall) {
+        if (preference == mFlashlightOnCall) {
             int flashlightValue = Integer.parseInt(((String) newValue).toString());
             Settings.System.putInt(resolver,
                   Settings.System.FLASHLIGHT_ON_CALL, flashlightValue);
