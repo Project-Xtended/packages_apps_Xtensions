@@ -1594,4 +1594,11 @@
     <string name="qs_new_bg_rev_grad_brdr">Reverse-Gradient Bg with Border</string>
     <string name="qs_header_new_bg_title">Qs Header Background-Borders</string>
 
+    <!-- SB Weather Customization -->
+    <string name="status_bar_weather_font_style_title">Weather Font Style</string>
+    <string name="status_bar_weather_font_color">Weather Font Color</string>
+    <string name="status_bar_weather_font_size">Weather Font Size</string>
+    <string name="status_bar_weather_icon_color">Weather Icon Color</string>
+    <string name="weather_footer">Weather Size will work only if Weather is placed on QS Header n not on Status Bar</string>
+
 </resources>
