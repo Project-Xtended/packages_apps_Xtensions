@@ -40,6 +40,12 @@
         android:summary="@string/pulse_on_new_tracks_summary"
         android:defaultValue="true" />
 
+    <com.xtended.support.preferences.SystemSettingSwitchPreference
+        android:key="ambient_swipe"
+        android:title="@string/ambient_swipe_title"
+        android:summary="@string/ambient_swipe_summary"
+        android:defaultValue="true" />
+
     <PreferenceCategory
         android:key="doze_sensor"
         android:title="@string/doze_sensor_title" >

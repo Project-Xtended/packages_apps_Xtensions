@@ -1598,4 +1598,8 @@
     <string name="status_bar_weather_icon_color">Weather Icon Color</string>
     <string name="weather_footer">Weather Size will work only if Weather is placed on QS Header n not on Status Bar</string>
 
+    <!-- Ambient Display Swipe Gesture -->
+    <string name="ambient_swipe_title">Ambient display swipe</string>
+    <string name="ambient_swipe_summary">Enable up or down swipe on Ambient Display\nNote: requires SystemUI restart.</string>
+
 </resources>
