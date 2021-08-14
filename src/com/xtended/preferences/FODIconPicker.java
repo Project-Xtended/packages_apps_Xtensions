@@ -72,6 +72,7 @@ public class FODIconPicker extends LayoutPreference {
     private static ImageButton Button24;
     private static ImageButton Button25;
     private static ImageButton Button26;
+    private static ImageButton Button27;
 
     private static final String TAG = "FODIconPicker";
 
@@ -138,6 +139,7 @@ public class FODIconPicker extends LayoutPreference {
         Button24 = findViewById(R.id.fodicon24_button);
         Button25 = findViewById(R.id.fodicon25_button);
         Button26 = findViewById(R.id.fodicon26_button);
+        Button27 = findViewById(R.id.fodicon27_button);
 
         int defaultfodicon = Settings.System.getInt(
                 context.getContentResolver(), Settings.System.FOD_ICON, 0);
@@ -195,6 +197,8 @@ public class FODIconPicker extends LayoutPreference {
             updateHighlightedItem(Button25, context);
         } else if (defaultfodicon == 26) {
             updateHighlightedItem(Button26, context);
+        } else if (defaultfodicon == 27) {
+            updateHighlightedItem(Button27, context);
         }
 
         Button0.setOnClickListener(new View.OnClickListener() {
@@ -386,6 +390,13 @@ public class FODIconPicker extends LayoutPreference {
                 updateHighlightedItem(Button26, context);
             }
         });
+        Button27.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateSettings(26, context);
+                updateHighlightedItem(Button27, context);
+            }
+        });
     }
 
     private void updateSettings(int fodicon, Context context) {
@@ -422,6 +433,7 @@ public class FODIconPicker extends LayoutPreference {
         Button24.setBackgroundTintList(defaulttint);
         Button25.setBackgroundTintList(defaulttint);
         Button26.setBackgroundTintList(defaulttint);
+        Button27.setBackgroundTintList(defaulttint);
         activebutton.setBackgroundTintList(Utils.getColorAttr(getContext(), android.R.attr.colorAccent));
     }
 }
