@@ -1606,8 +1606,8 @@
     <string name="gaming_mode_auto_answer_call_title">Answering calls automatically</string>
     <string name="gaming_mode_auto_answer_call_summary">Answer calls automatically in the game and hands free when no headphones connected</string>
 
-    <string name="gaming_mode_prevent_accidental_touch">Prevent accidental touch</string>
     <string name="gaming_mode_disable_gesture_title">Disable gestures</string>
+    <string name="gaming_mode_disable_gesture_summary">Disables navigation gestures when GamingMode is active</string>
 
     <string name="gaming_mode_apps">Game list</string>
     <string name="gaming_mode_dynamic_add_title">Dynamic mode</string>
@@ -1622,6 +1622,8 @@
     <string name="gaming_mode_danmaku_speed_vertical_title">Danmaku speed (vertical)</string>
     <string name="gaming_mode_danmaku_blacklist">Blacklist</string>
     <string name="gaming_mode_menu_opacity_title">Menu opacity level</string>
+    <string name="gaming_mode_hardware_keys_title">Disable Hw buttons</string> 
+    <string name="gaming_mode_hardware_keys_summary">Disables Hw buttons when GamingMode is active</string>
 
     <!-- FOD on doze -->
     <string name="fod_on_doze_title">FOD on doze</string>
