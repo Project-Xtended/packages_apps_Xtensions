@@ -1658,4 +1658,8 @@
     <string name="sleep_mode_aggressive_battery_title">Enable Aggressive Battery</string>
     <string name="sleep_mode_aggressive_battery_summary">Enable Aggressive Battery Idle and Standby when Sleep mode is turned on</string>
 
+    <!-- Notification Media Options -->
+    <string name="artwork_media_background_title">Artwork media background</string>
+    <string name="artwork_media_background_summary">Set media artwork as notification media background</string>
+
 </resources>

@@ -143,6 +143,12 @@
             android:dependency="lockscreen_media_metadata"
             android:defaultValue="0" />
 
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="artwork_media_background"
+            android:title="@string/artwork_media_background_title"
+            android:summary="@string/artwork_media_background_summary"
+            android:defaultValue="true" />
+
         <Preference
             android:key="pulse"
             android:title="@string/pulse_settings"
