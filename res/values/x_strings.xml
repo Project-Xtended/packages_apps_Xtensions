@@ -1160,6 +1160,7 @@
     <string name="fod_recog_animation_op_energy">Energy</string>
     <string name="fod_recog_animation_op_mclaren">McLaren</string>
     <string name="fod_recog_animation_op_ripple">Ripple</string>
+    <string name="fod_recog_animation_op_scanning">Scanning (Cyberpunk 2077)</string>
     <string name="fod_recog_animation_op_stripe">Stripe</string>
     <string name="fod_recog_animation_op_wave">Wave</string>
     <string name="fod_recog_animation_pureview_dna">DNA</string>
@@ -1168,7 +1169,12 @@
     <string name="fod_recog_animation_pureview_molecular">Molecular</string>
     <string name="fod_recog_animation_rog_fusion">Fusion</string>
     <string name="fod_recog_animation_rog_pulsar">Pulsar</string>
-    <string name="fod_recog_animation_rog_supernova">Supernova</string>
+    <string name="fod_recog_animation_rog_supernova">Supernova</string>    
+    <string name="fod_recog_animation_shine">Shine</string>
+    <string name="fod_recog_animation_smoke">Smoke</string>
+    <string name="fod_recog_animation_strings">Strings</string>
+    <string name="fod_recog_animation_quantum">Quantum</string>
+    <string name="fod_recog_animation_redwave">Red wave</string>
 
     <!-- FOD pressed color -->
     <string name="fod_pressed_color_title">Fingerprint pressed color</string>
