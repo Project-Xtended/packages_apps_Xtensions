@@ -44,6 +44,16 @@
             android:summary="@string/allow_signature_fake_summary"
             android:defaultValue="false" />
 
+        <ListPreference
+            android:key="ringtone_focus_mode"
+            android:title="@string/ringtone_focus_mode_title"
+            android:summary="%s"
+            android:entries="@array/ringtone_focus_mode_entries"
+            android:entryValues="@array/ringtone_focus_mode_values" />
+
+    <PreferenceCategory
+        android:title="@string/system_charging">
+
         <com.xtended.support.preferences.GlobalSettingSwitchPreference
             android:key="wake_when_plugged_or_unplugged"
             android:title="@string/wakeup_when_plugged_unplugged_title"
@@ -66,15 +76,15 @@
 	   android:dependency="charging_animation"
            android:defaultValue="1" />
 
-        <ListPreference
-            android:key="ringtone_focus_mode"
-            android:title="@string/ringtone_focus_mode_title"
-            android:summary="%s"
-            android:entries="@array/ringtone_focus_mode_entries"
-            android:entryValues="@array/ringtone_focus_mode_values" />
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="charging_animation_bg"
+            android:title="@string/charging_animation_bg_title"
+            android:summary="@string/charging_animation_bg_summary"
+            android:dependency="charging_animation"
+            android:defaultValue="false" />
 
+    </PreferenceCategory>
     <PreferenceCategory
-
         android:title="@string/battery_saving">
 
         <!-- Smart Pixels -->
