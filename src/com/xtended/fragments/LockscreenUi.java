@@ -56,6 +56,8 @@ import java.util.List;
 public class LockscreenUi extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String LOCKSCREEN_CLOCK = "lockscreen_clock";
+    private static final String LOCKSCREEN_CUSTOM_TEXT_CLOCK = "lockscreen_custom_text_clock";
     private static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";
     private static final String CUSTOM_TEXT_CLOCK_FONTS = "custom_text_clock_fonts";
     private static final String LOCK_DATE_FONTS = "lock_date_fonts";
@@ -68,6 +70,8 @@ public class LockscreenUi extends SettingsPreferenceFragment implements
     private static final String PREF_LS_CLOCK_ANIM_SELECTION = "lockscreen_clock_animation_selection";
     private static final String LOTTIE_ANIMATION_SIZE = "lockscreen_clock_animation_size";
 
+    private Preference mLockClockExt;
+    private PreferenceCategory mLockCustomTextClock;
     private ListPreference mLockClockFonts;
     private ListPreference mTextClockFonts;
     private ListPreference mLockDateFonts;
@@ -159,6 +163,9 @@ public class LockscreenUi extends SettingsPreferenceFragment implements
         mLottieAnimationSize.setValue(lottieSize);
         mLottieAnimationSize.setOnPreferenceChangeListener(this);
 
+        mLockClockExt = (Preference) findPreference(LOCKSCREEN_CLOCK);
+        mLockCustomTextClock = (PreferenceCategory) findPreference(LOCKSCREEN_CUSTOM_TEXT_CLOCK);
+
         mLockClockSelection = (SecureSettingListPreference) findPreference(PREF_LS_CLOCK_SELECTION);
         int val = Settings.Secure.getIntForUser(resolver,
                 Settings.Secure.LOCKSCREEN_CLOCK_SELECTION, 2, UserHandle.USER_CURRENT);
@@ -169,6 +176,23 @@ public class LockscreenUi extends SettingsPreferenceFragment implements
         } else {
             mLockClockAnimSelection.setEnabled(false);
             mLottieAnimationSize.setEnabled(false);
+        }
+        if (val == 1 || val == 2) {
+            mLockClockExt.setEnabled(true);
+        } else {
+            mLockClockExt.setEnabled(false);
+        }
+        if (val == 8) {
+            mLockCustomTextClock.setEnabled(true);
+        } else {
+            mLockCustomTextClock.setEnabled(false);
+        }
+        if (val > 1 && val < 8) {
+            mLockClockFonts.setEnabled(true);
+            mClockFontSize.setEnabled(true);
+        } else {
+            mLockClockFonts.setEnabled(false);
+            mClockFontSize.setEnabled(false);
         }
     }
 
@@ -234,6 +258,23 @@ public class LockscreenUi extends SettingsPreferenceFragment implements
             } else {
                 mLockClockAnimSelection.setEnabled(false);
                 mLottieAnimationSize.setEnabled(false);
+            }
+            if (val == 1 || val == 2) {
+                mLockClockExt.setEnabled(true);
+            } else {
+                mLockClockExt.setEnabled(false);
+            }
+            if (val == 8) {
+                mLockCustomTextClock.setEnabled(true);
+            } else {
+                mLockCustomTextClock.setEnabled(false);
+            }
+            if (val > 1 && val < 8) {
+                mLockClockFonts.setEnabled(true);
+                mClockFontSize.setEnabled(true);
+            } else {
+                mLockClockFonts.setEnabled(false);
+                mClockFontSize.setEnabled(false);
             }
             return true;
         }

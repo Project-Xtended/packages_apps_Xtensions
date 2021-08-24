@@ -333,6 +333,8 @@
 
     <!-- Lockscreen clock category -->
     <string name="lock_screen_clock_category_title">Lock screen clock</string>
+    <!-- Lockscreen Text clock Category -->
+    <string name="lockscreen_custom_text_clock_cat_title">Lockscreen Text Clock</string>
 
     <!-- Lock Clock Fonts -->
     <string name="lock_clock_font_title">LS Clock font style</string>
@@ -491,7 +493,11 @@
     <string name="clock_style_summary">Customize lockscreen clock</string> 
 
     <!-- QS Themes Category -->
-    <string name="qs_themes_category_title">QS themes</string>
+    <string name="qs_themes_category">QS Themes</string>
+    <!-- System Themes Category -->
+    <string name="system_themes_category">System Themes</string>
+    <!-- SB Themes Category -->
+    <string name="sb_themes_category">Statusbar Themes</string>
 
     <!-- QS BG Tint -->
     <string name="qs_bg_use_new_tint">Tint QS tiles</string>
@@ -1530,8 +1536,8 @@
     <string name="voicemail_breath_summary">Will give your voicemail notifications a breathing effect in the statusbar</string>
 
     <!-- Lock screen Clocks -->
-    <string name="lock_screen_custom_clock_face_title">Lockscreen clock style</string>
-    <string name="lock_screen_custom_clock_face_summary">Set custom lockscreen clock style</string>
+    <string name="lock_screen_custom_clock_face_title">Extra Lock Clock Style</string>
+    <string name="lock_screen_custom_clock_face_summary">Set custom lockscreen clock style. It will be active if selection above is on default</string>
     <string name="lock_screen_custom_clock_face_default">Default</string>
     <string name="lock_screen_custom_clock_face_default_bold">Default (Bold)</string>
     <string name="lock_screen_custom_clock_face_alt_typographic">Typographic (New)</string> 

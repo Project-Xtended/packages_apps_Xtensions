@@ -19,7 +19,7 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <PreferenceCategory
-        android:title="@string/lock_screen_clock_category_title" />
+        android:title="@string/lock_screen_clock_category_title" >
 
     <com.xtended.support.preferences.SecureSettingListPreference
         android:key="lockscreen_clock_selection"
@@ -30,21 +30,11 @@
         android:summary="%s"
         android:defaultValue="2" />
 
-    <com.xtended.support.preferences.SystemSettingListPreference
-        android:key="lockscreen_clock_animation_selection"
-        android:title="@string/clock_lottie_animation_title"
-        android:entries="@array/clock_lottie_animation_entries"
-        android:entryValues="@array/clock_lottie_animation_values"
-        android:summary="%s"
-        android:defaultValue="0" />
-
-    <com.xtended.support.preferences.CustomSeekBarPreference
-        android:key="lockscreen_clock_animation_size"
-        android:title="@string/clock_lottie_animation_size_title"
-        android:max="500"
-        settings:min="300"
-        settings:units="dp"
-        android:defaultValue="300" />
+    <Preference
+        android:key="lockscreen_clock"
+        android:title="@string/lock_screen_custom_clock_face_title"
+        android:summary="@string/lock_screen_custom_clock_face_summary"
+        android:fragment="com.xtended.fragments.LockscreenClock" />
 
     <ListPreference
         android:key="lock_clock_fonts"
@@ -65,6 +55,27 @@
         android:persistent="false"
         android:defaultValue="78" />
 
+    <com.xtended.support.preferences.SystemSettingListPreference
+        android:key="lockscreen_clock_animation_selection"
+        android:title="@string/clock_lottie_animation_title"
+        android:entries="@array/clock_lottie_animation_entries"
+        android:entryValues="@array/clock_lottie_animation_values"
+        android:summary="%s"
+        android:defaultValue="0" />
+
+    <com.xtended.support.preferences.CustomSeekBarPreference
+        android:key="lockscreen_clock_animation_size"
+        android:title="@string/clock_lottie_animation_size_title"
+        android:max="500"
+        settings:min="300"
+        settings:units="dp"
+        android:defaultValue="300" />
+
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="lockscreen_custom_text_clock"
+        android:title="@string/lockscreen_custom_text_clock_cat_title">
+
     <ListPreference
         android:key="custom_text_clock_fonts"
         android:title="@string/custom_text_clock_font_title"
@@ -84,9 +95,9 @@
         android:persistent="false"
         android:defaultValue="40" />
 
+    </PreferenceCategory>
     <PreferenceCategory
-
-        android:title="@string/lock_screen_date_category_title" />
+        android:title="@string/lock_screen_date_category_title">
 
     <com.xtended.support.preferences.SecureSettingListPreference
         android:key="lockscreen_date_selection"
@@ -116,9 +127,9 @@
         android:defaultValue="18"
         android:persistent="false" />
 
+    </PreferenceCategory>
     <PreferenceCategory
-
-        android:title="@string/lock_screen_owner_category_title" />
+        android:title="@string/lock_screen_owner_category_title">
 
     <ListPreference
         android:key="lock_ownerinfo_fonts"
@@ -139,8 +150,9 @@
         android:defaultValue="21"
         android:persistent="false" />
 
+    </PreferenceCategory>
     <PreferenceCategory
-        android:title="@string/lock_screen_items_allignment_category_title"/>
+        android:title="@string/lock_screen_items_allignment_category_title">
 
     <com.xtended.support.preferences.SecureSettingListPreference
         android:key="center_text_clock"
@@ -187,6 +199,7 @@
         settings:units="dp"
         settings:interval="1"/>
 
+    </PreferenceCategory>
     <Preference
         android:key="omnijaws_settings"
         android:title="@string/weather_title"

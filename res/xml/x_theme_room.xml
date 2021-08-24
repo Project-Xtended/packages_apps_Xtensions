@@ -19,8 +19,7 @@
         android:title="@string/themeroom_title">
 
     <PreferenceCategory
-
-        android:title="@string/theme_customization_category">
+        android:title="@string/system_themes_category" >
 
         <Preference
             android:key="dark_ui_mode"
@@ -43,32 +42,10 @@
             android:defaultValue="0xffffff"
             android:persistent="false" />
 
-       <Preference
-            android:key="lockscreen_clock"
-            android:title="@string/lock_screen_custom_clock_face_title"
-            android:summary="@string/lock_screen_custom_clock_face_summary"
-            android:fragment="com.xtended.fragments.LockscreenClock" />
-
         <com.android.settings.display.FontDialogPreference
             android:key="custom_font"
             android:title="@string/font_picker_title"
             android:persistent="false" />
-
-        <ListPreference
-            android:key="android.theme.customization.wifi_icon"
-            android:title="@string/custom_wifi_bar_title"/>
-
-        <ListPreference
-            android:key="android.theme.customization.signal_icon"
-            android:title="@string/custom_signal_bar_title"/>
-
-        <ListPreference
-            android:key="android.theme.customization.adaptive_icon_shape"
-            android:title="@string/theme_customization_icon_shape_title"/>
-
-        <ListPreference
-            android:key="android.theme.customization.icon_pack.android"
-            android:title="@string/theme_customization_sysui_icon_title"/>
 
         <com.xtended.support.preferences.SystemSettingListPreference 
             android:key="xtensions_style"
@@ -124,24 +101,36 @@
             android:entries="@array/navbar_name_entries"
             android:entryValues="@array/navbar_picker_values"/>
 
-    </PreferenceCategory>
-
-    <!-- Gvisual mod -->
-    <PreferenceCategory
-
-        android:title="@string/gvisual_title">
-
         <PreferenceScreen
             android:key="gvisual"
             android:title="@string/gvisual_title"
             android:summary="@string/gvisual_summary"
             android:fragment="com.xtended.fragments.GvisualSettings" />
 
+        <ListPreference
+            android:key="android.theme.customization.adaptive_icon_shape"
+            android:title="@string/theme_customization_icon_shape_title"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:title="@string/sb_themes_category" >
 
-        android:title="@string/qs_themes_category_title" >
+        <ListPreference
+            android:key="android.theme.customization.wifi_icon"
+            android:title="@string/custom_wifi_bar_title"/>
+
+        <ListPreference
+            android:key="android.theme.customization.signal_icon"
+            android:title="@string/custom_signal_bar_title"/>
+
+        <ListPreference
+            android:key="android.theme.customization.icon_pack.android"
+            android:title="@string/theme_customization_sysui_icon_title"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/qs_themes_category" >
 
         <ListPreference
             android:key="qs_tile_style"
