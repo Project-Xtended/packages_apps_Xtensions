@@ -1700,4 +1700,10 @@
     <string name="use_old_mobiletype_title">Old mobiletype</string>
     <string name="use_old_mobiletype_summary">Use pre-p mobiletype icons for signal (Reboot required)</string>
 
+    <!-- Random Accent & Gradient -->
+    <string name="random_accent_color">Random Accent</string>
+    <string name="random_accent_summary">Enable it to get random accent system wide</string>
+    <string name="random_gradient_color">Random Gradient</string>
+    <string name="random_gradient_summary">Enable it to get random gradient system wide</string>
+
 </resources>
