@@ -1706,4 +1706,13 @@
     <string name="random_gradient_color">Random Gradient</string>
     <string name="random_gradient_summary">Enable it to get random gradient system wide</string>
 
+    <!-- VoLTE Icon Type -->
+    <string name="volte_icon_style_title">Select VoLTE/HD Icon</string>
+    <string name="volte_icon_volte">VoLTE Icon</string>
+    <string name="volte_icon_oos">VoLTE OnePlus Icon</string>
+    <string name="volte_icon_default">Default-Dynamic Icons</string>
+    <string name="volte_icon_hd">HD Icons</string>
+    <string name="volte_icon_miui">MiUi Icons</string>
+    <string name="volte_icon_emui">EMUI Icons</string>
+
 </resources>

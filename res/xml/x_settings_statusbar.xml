@@ -79,6 +79,14 @@
             android:title="@string/cutout_main"
             android:summary="@string/cutout_main_summary" />
 
+        <com.xtended.support.preferences.SystemSettingListPreference 
+            android:key="volte_icon_style" 
+            android:title="@string/volte_icon_style_title" 
+            android:entries="@array/volte_icon_type_entries" 
+            android:entryValues="@array/volte_icon_type_values" 
+            android:summary="%s"
+            android:defaultValue="0"/>
+
         <com.xtended.support.preferences.SystemSettingSwitchPreference 
             android:key="show_fourg"
             android:title="@string/show_fourg_title"
