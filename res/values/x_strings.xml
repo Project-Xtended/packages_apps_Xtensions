@@ -1724,4 +1724,12 @@
     <string name="vowifi_icon_moto">Moto VoWiFi Icons</string>
     <string name="vowifi_icon_emui">EMUI Icons</string>
 
+    <!-- QS tile size -->
+    <string name="qs_tile_size_title">QS Tile Size</string>
+    <string name="qstile_size_default">Stock</string>
+    <string name="qstile_size_xsmall">Xtra Small</string>
+    <string name="qstile_size_small">Small</string>
+    <string name="qstile_size_large">Large</string>
+    <string name="qstile_size_xlarge">Xtra Large</string>
+
 </resources>
