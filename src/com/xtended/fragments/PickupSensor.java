@@ -45,12 +45,10 @@ public class PickupSensor implements SensorEventListener {
     private static final int MIN_PULSE_INTERVAL_MS = 2500;
 
     private SensorManager mSensorManager;
-    private Sensor mSensorPickup;
+    private Sensor mSensor;
     private Context mContext;
     private TelephonyManager telephonyManager;
     private ExecutorService mExecutorService;
-
-    private boolean mIsCustomPickupSensor;
 
     private float[] mGravity;
     private float mAccelLast;
@@ -61,20 +59,16 @@ public class PickupSensor implements SensorEventListener {
 
     public PickupSensor(Context context) {
         mContext = context;
-        mSensorManager = mContext.getSystemService(SensorManager.class);
-        final String pickup_sensor = context.getResources().getString(R.string.pickup_sensor);
-        mIsCustomPickupSensor = pickup_sensor != null && !pickup_sensor.isEmpty();
-        if (mIsCustomPickupSensor) {
-            for (Sensor sensor : mSensorManager.getSensorList(Sensor.TYPE_ALL)) {
-                if (pickup_sensor.equals(sensor.getStringType())) {
-                    mSensorPickup = sensor;
-                    break;
-                }
+        mSensorManager = (SensorManager) mContext.getSystemService(Context.SENSOR_SERVICE);
+        String customPickUp = mContext.getResources().getString(R.string.config_custom_pickup);
+        if (mSensorManager != null) {
+            if (!customPickUp.isEmpty()) {
+                mSensorManager = mContext.getSystemService(SensorManager.class);
+                mSensor = DozeUtils.getSensor(mSensorManager, customPickUp);
+            } else {
+                mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
             }
-        } else {
-            mSensorPickup = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         }
-        if (DEBUG) Log.d(TAG, "Pickup sensor: " + mSensorPickup.getStringType());
         telephonyManager = (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
         mExecutorService = Executors.newSingleThreadExecutor();
         mAccelLast = SensorManager.GRAVITY_EARTH;
@@ -116,11 +110,6 @@ public class PickupSensor implements SensorEventListener {
                     DozeUtils.launchDozePulse(mContext);
                     doHapticFeedback();
                 }
-            } else {
-                if (event.values[0] == 1) {
-                    DozeUtils.launchDozePulse(mContext);
-                    doHapticFeedback();
-                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -146,16 +135,15 @@ public class PickupSensor implements SensorEventListener {
         if (DEBUG) Log.d(TAG, "Enabling");
         submit(() -> {
             mEntryTimestamp = SystemClock.elapsedRealtime();
-            mSensorManager.registerListener(this, mSensorPickup,
-                    mIsCustomPickupSensor ? SensorManager.SENSOR_DELAY_NORMAL
-                    : SensorManager.SENSOR_STATUS_ACCURACY_HIGH);
+            mSensorManager.registerListener(this, mSensor,
+                    SensorManager.SENSOR_STATUS_ACCURACY_HIGH);
         });
     }
 
     protected void disable() {
         if (DEBUG) Log.d(TAG, "Disabling");
         submit(() -> {
-            mSensorManager.unregisterListener(this, mSensorPickup);
+            mSensorManager.unregisterListener(this, mSensor);
         });
     }
 
