@@ -17,5 +17,8 @@
 <resources>
 
     <string name="pickup_sensor" translatable="false"></string>
-
+    <!-- Defines the custom proximity sensor used by various OEMs like OnePlus-->
+    <string name="config_custom_tilt"></string>
+    <!-- Defines the custom pocket sensor used by various OEMs like OnePlus-->
+    <string name="config_custom_proximity"></string>
 </resources>

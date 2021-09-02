@@ -27,6 +27,8 @@ import android.os.Vibrator;
 import android.provider.Settings;
 import android.util.Log;
 
+import com.android.settings.R;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -52,8 +54,16 @@ public class TiltSensor implements SensorEventListener {
 
     public TiltSensor(Context context) {
         mContext = context;
-        mSensorManager = mContext.getSystemService(SensorManager.class);
-        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_TILT_DETECTOR);
+        mSensorManager = (SensorManager) mContext.getSystemService(Context.SENSOR_SERVICE);
+        String customTilt = mContext.getResources().getString(R.string.config_custom_tilt);
+        if (mSensorManager != null) {
+            if (!customTilt.isEmpty()) {
+                mSensorManager = mContext.getSystemService(SensorManager.class);
+                mSensor = DozeUtils.getSensor(mSensorManager, customTilt);
+            } else {
+                mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_TILT_DETECTOR);
+            }
+        }
         mExecutorService = Executors.newSingleThreadExecutor();
         mVibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
         if (mVibrator == null || !mVibrator.hasVibrator()) {

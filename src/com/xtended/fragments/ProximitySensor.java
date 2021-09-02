@@ -26,6 +26,8 @@ import android.os.Vibrator;
 import android.provider.Settings;
 import android.util.Log;
 
+import com.android.settings.R;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -55,9 +57,17 @@ public class ProximitySensor implements SensorEventListener {
 
     public ProximitySensor(Context context) {
         mContext = context;
-        mSensorManager = mContext.getSystemService(SensorManager.class);
         final boolean wakeup = context.getResources().getBoolean(com.android.internal.R.bool.config_deviceHaveWakeUpProximity);
-        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY, wakeup);
+        mSensorManager = (SensorManager) mContext.getSystemService(Context.SENSOR_SERVICE);
+        String customProximity = mContext.getResources().getString(R.string.config_custom_proximity);
+        if (mSensorManager != null) {
+            if (!customProximity.isEmpty()) {
+                mSensorManager = mContext.getSystemService(SensorManager.class);
+                mSensor = DozeUtils.getSensor(mSensorManager, customProximity);
+            } else {
+                mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY, wakeup);
+            }
+        }
         mExecutorService = Executors.newSingleThreadExecutor();
         mVibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
         if (mVibrator == null || !mVibrator.hasVibrator()) {
