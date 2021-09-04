@@ -34,11 +34,13 @@
         android:title="@string/doze_on_charge_title"
         android:summary="@string/doze_on_charge_summary" />
 
-    <com.xtended.support.preferences.SystemSettingSwitchPreference
-        android:key="pulse_on_new_tracks"
+    <com.xtended.support.preferences.SystemSettingListPreference
+        android:key="ambient_music_ticker"
         android:title="@string/pulse_on_new_tracks_title"
-        android:summary="@string/pulse_on_new_tracks_summary"
-        android:defaultValue="true" />
+        android:summary="%s"
+        android:entries="@array/ambient_music_location_entries"
+        android:entryValues="@array/ambient_music_location_values"
+        android:defaultValue="1" />
 
     <com.xtended.support.preferences.SystemSettingSwitchPreference
         android:key="ambient_swipe"

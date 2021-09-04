@@ -1746,4 +1746,10 @@
     <string name="custom_fp_select_title">Select Custom FOD Icon</string>
     <string name="custom_fp_select_summary">Select custom image from your saved files or gallery</string>
 
+    <!-- Ambient Music Indicator -->
+    <string name="ambient_music_location">Show ambient music ticker</string>
+    <string name="ambient_music_disabled">Disabled</string>
+    <string name="ambient_music_bottom">Enabled | At the bottom (default)</string>
+    <string name="ambient_music_center">Enabled | Centered (under the cLock)</string>
+
 </resources>
