@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.xtended.preferences;
+package com.xtended.fragments;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
