@@ -1194,6 +1194,7 @@
     <string name="fod_pressed_color_cyan">Cyan</string>
     <string name="fod_pressed_color_green">Green</string>
     <string name="fod_pressed_color_yellow">Yellow</string>
+    <string name="fod_pressed_color_light_yellow">Light Yellow</string>
 
     <!-- Switch styles -->
     <string name="switch_style_title">Switch Styles</string>

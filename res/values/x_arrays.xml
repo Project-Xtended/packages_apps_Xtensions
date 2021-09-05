@@ -1134,6 +1134,7 @@
         <item>@string/fod_pressed_color_cyan</item>
         <item>@string/fod_pressed_color_green</item>
         <item>@string/fod_pressed_color_yellow</item>
+        <item>@string/fod_pressed_color_light_yellow</item>
     </string-array>
 
     <string-array name="fod_pressed_color_values" translatable="false">
@@ -1141,6 +1142,7 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
+        <item>4</item>
     </string-array>
 
     <!-- Switch styles -->
