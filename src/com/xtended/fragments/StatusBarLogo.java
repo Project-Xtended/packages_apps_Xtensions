@@ -16,10 +16,19 @@
 
 package com.xtended.fragments;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.content.res.Resources;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.ParcelFileDescriptor;
 import android.os.UserHandle;
 import android.provider.Settings;
 import androidx.preference.ListPreference;
@@ -29,14 +38,24 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
 import com.xtended.support.colorpicker.ColorPickerPreference;
+import com.xtended.support.preferences.SystemSettingSwitchPreference;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.Utils;
 
+import java.io.FileDescriptor;
+
 public class StatusBarLogo extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
+
+    private static final String CUSTOM_SB_LOGO_ENABLED = "custom_sb_logo_enabled";
+    private static final String CUSTOM_SB_LOGO_IMAGE = "custom_sb_logo_image";
+    private static final String CUSTOM_QS_LOGO_ENABLED = "custom_qs_logo_enabled";
+    private static final String CUSTOM_QS_LOGO_IMAGE = "custom_qs_logo_image";
+    private static final int REQUEST_PICK_SB_IMAGE = 0;
+    private static final int REQUEST_PICK_QS_IMAGE = 0;
 
     private ListPreference mShowLogo;
     private ListPreference mLogoStyle;
@@ -44,6 +63,10 @@ public class StatusBarLogo extends SettingsPreferenceFragment implements
     private ListPreference mShowQsLogo;
     private ListPreference mQsLogoStyle;
     private ColorPickerPreference mQsLogoColor;
+    private Preference mCustomSbLogoImage;
+    private Preference mCustomQsLogoImage;
+    private SystemSettingSwitchPreference mCustomSbLogoEnabled;
+    private SystemSettingSwitchPreference mCustomQsLogoEnabled;
     static final int DEFAULT_LOGO_COLOR = 0xffff8800;
 
     @Override
@@ -102,6 +125,50 @@ public class StatusBarLogo extends SettingsPreferenceFragment implements
         hexColor = String.format("#%08x", (DEFAULT_LOGO_COLOR & intColor));
         mQsLogoColor.setSummary(hexColor);
         mQsLogoColor.setNewPreviewColor(intColor);
+
+        mCustomSbLogoImage = findPreference(CUSTOM_SB_LOGO_IMAGE);
+
+        mCustomQsLogoImage = findPreference(CUSTOM_QS_LOGO_IMAGE);
+
+        mCustomSbLogoEnabled = (SystemSettingSwitchPreference) findPreference(CUSTOM_SB_LOGO_ENABLED);
+        boolean valSbLogo = Settings.System.getIntForUser(getActivity().getContentResolver(),
+                Settings.System.CUSTOM_SB_LOGO_ENABLED, 0, UserHandle.USER_CURRENT) == 1;
+        mCustomSbLogoEnabled.setOnPreferenceChangeListener(this);
+        if (valSbLogo) {
+            mLogoStyle.setEnabled(false);
+            mStatusBarLogoColor.setEnabled(false);
+        } else {
+            mLogoStyle.setEnabled(true);
+            mStatusBarLogoColor.setEnabled(true);
+        }
+
+        mCustomQsLogoEnabled = (SystemSettingSwitchPreference) findPreference(CUSTOM_QS_LOGO_ENABLED);
+        boolean valQsLogo = Settings.System.getIntForUser(getActivity().getContentResolver(),
+                Settings.System.CUSTOM_QS_LOGO_ENABLED, 0, UserHandle.USER_CURRENT) == 1;
+        mCustomQsLogoEnabled.setOnPreferenceChangeListener(this);
+        if (valQsLogo) {
+            mQsLogoStyle.setEnabled(false);
+            mQsLogoColor.setEnabled(false);
+        } else {
+            mQsLogoStyle.setEnabled(true);
+            mQsLogoColor.setEnabled(true);
+        }
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference == mCustomSbLogoImage) {
+            Intent intent = new Intent(Intent.ACTION_PICK);
+            intent.setType("image/*");
+            startActivityForResult(intent, REQUEST_PICK_SB_IMAGE);
+            return true;
+        } else if (preference == mCustomQsLogoImage) {
+            Intent intent = new Intent(Intent.ACTION_PICK);
+            intent.setType("image/*");
+            startActivityForResult(intent, REQUEST_PICK_QS_IMAGE);
+            return true;
+        }
+        return super.onPreferenceTreeClick(preference);
     }
 
     @Override
@@ -164,8 +231,80 @@ public class StatusBarLogo extends SettingsPreferenceFragment implements
             Settings.System.putInt(resolver,
                     Settings.System.QS_PANEL_LOGO_COLOR, intHex);
             return true;
+        } else if (preference.equals(mCustomSbLogoEnabled)) {
+            boolean valSbLogo = (Boolean) newValue;
+            Settings.System.putIntForUser(getActivity().getContentResolver(),
+                    Settings.System.CUSTOM_SB_LOGO_ENABLED, valSbLogo ? 1 : 0,
+                    UserHandle.USER_CURRENT);
+            if (valSbLogo) {
+                mLogoStyle.setEnabled(false);
+                mStatusBarLogoColor.setEnabled(false);
+            } else {
+                mLogoStyle.setEnabled(true);
+                mStatusBarLogoColor.setEnabled(true);
+            }
+            return true;
+        } else if (preference.equals(mCustomQsLogoEnabled)) {
+            boolean valQsLogo = (Boolean) newValue;
+            Settings.System.putIntForUser(getActivity().getContentResolver(),
+                    Settings.System.CUSTOM_SB_LOGO_ENABLED, valQsLogo ? 1 : 0,
+                    UserHandle.USER_CURRENT);
+            if (valQsLogo) {
+                mQsLogoStyle.setEnabled(false);
+                mQsLogoColor.setEnabled(false);
+            } else {
+                mQsLogoStyle.setEnabled(true);
+                mQsLogoColor.setEnabled(true);
+            }
+            return true;
         }
         return false;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent result) {
+        if (requestCode == REQUEST_PICK_SB_IMAGE) {
+            if (resultCode != Activity.RESULT_OK) {
+                return;
+            }
+            final Uri uriSb = result.getData();
+            setSbPickerIcon(uriSb.toString());
+            Settings.System.putString(getContentResolver(), Settings.System.CUSTOM_SB_LOGO_IMAGE, uriSb.toString());
+        }
+        if (requestCode == REQUEST_PICK_QS_IMAGE) {
+            if (resultCode != Activity.RESULT_OK) {
+                return;
+            }
+            final Uri uriQs = result.getData();
+            setQsPickerIcon(uriQs.toString());
+            Settings.System.putString(getContentResolver(), Settings.System.CUSTOM_QS_LOGO_IMAGE, uriQs.toString());
+        }
+    }
+
+    private void setSbPickerIcon(String uri) {
+        try {
+                ParcelFileDescriptor parcelFileDescriptor =
+                    getContext().getContentResolver().openFileDescriptor(Uri.parse(uri), "r");
+                FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
+                Bitmap imageSbLogo = BitmapFactory.decodeFileDescriptor(fileDescriptor);
+                parcelFileDescriptor.close();
+                Drawable d = new BitmapDrawable(getResources(), imageSbLogo);
+                mCustomSbLogoImage.setIcon(d);
+            }
+            catch (Exception e) {}
+    }
+
+    private void setQsPickerIcon(String uri) {
+        try {
+                ParcelFileDescriptor parcelFileDescriptor =
+                    getContext().getContentResolver().openFileDescriptor(Uri.parse(uri), "r");
+                FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
+                Bitmap imageQsLogo = BitmapFactory.decodeFileDescriptor(fileDescriptor);
+                parcelFileDescriptor.close();
+                Drawable d = new BitmapDrawable(getResources(), imageQsLogo);
+                mCustomQsLogoImage.setIcon(d);
+            }
+            catch (Exception e) {}
     }
 }
 

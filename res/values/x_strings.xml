@@ -1752,4 +1752,13 @@
     <string name="ambient_music_bottom">Enabled | At the bottom (default)</string>
     <string name="ambient_music_center">Enabled | Centered (under the cLock)</string>
 
+    <!-- Custom SB n QS Logo -->
+    <string name="custom_sb_logo_title">Custom Statusbar Logo</string>
+    <string name="custom_sb_logo_summary">Enable custom statusbar logo from files</string>
+    <string name="custom_sb_logo_select_title">Select Custom SB Logo</string>
+    <string name="custom_sb_logo_select_summary">Select custom image from your saved files or gallery</string>
+    <string name="custom_qs_logo_title">Custom Qs Logo</string>
+    <string name="custom_qs_logo_summary">Enable custom quicksetting logo from files</string>
+    <string name="custom_qs_logo_select_title">Select Custom QS Logo</string>
+
 </resources>

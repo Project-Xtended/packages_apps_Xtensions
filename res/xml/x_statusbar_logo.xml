@@ -29,6 +29,20 @@
         android:summary="%s"
         android:title="@string/status_bar_logo_title" />
 
+    <com.xtended.support.preferences.SystemSettingSwitchPreference
+        android:key="custom_sb_logo_enabled"
+        android:title="@string/custom_sb_logo_title"
+        android:summary="@string/custom_sb_logo_summary"
+        android:defaultValue="false" />
+
+    <Preference
+        android:key="custom_sb_logo_image"
+        android:title="@string/custom_sb_logo_select_title"
+        android:summary="@string/custom_sb_logo_select_summary"
+        android:dependency="custom_sb_logo_enabled"
+        android:persistent="false" >
+    </Preference>
+
     <ListPreference
         android:key="status_bar_logo_style"
         android:entries="@array/status_bar_logo_style_entries"
@@ -52,6 +66,20 @@
         android:entries="@array/status_bar_logo_entries"
         android:entryValues="@array/status_bar_logo_values"
         android:summary="%s" />
+
+    <com.xtended.support.preferences.SystemSettingSwitchPreference
+        android:key="custom_qs_logo_enabled"
+        android:title="@string/custom_qs_logo_title"
+        android:summary="@string/custom_qs_logo_summary"
+        android:defaultValue="false" />
+
+    <Preference
+        android:key="custom_qs_logo_image"
+        android:title="@string/custom_qs_logo_select_title"
+        android:summary="@string/custom_sb_logo_select_summary"
+        android:dependency="custom_qs_logo_enabled"
+        android:persistent="false" >
+    </Preference>
 
     <ListPreference
         android:key="qs_panel_logo_style"
