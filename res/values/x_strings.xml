@@ -619,4 +619,8 @@
     <string name="voicemail_breath_title">Breathing Voicemail</string>
     <string name="voicemail_breath_summary">Will give your voicemail notifications a breathing effect in the statusbar</string>
 
+    <!-- Statusbar left_right padding -->
+    <string name="statusbar_left_padding">Statusbar left padding</string>
+    <string name="statusbar_right_padding">Statusbar right padding</string>
+
 </resources>

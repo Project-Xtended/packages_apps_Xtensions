@@ -57,4 +57,24 @@
             android:summary="@string/toast_icon_summary"
             android:defaultValue="false" />
 
+    <PreferenceCategory
+        android:key="corners_category"
+        android:title="@string/corners_category" >
+
+        <com.xtended.support.preferences.SystemSettingSeekBarPreference
+            android:key="statusbar_left_padding"
+            android:title="@string/statusbar_left_padding"
+            android:max="50"
+            android:min="-5"
+            android:defaultValue="8"/>
+
+         <com.xtended.support.preferences.SystemSettingSeekBarPreference
+            android:key="statusbar_right_padding"
+            android:title="@string/statusbar_right_padding"
+            android:max="50"
+            android:min="-5"
+            android:defaultValue="8"/>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
