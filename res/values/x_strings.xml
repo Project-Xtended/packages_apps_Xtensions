@@ -656,4 +656,9 @@
     <string name="click_partial_screenshot_title">Click to partial screenshot</string>
     <string name="click_partial_screenshot_summary">Short click Volume Down and Power to take partial screenshot</string>
 
+    <!-- Statusbar left_right padding -->
+    <string name="corners_category">Corners & Padding</string>
+    <string name="statusbar_left_padding">Statusbar left padding</string>
+    <string name="statusbar_right_padding">Statusbar right padding</string>
+
 </resources>
