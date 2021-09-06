@@ -1861,4 +1861,8 @@
     <string name="panel_xgradkece">Kece Gradient</string>
     <string name="panel_xrevgradkece">Kece Reverse Gradient</string>
 
+    <!-- Statusbar left_right padding -->
+    <string name="statusbar_left_padding">Statusbar left padding</string>
+    <string name="statusbar_right_padding">Statusbar right padding</string>
+
 </resources>
