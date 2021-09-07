@@ -21,6 +21,9 @@ import android.content.Context;
 import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -37,7 +40,9 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
+
 import com.xtended.support.colorpicker.ColorPickerPreference;
+import com.xtended.support.preferences.CustomSeekBarPreference;
 import com.xtended.support.preferences.SystemSettingSwitchPreference;
 
 import com.android.settings.R;
@@ -52,6 +57,7 @@ public class QuickSettingsLogo extends SettingsPreferenceFragment implements
 
     private static final String CUSTOM_QS_LOGO_ENABLED = "custom_qs_logo_enabled";
     private static final String CUSTOM_QS_LOGO_IMAGE = "custom_qs_logo_image";
+    private static final String CUSTOM_QS_LOGO_SIZE = "custom_qs_logo_size";
     private static final int REQUEST_PICK_QS_IMAGE = 0;
 
     private ListPreference mShowQsLogo;
@@ -59,6 +65,7 @@ public class QuickSettingsLogo extends SettingsPreferenceFragment implements
     private ColorPickerPreference mQsLogoColor;
     private Preference mCustomQsLogoImage;
     private SystemSettingSwitchPreference mCustomQsLogoEnabled;
+    private CustomSeekBarPreference mQsLogoSize;
     static final int DEFAULT_LOGO_COLOR = 0xffff8800;
 
     @Override
@@ -66,6 +73,15 @@ public class QuickSettingsLogo extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.x_quicksettings_logo);
+
+        Resources res = null;
+        Context ctx = getContext();
+
+        try {
+            res = ctx.getPackageManager().getResourcesForApplication("com.android.systemui");
+        } catch (NameNotFoundException e) {
+            e.printStackTrace();
+        }
 
         String hexColor;
         int intColor;
@@ -107,6 +123,12 @@ public class QuickSettingsLogo extends SettingsPreferenceFragment implements
             mQsLogoStyle.setEnabled(true);
             mQsLogoColor.setEnabled(true);
         }
+
+        mQsLogoSize = (CustomSeekBarPreference) findPreference(CUSTOM_QS_LOGO_SIZE);
+        int logoSize = Settings.System.getIntForUser(ctx.getContentResolver(),
+                Settings.System.CUSTOM_QS_LOGO_SIZE, res.getIdentifier("com.android.systemui:dimen/qs_logo_size", null, null), UserHandle.USER_CURRENT);
+        mQsLogoSize.setValue(logoSize);
+        mQsLogoSize.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -167,6 +189,11 @@ public class QuickSettingsLogo extends SettingsPreferenceFragment implements
                 mQsLogoStyle.setEnabled(true);
                 mQsLogoColor.setEnabled(true);
             }
+            return true;
+        } else if (preference.equals(mQsLogoSize)) {
+            int logoSize = (Integer) newValue;
+            Settings.System.putIntForUser(getContext().getContentResolver(),
+                    Settings.System.CUSTOM_QS_LOGO_SIZE, logoSize, UserHandle.USER_CURRENT);
             return true;
         }
         return false;

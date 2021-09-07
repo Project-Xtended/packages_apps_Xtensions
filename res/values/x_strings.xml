@@ -1762,5 +1762,7 @@
     <string name="custom_qs_logo_title">Custom Qs Logo</string>
     <string name="custom_qs_logo_summary">Enable custom quicksetting logo from files</string>
     <string name="custom_qs_logo_select_title">Select Custom QS Logo</string>
+    <!-- Qs Logo size -->
+    <string name="qs_logo_size_title">Qs Logo size</string>
 
 </resources>
