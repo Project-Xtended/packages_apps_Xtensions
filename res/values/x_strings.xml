@@ -1375,8 +1375,10 @@
     <string name="theme_navbar_picker_sammy">Samsung</string>
 
     <!-- Statusbar logo -->
-    <string name="status_bar_logo_category_title">QS-Statusbar Logo</string>
-    <string name="status_bar_logo_category_summary">Enable to display logo in the status bar and qs header</string>
+    <string name="status_bar_logo_category_title">Statusbar Logo</string>
+    <string name="status_bar_logo_category_summary">Enable to display logo in the status bar</string>
+    <string name="qs_logo_category_title">QuickSetting Logo</string>
+    <string name="qs_logo_category_summary">Enable to display logo in the qs header</string>
     <string name="status_bar_logo_title">Xtended logo</string>
     <string name="status_bar_logo_right">Right</string>
     <string name="status_bar_logo_left">Left</string>

@@ -18,8 +18,14 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
 	android:title="@string/quicksettings_title">
 
-    <PreferenceCategory
+    <!-- QS Logo Style -->
+    <Preference
+        android:key="quick_setting_logo"
+        android:title="@string/qs_logo_category_title"
+        android:summary="@string/qs_logo_category_summary"
+        android:fragment="com.xtended.fragments.QuickSettingsLogo" />
 
+    <PreferenceCategory
         android:title="@string/quick_settings_general_category_title">
 
         <com.xtended.support.preferences.SystemSettingSwitchPreference

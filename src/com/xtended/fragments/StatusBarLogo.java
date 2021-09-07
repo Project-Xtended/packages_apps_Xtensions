@@ -52,21 +52,13 @@ public class StatusBarLogo extends SettingsPreferenceFragment implements
 
     private static final String CUSTOM_SB_LOGO_ENABLED = "custom_sb_logo_enabled";
     private static final String CUSTOM_SB_LOGO_IMAGE = "custom_sb_logo_image";
-    private static final String CUSTOM_QS_LOGO_ENABLED = "custom_qs_logo_enabled";
-    private static final String CUSTOM_QS_LOGO_IMAGE = "custom_qs_logo_image";
     private static final int REQUEST_PICK_SB_IMAGE = 0;
-    private static final int REQUEST_PICK_QS_IMAGE = 0;
 
     private ListPreference mShowLogo;
     private ListPreference mLogoStyle;
     private ColorPickerPreference mStatusBarLogoColor;
-    private ListPreference mShowQsLogo;
-    private ListPreference mQsLogoStyle;
-    private ColorPickerPreference mQsLogoColor;
     private Preference mCustomSbLogoImage;
-    private Preference mCustomQsLogoImage;
     private SystemSettingSwitchPreference mCustomSbLogoEnabled;
-    private SystemSettingSwitchPreference mCustomQsLogoEnabled;
     static final int DEFAULT_LOGO_COLOR = 0xffff8800;
 
     @Override
@@ -102,33 +94,7 @@ public class StatusBarLogo extends SettingsPreferenceFragment implements
         mStatusBarLogoColor.setSummary(hexColor);
         mStatusBarLogoColor.setNewPreviewColor(intColor);
 
-        mShowQsLogo = (ListPreference) findPreference("qs_panel_logo");
-        mShowQsLogo.setOnPreferenceChangeListener(this);
-        int showQsLogo = Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.QS_PANEL_LOGO,
-                0, UserHandle.USER_CURRENT);
-        mShowQsLogo.setValue(String.valueOf(showQsLogo));
-        mShowQsLogo.setSummary(mShowQsLogo.getEntry());
-
-        mQsLogoStyle = (ListPreference) findPreference("qs_panel_logo_style");
-        mQsLogoStyle.setOnPreferenceChangeListener(this);
-        int logoQsStyle = Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.QS_PANEL_LOGO_STYLE,
-                0, UserHandle.USER_CURRENT);
-        mQsLogoStyle.setValue(String.valueOf(logoQsStyle));
-        mQsLogoStyle.setSummary(mQsLogoStyle.getEntry());
-
-        mQsLogoColor = (ColorPickerPreference) findPreference("qs_panel_logo_color");
-        mQsLogoColor.setOnPreferenceChangeListener(this);
-        intColor = Settings.System.getInt(getContentResolver(),
-                Settings.System.QS_PANEL_LOGO_COLOR, DEFAULT_LOGO_COLOR);
-        hexColor = String.format("#%08x", (DEFAULT_LOGO_COLOR & intColor));
-        mQsLogoColor.setSummary(hexColor);
-        mQsLogoColor.setNewPreviewColor(intColor);
-
         mCustomSbLogoImage = findPreference(CUSTOM_SB_LOGO_IMAGE);
-
-        mCustomQsLogoImage = findPreference(CUSTOM_QS_LOGO_IMAGE);
 
         mCustomSbLogoEnabled = (SystemSettingSwitchPreference) findPreference(CUSTOM_SB_LOGO_ENABLED);
         boolean valSbLogo = Settings.System.getIntForUser(getActivity().getContentResolver(),
@@ -141,18 +107,6 @@ public class StatusBarLogo extends SettingsPreferenceFragment implements
             mLogoStyle.setEnabled(true);
             mStatusBarLogoColor.setEnabled(true);
         }
-
-        mCustomQsLogoEnabled = (SystemSettingSwitchPreference) findPreference(CUSTOM_QS_LOGO_ENABLED);
-        boolean valQsLogo = Settings.System.getIntForUser(getActivity().getContentResolver(),
-                Settings.System.CUSTOM_QS_LOGO_ENABLED, 0, UserHandle.USER_CURRENT) == 1;
-        mCustomQsLogoEnabled.setOnPreferenceChangeListener(this);
-        if (valQsLogo) {
-            mQsLogoStyle.setEnabled(false);
-            mQsLogoColor.setEnabled(false);
-        } else {
-            mQsLogoStyle.setEnabled(true);
-            mQsLogoColor.setEnabled(true);
-        }
     }
 
     @Override
@@ -161,11 +115,6 @@ public class StatusBarLogo extends SettingsPreferenceFragment implements
             Intent intent = new Intent(Intent.ACTION_PICK);
             intent.setType("image/*");
             startActivityForResult(intent, REQUEST_PICK_SB_IMAGE);
-            return true;
-        } else if (preference == mCustomQsLogoImage) {
-            Intent intent = new Intent(Intent.ACTION_PICK);
-            intent.setType("image/*");
-            startActivityForResult(intent, REQUEST_PICK_QS_IMAGE);
             return true;
         }
         return super.onPreferenceTreeClick(preference);
@@ -207,30 +156,6 @@ public class StatusBarLogo extends SettingsPreferenceFragment implements
             Settings.System.putInt(resolver,
                     Settings.System.STATUS_BAR_LOGO_COLOR, intHex);
             return true;
-        } else if (preference.equals(mShowQsLogo)) {
-            int showQsLogo = Integer.parseInt(((String) newValue).toString());
-            Settings.System.putIntForUser(getContentResolver(),
-                    Settings.System.QS_PANEL_LOGO, showQsLogo, UserHandle.USER_CURRENT);
-            int index = mShowQsLogo.findIndexOfValue((String) newValue);
-            mShowQsLogo.setSummary(
-                    mShowQsLogo.getEntries()[index]);
-            return true;
-        } else if (preference.equals(mQsLogoStyle)) {
-            int logoQsStyle = Integer.parseInt(((String) newValue).toString());
-            Settings.System.putIntForUser(getContentResolver(),
-                    Settings.System.QS_PANEL_LOGO_STYLE, logoQsStyle, UserHandle.USER_CURRENT);
-            int index = mQsLogoStyle.findIndexOfValue((String) newValue);
-            mQsLogoStyle.setSummary(
-                    mQsLogoStyle.getEntries()[index]);
-            return true;
-        } else if (preference.equals(mQsLogoColor)) {
-            String hex = ColorPickerPreference.convertToARGB(
-                    Integer.valueOf(String.valueOf(newValue)));
-            preference.setSummary(hex);
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(resolver,
-                    Settings.System.QS_PANEL_LOGO_COLOR, intHex);
-            return true;
         } else if (preference.equals(mCustomSbLogoEnabled)) {
             boolean valSbLogo = (Boolean) newValue;
             Settings.System.putIntForUser(getActivity().getContentResolver(),
@@ -242,19 +167,6 @@ public class StatusBarLogo extends SettingsPreferenceFragment implements
             } else {
                 mLogoStyle.setEnabled(true);
                 mStatusBarLogoColor.setEnabled(true);
-            }
-            return true;
-        } else if (preference.equals(mCustomQsLogoEnabled)) {
-            boolean valQsLogo = (Boolean) newValue;
-            Settings.System.putIntForUser(getActivity().getContentResolver(),
-                    Settings.System.CUSTOM_SB_LOGO_ENABLED, valQsLogo ? 1 : 0,
-                    UserHandle.USER_CURRENT);
-            if (valQsLogo) {
-                mQsLogoStyle.setEnabled(false);
-                mQsLogoColor.setEnabled(false);
-            } else {
-                mQsLogoStyle.setEnabled(true);
-                mQsLogoColor.setEnabled(true);
             }
             return true;
         }
@@ -271,14 +183,6 @@ public class StatusBarLogo extends SettingsPreferenceFragment implements
             setSbPickerIcon(uriSb.toString());
             Settings.System.putString(getContentResolver(), Settings.System.CUSTOM_SB_LOGO_IMAGE, uriSb.toString());
         }
-        if (requestCode == REQUEST_PICK_QS_IMAGE) {
-            if (resultCode != Activity.RESULT_OK) {
-                return;
-            }
-            final Uri uriQs = result.getData();
-            setQsPickerIcon(uriQs.toString());
-            Settings.System.putString(getContentResolver(), Settings.System.CUSTOM_QS_LOGO_IMAGE, uriQs.toString());
-        }
     }
 
     private void setSbPickerIcon(String uri) {
@@ -290,19 +194,6 @@ public class StatusBarLogo extends SettingsPreferenceFragment implements
                 parcelFileDescriptor.close();
                 Drawable d = new BitmapDrawable(getResources(), imageSbLogo);
                 mCustomSbLogoImage.setIcon(d);
-            }
-            catch (Exception e) {}
-    }
-
-    private void setQsPickerIcon(String uri) {
-        try {
-                ParcelFileDescriptor parcelFileDescriptor =
-                    getContext().getContentResolver().openFileDescriptor(Uri.parse(uri), "r");
-                FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
-                Bitmap imageQsLogo = BitmapFactory.decodeFileDescriptor(fileDescriptor);
-                parcelFileDescriptor.close();
-                Drawable d = new BitmapDrawable(getResources(), imageQsLogo);
-                mCustomQsLogoImage.setIcon(d);
             }
             catch (Exception e) {}
     }
