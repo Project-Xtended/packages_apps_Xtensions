@@ -56,18 +56,20 @@ public class FODIconGeneralFragment extends SettingsPreferenceFragment implement
     private static final String CUSTOM_FOD_ICON_KEY = "custom_fp_icon_enabled";
     private static final String FOD_ICON_PICKER = "fod_icon_picker";
     private static final String CUSTOM_FP_FILE_SELECT = "custom_fp_file_select";
+    private static final String FOD_NIGHT_LIGHT = "fod_night_light";
     private static final int REQUEST_PICK_IMAGE = 0;
 
     private Preference mCustomFPImage;
     private SystemSettingSwitchPreference mCustomFodIcon;
     private Preference mFodIconPicker;
+    private Preference mFODnightlight;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.x_settings_fod_general);
-
+        final PreferenceScreen prefScreen = getPreferenceScreen();
         getActivity().getActionBar().setTitle(R.string.fod_icon_options_title);
 
         mFodIconPicker = (Preference) findPreference(FOD_ICON_PICKER);
@@ -88,6 +90,12 @@ public class FODIconGeneralFragment extends SettingsPreferenceFragment implement
         } else {
             mFodIconPicker.setEnabled(true);
         }
+        mFODnightlight = (Preference) findPreference(FOD_NIGHT_LIGHT);
+            final boolean isFodNightLightSupported = getContext().getResources().getBoolean(
+                    com.android.internal.R.bool.disable_fod_night_light);
+            if (!isFodNightLightSupported) {
+                prefScreen.removePreference(mFODnightlight);
+            }
     }
 
     @Override
