@@ -1786,4 +1786,8 @@
     <string name="text_title">Battery &amp; Text Colors</string>
     <string name="icon_title">Notification Icon Colors</string>
 
+    <!-- Gaming Mode Menu Overlay -->
+    <string name="gaming_mode_use_menu_overlay_title">Show menu overlay</string>
+    <string name="gaming_mode_use_menu_overlay_summary">Show menu overlay when game is running. If this option is disabled, some game mode features will be disabled, such as Danmaku notifications</string>
+
 </resources>
