@@ -52,6 +52,28 @@
             android:entryValues="@array/ringtone_focus_mode_values" />
 
     <PreferenceCategory
+        android:key="burnin_category"
+        android:title="@string/burnin_category">
+
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="burn_in_protection"
+            android:title="@string/burn_in_protection_title"
+            android:summary="@string/burn_in_protection_summary"
+            android:defaultValue="true" />
+
+        <com.xtended.support.preferences.SystemSettingSeekBarPreference
+            android:key="burn_in_protection_interval"
+            android:title="@string/burn_in_protection_interval_title"
+            android:max="120"
+            android:min="30"
+            settings:unitsLeft=""
+            settings:unitsRight="@string/unit_x1000ms"
+            android:dependency="burn_in_protection"
+            android:defaultValue="60"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+    <PreferenceCategory
         android:title="@string/system_charging">
 
         <com.xtended.support.preferences.GlobalSettingSwitchPreference

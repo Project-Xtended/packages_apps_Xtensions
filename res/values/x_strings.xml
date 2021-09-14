@@ -1015,6 +1015,7 @@
 
     <!-- General strings -->
     <string name="unit_percent">\u0025</string>
+    <string name="unit_x1000ms">x1000 ms</string>
     <string name="enabled">Enabled</string>
     <string name="choose_app">Choose application</string>
     <string name="help">Help</string>
@@ -1769,5 +1770,12 @@
     <string name="custom_qs_logo_select_title">Select Custom QS Logo</string>
     <!-- Qs Logo size -->
     <string name="qs_logo_size_title">Qs Logo size</string>
+
+    <!-- Burn-in Protection -->
+    <string name="burnin_category">Burn-in Protection</string>
+    <string name="burn_in_protection_title">Enable</string>
+    <string name="burn_in_protection_summary">Shift navabr and statusbar icons to prevent burn-in</string>
+    <string name="burn_in_protection_interval_title">Interval of shift</string>
+    <string name="burn_in_protection_interval_summary">How often to make icons shift</string>
 
 </resources>
