@@ -33,6 +33,7 @@
     <string name="reset">Reset</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
+    <string name="unit_x1000ms">x1000 ms</string>
     <string name="default_string">Default</string>
 
     <string name="system_navigation_summary">Configure navigation menus</string>
@@ -571,5 +572,12 @@
     <!--Less boring heads up -->
     <string name="less_boring_heads_up_title">Less boring heads up</string>
     <string name="less_boring_heads_up_summary">Quickly disable heads up for all apps but keep it enabled only for dialer</string>
+
+    <!-- Burn-in Protection -->
+    <string name="burnin_category">Burn-in Protection</string>
+    <string name="burn_in_protection_title">Enable</string>
+    <string name="burn_in_protection_summary">Shift navabr and statusbar icons to prevent burn-in</string>
+    <string name="burn_in_protection_interval_title">Interval of shift</string>
+    <string name="burn_in_protection_interval_summary">How often to make icons shift</string>
 
 </resources>
