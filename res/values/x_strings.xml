@@ -1778,4 +1778,12 @@
     <string name="burn_in_protection_interval_title">Interval of shift</string>
     <string name="burn_in_protection_interval_summary">How often to make icons shift</string>
 
+    <!-- SB Color Options -->
+    <string name="status_bar_color_title">StatusBar Colors</string>
+    <string name="status_bar_color_summary">Options to colorize status bar icons n Texts</string>
+    <string name="colors_general_title">Colors For Dark Mode</string>
+    <string name="colors_general_dark_mode_title">Colors for Light Mode</string>
+    <string name="text_title">Battery &amp; Text Colors</string>
+    <string name="icon_title">Notification Icon Colors</string>
+
 </resources>

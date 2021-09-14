@@ -73,6 +73,13 @@
             android:summary="@string/sb_weather_summary"
             android:fragment="com.xtended.fragments.SBWeather" />
 
+        <!-- Status Bar Colors -->
+        <Preference
+            android:key="status_bar_colors"
+            android:title="@string/status_bar_color_title"
+            android:summary="@string/status_bar_color_summary"
+            android:fragment="com.xtended.fragments.StatusBarColors" />
+
          <Preference 
             android:key="cutout_settings" 
             android:fragment="com.xtended.fragments.CutoutFragment"
