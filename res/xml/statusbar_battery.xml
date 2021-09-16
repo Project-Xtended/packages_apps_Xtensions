@@ -38,6 +38,12 @@
         android:summary="%s"
         android:defaultValue="0" />
 
+    <com.xtended.support.preferences.SystemSettingSwitchPreference
+        android:key="do_left_battery_text"
+        android:title="@string/left_battery_text_title"
+        android:summary="@string/left_battery_text_summary" 
+        android:defaultValue="false"/>
+
    <com.xtended.support.preferences.SystemSettingListPreference
         android:key="text_charging_symbol"
         android:title="@string/text_charging_symbol_title"
