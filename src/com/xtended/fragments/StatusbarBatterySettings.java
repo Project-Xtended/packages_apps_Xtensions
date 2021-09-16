@@ -60,8 +60,8 @@ public class StatusbarBatterySettings extends SettingsPreferenceFragment impleme
     private int mBatteryPercentValue;
 
     private static final int BATTERY_STYLE_PORTRAIT = 0;
-    private static final int BATTERY_STYLE_TEXT = 6;
-    private static final int BATTERY_STYLE_HIDDEN = 7;
+    private static final int BATTERY_STYLE_TEXT = 8;
+    private static final int BATTERY_STYLE_HIDDEN = 9;
     private static final int BATTERY_PERCENT_HIDDEN = 0;
     //private static final int BATTERY_PERCENT_SHOW_INSIDE = 1;
     //private static final int BATTERY_PERCENT_SHOW_OUTSIDE = 2;
