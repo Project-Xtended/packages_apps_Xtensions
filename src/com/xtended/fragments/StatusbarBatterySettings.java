@@ -38,6 +38,7 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
 import com.xtended.support.preferences.SystemSettingListPreference;
+import com.xtended.support.preferences.SystemSettingSwitchPreference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,16 +50,18 @@ public class StatusbarBatterySettings extends SettingsPreferenceFragment impleme
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
     private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
     private static final String TEXT_CHARGING_SYMBOL = "text_charging_symbol";
+    private static final String LEFT_BATTERY_TEXT = "do_left_battery_text";
 
     private ListPreference mBatteryPercent;
     private ListPreference mBatteryStyle;
     private SystemSettingListPreference mChargingSymbol;
+    private SystemSettingSwitchPreference mLeftBatteryText;
 
     private int mBatteryPercentValue;
 
     private static final int BATTERY_STYLE_PORTRAIT = 0;
-    private static final int BATTERY_STYLE_TEXT = 4;
-    private static final int BATTERY_STYLE_HIDDEN = 5;
+    private static final int BATTERY_STYLE_TEXT = 6;
+    private static final int BATTERY_STYLE_HIDDEN = 7;
     private static final int BATTERY_PERCENT_HIDDEN = 0;
     //private static final int BATTERY_PERCENT_SHOW_INSIDE = 1;
     //private static final int BATTERY_PERCENT_SHOW_OUTSIDE = 2;
