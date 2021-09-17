@@ -55,12 +55,14 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
     private static final String SMS_BREATH = "sms_breath";
     private static final String MISSED_CALL_BREATH = "missed_call_breath";
     private static final String VOICEMAIL_BREATH = "voicemail_breath";
+    private static final String PREF_TICKER_FONT_STYLE = "status_bar_ticker_font_style";
 
     private Preference mChargingLeds;
     private ListPreference mFlashlightOnCall;
     private SwitchPreference mSmsBreath;
     private SwitchPreference mMissedCallBreath;
     private SwitchPreference mVoicemailBreath;
+    private ListPreference mTickerFontStyle;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -120,10 +122,17 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
             prefScreen.removePreference(mMissedCallBreath);
             prefScreen.removePreference(mVoicemailBreath);
         }
+
+        mTickerFontStyle = (ListPreference) findPreference(PREF_TICKER_FONT_STYLE);
+        mTickerFontStyle.setValue(String.valueOf(Settings.System.getInt(
+                getContentResolver(), Settings.System.STATUS_BAR_TICKER_FONT_STYLE, 0)));
+        mTickerFontStyle.setSummary(mTickerFontStyle.getEntry());
+        mTickerFontStyle.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
+
         if (preference == mFlashlightOnCall) {
             int flashlightValue = Integer.parseInt(((String) newValue).toString());
             Settings.System.putInt(resolver,
@@ -141,6 +150,13 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
         } else if (preference == mVoicemailBreath) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getContentResolver(), VOICEMAIL_BREATH, value ? 1 : 0);
+            return true;
+        }  else if (preference == mTickerFontStyle) {
+            int showTickerFont = Integer.valueOf((String) newValue);
+            int index = mTickerFontStyle.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getContentResolver(), Settings.System.
+                STATUS_BAR_TICKER_FONT_STYLE, showTickerFont);
+            mTickerFontStyle.setSummary(mTickerFontStyle.getEntries()[index]);
             return true;
         }
         return false;

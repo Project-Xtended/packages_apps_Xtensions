@@ -405,7 +405,7 @@
     <string name="lockscreen_weather_temp_color">Weather temp color</string>
     <string name="lockscreen_weather_city_color">Weather city color</string>
     <string name="lockscreen_weather_icon_color">Weather icon color</string>
-    <string name="lockscreen_colors_reset_title">Reset lockscreen colors</string>
+    <string name="lockscreen_colors_reset_title">Reset All Colors</string>
     <string name="lockscreen_colors_reset_message">Are you sure you want to reset these colors to default?</string>
     <string name="yes">YES</string>
 
@@ -1795,5 +1795,10 @@
     <!-- Gaming Mode Menu Overlay -->
     <string name="gaming_mode_use_menu_overlay_title">Show menu overlay</string>
     <string name="gaming_mode_use_menu_overlay_summary">Show menu overlay when game is running. If this option is disabled, some game mode features will be disabled, such as Danmaku notifications</string>
+
+    <!-- SB Ticker Font n Color Styles -->
+    <string name="sb_ticker_light_mode_title">Ticker Color (Light Mode)</string>
+    <string name="sb_ticker_dark_mode_title">Ticker Color (Dark Mode)</string>
+    <string name="status_bar_ticker_font_style_title">Ticker Font Style</string>
 
 </resources>
