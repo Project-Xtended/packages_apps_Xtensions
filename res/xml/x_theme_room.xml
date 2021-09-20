@@ -225,6 +225,16 @@
            android:persistent="false" >
        </Preference>
 
+        <com.xtended.support.preferences.CustomSeekBarPreference
+            android:key="qs_panel_image_shadow"
+            android:title="@string/qs_panel_shadow_title"
+            android:summary="@string/qs_panel_shadow_summary"
+            android:max="100"
+            settings:min="0"
+            settings:unitsRight="@string/unit_percent"
+            android:persistent="false"
+            android:dependency="qs_panel_type_background" />
+
        <com.xtended.support.preferences.SystemSettingSwitchPreference
            android:key="qs_panel_custom_image_blur"
            android:title="@string/qs_bg_blur_image_title"

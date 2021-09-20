@@ -1809,4 +1809,8 @@
     <string name="custom_header_shadow_title">Header image shadow</string>
     <string name="custom_header_shadow_summary">For better visibility on bright images</string>
 
+    <!-- QS Panel Custom Image Shadow -->
+    <string name="qs_panel_shadow_title">Qs Panel Image shadow</string>
+    <string name="qs_panel_shadow_summary">For better visibility on bright qs panel custom images</string>
+
 </resources>

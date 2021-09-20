@@ -100,6 +100,7 @@ public class XThemeRoom extends DashboardFragment implements
     private static final String FILE_QSPANEL_SELECT = "file_qspanel_select";
     private static final String PREF_QS_NEW_BG = "qs_new_bg_enabled";
     private static final String PREF_QS_NEW_IMAGE = "qs_panel_type_background";
+    private static final String QS_PANEL_IMAGE_SHADOW = "qs_panel_image_shadow";
     private static final int REQUEST_PICK_IMAGE = 0;
     private static final int MENU_RESET = Menu.FIRST;
 
@@ -116,6 +117,7 @@ public class XThemeRoom extends DashboardFragment implements
     private Preference mQsPanelImage;
     private SystemSettingIntListPreference mQsNewBgEnabled;
     private SystemSettingSwitchPreference mQsNewImage;
+    private CustomSeekBarPreference mQsPanelImageShadow;
 
     private IntentFilter mIntentFilter;
     private static FontPickerPreferenceController mFontPickerPreference;
@@ -165,6 +167,12 @@ public class XThemeRoom extends DashboardFragment implements
         mQsPanelImage = findPreference(FILE_QSPANEL_SELECT);
 
         mQsNewImage = (SystemSettingSwitchPreference) findPreference(PREF_QS_NEW_IMAGE);
+
+        mQsPanelImageShadow = (CustomSeekBarPreference) findPreference(QS_PANEL_IMAGE_SHADOW);
+        final int qsPanelShadow = Settings.System.getInt(getContentResolver(),
+                Settings.System.QS_PANEL_IMAGE_SHADOW, 0);
+        mQsPanelImageShadow.setValue((int)(((double) qsPanelShadow / 255) * 100));
+        mQsPanelImageShadow.setOnPreferenceChangeListener(this);
 
         mQsNewBgEnabled = (SystemSettingIntListPreference) findPreference(PREF_QS_NEW_BG);
         int val = Settings.System.getIntForUser(getActivity().getContentResolver(),
@@ -373,6 +381,12 @@ public class XThemeRoom extends DashboardFragment implements
                     handleOverlays(true, context, ThemesUtils.SYSTEM_SLIDER_MEMESTROKE);
                    break;
             }
+            return true;
+        } else if (preference == mQsPanelImageShadow) {
+            Integer qsPanelShadow = (Integer) newValue;
+            int realShadowValue = (int) (((double) qsPanelShadow / 100) * 255);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.QS_PANEL_IMAGE_SHADOW, realShadowValue);
             return true;
         } else if (preference == mQsNewBgEnabled) {
             int val = Integer.parseInt((String) newValue);
