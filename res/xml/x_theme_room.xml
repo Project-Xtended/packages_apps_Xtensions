@@ -63,23 +63,6 @@
             android:title="@string/font_picker_title"
             android:persistent="false" />
 
-        <com.xtended.support.preferences.SystemSettingListPreference 
-            android:key="xtensions_style"
-            android:title="@string/xtensions_style_title"
-            android:entries="@array/xtensions_style_entries"
-            android:entryValues="@array/xtensions_style_values"
-            android:summary="%s"
-            android:defaultValue="0" />
-
-        <!-- Settings dashboard icon style --> 
-        <com.xtended.support.preferences.SystemSettingIntListPreference
-            android:key="theming_settings_dashboard_icons"
-            android:title="@string/theming_settings_dashboard_icons_title"
-            android:summary="%s"
-            android:entries="@array/theming_settings_dashboard_icons_entries"
-            android:entryValues="@array/theming_settings_dashboard_icons_values"
-            android:defaultValue="0" />
-
         <!-- Switch Styles -->
         <com.xtended.support.preferences.SystemSettingListPreference
             android:key="switch_style"
@@ -127,12 +110,39 @@
             android:key="android.theme.customization.adaptive_icon_shape"
             android:title="@string/theme_customization_icon_shape_title"/>
 
-    <!-- OneUI like settings actionbar -->
-    <com.xtended.support.preferences.SystemSettingSwitchPreference 
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/settings_themes_category" >
+
+        <com.xtended.support.preferences.SystemSettingListPreference 
+            android:key="xtensions_style"
+            android:title="@string/xtensions_style_title"
+            android:entries="@array/xtensions_style_entries"
+            android:entryValues="@array/xtensions_style_values"
+            android:summary="%s"
+            android:defaultValue="0" />
+
+        <!-- Settings dashboard icon style --> 
+        <com.xtended.support.preferences.SystemSettingIntListPreference
+            android:key="theming_settings_dashboard_icons"
+            android:title="@string/theming_settings_dashboard_icons_title"
+            android:summary="%s"
+            android:entries="@array/theming_settings_dashboard_icons_entries"
+            android:entryValues="@array/theming_settings_dashboard_icons_values"
+            android:defaultValue="0" />
+
+        <!-- OneUI like settings actionbar -->
+        <com.xtended.support.preferences.SystemSettingSwitchPreference 
             android:key="settings_spacer" 
             android:title="@string/enable_oneui" 
             android:summary="@string/enable_oneui_summary" 
             android:defaultValue="true" />
+
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="use_new_searchbar"
+            android:title="@string/search_bar_style_title"
+            android:summary="@string/search_bar_style_summary"
+            android:defaultValue="false" />
 
     </PreferenceCategory>
 
