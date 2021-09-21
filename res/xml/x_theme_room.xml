@@ -127,6 +127,13 @@
             android:key="android.theme.customization.adaptive_icon_shape"
             android:title="@string/theme_customization_icon_shape_title"/>
 
+    <!-- OneUI like settings actionbar -->
+    <com.xtended.support.preferences.SystemSettingSwitchPreference 
+            android:key="settings_spacer" 
+            android:title="@string/enable_oneui" 
+            android:summary="@string/enable_oneui_summary" 
+            android:defaultValue="true" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

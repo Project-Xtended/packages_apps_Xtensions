@@ -1817,4 +1817,8 @@
     <string name="qs_theme_cat_title">QS Panel Bg Options</string>
     <string name="qs_theme_cat_summary">Qs panel customization options</string>
 
+    <!-- Oneui -->
+    <string name="enable_oneui">OneUI Settings Actionbar</string>
+    <string name="enable_oneui_summary">Show spacer above settings actionbar for easier use with one hand\nNOTE: restart settings app to see effect</string>
+
 </resources>
