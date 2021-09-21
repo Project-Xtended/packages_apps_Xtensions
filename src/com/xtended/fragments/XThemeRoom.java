@@ -97,11 +97,6 @@ public class XThemeRoom extends DashboardFragment implements
     private static final String GRADIENT_COLOR = "gradient_color";
     private static final String GRADIENT_COLOR_PROP = "persist.sys.theme.gradientcolor";
     private static final String KEY_QS_PANEL_ALPHA = "qs_panel_alpha";
-    private static final String FILE_QSPANEL_SELECT = "file_qspanel_select";
-    private static final String PREF_QS_NEW_BG = "qs_new_bg_enabled";
-    private static final String PREF_QS_NEW_IMAGE = "qs_panel_type_background";
-    private static final String QS_PANEL_IMAGE_SHADOW = "qs_panel_image_shadow";
-    private static final int REQUEST_PICK_IMAGE = 0;
     private static final int MENU_RESET = Menu.FIRST;
 
     static final int DEFAULT = 0xff1a73e8;
@@ -114,10 +109,6 @@ public class XThemeRoom extends DashboardFragment implements
     private ColorPickerPreference mThemeColor;
     private ColorPickerPreference mGradientColor;
     private CustomSeekBarPreference mQsPanelAlpha;
-    private Preference mQsPanelImage;
-    private SystemSettingIntListPreference mQsNewBgEnabled;
-    private SystemSettingSwitchPreference mQsNewImage;
-    private CustomSeekBarPreference mQsPanelImageShadow;
 
     private IntentFilter mIntentFilter;
     private static FontPickerPreferenceController mFontPickerPreference;
@@ -163,26 +154,6 @@ public class XThemeRoom extends DashboardFragment implements
         }
         mNavbarPicker.setSummary(mNavbarPicker.getEntry());
         mNavbarPicker.setOnPreferenceChangeListener(this);
-
-        mQsPanelImage = findPreference(FILE_QSPANEL_SELECT);
-
-        mQsNewImage = (SystemSettingSwitchPreference) findPreference(PREF_QS_NEW_IMAGE);
-
-        mQsPanelImageShadow = (CustomSeekBarPreference) findPreference(QS_PANEL_IMAGE_SHADOW);
-        final int qsPanelShadow = Settings.System.getInt(getContentResolver(),
-                Settings.System.QS_PANEL_IMAGE_SHADOW, 0);
-        mQsPanelImageShadow.setValue((int)(((double) qsPanelShadow / 255) * 100));
-        mQsPanelImageShadow.setOnPreferenceChangeListener(this);
-
-        mQsNewBgEnabled = (SystemSettingIntListPreference) findPreference(PREF_QS_NEW_BG);
-        int val = Settings.System.getIntForUser(getActivity().getContentResolver(),
-                Settings.System.QS_NEW_BG_ENABLED, 0, UserHandle.USER_CURRENT);
-        mQsNewBgEnabled.setOnPreferenceChangeListener(this);
-        if (val > 0) {
-            mQsNewImage.setEnabled(false);
-        } else {
-            mQsNewImage.setEnabled(true);
-        }
 
         setupAccentPref();
         setupGradientPref();
@@ -382,35 +353,8 @@ public class XThemeRoom extends DashboardFragment implements
                    break;
             }
             return true;
-        } else if (preference == mQsPanelImageShadow) {
-            Integer qsPanelShadow = (Integer) newValue;
-            int realShadowValue = (int) (((double) qsPanelShadow / 100) * 255);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.QS_PANEL_IMAGE_SHADOW, realShadowValue);
-            return true;
-        } else if (preference == mQsNewBgEnabled) {
-            int val = Integer.parseInt((String) newValue);
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.QS_NEW_BG_ENABLED, val);
-            if (val > 0) {
-                mQsNewImage.setEnabled(false);
-            } else {
-                mQsNewImage.setEnabled(true);
-            }
-            return true;
         }
         return false;
-    }
-
-    @Override
-    public boolean onPreferenceTreeClick(Preference preference) {
-        if (preference == mQsPanelImage) {
-            Intent intent = new Intent(Intent.ACTION_PICK);
-            intent.setType("image/*");
-            startActivityForResult(intent, REQUEST_PICK_IMAGE);
-            return true;
-        }
-        return super.onPreferenceTreeClick(preference);
     }
 
     private void setupAccentPref() {
@@ -488,17 +432,6 @@ public class XThemeRoom extends DashboardFragment implements
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
-        }
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent result) {
-        if (requestCode == REQUEST_PICK_IMAGE) {
-            if (resultCode != Activity.RESULT_OK) {
-                return;
-            }
-            final Uri imageUri = result.getData();
-            Settings.System.putString(getContentResolver(), Settings.System.QS_PANEL_CUSTOM_IMAGE, imageUri.toString());
         }
     }
 

@@ -1813,4 +1813,8 @@
     <string name="qs_panel_shadow_title">Qs Panel Image shadow</string>
     <string name="qs_panel_shadow_summary">For better visibility on bright qs panel custom images</string>
 
+    <!-- Qs Panel Themes  -->
+    <string name="qs_theme_cat_title">QS Panel Bg Options</string>
+    <string name="qs_theme_cat_summary">Qs panel customization options</string>
+
 </resources>

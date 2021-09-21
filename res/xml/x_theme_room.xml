@@ -146,7 +146,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="@string/qs_themes_category" >
+        android:title="@string/qs_themes_category" />
 
         <ListPreference
             android:key="qs_tile_style"
@@ -202,46 +202,10 @@
             android:summary="@string/qs_header_cat_summary"
             android:fragment="com.xtended.fragments.QsHeaderSettings" />
 
-        <!-- Qs New Background -->
-        <com.xtended.support.preferences.SystemSettingIntListPreference
-            android:key="qs_new_bg_enabled"
-            android:title="@string/qs_new_bg_title"
-            android:summary="%s"
-            android:entries="@array/qs_new_bg_entries"
-            android:entryValues="@array/qs_new_bg_values"
-            android:defaultValue="0" />
-
-       <com.xtended.support.preferences.SystemSettingSwitchPreference
-           android:key="qs_panel_type_background"
-           android:title="@string/qs_bg_type_title"
-           android:summary="@string/qs_bg_type_summary"
-           android:defaultValue="false" />
-
-       <Preference
-           android:key="file_qspanel_select"
-           android:title="@string/file_header_select_title"
-           android:summary="@string/file_header_select_summary"
-           android:dependency="qs_panel_type_background"
-           android:persistent="false" >
-       </Preference>
-
-        <com.xtended.support.preferences.CustomSeekBarPreference
-            android:key="qs_panel_image_shadow"
-            android:title="@string/qs_panel_shadow_title"
-            android:summary="@string/qs_panel_shadow_summary"
-            android:max="100"
-            settings:min="0"
-            settings:unitsRight="@string/unit_percent"
-            android:persistent="false"
-            android:dependency="qs_panel_type_background" />
-
-       <com.xtended.support.preferences.SystemSettingSwitchPreference
-           android:key="qs_panel_custom_image_blur"
-           android:title="@string/qs_bg_blur_image_title"
-           android:summary="@string/qs_bg_blur_image_summary"
-           android:dependency="qs_panel_type_background"
-           android:defaultValue="false" />
-
-    </PreferenceCategory>
+        <PreferenceScreen
+            android:key="qs_theme_settings"
+            android:title="@string/qs_theme_cat_title"
+            android:summary="@string/qs_theme_cat_summary"
+            android:fragment="com.xtended.fragments.QsThemeSettings" />
 
 </PreferenceScreen>
