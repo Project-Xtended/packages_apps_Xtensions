@@ -1822,5 +1822,27 @@
     <!-- Oneui -->
     <string name="enable_oneui">OneUI Settings Actionbar</string>
     <string name="enable_oneui_summary">Show spacer above settings actionbar for easier use with one hand\nNOTE: restart settings app to see effect</string>
+    <string name="dashboard_message">Settings needs to rebuild UI for applying changes. Would you like to continue?</string>
+    <string name="dashboard_ui">Re-build Settings UI</string>
+
+    <!-- Settings Spacer Style -->
+    <string name="settings_spacer_style_title">Spacer style</string>
+    <string name="settings_spacer_font_style_title">Spacer font style</string>
+    <string name="settings_spacer_style_image">Static Image</string>
+    <string name="settings_spacer_style_text">Text</string>
+    <string name="settings_spacer_image_style_title">Spacer image style</string>
+    <string name="settings_spacer_image_style_summary">Toggle to show profile avatar, Xtended logo or custom image</string>
+    <string name="settings_spacer_image_searchbar_title">Hide searchbar image</string>
+    <string name="settings_spacer_image_searchbar_summary">Toggle to hide profile avatar from searchbar when spacer is showing avatar</string>
+    <string name="user_avatar_disabled">Set an avatar first from user settings.</string>
+    <string name="settings_crop_0">Fit to settings header</string>
+    <string name="settings_crop_1">Original resolution</string>
+    <string name="settings_spacer_image_crop_title">Image size</string>
+    <string name="settings_image_style_0">Static image</string>
+    <string name="settings_image_style_1">User avatar</string>
+    <string name="settings_image_style_2">Xtended Dashboard Image</string>
+    <string name="settings_image_style_3">Custom image</string>
+    <string name="file_spacer_select_summary">Select image from storage. Currently using original resolution</string>
+    <string name="file_spacer_select_summary_fill">Select image from storage. Currently fitting to settings header</string>
 
 </resources>

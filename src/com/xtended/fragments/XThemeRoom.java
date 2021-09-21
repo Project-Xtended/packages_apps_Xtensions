@@ -23,6 +23,7 @@ import com.android.internal.logging.nano.MetricsProto;
 import static android.os.UserHandle.USER_SYSTEM;
 import static android.os.UserHandle.USER_CURRENT;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -36,9 +37,14 @@ import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.content.om.IOverlayManager;
 import android.content.om.OverlayInfo;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Process;
 import android.os.RemoteException;
 import android.os.SystemProperties;
 import android.os.ServiceManager;
@@ -52,12 +58,20 @@ import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
 import android.provider.Settings;
 import com.android.settings.R;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MenuInflater;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -72,6 +86,7 @@ import com.xtended.display.QsTileStylePreferenceController;
 import com.xtended.support.preferences.CustomSeekBarPreference;
 import com.xtended.support.preferences.SystemSettingIntListPreference;
 import com.xtended.support.preferences.SystemSettingSwitchPreference;
+import com.xtended.support.preferences.SystemSettingListPreference;
 
 import com.android.internal.util.xtended.ThemesUtils;
 import com.android.internal.util.xtended.XtendedUtils;
@@ -80,8 +95,6 @@ import com.android.settings.display.FontPickerPreferenceController;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 import android.provider.SearchIndexableResource;
-import java.util.ArrayList;
-import java.util.List;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class XThemeRoom extends DashboardFragment implements
@@ -97,6 +110,14 @@ public class XThemeRoom extends DashboardFragment implements
     private static final String GRADIENT_COLOR = "gradient_color";
     private static final String GRADIENT_COLOR_PROP = "persist.sys.theme.gradientcolor";
     private static final String KEY_QS_PANEL_ALPHA = "qs_panel_alpha";
+    private static final String ONE_UI = "settings_spacer";
+    private static final String STYLE = "settings_spacer_style";
+    private static final String FONT = "settings_spacer_font_style";
+    private static final String IMAGE = "settings_spacer_image_style";
+    private static final String SEARCHBAR = "settings_spacer_image_searchbar";
+    private static final String FILE_SPACER_SELECT = "file_spacer_select";
+    private static final String CROP = "settings_spacer_image_crop";
+    private static final int REQUEST_PICK_IMAGE = 0;
     private static final int MENU_RESET = Menu.FIRST;
 
     static final int DEFAULT = 0xff1a73e8;
@@ -109,6 +130,13 @@ public class XThemeRoom extends DashboardFragment implements
     private ColorPickerPreference mThemeColor;
     private ColorPickerPreference mGradientColor;
     private CustomSeekBarPreference mQsPanelAlpha;
+    private SystemSettingSwitchPreference mOneUI;
+    private SystemSettingListPreference mHomeStyle;
+    private SystemSettingListPreference mHomeFont;
+    private SystemSettingListPreference mImage;
+    private SystemSettingListPreference mImageSize;
+    private SystemSettingSwitchPreference mSearchbarImage;
+    private Preference mSpacerImage;
 
     private IntentFilter mIntentFilter;
     private static FontPickerPreferenceController mFontPickerPreference;
@@ -154,6 +182,48 @@ public class XThemeRoom extends DashboardFragment implements
         }
         mNavbarPicker.setSummary(mNavbarPicker.getEntry());
         mNavbarPicker.setOnPreferenceChangeListener(this);
+
+        mOneUI = (SystemSettingSwitchPreference) findPreference(ONE_UI);
+        mOneUI.setOnPreferenceChangeListener(this);
+
+        mImageSize = (SystemSettingListPreference) findPreference(CROP);
+        mImageSize.setOnPreferenceChangeListener(this);
+
+        mSpacerImage = findPreference(FILE_SPACER_SELECT);
+
+        mImage = (SystemSettingListPreference) findPreference(IMAGE);
+        int imagetype = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.SETTINGS_SPACER_IMAGE_STYLE, 0);
+        mImage.setOnPreferenceChangeListener(this);
+        if (imagetype == 3) {
+            mSpacerImage.setEnabled(true);
+            mImageSize.setEnabled(true);
+        } else {
+            mSpacerImage.setEnabled(false);
+            mImageSize.setEnabled(false);
+        }
+
+        mSearchbarImage = (SystemSettingSwitchPreference) findPreference(SEARCHBAR);
+        mSearchbarImage.setOnPreferenceChangeListener(this);
+
+        mHomeFont = (SystemSettingListPreference) findPreference(FONT);
+        mHomeFont.setOnPreferenceChangeListener(this);
+
+        mHomeStyle = (SystemSettingListPreference) findPreference(STYLE);
+        int style = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.SETTINGS_SPACER_STYLE, 0);
+        mHomeStyle.setOnPreferenceChangeListener(this);
+        if (style == 1) {
+            mHomeFont.setEnabled(true);
+            mImage.setEnabled(false);
+            mSpacerImage.setEnabled(false);
+            mImageSize.setEnabled(false);
+        } else {
+            mImage.setEnabled(true);
+            mSpacerImage.setEnabled(true);
+            mImageSize.setEnabled(true);
+            mHomeFont.setEnabled(false);
+        }
 
         setupAccentPref();
         setupGradientPref();
@@ -353,8 +423,137 @@ public class XThemeRoom extends DashboardFragment implements
                    break;
             }
             return true;
+       } else if (preference == mOneUI) {
+             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+             alertDialog.setTitle(getString(R.string.dashboard_ui));
+             alertDialog.setMessage(getString(R.string.dashboard_message));
+             alertDialog.setButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                         Process.killProcess(Process.myPid());
+                       }
+                    });
+              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                 public void onClick(DialogInterface dialog, int which) {
+                            return;
+                         }
+                  });
+             alertDialog.show();
+            return true;
+         } else if (preference == mHomeFont) {
+             int val = Integer.parseInt((String) newValue);
+             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+             alertDialog.setTitle(getString(R.string.dashboard_ui));
+             alertDialog.setMessage(getString(R.string.dashboard_message));
+             alertDialog.setButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                             Process.killProcess(Process.myPid());
+                     }
+               });
+              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                 public void onClick(DialogInterface dialog, int which) {
+                            return;
+                         }
+                  });
+             alertDialog.show();
+             return true;
+         }  else if (preference == mImageSize) {
+             int value = Integer.parseInt((String) newValue);
+             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+             alertDialog.setTitle(getString(R.string.dashboard_ui));
+             alertDialog.setMessage(getString(R.string.dashboard_message));
+             alertDialog.setButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                         Process.killProcess(Process.myPid());
+                       }
+                    });
+              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                 public void onClick(DialogInterface dialog, int which) {
+                            return;
+                         }
+                  });
+             alertDialog.show();
+             return true;
+         } else if (preference == mImage) {
+             int value = Integer.parseInt((String) newValue);
+             if (value == 3) {
+                 mSpacerImage.setEnabled(true);
+                 mImageSize.setEnabled(true);
+             } else {
+                 mSpacerImage.setEnabled(false);
+                 mImageSize.setEnabled(false);
+             }
+             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+             alertDialog.setTitle(getString(R.string.dashboard_ui));
+             alertDialog.setMessage(getString(R.string.dashboard_message));
+             alertDialog.setButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                         Process.killProcess(Process.myPid());
+                       }
+                    });
+              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                 public void onClick(DialogInterface dialog, int which) {
+                            return;
+                         }
+                  });
+             alertDialog.show();
+             return true;
+         } else if (preference == mHomeStyle) {
+             int val = Integer.parseInt((String) newValue);
+             if (val == 1) {
+                 mHomeFont.setEnabled(true);
+                 mImage.setEnabled(false);
+                 mSpacerImage.setEnabled(false);
+                 mImageSize.setEnabled(false);
+             } else {
+                 mImage.setEnabled(true);
+                 mSpacerImage.setEnabled(true);
+                 mImageSize.setEnabled(true);
+                 mHomeFont.setEnabled(false);
+             }
+             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+             alertDialog.setTitle(getString(R.string.dashboard_ui));
+             alertDialog.setMessage(getString(R.string.dashboard_message));
+             alertDialog.setButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                             Process.killProcess(Process.myPid());
+                     }
+               });
+              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                 public void onClick(DialogInterface dialog, int which) {
+                            return;
+                         }
+                  });
+             alertDialog.show();
+             return true;
+         } else if (preference == mSearchbarImage) {
+             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+             alertDialog.setTitle(getString(R.string.dashboard_ui));
+             alertDialog.setMessage(getString(R.string.dashboard_message));
+             alertDialog.setButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                         Process.killProcess(Process.myPid());
+                       }
+                    });
+              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                 public void onClick(DialogInterface dialog, int which) {
+                            return;
+                         }
+                  });
+             alertDialog.show();
+             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference == mSpacerImage) {
+            Intent intent = new Intent(Intent.ACTION_PICK);
+            intent.setType("image/*");
+            startActivityForResult(intent, REQUEST_PICK_IMAGE);
+            return true;
+        }
+        return super.onPreferenceTreeClick(preference);
     }
 
     private void setupAccentPref() {
@@ -432,6 +631,31 @@ public class XThemeRoom extends DashboardFragment implements
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent result) {
+        if (requestCode == REQUEST_PICK_IMAGE) {
+            if (resultCode != Activity.RESULT_OK) {
+                return;
+            }
+            final Uri spacerImageUri = result.getData();
+            Settings.System.putString(getContentResolver(), Settings.System.SETTINGS_SPACER_CUSTOM, spacerImageUri.toString());
+            AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+            alertDialog.setTitle(getString(R.string.dashboard_ui));
+            alertDialog.setMessage(getString(R.string.dashboard_message));
+            alertDialog.setButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+              public void onClick(DialogInterface dialog, int which) {
+                         Process.killProcess(Process.myPid());
+                       }
+              });
+              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.cancel), new DialogInterface.OnClickListener() {
+              public void onClick(DialogInterface dialog, int which) {
+                           return;
+                       }
+             });
+             alertDialog.show();
         }
     }
 
