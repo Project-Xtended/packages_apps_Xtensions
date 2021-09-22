@@ -111,6 +111,7 @@ public class XThemeRoom extends DashboardFragment implements
     private static final String GRADIENT_COLOR_PROP = "persist.sys.theme.gradientcolor";
     private static final String KEY_QS_PANEL_ALPHA = "qs_panel_alpha";
     private static final String ONE_UI = "settings_spacer";
+    private static final String A12_SEARCH = "use_new_searchbar";
     private static final String STYLE = "settings_spacer_style";
     private static final String FONT = "settings_spacer_font_style";
     private static final String IMAGE = "settings_spacer_image_style";
@@ -131,6 +132,7 @@ public class XThemeRoom extends DashboardFragment implements
     private ColorPickerPreference mGradientColor;
     private CustomSeekBarPreference mQsPanelAlpha;
     private SystemSettingSwitchPreference mOneUI;
+    private SystemSettingSwitchPreference mA12SearchBar;
     private SystemSettingListPreference mHomeStyle;
     private SystemSettingListPreference mHomeFont;
     private SystemSettingListPreference mImage;
@@ -185,6 +187,9 @@ public class XThemeRoom extends DashboardFragment implements
 
         mOneUI = (SystemSettingSwitchPreference) findPreference(ONE_UI);
         mOneUI.setOnPreferenceChangeListener(this);
+
+        mA12SearchBar = (SystemSettingSwitchPreference) findPreference(A12_SEARCH);
+        mA12SearchBar.setOnPreferenceChangeListener(this);
 
         mImageSize = (SystemSettingListPreference) findPreference(CROP);
         mImageSize.setOnPreferenceChangeListener(this);
@@ -541,6 +546,22 @@ public class XThemeRoom extends DashboardFragment implements
                   });
              alertDialog.show();
              return true;
+         } else if (preference == mA12SearchBar) {
+             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+             alertDialog.setTitle(getString(R.string.dashboard_ui));
+             alertDialog.setMessage(getString(R.string.dashboard_message));
+             alertDialog.setButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                         Process.killProcess(Process.myPid());
+                       }
+                    });
+              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                 public void onClick(DialogInterface dialog, int which) {
+                            return;
+                         }
+                  });
+             alertDialog.show();
+            return true;
         }
         return false;
     }
