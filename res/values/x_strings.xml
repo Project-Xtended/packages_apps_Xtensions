@@ -1852,5 +1852,8 @@
     <string name="panel_batik">Batik</string>
     <string name="panel_kece">Kece</string>
     <string name="panel_outline">Outline</string>
+    <string name="panel_xaccent">Xtended Accent</string>
+    <string name="panel_xgradient">Xtended Gradient</string>
+    <string name="panel_xrevgrad">Xtended Reverse Gradient</string>
 
 </resources>
