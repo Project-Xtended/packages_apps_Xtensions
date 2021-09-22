@@ -1855,5 +1855,7 @@
     <string name="panel_xaccent">Xtended Accent</string>
     <string name="panel_xgradient">Xtended Gradient</string>
     <string name="panel_xrevgrad">Xtended Reverse Gradient</string>
+    <string name="panel_xgradkece">Kece Gradient</string>
+    <string name="panel_xrevgradkece">Kece Reverse Gradient</string>
 
 </resources>

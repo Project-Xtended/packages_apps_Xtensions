@@ -1921,6 +1921,8 @@
         <item>@string/panel_xaccent</item>
         <item>@string/panel_xgradient</item>
         <item>@string/panel_xrevgrad</item>
+        <item>@string/panel_xgradkece</item>
+        <item>@string/panel_xrevgradkece</item>
     </string-array>
 
     <string-array name="panel_bg_values" translatable="false">
@@ -1931,6 +1933,8 @@
         <item>5</item>
         <item>6</item>
         <item>7</item>
+        <item>8</item>
+        <item>9</item>
     </string-array>
 
 </resources>
