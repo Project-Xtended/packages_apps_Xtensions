@@ -110,6 +110,7 @@ public class XThemeRoom extends DashboardFragment implements
     private static final String GRADIENT_COLOR = "gradient_color";
     private static final String GRADIENT_COLOR_PROP = "persist.sys.theme.gradientcolor";
     private static final String KEY_QS_PANEL_ALPHA = "qs_panel_alpha";
+    private static final String PREF_PANEL_BG = "panel_bg";
     private static final String ONE_UI = "settings_spacer";
     private static final String A12_SEARCH = "use_new_searchbar";
     private static final String STYLE = "settings_spacer_style";
@@ -131,6 +132,7 @@ public class XThemeRoom extends DashboardFragment implements
     private ColorPickerPreference mThemeColor;
     private ColorPickerPreference mGradientColor;
     private CustomSeekBarPreference mQsPanelAlpha;
+    private ListPreference mPanelBg;
     private SystemSettingSwitchPreference mOneUI;
     private SystemSettingSwitchPreference mA12SearchBar;
     private SystemSettingListPreference mHomeStyle;
@@ -230,6 +232,16 @@ public class XThemeRoom extends DashboardFragment implements
             mHomeFont.setEnabled(false);
         }
 
+        mPanelBg = (ListPreference) findPreference(PREF_PANEL_BG);
+        int panelValue = getOverlayPosition(ThemesUtils.PANEL_BG_STYLE);
+        if (panelValue != -1) {
+            mPanelBg.setValue(String.valueOf(panelValue + 2));
+        } else {
+            mPanelBg.setValue("1");
+        }
+        mPanelBg.setSummary(mPanelBg.getEntry());
+        mPanelBg.setOnPreferenceChangeListener(this);
+
         setupAccentPref();
         setupGradientPref();
         getQsPanelAlphaPref();
@@ -318,6 +330,25 @@ public class XThemeRoom extends DashboardFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.QS_PANEL_BG_ALPHA, trueValue);
             return true;
+        } else if (preference == mPanelBg) {
+            String panelbg = (String) newValue;
+            int panelBgValue = Integer.parseInt(panelbg);
+            mPanelBg.setValue(String.valueOf(panelBgValue));
+            String overlayName = getOverlayName(ThemesUtils.PANEL_BG_STYLE);
+            if (overlayName != null) {
+                handleOverlays(overlayName, false, mOverlayService);
+            }
+            if (panelBgValue > 1) {
+                try {
+                    mOverlayService.reloadAndroidAssets(UserHandle.USER_CURRENT);
+                    mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+                    mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+                } catch (RemoteException ignored) {
+                }
+                handleOverlays(ThemesUtils.PANEL_BG_STYLE[panelBgValue -2],
+                        true, mOverlayService);
+            }
+            mPanelBg.setSummary(mPanelBg.getEntry());
         } else if (preference == mNavbarPicker) {
             String navbarStyle = (String) newValue;
             int navbarStyleValue = Integer.parseInt(navbarStyle);

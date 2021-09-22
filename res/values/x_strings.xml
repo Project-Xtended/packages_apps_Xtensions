@@ -1845,4 +1845,12 @@
     <string name="file_spacer_select_summary">Select image from storage. Currently using original resolution</string>
     <string name="file_spacer_select_summary_fill">Select image from storage. Currently fitting to settings header</string>
 
+    <!-- Panel Background style -->
+    <string name="panel_bg_title">Panel background style</string>
+    <string name="panel_bg_dialog_title">Select panel background model</string>
+    <string name="panel_default">Default</string>
+    <string name="panel_batik">Batik</string>
+    <string name="panel_kece">Kece</string>
+    <string name="panel_outline">Outline</string>
+
 </resources>
