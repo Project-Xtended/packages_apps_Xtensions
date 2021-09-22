@@ -21,4 +21,8 @@
     <string name="config_custom_tilt"></string>
     <!-- Defines the custom pocket sensor used by various OEMs like OnePlus-->
     <string name="config_custom_proximity"></string>
+
+    <!-- Enable System Info -->
+    <bool name="enable_SystemInfo">true</bool>
+
 </resources>

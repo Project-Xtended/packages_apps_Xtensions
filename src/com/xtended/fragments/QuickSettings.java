@@ -44,6 +44,7 @@ import android.text.TextUtils;
 import android.view.View;
 
 import com.xtended.support.preferences.SystemSettingEditTextPreference;
+import com.xtended.support.preferences.SystemSettingListPreference;
 
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
@@ -57,8 +58,10 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
     private static final String QS_BATTERY_PERCENTAGE = "qs_battery_percentage";
     private static final String X_FOOTER_TEXT_STRING = "x_footer_text_string";
+    private static final String QS_SYSTEM_INFO = "qs_system_info";
 
     private SwitchPreference mQsBatteryPercent;
+    private SystemSettingListPreference mQsSystemInfo;
     private SystemSettingEditTextPreference mFooterString;
 
     @Override
@@ -69,6 +72,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
         PreferenceScreen prefScreen = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
+
+        final boolean enableSystemInfo = getResources().getBoolean(
+                    R.bool.enable_SystemInfo);
 
         mQsBatteryPercent = (SwitchPreference) findPreference(QS_BATTERY_PERCENTAGE);
         mQsBatteryPercent.setChecked((Settings.System.getInt(
@@ -86,6 +92,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             mFooterString.setText("Xtended");
             Settings.System.putString(getActivity().getContentResolver(),
                     Settings.System.X_FOOTER_TEXT_STRING, "Xtended");
+        }
+
+        mQsSystemInfo = (SystemSettingListPreference) findPreference(QS_SYSTEM_INFO);
+
+        if (!enableSystemInfo) {
+            prefScreen.removePreference(mQsSystemInfo);
         }
     }
 
