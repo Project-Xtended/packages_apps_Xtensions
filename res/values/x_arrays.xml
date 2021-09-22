@@ -1718,6 +1718,9 @@
         <item>@string/qs_new_bg_gradient_brdr</item>
         <item>@string/qs_new_bg_rev_grad</item>
         <item>@string/qs_new_bg_rev_grad_brdr</item>
+        <item>@string/qs_new_bg_accent_kece</item>
+        <item>@string/qs_new_bg_gradient_kece</item>
+        <item>@string/qs_new_bg_rev_grad_kece</item>
     </string-array>
 
     <string-array name="qs_new_bg_values" translatable="false">
@@ -1728,6 +1731,9 @@
         <item>5</item>
         <item>3</item>
         <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
     </string-array>
 
     <!-- Qs Header New Background style -->
@@ -1736,6 +1742,9 @@
         <item>@string/qs_new_bg_accent_brdr</item>
         <item>@string/qs_new_bg_gradient_brdr</item>
         <item>@string/qs_new_bg_rev_grad_brdr</item>
+        <item>@string/qs_new_bg_accent_kece</item>
+        <item>@string/qs_new_bg_gradient_kece</item>
+        <item>@string/qs_new_bg_rev_grad_kece</item>
     </string-array>
 
     <string-array name="qs_header_new_bg_values" translatable="false">
@@ -1743,6 +1752,9 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
     </string-array>
 
     <!-- Sleep Mode -->

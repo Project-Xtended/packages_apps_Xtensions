@@ -1594,6 +1594,9 @@
     <string name="qs_new_bg_gradient_brdr">Gradient Bg with Border</string>
     <string name="qs_new_bg_rev_grad_brdr">Reverse-Gradient Bg with Border</string>
     <string name="qs_header_new_bg_title">Qs Header Background-Borders</string>
+    <string name="qs_new_bg_accent_kece">Accent Bg Kece</string>
+    <string name="qs_new_bg_gradient_kece">Gradient Bg Kece</string>
+    <string name="qs_new_bg_rev_grad_kece">Reverse Gradient Bg Kece</string>
 
     <!-- SB Weather Customization -->
     <string name="status_bar_weather_font_style_title">Weather Font Style</string>
