@@ -1962,4 +1962,19 @@
         <item>2</item>
     </string-array>
 
+    <!-- Notification Category Style Header -->
+    <string-array name="notification_header_cat_style_entries" translatable="false">
+        <item>@string/notif_cat_default</item>
+        <item>@string/notif_cat_accent</item>
+        <item>@string/notif_cat_gradient</item>
+        <item>@string/notif_cat_revgrad</item>
+    </string-array>
+
+    <string-array name="notification_header_cat_style_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
 </resources>

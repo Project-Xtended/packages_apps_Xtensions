@@ -1831,7 +1831,7 @@
     <!-- Settings Spacer Style -->
     <string name="settings_spacer_style_title">Spacer style</string>
     <string name="settings_spacer_font_style_title">Spacer font style</string>
-    <string name="settings_spacer_style_image">Static Image</string>
+    <string name="settings_spacer_style_image">Image</string>
     <string name="settings_spacer_style_text">Text</string>
     <string name="settings_spacer_image_style_title">Spacer image style</string>
     <string name="settings_spacer_image_style_summary">Toggle to show profile avatar, Xtended logo or custom image</string>
@@ -1880,5 +1880,12 @@
     <string name="separators_notification_header_title">Separators in header</string>
     <string name="separators_notification_header_summary">Add separators in notification headers</string>
     <string name="notification_header_gravity_title">Notification Header Text Gravity</string>
+
+    <!-- Notification Category Style Header -->
+    <string name="notification_header_cat_style_title">Notif. Separators Style</string>
+    <string name="notif_cat_default">Default</string>
+    <string name="notif_cat_accent">Accented Separators</string>
+    <string name="notif_cat_gradient">Gradient Separators</string>
+    <string name="notif_cat_revgrad">Reverse Gradient Separators</string>
 
 </resources>

@@ -18,6 +18,8 @@
 
 package com.xtended.fragments;
 
+import static android.os.UserHandle.USER_SYSTEM;
+
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
@@ -27,10 +29,15 @@ import androidx.preference.SwitchPreference;
 import androidx.preference.PreferenceScreen;
 import android.content.Context;
 import android.content.ContentResolver;
+import android.content.om.IOverlayManager;
+import android.content.om.OverlayInfo;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 
 import com.android.internal.logging.nano.MetricsProto;
 import android.os.Bundle;
+import android.os.RemoteException;
+import android.os.ServiceManager;
+import android.os.UserHandle;
 import android.provider.Settings;
 import com.android.settings.R;
 import android.net.ConnectivityManager;
@@ -42,9 +49,11 @@ import android.provider.SearchIndexableResource;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.android.internal.util.xtended.ThemesUtils;
 import com.android.internal.util.xtended.XtendedUtils;
 import com.android.internal.util.hwkeys.ActionUtils;
 import com.xtended.support.preferences.SystemSettingSwitchPreference;
+import com.xtended.fragments.XThemeRoom;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class NotificationSettings extends SettingsPreferenceFragment implements
@@ -57,7 +66,9 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
     private static final String VOICEMAIL_BREATH = "voicemail_breath";
     private static final String PREF_TICKER_FONT_STYLE = "status_bar_ticker_font_style";
     private static final String CATEGORY_LED = "light_cat";
+    private static final String PREF_NOTIF_CAT_STYLE = "notification_header_cat_style";
 
+    private IOverlayManager mOverlayService;
     private Preference mChargingLeds;
     private Preference mNotifLeds;
     private ListPreference mFlashlightOnCall;
@@ -65,12 +76,16 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
     private SwitchPreference mMissedCallBreath;
     private SwitchPreference mVoicemailBreath;
     private ListPreference mTickerFontStyle;
+    private ListPreference mNotifCatStyle;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
         addPreferencesFromResource(R.xml.x_settings_notifications);
+
+        mOverlayService = IOverlayManager.Stub
+                .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
 
         ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
@@ -135,6 +150,16 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
                 getContentResolver(), Settings.System.STATUS_BAR_TICKER_FONT_STYLE, 0)));
         mTickerFontStyle.setSummary(mTickerFontStyle.getEntry());
         mTickerFontStyle.setOnPreferenceChangeListener(this);
+
+        mNotifCatStyle = (ListPreference) findPreference(PREF_NOTIF_CAT_STYLE);
+        int notifCatValue = getOverlayPosition(ThemesUtils.NOTIF_CAT_STYLE);
+        if (notifCatValue != -1) {
+            mNotifCatStyle.setValue(String.valueOf(notifCatValue + 2));
+        } else {
+            mNotifCatStyle.setValue("1");
+        }
+        mNotifCatStyle.setSummary(mNotifCatStyle.getEntry());
+        mNotifCatStyle.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -165,8 +190,57 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
                 STATUS_BAR_TICKER_FONT_STYLE, showTickerFont);
             mTickerFontStyle.setSummary(mTickerFontStyle.getEntries()[index]);
             return true;
+        } else if (preference == mNotifCatStyle) {
+            String notifStyle = (String) newValue;
+            int notifCatValue = Integer.parseInt(notifStyle);
+            mNotifCatStyle.setValue(String.valueOf(notifCatValue));
+            String overlayName = getOverlayName(ThemesUtils.NOTIF_CAT_STYLE);
+            if (overlayName != null) {
+                handleOverlays(overlayName, false, mOverlayService);
+            }
+            if (notifCatValue > 1) {
+                try {
+                    mOverlayService.reloadAndroidAssets(UserHandle.USER_CURRENT);
+                    mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+                    mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+                } catch (RemoteException ignored) {
+                }
+                handleOverlays(ThemesUtils.NOTIF_CAT_STYLE[notifCatValue -2],
+                        true, mOverlayService);
+            }
+            mNotifCatStyle.setSummary(mNotifCatStyle.getEntry());
         }
         return false;
+    }
+
+    private int getOverlayPosition(String[] overlays) {
+        int position = -1;
+        for (int i = 0; i < overlays.length; i++) {
+            String overlay = overlays[i];
+            if (XtendedUtils.isThemeEnabled(overlay)) {
+                position = i;
+            }
+        }
+        return position;
+    }
+
+    private String getOverlayName(String[] overlays) {
+        String overlayName = null;
+        for (int i = 0; i < overlays.length; i++) {
+            String overlay = overlays[i];
+            if (XtendedUtils.isThemeEnabled(overlay)) {
+                overlayName = overlay;
+            }
+        }
+        return overlayName;
+    }
+
+    public void handleOverlays(String packagename, Boolean state, IOverlayManager mOverlayManager) {
+        try {
+            mOverlayService.setEnabled(packagename, state, USER_SYSTEM);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

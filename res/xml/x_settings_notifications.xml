@@ -25,7 +25,7 @@
         android:fragment="com.xtended.fragments.HeadsUpSettings" />
 
     <PreferenceCategory
-        android:key="notification_headers"
+        android:key="notification_headers_cat"
         android:title="@string/notification_headers_category" >
 
        <com.xtended.support.preferences.SystemSettingSwitchPreference
@@ -34,12 +34,6 @@
            android:summary="@string/notification_headers_summary"
            android:defaultValue="true" />
 
-        <com.xtended.support.preferences.SystemSettingSwitchPreference
-            android:key="separators_notification_header"
-            android:title="@string/separators_notification_header_title"
-            android:summary="@string/separators_notification_header_summary"
-            android:defaultValue="false" />
-
         <com.xtended.support.preferences.SystemSettingListPreference
             android:key="notification_header_gravity"
             android:title="@string/notification_header_gravity_title"
@@ -47,6 +41,24 @@
             android:entries="@array/gravity_lcr_entries"
             android:entryValues="@array/gravity_lcr_values"
             android:summary="%s"
+            android:dependency="notification_headers"
+            android:defaultValue="0" />
+
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="separators_notification_header"
+            android:title="@string/separators_notification_header_title"
+            android:summary="@string/separators_notification_header_summary"
+            android:dependency="notification_headers"
+            android:defaultValue="false" />
+
+        <ListPreference
+            android:key="notification_header_cat_style"
+            android:title="@string/notification_header_cat_style_title"
+            android:dialogTitle="@string/notification_header_cat_style_title"
+            android:entries="@array/notification_header_cat_style_entries"
+            android:entryValues="@array/notification_header_cat_style_values"
+            android:summary="%s"
+            android:dependency="separators_notification_header"
             android:defaultValue="0" />
 
     </PreferenceCategory>
