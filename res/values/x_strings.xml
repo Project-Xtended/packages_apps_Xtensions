@@ -1888,4 +1888,34 @@
     <string name="notif_cat_gradient">Gradient Separators</string>
     <string name="notif_cat_revgrad">Reverse Gradient Separators</string>
 
+    <!--Dismiss all button styles-->
+    <string name="dismiss_all_styles">Dismiss All Styles</string>
+    <string name="button0">Default</string>
+    <string name="button1">OnePlus</string>
+    <string name="button2">Square Checkbox</string>
+    <string name="button3">Graph</string>
+    <string name="button4">Vertical Lines 1</string>
+    <string name="button5">Vertical Lines 2</string>
+    <string name="button6">Clipboard</string>
+    <string name="button7">Paint</string>
+    <string name="button8">Horizontal Lines</string>
+    <string name="button9">Circular Checkbox</string>
+    <string name="button10">Swiping Delete</string>
+    <string name="button11">Zzzzz</string>
+    <string name="button12">Eye Close</string>
+    <string name="button13">Like Button</string>
+    <string name="button14">Swipe Cube</string>
+    <string name="button15">Bell</string>
+    <string name="button16">Arrow Lines Left</string>
+    <string name="button17">Layers Off</string>
+    <string name="button18">Arrow Lines Back</string>
+    <string name="button19">Layers</string>
+    <string name="button20">Archive</string>
+    <string name="button21">Database Plus</string>
+    <string name="button22">Contracting Arrows</string>
+    <string name="button23">Google</string>
+    <string name="button24">Database Minus</string>
+    <string name="button25">Sequential Cube</string>
+    <string name="button26">Timer</string>
+
 </resources>

@@ -74,6 +74,15 @@
             android:summary="%s"
             android:defaultValue="1" />
 
+        <com.xtended.support.preferences.SystemSettingListPreference
+            android:key="notif_dismissall_style"
+            android:title="@string/dismiss_all_styles"
+            android:dialogTitle="@string/dismiss_all_styles"
+            android:entries="@array/dismiss_all_button_style_entries"
+            android:entryValues="@array/dismiss_all_button_style_values"
+            android:summary="%s"
+            android:defaultValue="0" />
+
        <com.xtended.support.preferences.SecureSettingSwitchPreference
            android:key="adb_notify"
            android:title="@string/adb_notify"
