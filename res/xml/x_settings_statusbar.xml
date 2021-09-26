@@ -80,12 +80,6 @@
             android:summary="@string/status_bar_color_summary"
             android:fragment="com.xtended.fragments.StatusBarColors" />
 
-         <Preference 
-            android:key="cutout_settings" 
-            android:fragment="com.xtended.fragments.CutoutFragment"
-            android:title="@string/cutout_main"
-            android:summary="@string/cutout_main_summary" />
-
         <com.xtended.support.preferences.SystemSettingListPreference 
             android:key="volte_icon_style" 
             android:title="@string/volte_icon_style_title" 
@@ -121,5 +115,10 @@
             android:defaultValue="false" />
 
     </PreferenceCategory>
+    <Preference 
+        android:key="cutout_settings" 
+        android:fragment="com.xtended.fragments.CutoutFragment"
+        android:title="@string/cutout_main"
+        android:summary="@string/cutout_main_summary" />
 
 </PreferenceScreen>
