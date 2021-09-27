@@ -37,6 +37,12 @@
         android:summary="@string/show_ambient_pulse_summary"
         android:defaultValue="true" />
 
+    <com.xtended.support.preferences.SecureSettingSwitchPreference
+        android:key="qs_pulse_enabled"
+        android:title="@string/show_qs_pulse_title"
+        android:summary="@string/show_qs_pulse_summary"
+        android:defaultValue="false" />
+
     <com.xtended.support.preferences.SecureSettingListPreference
         android:key="pulse_render_style"
         android:title="@string/pulse_render_mode_title"

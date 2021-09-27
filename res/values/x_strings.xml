@@ -1918,4 +1918,8 @@
     <string name="button25">Sequential Cube</string>
     <string name="button26">Timer</string>
 
+    <!-- Qs Pulse Option -->
+    <string name="show_qs_pulse_title">Quick Settings Pulse</string>
+    <string name="show_qs_pulse_summary">Audio visualizer on the quick settings</string>
+
 </resources>
