@@ -767,6 +767,10 @@
     <string name="qstile_neonlike">Neon Light</string>
     <string name="qstile_oos">Oxygen</string>
     <string name="qstile_triangles">Triangle</string>
+    <string name="qstile_circledecor">Circle Floral</string>
+    <string name="qstile_hexdecor">Hexagonal Floral</string>
+    <string name="qstile_xtnddecor">Xtended Special Floral</string>
+    <string name="qstile_royalcrown">Royal Crown</string>
 
     <!-- gvisual mod -->
     <string name="gvisual_title">G-Visual Mod</string>

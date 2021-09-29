@@ -632,6 +632,10 @@
         <item>@string/qstile_neonlike</item>
         <item>@string/qstile_oos</item>
         <item>@string/qstile_triangles</item>
+        <item>@string/qstile_circledecor</item>
+        <item>@string/qstile_hexdecor</item>
+        <item>@string/qstile_xtnddecor</item>
+        <item>@string/qstile_royalcrown</item>
     </string-array>
 
     <string-array name="qs_selector_values" translatable="false">
@@ -653,6 +657,10 @@
         <item>15</item> 
         <item>16</item>
         <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
     </string-array>
 
     <!-- Gvisual mod -->
