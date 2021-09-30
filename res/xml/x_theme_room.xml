@@ -248,6 +248,23 @@
             android:summary="@string/qs_icon_primary_summary"
             android:defaultValue="false" />
 
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="xtended_style_qs_tile_icon"
+            android:title="@string/xtended_qs_icon_style_title"
+            android:summary="@string/xtended_qs_icon_style_summary"
+            android:disableDependentsState="true"
+            android:defaultValue="true" />
+
+        <com.xtended.support.preferences.SystemSettingListPreference
+            android:key="qs_tile_icon_tint_style"
+            android:title="@string/qs_tile_icon_style_title"
+            android:summary="%s"
+            android:dialogTitle="@string/qs_tile_icon_style_title"
+            android:entries="@array/qs_tile_icon_style_entries"
+            android:entryValues="@array/qs_tile_icon_style_values"
+            android:dependency="xtended_style_qs_tile_icon"
+            android:defaultValue="0" />
+
         <com.xtended.support.preferences.SystemSettingListPreference
             android:key="qs_label_use_new_tint"
             android:title="@string/qs_label_use_new_tint"

@@ -1938,4 +1938,16 @@
     <string name="pulse_vertical_mirror_title">Vertical Mirror</string>
     <string name="pulse_vertical_mirror_summary">Create other pulse and flip vertically</string>
 
+    <!-- QS Tile Icon Tint -->
+    <string name="xtended_qs_icon_style_title">Xtended Style Tile Icon Tint</string>
+    <string name="xtended_qs_icon_style_summary">Tint the tile icon inside tile to fixed ones. Disable it to try different tints</string>
+    <string name="qs_tile_icon_style_title">QS Tile Icon Tint Style</string>
+    <string name="qs_icon_tint_textcolor">Current Text Color</string>
+    <string name="qs_icon_tint_textcolor_iverse">Inverse of Current Text</string>
+    <string name="qs_icon_tint_themecolor">Theme Color</string>
+    <string name="qs_icon_tint_cokxygen">Cokxygen Color</string>
+    <string name="qs_icon_tint_accent">Accent Color</string>
+    <string name="qs_icon_tint_gradient">Gradient Color</string>
+    <string name="qs_icon_tint_random">Random Color</string>
+
 </resources>
