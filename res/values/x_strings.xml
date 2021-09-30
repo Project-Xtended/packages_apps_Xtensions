@@ -510,6 +510,8 @@
     <string name="qs_tint_accent">Accent color</string>
     <string name="qs_tint_oos">Oxygen OS Style</string>
     <string name="qs_tint_a12">Android S Style</string>
+    <string name="qs_tint_random_alpha">Random (Alpha) color</string>
+    <string name="qs_tint_accent_alpha">Accent (Alpha) color</string>
 
     <!-- QS Label Tint -->
     <string name="qs_label_use_new_tint">QS label tint</string>
