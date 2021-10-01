@@ -2082,4 +2082,17 @@
         <item>6</item>
     </string-array>
 
+    <!-- Notif. Dismiss All Color Options -->
+    <string-array name="notif_bg_color_mode_entries">
+       <item>@string/dismiss_default_bg</item>
+       <item>@string/dismiss_accent_bg</item>
+       <item>@string/dismiss_custom_bg</item>
+    </string-array>
+
+    <string-array name="notif_bg_color_mode_values" translatable="false">
+      <item>0</item>
+      <item>1</item>
+      <item>2</item>
+    </string-array>
+
 </resources>

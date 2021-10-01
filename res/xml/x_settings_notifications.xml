@@ -63,7 +63,7 @@
 
     </PreferenceCategory>
     <PreferenceCategory
-        android:title="@string/notifications_general_category_title">
+        android:title="@string/notifications_dismiss_all_cat_title">
 
         <com.xtended.support.preferences.SystemSettingListPreference
             android:key="clear_all_button_gravity"
@@ -82,6 +82,38 @@
             android:entryValues="@array/dismiss_all_button_style_values"
             android:summary="%s"
             android:defaultValue="0" />
+
+        <com.xtended.support.preferences.SystemSettingListPreference
+            android:key="notif_bg_color_mode"
+            android:title="@string/notif_bg_color_mode_title"
+            android:dialogTitle="@string/notif_bg_color_mode_title"
+            android:summary="%s"
+            android:entries="@array/notif_bg_color_mode_entries"
+            android:entryValues="@array/notif_bg_color_mode_values"
+            android:defaultValue="0" />
+
+        <com.xtended.support.colorpicker.SystemSettingColorPickerPreference
+            android:key="notif_bg_color"
+            android:title="@string/notif_bg_color_title"
+            android:defaultValue="0xff3980FF" />
+
+        <com.xtended.support.preferences.SystemSettingListPreference
+            android:key="notif_icon_color_mode"
+            android:title="@string/notif_icon_color_mode_title"
+            android:dialogTitle="@string/notif_icon_color_mode_title"
+            android:summary="%s"
+            android:entries="@array/notif_bg_color_mode_entries"
+            android:entryValues="@array/notif_bg_color_mode_values"
+            android:defaultValue="0" />
+
+        <com.xtended.support.colorpicker.SystemSettingColorPickerPreference
+            android:key="notif_icon_color"
+            android:title="@string/notif_icon_color_title"
+            android:defaultValue="0xff3980FF" />
+
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/notifications_general_category_title">
 
        <com.xtended.support.preferences.SecureSettingSwitchPreference
            android:key="adb_notify"

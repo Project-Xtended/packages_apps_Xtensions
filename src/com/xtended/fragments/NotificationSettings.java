@@ -34,6 +34,7 @@ import android.content.om.OverlayInfo;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 
 import com.android.internal.logging.nano.MetricsProto;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
@@ -53,6 +54,8 @@ import com.android.internal.util.xtended.ThemesUtils;
 import com.android.internal.util.xtended.XtendedUtils;
 import com.android.internal.util.hwkeys.ActionUtils;
 import com.xtended.support.preferences.SystemSettingSwitchPreference;
+import com.xtended.support.preferences.SystemSettingListPreference;
+import com.xtended.support.colorpicker.SystemSettingColorPickerPreference;
 import com.xtended.fragments.XThemeRoom;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
@@ -67,7 +70,12 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
     private static final String PREF_TICKER_FONT_STYLE = "status_bar_ticker_font_style";
     private static final String CATEGORY_LED = "light_cat";
     private static final String PREF_NOTIF_CAT_STYLE = "notification_header_cat_style";
+    private static final String BG_COLOR = "notif_bg_color";
+    private static final String ICON_COLOR = "notif_icon_color";
+    private static final String BG_MODE = "notif_bg_color_mode";
+    private static final String ICON_MODE = "notif_icon_color_mode";
 
+    protected Context mContext;
     private IOverlayManager mOverlayService;
     private Preference mChargingLeds;
     private Preference mNotifLeds;
@@ -77,6 +85,10 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
     private SwitchPreference mVoicemailBreath;
     private ListPreference mTickerFontStyle;
     private ListPreference mNotifCatStyle;
+    private SystemSettingListPreference mBgMode;
+    private SystemSettingListPreference mIconMode;
+    private SystemSettingColorPickerPreference mBgColor;
+    private SystemSettingColorPickerPreference mIconColor;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -87,6 +99,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
         mOverlayService = IOverlayManager.Stub
                 .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
 
+        mContext = getActivity().getApplicationContext();
         ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
@@ -160,6 +173,44 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
         }
         mNotifCatStyle.setSummary(mNotifCatStyle.getEntry());
         mNotifCatStyle.setOnPreferenceChangeListener(this);
+
+        mBgColor = (SystemSettingColorPickerPreference) findPreference(BG_COLOR);
+        int color = Settings.System.getInt(getContentResolver(),
+                Settings.System.NOTIF_CLEAR_ALL_BG_COLOR, 0xFF3980FF) ;
+        mBgColor.setNewPreviewColor(color);
+        mBgColor.setAlphaSliderEnabled(false);
+        String Hex = convertToRGB(color);
+        mBgColor.setSummary(Hex);
+        mBgColor.setOnPreferenceChangeListener(this);
+
+        mIconColor = (SystemSettingColorPickerPreference) findPreference(ICON_COLOR);
+        int iconColor = Settings.System.getInt(getContentResolver(),
+                Settings.System.NOTIF_CLEAR_ALL_ICON_COLOR, 0xFF3980FF);
+        mIconColor.setNewPreviewColor(iconColor);
+        mIconColor.setAlphaSliderEnabled(false);
+        String Hex2 = convertToRGB(iconColor);
+        mIconColor.setSummary(Hex2);
+        mIconColor.setOnPreferenceChangeListener(this);
+
+        mBgMode = (SystemSettingListPreference) findPreference(BG_MODE);
+        int mode = Settings.System.getInt(getContentResolver(),
+                Settings.System.NOTIF_DISMISALL_COLOR_MODE, 0);
+        mBgMode.setOnPreferenceChangeListener(this);
+	if (mode == 2) {
+	    mBgColor.setEnabled(true);
+	} else {
+	    mBgColor.setEnabled(false);
+        }
+
+        mIconMode = (SystemSettingListPreference) findPreference(ICON_MODE);
+        int iconmode = Settings.System.getInt(getContentResolver(),
+                Settings.System.NOTIF_DISMISALL_ICON_COLOR_MODE, 0);
+        mIconMode.setOnPreferenceChangeListener(this);
+	if (iconmode == 2) {
+	    mIconColor.setEnabled(true);
+	} else {
+	    mIconColor.setEnabled(false);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -209,6 +260,36 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
                         true, mOverlayService);
             }
             mNotifCatStyle.setSummary(mNotifCatStyle.getEntry());
+        } else if (preference == mBgMode) {
+            int value = Integer.parseInt((String) newValue);
+            if (value == 2) {
+	        mBgColor.setEnabled(true);
+            } else {
+	        mBgColor.setEnabled(false);
+            }
+            XtendedUtils.showSystemUiRestartDialog(getContext());
+            return true;
+        } else if (preference == mIconMode) {
+            int iconValue = Integer.parseInt((String) newValue);
+            if (iconValue == 2) {
+	        mIconColor.setEnabled(true);
+            } else {
+	        mIconColor.setEnabled(false);
+            }
+            XtendedUtils.showSystemUiRestartDialog(getContext());
+            return true;
+        } else if (preference == mBgColor) {
+             String hex = convertToRGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+             preference.setSummary(hex);
+             XtendedUtils.showSystemUiRestartDialog(getContext());
+             return true;
+        } else if (preference == mIconColor) {
+             String hex = convertToRGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+             preference.setSummary(hex);
+             XtendedUtils.showSystemUiRestartDialog(getContext());
+             return true;
         }
         return false;
     }
@@ -241,6 +322,26 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
         } catch (RemoteException e) {
             e.printStackTrace();
         }
+    }
+
+    public static String convertToRGB(int color) {
+        String red = Integer.toHexString(Color.red(color));
+        String green = Integer.toHexString(Color.green(color));
+        String blue = Integer.toHexString(Color.blue(color));
+
+        if (red.length() == 1) {
+            red = "0" + red;
+        }
+
+        if (green.length() == 1) {
+            green = "0" + green;
+        }
+
+        if (blue.length() == 1) {
+            blue = "0" + blue;
+        }
+
+        return "#" + red + green + blue;
     }
 
     @Override
