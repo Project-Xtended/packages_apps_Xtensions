@@ -116,9 +116,6 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
         }
 
         PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);
-        if (!XtendedUtils.isVoiceCapable(getActivity())) {
-            prefScreen.removePreference(incallVibCategory);
-        }
 
         mFlashlightOnCall = (ListPreference) findPreference(FLASHLIGHT_ON_CALL);
         Preference FlashOnCall = findPreference("flashlight_on_call");
@@ -129,7 +126,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
 
         if (!ActionUtils.deviceSupportsFlashLight(getActivity())
                    || !XtendedUtils.isVoiceCapable(getActivity())) {
-            prefScreen.removePreference(FlashOnCall);
+            prefScreen.removePreference(incallVibCategory);
         }
 
         // Breathing Notifications
