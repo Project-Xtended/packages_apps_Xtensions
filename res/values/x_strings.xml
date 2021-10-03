@@ -612,6 +612,8 @@
 
     <!-- Hardware keys category -->
     <string name="hardware_keys_category_title">Hardware keys</string>
+    <!-- Hardware Wake Keys -->
+    <string name="hardware_keys_wake_title">Wake device</string>
 
     <!-- HW Keys customization -->
     <string name="hardware_keys_disable_title">Disable HW keys</string>
