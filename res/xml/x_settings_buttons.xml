@@ -60,6 +60,13 @@
             android:title="@string/volume_rocker_wake_title"
             android:defaultValue="false" />
 
+        <!-- Volume keys answer call -->
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="volume_answer_call"
+            android:title="@string/call_volume_answer_title"
+            android:summary="@string/call_volume_answer_summary"
+            android:defaultValue="false" />
+
         <com.xtended.support.preferences.SystemSettingSwitchPreference
             android:key="show_app_volume"
             android:title="@string/show_app_volume_title"
