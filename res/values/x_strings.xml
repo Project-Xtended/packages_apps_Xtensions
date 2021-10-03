@@ -1968,4 +1968,8 @@
     <string name="call_volume_answer_title">Answer call</string>
     <string name="call_volume_answer_summary">Enable for volume keys to answer call</string>
 
+    <!-- Arrow Keys While Typing -->
+    <string name="navigation_bar_menu_arrow_keys_title">Arrow keys while typing</string>
+    <string name="navigation_bar_menu_arrow_keys_summary">Display left and right cursor buttons while typing</string>
+
 </resources>
