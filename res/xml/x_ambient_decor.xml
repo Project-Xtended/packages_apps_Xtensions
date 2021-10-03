@@ -66,6 +66,15 @@
             android:summary="%s"
             android:defaultValue="1" />
 
+        <com.xtended.support.preferences.SystemSettingSeekBarPreference
+            android:key="pulse_ambient_light_width"
+            android:title="@string/pulse_ambient_light_width_title"
+            android:max="150"
+            android:min="1"
+            settings:unitsLeft=""
+            settings:unitsRight="px"
+            android:defaultValue="125" />
+
         <com.xtended.support.preferences.CustomSeekBarPreference
             android:key="ambient_notification_light_duration"
             android:title="@string/pulse_ambient_light_duration_title"
