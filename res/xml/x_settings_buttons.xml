@@ -77,6 +77,11 @@
         android:key="back_key"
 	android:title="@string/hardware_keys_back_key_title" >
 
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="back_wake_screen"
+            android:title="@string/hardware_keys_wake_title"
+            android:defaultValue="false" />
+
 	<com.xtended.preferences.ActionPreference
             android:key="hwkeys_button_back_single_tap"
             android:summary="@string/hardware_keys_single_tap_summary"
@@ -101,6 +106,11 @@
 
         android:key="home_key"
         android:title="@string/hardware_keys_home_key_title" >
+
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="home_wake_screen"
+            android:title="@string/hardware_keys_wake_title"
+            android:defaultValue="false" />
 
         <com.xtended.preferences.ActionPreference
             android:key="hwkeys_button_home_single_tap"
@@ -127,6 +137,11 @@
         android:key="app_switch_key"
         android:title="@string/hardware_keys_appswitch_key_title" >
 
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="app_switch_wake_screen"
+            android:title="@string/hardware_keys_wake_title"
+            android:defaultValue="false" />
+
         <com.xtended.preferences.ActionPreference
             android:key="hwkeys_button_overview_single_tap"
             android:summary="@string/hardware_keys_single_tap_summary"
@@ -152,6 +167,11 @@
         android:key="menu_key"
         android:title="@string/hardware_keys_menu_key_title" >
 
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="menu_wake_screen"
+            android:title="@string/hardware_keys_wake_title"
+            android:defaultValue="false" />
+
         <com.xtended.preferences.ActionPreference
             android:key="hwkeys_button_menu_single_tap"
             android:summary="@string/hardware_keys_single_tap_summary"
@@ -176,6 +196,11 @@
 
         android:key="assist_key"
         android:title="@string/hardware_keys_assist_key_title" >
+
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="assist_wake_screen"
+            android:title="@string/hardware_keys_wake_title"
+            android:defaultValue="false" />
 
         <com.xtended.preferences.ActionPreference
             android:key="hwkeys_button_assist_single_tap"
