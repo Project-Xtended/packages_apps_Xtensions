@@ -1979,4 +1979,7 @@
     <!-- Hardware Wake Keys -->
     <string name="hardware_keys_wake_title">Wake device</string>
 
+    <!-- Edge Light -->
+    <string name="pulse_ambient_light_width_title">Light width</string>
+
 </resources>
