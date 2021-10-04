@@ -1988,4 +1988,8 @@
     <string name="pulse_light_top_bottom">Only Top-Bottom</string>
     <string name="pulse_light_left_right">Only Left-Right</string>
 
+    <!-- Swap hw keys -->
+    <string name="swap_navigation_keys_title">Swap Hw Buttons</string>
+    <string name="swap_navigation_keys_title_summary">Swap the order of recents and back buttons</string>
+
 </resources>
