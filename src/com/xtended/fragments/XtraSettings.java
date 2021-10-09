@@ -67,6 +67,7 @@ import java.util.List;
 
 import com.xtended.support.preferences.CustomSeekBarPreference;
 import com.xtended.support.preferences.SecureSettingSwitchPreference;
+import com.xtended.support.preferences.SystemSettingSeekBarPreference;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class XtraSettings extends SettingsPreferenceFragment implements
@@ -83,6 +84,8 @@ public class XtraSettings extends SettingsPreferenceFragment implements
     private static final String SYSUI_ROUNDED_CONTENT_PADDING = "sysui_rounded_content_padding";
     private static final String SYSUI_ROUNDED_FWVALS = "sysui_rounded_fwvals";
     private static final String SMART_PIXELS = "smart_pixels";
+    private static final String STATUSBAR_LEFT_PADDING = "statusbar_left_padding";
+    private static final String STATUSBAR_RIGHT_PADDING = "statusbar_right_padding";
 
     private Preference mSleepMode;
 
@@ -92,6 +95,8 @@ public class XtraSettings extends SettingsPreferenceFragment implements
     private CustomSeekBarPreference mCornerRadius;
     private CustomSeekBarPreference mContentPadding;
     private SecureSettingSwitchPreference mRoundedFwvals;
+    private SystemSettingSeekBarPreference mSbLeftPadding;
+    private SystemSettingSeekBarPreference mSbRightPadding;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -166,6 +171,18 @@ public class XtraSettings extends SettingsPreferenceFragment implements
         // Rounded use Framework Values
         mRoundedFwvals = (SecureSettingSwitchPreference) findPreference(SYSUI_ROUNDED_FWVALS);
         mRoundedFwvals.setOnPreferenceChangeListener(this);
+
+        mSbLeftPadding = (SystemSettingSeekBarPreference) findPreference(STATUSBAR_LEFT_PADDING);
+        int sbLeftPadding = Settings.System.getIntForUser(ctx.getContentResolver(),
+                Settings.System.LEFT_PADDING, ((int) (res.getIdentifier("com.android.systemui:dimen/status_bar_padding_start", null, null) / density)), UserHandle.USER_CURRENT);
+        mSbLeftPadding.setValue(sbLeftPadding);
+        mSbLeftPadding.setOnPreferenceChangeListener(this);
+
+        mSbRightPadding = (SystemSettingSeekBarPreference) findPreference(STATUSBAR_RIGHT_PADDING);
+        int sbRightPadding = Settings.System.getIntForUser(ctx.getContentResolver(),
+                Settings.System.RIGHT_PADDING, ((int) (res.getIdentifier("com.android.systemui:dimen/status_bar_padding_end", null, null) / density)), UserHandle.USER_CURRENT);
+        mSbRightPadding.setValue(sbRightPadding);
+        mSbRightPadding.setOnPreferenceChangeListener(this);
 
         mSleepMode = findPreference("sleep_mode");
 
@@ -243,6 +260,16 @@ public class XtraSettings extends SettingsPreferenceFragment implements
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
+        Resources res = null;
+        Context ctx = getContext();
+        float density = Resources.getSystem().getDisplayMetrics().density;
+
+        try {
+            res = ctx.getPackageManager().getResourcesForApplication("com.android.systemui");
+        } catch (NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
         if (preference == mSelinuxMode) {
         boolean enabled = (Boolean) newValue;
         new SwitchSelinuxTask(getActivity()).execute(enabled);
@@ -269,6 +296,18 @@ public class XtraSettings extends SettingsPreferenceFragment implements
         //    return true;
         } else if (preference == mRoundedFwvals) {
             restoreCorners();
+            return true;
+        } else if (preference == mSbLeftPadding) {
+            int leftValue = (Integer) newValue;
+            int sbLeft = ((int) (leftValue / density));
+            Settings.System.putIntForUser(getContext().getContentResolver(),
+                    Settings.System.LEFT_PADDING, sbLeft, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mSbRightPadding) {
+            int rightValue = (Integer) newValue;
+            int sbRight = ((int) (rightValue / density));
+            Settings.System.putIntForUser(getContext().getContentResolver(),
+                    Settings.System.RIGHT_PADDING, sbRight, UserHandle.USER_CURRENT);
             return true;
         }
         return false;
