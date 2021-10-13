@@ -264,7 +264,6 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
             } else {
 	        mBgColor.setEnabled(false);
             }
-            XtendedUtils.showSystemUiRestartDialog(getContext());
             return true;
         } else if (preference == mIconMode) {
             int iconValue = Integer.parseInt((String) newValue);
@@ -273,19 +272,16 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
             } else {
 	        mIconColor.setEnabled(false);
             }
-            XtendedUtils.showSystemUiRestartDialog(getContext());
             return true;
         } else if (preference == mBgColor) {
              String hex = convertToRGB(
                     Integer.valueOf(String.valueOf(newValue)));
              preference.setSummary(hex);
-             XtendedUtils.showSystemUiRestartDialog(getContext());
              return true;
         } else if (preference == mIconColor) {
              String hex = convertToRGB(
                     Integer.valueOf(String.valueOf(newValue)));
              preference.setSummary(hex);
-             XtendedUtils.showSystemUiRestartDialog(getContext());
              return true;
         }
         return false;
