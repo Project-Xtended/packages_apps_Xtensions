@@ -48,6 +48,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 import com.android.settings.dashboard.DashboardFragment;
+import com.xtended.support.colorpicker.ColorPickerPreference;
 
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
@@ -61,7 +62,11 @@ public class XThemeRoom extends DashboardFragment implements
 
     private static final String TAG = "XThemeRoom";
 
+    private String MONET_ENGINE_COLOR_OVERRIDE = "monet_engine_color_override";
+
     private IOverlayManager mOverlayService;
+    private Context mContext;
+    private ColorPickerPreference mMonetColor;
 
     @Override
     protected String getLogTag() {
@@ -79,11 +84,31 @@ public class XThemeRoom extends DashboardFragment implements
 
         mOverlayService = IOverlayManager.Stub
                 .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
+
+        final ContentResolver resolver = getActivity().getContentResolver();
+        final PreferenceScreen screen = getPreferenceScreen();
+
+        mMonetColor = (ColorPickerPreference) screen.findPreference(MONET_ENGINE_COLOR_OVERRIDE);
+        int intColor = Settings.Secure.getInt(resolver, MONET_ENGINE_COLOR_OVERRIDE, Color.WHITE);
+        String hexColor = String.format("#%08x", (0xffffff & intColor));
+        mMonetColor.setNewPreviewColor(intColor);
+        mMonetColor.setSummary(hexColor);
+        mMonetColor.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        return true;
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mMonetColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer
+                .parseInt(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.Secure.putInt(resolver,
+                MONET_ENGINE_COLOR_OVERRIDE, intHex);
+            return true;
+        }
+        return false;
     }
 
     @Override
