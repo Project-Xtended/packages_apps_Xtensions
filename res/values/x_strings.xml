@@ -79,6 +79,7 @@
     <string name="navigation_bar_summary">Enable on-screen navigation keys</string>
 
     <!-- Power menu Animations  -->
+    <string name="power_menu_anim_cat">Power UI Animation Option</string>
     <string name="power_menu_animation_title">Power menu animation</string>
     <string name="power_menu_animation_dialog_title">Select power menu animation</string>
     <string name="power_menu_animation_aosp">AOSP (default)</string>
