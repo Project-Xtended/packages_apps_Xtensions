@@ -422,4 +422,8 @@
     <string name="use_old_mobiletype_title">Old mobiletype</string>
     <string name="use_old_mobiletype_summary">Use pre-p mobiletype icons for signal (Reboot required)</string>
 
+    <!-- Udfps Haptic Feedback -->
+    <string name="udfps_haptic_feedback_title">Udfps haptic feedback</string>
+    <string name="udfps_haptic_feedback_summary">Vibrate when touching udfps icon</string>
+
 </resources>
