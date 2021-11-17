@@ -32,4 +32,10 @@
         android:summary="@string/lockscreen_battery_info_summary"
         android:defaultValue="true" />
 
+    <com.xtended.support.preferences.SystemSettingSwitchPreference
+        android:key="udfps_haptic_feedback"
+        android:title="@string/udfps_haptic_feedback_title"
+        android:summary="@string/udfps_haptic_feedback_summary"
+        android:defaultValue="true" />
+
 </PreferenceScreen>

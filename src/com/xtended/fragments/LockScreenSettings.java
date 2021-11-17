@@ -41,8 +41,16 @@ import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+import com.android.internal.util.xtended.fod.FodUtils;
+
+import com.xtended.support.preferences.SystemSettingSwitchPreference;
+
 public class LockScreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
+
+    private static final String UDFPS_HAPTIC_FEEDBACK = "udfps_haptic_feedback";
+
+    private SystemSettingSwitchPreference mUdfpsHapticFeedback;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -52,6 +60,10 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         final PreferenceScreen prefScreen = getPreferenceScreen();
         Resources resources = getResources();
 
+        mUdfpsHapticFeedback = (SystemSettingSwitchPreference) findPreference(UDFPS_HAPTIC_FEEDBACK);
+        if (!FodUtils.hasFodSupport(getActivity())) {
+            prefScreen.removePreference(mUdfpsHapticFeedback);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
