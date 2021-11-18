@@ -28,7 +28,7 @@
             android:summary="@string/quick_settings_vibrate_summary"
             android:defaultValue="false"/>
 
-        <com.xtended.support.preferences.SecureSettingListPreference 
+        <com.xtended.support.preferences.SystemSettingListPreference 
             android:key="status_bar_quick_qs_pulldown" 
             android:title="@string/status_bar_quick_qs_pulldown" 
             android:entries="@array/quick_pulldown_entries" 
