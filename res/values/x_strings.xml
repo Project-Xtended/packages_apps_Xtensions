@@ -520,4 +520,8 @@
     <string name="status_bar_logo_style_title">Xtended logo style</string>
     <string name="status_bar_logo_color_title">Select color</string>
 
+    <!-- Screen off FOD -->
+    <string name="screen_off_fod_title">Screen off FOD</string>
+    <string name="screen_off_fod_summary">Keep FOD enabled when the screen is off</string>
+
 </resources>

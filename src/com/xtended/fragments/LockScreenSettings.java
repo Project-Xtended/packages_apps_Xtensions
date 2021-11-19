@@ -49,8 +49,10 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String UDFPS_HAPTIC_FEEDBACK = "udfps_haptic_feedback";
+    private static final String SCREEN_OFF_FOD = "screen_off_fod";
 
     private SystemSettingSwitchPreference mUdfpsHapticFeedback;
+    private SystemSettingSwitchPreference mScreenOffFod;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -61,8 +63,10 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         Resources resources = getResources();
 
         mUdfpsHapticFeedback = (SystemSettingSwitchPreference) findPreference(UDFPS_HAPTIC_FEEDBACK);
+        mScreenOffFod = (SystemSettingSwitchPreference) findPreference(SCREEN_OFF_FOD);
         if (!FodUtils.hasFodSupport(getActivity())) {
             prefScreen.removePreference(mUdfpsHapticFeedback);
+            prefScreen.removePreference(mScreenOffFod);
         }
     }
 
