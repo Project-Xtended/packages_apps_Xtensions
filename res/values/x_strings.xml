@@ -443,4 +443,8 @@
     <string name="status_bar_carrier_size">Carrier label size</string>
     <string name="status_bar_carrier_font_style_title">Carrier Label Font</string>
 
+    <!-- Notification headers -->
+    <string name="notification_headers_title">Notification Headers</string>
+    <string name="notification_headers_summary">Show headers in the notification shade</string>
+
 </resources>
