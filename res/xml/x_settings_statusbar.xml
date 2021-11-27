@@ -73,6 +73,12 @@
             android:summary="%s"
             android:defaultValue="0"/>
 
+        <com.xtended.support.preferences.SecureSettingSwitchPreference
+            android:key="enable_location_privacy_indicator"
+            android:title="@string/location_privacy_title"
+            android:summary="@string/location_privacy_summary"
+            android:defaultValue="true" />
+
         <com.xtended.support.preferences.SystemSettingSwitchPreference 
             android:key="show_fourg_icon"
             android:title="@string/show_fourg_title"
