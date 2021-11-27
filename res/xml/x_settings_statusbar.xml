@@ -74,6 +74,12 @@
             android:defaultValue="0"/>
 
         <com.xtended.support.preferences.SecureSettingSwitchPreference
+            android:key="hide_qs_call_strength"
+            android:title="@string/show_qs_call_strength_icon_title"
+            android:summary="@string/show_qs_call_strength_icon_summary"
+            android:defaultValue="true" />
+
+        <com.xtended.support.preferences.SecureSettingSwitchPreference
             android:key="enable_location_privacy_indicator"
             android:title="@string/location_privacy_title"
             android:summary="@string/location_privacy_summary"
