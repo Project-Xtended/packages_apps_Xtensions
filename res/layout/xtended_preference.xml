@@ -28,11 +28,11 @@
     <ImageView
         android:id="@+id/buttonshape"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-	android:layout_marginTop="7dp"
-	android:layout_marginBottom="7dp"
+	android:layout_marginTop="5dp"
+	android:layout_marginBottom="5dp"
 	android:layout_gravity="center_vertical"
         android:scaleType="center"
         android:tint="#ffffffff"
@@ -40,12 +40,12 @@
 
     <ImageView
         android:id="@android:id/icon"
-    	android:layout_width="45dp"
-    	android:layout_height="45dp"
+    	android:layout_width="50dp"
+    	android:layout_height="50dp"
         android:layout_alignLeft="@id/buttonshape"
 	android:layout_marginLeft="20dp"
 	android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_gravity="center_vertical"
         android:gravity="center"
         android:background="@*android:color/transparent"/>
@@ -67,10 +67,9 @@
 	android:ellipsize="marquee"
         android:marqueeRepeatLimit="marquee_forever"
         android:scrollHorizontally="true"
-	android:fontFamily="@*android:string/config_bodyFontFamily"
-	android:textStyle="bold"
+	android:fontFamily="@*android:string/config_headlineFontFamilyMedium"
 	android:textAlignment="center"
-        android:textSize="18sp"
+        android:textSize="21sp"
         android:textColor="?android:attr/textColorPrimary"/>
 
 </RelativeLayout>

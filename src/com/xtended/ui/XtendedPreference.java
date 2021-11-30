@@ -97,7 +97,7 @@ public class XtendedPreference extends Preference {
         holder.setDividerAllowedBelow(mAllowDividerBelow);
 
         mColorAccent = getThemeAccentColor(context);
-        mColorAlpha = adjustAlpha(mColorAccent, 0.75f);
+        mColorAlpha = adjustAlpha(mColorAccent, 0.95f);
         mBackground = (ImageView) holder.findViewById(R.id.buttonshape);
         mBackground.setColorFilter(mColorAlpha);
     }
