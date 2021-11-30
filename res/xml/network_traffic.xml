@@ -48,7 +48,7 @@
         android:max="10"
         settings:min="0"
         settings:units=""
-        android:defaultValue="0" />
+        android:defaultValue="1" />
 
     <com.xtended.support.preferences.SystemSettingSwitchPreference
         android:key="network_traffic_arrow"
