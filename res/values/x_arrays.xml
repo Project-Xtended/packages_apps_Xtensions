@@ -798,4 +798,17 @@
         <item>space;space;left,back,home,recent,right</item>
     </string-array>
 
+    <!-- QS Clock picker -->
+    <string-array name="qsclock_type_entries" translatable="false">
+        <item>@string/qsclockpicker_def</item>
+        <item>@string/qsclockpicker_img</item>
+        <item>@string/qsclockpicker_big</item>
+    </string-array>
+
+    <string-array name="qsclock_type_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
 </resources>
