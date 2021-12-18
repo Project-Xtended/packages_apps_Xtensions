@@ -619,4 +619,12 @@
     <string name="fod_night_light_title">Disable night light when showing FOD</string>
     <string name="fod_night_light_summary">Disable night light on lockscreen if FOD is active. Disabling this option might affect your fingerprint accuracy with night light on.</string>
 
+    <!-- Media artwork -->
+    <string name="media_category">Media/Music notifications</string>
+    <string name="artwork_media_background_title">Artwork media background</string>
+    <string name="artwork_media_background_summary">Set media artwork as the notification media background</string>
+    <string name="artwork_media_background_enable_blur_title">Blur media media artwork background</string>
+    <string name="artwork_media_background_blur_radius_title">Blur amount for media artwork</string>
+    <string name="artwork_media_background_alpha_title">Transparency of media artwork</string>
+
 </resources>
