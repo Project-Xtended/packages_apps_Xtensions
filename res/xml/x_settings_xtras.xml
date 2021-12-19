@@ -18,6 +18,13 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
 	android:title="@string/xtras_title">
 
+    <!-- Gaming mode -->
+    <Preference
+        android:key="gaming_category"
+        android:title="@string/gaming_title"
+        android:summary="@string/gaming_summary"
+        android:fragment="com.android.settings.preferences.game.GamingModeSettings" />
+
     <PreferenceCategory
         android:key="burnin_category"
         android:title="@string/burnin_category">
