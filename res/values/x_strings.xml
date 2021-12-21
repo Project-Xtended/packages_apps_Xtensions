@@ -627,4 +627,8 @@
     <string name="artwork_media_background_blur_radius_title">Blur amount for media artwork</string>
     <string name="artwork_media_background_alpha_title">Transparency of media artwork</string>
 
+    <!-- Annoying Notifications -->
+    <string name="notification_sound_vib_screen_on_title">Annoying Notifications</string>
+    <string name="notification_sound_vib_screen_on_summary">Play sound and vibration for notifications when screen is on</string>
+
 </resources>
