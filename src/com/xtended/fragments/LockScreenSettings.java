@@ -42,6 +42,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.internal.util.xtended.fod.FodUtils;
+import com.android.internal.util.xtended.XtendedUtils;
 
 import com.xtended.support.preferences.SystemSettingSwitchPreference;
 
@@ -64,13 +65,12 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         final PreferenceScreen prefScreen = getPreferenceScreen();
         Resources resources = getResources();
 
+        PreferenceCategory udfps = (PreferenceCategory) prefScreen.findPreference("udfps_category");
         mUdfpsHapticFeedback = (SystemSettingSwitchPreference) findPreference(UDFPS_HAPTIC_FEEDBACK);
         mScreenOffFod = (SystemSettingSwitchPreference) findPreference(SCREEN_OFF_FOD);
         mFodNightLight = (SystemSettingSwitchPreference) findPreference(FOD_NIGHT_LIGHT);
         if (!FodUtils.hasFodSupport(getActivity())) {
-            prefScreen.removePreference(mUdfpsHapticFeedback);
-            prefScreen.removePreference(mScreenOffFod);
-            prefScreen.removePreference(mFodNightLight);
+            prefScreen.removePreference(udfps);
         }
     }
 
