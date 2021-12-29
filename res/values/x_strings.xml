@@ -460,7 +460,7 @@
     <string name="volte_icon_style_title">Select VoLTE/HD Icon</string>
     <string name="volte_icon_volte">VoLTE Icon</string>
     <string name="volte_icon_oos">VoLTE OnePlus Icon</string>
-    <string name="volte_icon_default">Default-Dynamic Icons</string>
+    <string name="volte_icon_default">Default</string>
     <string name="volte_icon_hd">HD Icons</string>
     <string name="volte_icon_miui">MiUi Icons</string>
     <string name="volte_icon_emui">EMUI Icons</string>
@@ -702,5 +702,18 @@
     <!-- Pulse on Music Track -->
     <string name="pulse_on_new_tracks_title">Music ticker</string>
     <string name="pulse_on_new_tracks_summary">Show Ambient Display when a new music track is played</string>
+
+    <!-- VoWiFi icon -->
+    <string name="vowifi_icon_title">VoWiFi icon</string>
+    <string name="vowifi_icon_summary">Display VoWiFi icon when available</string>
+    <string name="vowifi_icon_disabled">Disabled</string>
+    <string name="vowifi_icon_default">Default</string>
+    <string name="vowifi_icon_asus">Asus VoWiFi Icon</string>
+    <string name="vowifi_icon_oneplus">OnePlus VoWiFi Icon</string>
+    <string name="vowifi_icon_moto">Moto VoWiFi Icons</string>
+    <string name="vowifi_icon_emui">EMUI Icons</string>
+    <string name="vowifi_icon_oneplus_compact">OnePlus Compact</string>
+    <string name="vowifi_icon_vivo">Vivo VoWiFi Icons</string>
+    <string name="vowifi_icon_margaritov">Margaritov VoWiFi Icons</string>
 
 </resources>
