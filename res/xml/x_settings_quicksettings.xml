@@ -69,6 +69,17 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory 
+         android:title="@string/qs_footer_category">
+
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_footer_warnings"
+            android:title="@string/qs_footer_warnings_title"
+            android:summary="@string/qs_footer_warnings_summary"
+            android:defaultValue="true"/>
+
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:title="@string/media_category" >
 
