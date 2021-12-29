@@ -360,7 +360,7 @@
     <string name="volte_icon_vo">Vo Icon</string>
     <string name="volte_icon_volte">VoLTE Icon</string>
     <string name="volte_icon_oos">VoLTE OnePlus Icon</string>
-    <string name="volte_icon_dynamic">Dynamic Icons</string>
+    <string name="volte_icon_dynamic">Dynamic VoLTE Icon</string>
     <string name="volte_icon_hd">HD Icons</string>
     <string name="volte_icon_miui">MiUi Icons</string>
     <string name="volte_icon_emui">EMUI Icons</string>
@@ -372,5 +372,15 @@
     <!-- Data disabled icon -->
     <string name="data_disabled_icon_title">Show data disabled icon</string>
     <string name="data_disabled_icon_summary">Display the cross sign next to signal bar when data is disabled</string>
+
+    <!-- VoWiFi icon -->
+    <string name="vowifi_icon_title">VoWiFi Icon</string>
+    <string name="vowifi_icon_summary">Display VoWiFi icon when available</string>
+    <string name="vowifi_icon_off">Off</string>
+    <string name="vowifi_icon_dynamic">Dynamic VoWiFi Icon</string>
+    <string name="vowifi_icon_asus">Asus VoWiFi Icon</string>
+    <string name="vowifi_icon_oneplus">OnePlus VoWiFi Icon</string>
+    <string name="vowifi_icon_moto">Moto VoWiFi Icons</string>
+    <string name="vowifi_icon_emui">EMUI Icons</string>
 
 </resources>
