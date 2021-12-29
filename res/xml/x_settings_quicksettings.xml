@@ -48,10 +48,46 @@
 
     </PreferenceCategory>
 
-    <com.xtended.support.preferences.SystemSettingSwitchPreference
-        android:key="qs_footer_warnings"
-        android:title="@string/qs_footer_warnings_title"
-        android:summary="@string/qs_footer_warnings_summary"
-        android:defaultValue="true" />
+    <PreferenceCategory
+        android:key="quick_settings_general_category"
+        android:title="@string/qs_general_category">
+        
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_footer_warnings"
+            android:title="@string/qs_footer_warnings_title"
+            android:summary="@string/qs_footer_warnings_summary"
+            android:defaultValue="true" />
+
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_footer_show_user"
+            android:title="@string/qs_footer_users_icon_title"
+            android:summary="@string/qs_footer_users_icon_summary"
+            android:defaultValue="true" />
+
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_footer_show_edit"
+            android:title="@string/qs_footer_edit_icon_title"
+            android:summary="@string/qs_footer_edit_icon_summary"
+            android:defaultValue="true" />
+
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_footer_show_power_menu"
+            android:title="@string/qs_footer_show_power_menu_title"
+            android:summary="@string/qs_footer_show_power_menu_summary"
+            android:defaultValue="true" />
+
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_footer_show_services"
+            android:title="@string/qs_footer_services_icon_title"
+            android:summary="@string/qs_footer_services_icon_summary"
+            android:defaultValue="true" />
+
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_footer_show_settings"
+            android:title="@string/qs_footer_settings_icon_title"
+            android:summary="@string/qs_footer_settings_icon_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
