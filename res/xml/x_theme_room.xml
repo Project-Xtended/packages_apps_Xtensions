@@ -73,10 +73,6 @@
             settings:controller="com.android.settings.display.DarkUIPreferenceController" />
 
         <ListPreference
-            android:key="android.theme.customization.font"
-             android:title="@string/theme_customization_font_title"/>
-
-        <ListPreference
             android:key="android.theme.customization.wifi_icon"
             android:title="@string/custom_wifi_bar_title"/>
 
@@ -84,13 +80,19 @@
             android:key="android.theme.customization.signal_icon"
             android:title="@string/custom_signal_bar_title"/>
 
-        <ListPreference
-            android:key="android.theme.customization.adaptive_icon_shape"
-            android:title="@string/theme_customization_icon_shape_title"/>
+        <!-- Font style -->
+        <Preference
+            android:key="android.theme.customization.fonts"
+            android:title="@string/theme_customization_font_title"
+            android:summary="@string/theme_customization_font_summary"
+            android:fragment="com.xtended.fragments.FontsPicker"/>
 
-        <!--<ListPreference
-            android:key="android.theme.customization.icon_pack.android"
-            android:title="@string/theme_customization_sysui_icon_title"/>-->
+        <!-- Adaptive icon pack -->
+        <Preference
+            android:key="android.theme.customization.adaptive_icon_shape"
+            android:title="@string/theme_customization_icon_shape_title"
+            android:summary="@string/theme_customization_icon_shape_summary"
+            android:fragment="com.xtended.fragments.IconShapes"/>
 
     </PreferenceCategory>
 

@@ -21,4 +21,6 @@
     <color name="edit_background_base">@color/google_grey700</color>
     <color name="option_border_default">@color/edit_background_base</color>
 
+    <color name="option_border_default_custom">#5f6368</color>
+
 </resources>
