@@ -31,10 +31,6 @@
             settings:keywords="@string/keywords_dark_ui_mode"/>
 
         <ListPreference
-            android:key="android.theme.customization.font"
-             android:title="@string/theme_customization_font_title"/>
-
-        <ListPreference
             android:key="android.theme.customization.wifi_icon"
             android:title="@string/custom_wifi_bar_title"/>
 
@@ -42,9 +38,19 @@
             android:key="android.theme.customization.signal_icon"
             android:title="@string/custom_signal_bar_title"/>
 
-        <ListPreference
+        <!-- Font style -->
+        <Preference
+            android:key="android.theme.customization.fonts"
+            android:title="@string/theme_customization_font_title"
+            android:summary="@string/theme_customization_font_summary"
+            android:fragment="com.xtended.fragments.FontsPicker"/>
+
+        <!-- Adaptive icon pack -->
+        <Preference
             android:key="android.theme.customization.adaptive_icon_shape"
-            android:title="@string/theme_customization_icon_shape_title"/>
+            android:title="@string/theme_customization_icon_shape_title"
+            android:summary="@string/theme_customization_icon_shape_summary"
+            android:fragment="com.xtended.fragments.IconShapes"/>
 
     </PreferenceCategory>
 

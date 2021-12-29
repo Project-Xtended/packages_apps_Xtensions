@@ -348,4 +348,10 @@
     <!-- Custom Wi-Fi bar icons -->
     <string name="custom_wifi_bar_title">Wi-Fi icon</string>
 
+    <!-- Font style / Icon pack -->
+    <string name="theme_customization_font_title">Font style</string>
+    <string name="theme_customization_font_summary">Set system font style</string>
+    <string name="theme_customization_icon_shape_title">Icon shape</string>
+    <string name="theme_customization_icon_shape_summary">Set system icon shape style</string>
+
 </resources>
