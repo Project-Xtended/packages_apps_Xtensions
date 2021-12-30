@@ -88,9 +88,9 @@
             android:key="android.theme.customization.adaptive_icon_shape"
             android:title="@string/theme_customization_icon_shape_title"/>
 
-        <ListPreference
+        <!--<ListPreference
             android:key="android.theme.customization.icon_pack.android"
-            android:title="@string/theme_customization_sysui_icon_title"/>
+            android:title="@string/theme_customization_sysui_icon_title"/>-->
 
     </PreferenceCategory>
 
