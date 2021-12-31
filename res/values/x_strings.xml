@@ -870,6 +870,6 @@
     <string name="qsclockpicker_title">QS Clock Picker</string>
     <string name="qsclockpicker_summary">Requires a SystemUI restart</string>
     <string name="qsclockpicker_def">Default Aosp look</string>
-    <string name="qsclockpicker_img">Clock 1</string>
-    <string name="qsclockpicker_big">Clock 2</string>
+    <string name="qsclockpicker_img">OOS inspired</string>
+    <string name="qsclockpicker_big">Minimalistic</string>
 </resources>
