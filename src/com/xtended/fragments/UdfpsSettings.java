@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020-21 The Project-Xtended
+ * Copyright (C) 2017-22 The Project-Xtended
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -46,20 +46,22 @@ import com.android.internal.util.xtended.XtendedUtils;
 
 import com.xtended.support.preferences.SystemSettingSwitchPreference;
 
-public class LockScreenSettings extends SettingsPreferenceFragment implements
+public class UdfpsSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        addPreferencesFromResource(R.xml.x_settings_lockscreen);
+        addPreferencesFromResource(R.xml.x_settings_udfps);
 
         final PreferenceScreen prefScreen = getPreferenceScreen();
         Resources resources = getResources();
 
-        PreferenceCategory udfps = (PreferenceCategory) prefScreen.findPreference("udfps_category");
-        if (!FodUtils.hasFodSupport(getActivity())) {
-            prefScreen.removePreference(udfps);
+        boolean udfpsResPkgInstalled = XtendedUtils.isPackageInstalled(getContext(),
+                "com.xtended.udfps.resources");
+		PreferenceCategory udfps_custom = (PreferenceCategory) prefScreen.findPreference("udfps_customization");
+        if (!udfpsResPkgInstalled) {
+            prefScreen.removePreference(udfps_custom);
         }
     }
 
@@ -73,3 +75,4 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         return MetricsProto.MetricsEvent.XTENSIONS;
     }
 }
+
