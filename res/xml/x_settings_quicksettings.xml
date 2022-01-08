@@ -50,6 +50,33 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="qs_columns_cat"
+        android:title="@string/qs_columns_cat">
+
+        <com.xtended.support.preferences.SystemSettingSeekBarPreference
+            android:key="qs_layout_columns"
+            android:title="@string/qs_columns_portrait_title"
+            android:max="5"
+            android:min="2"
+            android:defaultValue="3"
+            settings:units="" />
+
+        <com.xtended.support.preferences.SystemSettingSeekBarPreference
+            android:key="qs_layout_columns_landscape"
+            android:title="@string/qs_columns_landscape_title"
+            android:max="7"
+            android:min="3"
+            android:defaultValue="4"
+            settings:units="" />
+
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_tile_vertical_layout"
+            android:title="@string/qs_tile_vertical_layout_title"
+            android:summary="@string/qs_tile_vertical_layout_summary"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="quick_settings_general_category"
         android:title="@string/qs_general_category">
 
