@@ -883,4 +883,6 @@
     <string name="qsclockpicker_def">Default Aosp look</string>
     <string name="qsclockpicker_img">OOS inspired</string>
     <string name="qsclockpicker_big">Minimalistic</string>
+    <string name="qsclockpicker_new">Custom Clock 1</string>
+    <string name="qsclockpicker_new1">Custom Clock 2</string>
 </resources>
