@@ -48,7 +48,7 @@
     <string name="monet_engine_linear_lightness_title">Use linear lightness</string>
 
     <!-- AOSP Gestures -->
-    <string name="aosp_gesture_preference">System settings</string>
+    <string name="aosp_gesture_preference">System Gestures</string>
     <string name="aosp_gesture_summary">Stock gestures included with AOSP</string>
 
     <!-- Three-fingers-swipe to screenshot -->
@@ -78,7 +78,7 @@
     <string name="lockscreen_battery_info_summary">Show charging current, voltage, wattage and battery temperature on lockscreen while charging</string>
 
     <!-- Navigation bar -->
-    <string name="navigation_bar_title">On-screen navigation bar</string>
+    <string name="navigation_bar_title">On-screen Navbar</string>
     <string name="navigation_bar_summary">Enable on-screen navigation keys</string>
 
     <!-- Power menu Animations  -->
@@ -564,7 +564,7 @@
     <!-- Burn-in Protection -->
     <string name="burnin_category">Burn-in Protection</string>
     <string name="burn_in_protection_title">Enable</string>
-    <string name="burn_in_protection_summary">Shift navabr and statusbar icons to prevent burn-in</string>
+    <string name="burn_in_protection_summary">Shift navbar and statusbar icons to prevent burn-in</string>
     <string name="burn_in_protection_interval_title">Interval of shift</string>
     <string name="burn_in_protection_interval_summary">How often to make icons shift</string>
 
