@@ -73,7 +73,7 @@
             android:key="qs_tile_vertical_layout"
             android:title="@string/qs_tile_vertical_layout_title"
             android:summary="@string/qs_tile_vertical_layout_summary"
-            android:defaultValue="true" />
+            android:defaultValue="false" />
     </PreferenceCategory>
 
     <PreferenceCategory
