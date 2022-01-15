@@ -868,10 +868,11 @@
 
     <!-- QS Clock picker -->
     <string name="qsclockpicker_title">QS Clock Picker</string>
-    <string name="qsclockpicker_summary">Requires a SystemUI restart</string>
     <string name="qsclockpicker_def">Default Aosp look</string>
     <string name="qsclockpicker_img">OOS inspired</string>
     <string name="qsclockpicker_big">Minimalistic</string>
     <string name="qsclockpicker_new">Custom Clock 1</string>
     <string name="qsclockpicker_new1">Custom Clock 2</string>
+    <string name="qsclockpicker_aosp">Aosp Clock</string>
+    <string name="qsclockpicker_coloros">ColorOS</string>
 </resources>

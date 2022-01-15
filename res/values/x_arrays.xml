@@ -800,11 +800,12 @@
 
     <!-- QS Clock picker -->
     <string-array name="qsclock_type_entries" translatable="false">
-        <item>@string/qsclockpicker_def</item>
         <item>@string/qsclockpicker_img</item>
         <item>@string/qsclockpicker_big</item>
         <item>@string/qsclockpicker_new</item>
         <item>@string/qsclockpicker_new1</item>
+        <item>@string/qsclockpicker_aosp</item>
+        <item>@string/qsclockpicker_coloros</item>
     </string-array>
 
     <string-array name="qsclock_type_values" translatable="false">
@@ -813,6 +814,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
 
 </resources>
