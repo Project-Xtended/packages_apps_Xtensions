@@ -837,4 +837,8 @@
     <string name="pulse_solid_units_rounded_title">Rounded corners</string>
     <string name="pulse_solid_units_rounded_summary">Solid lines with rounded tip</string>
 
+    <!-- Colored Statusbar Icons -->
+    <string name="statusbar_icons_style">Colored notification icons</string>
+    <string name="statusbar_icons_style_summary">Choose the style of your statusbar notification icons (requires SystemUI restart)</string>
+
 </resources>
