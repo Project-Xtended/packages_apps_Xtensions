@@ -736,7 +736,7 @@
     <string name="custom_signal_bar_title">Signal icons</string>
 
     <!-- Custom Wi-Fi bar icons -->
-    <string name="custom_wifi_bar_title">Wi-Fi icon</string>
+    <string name="custom_wifi_bar_title">Wi-Fi icons</string>
 
     <!-- QS Footer Text -->
     <string name="qs_footer_text_title">QS footer text</string>
@@ -848,5 +848,7 @@
     <string name="theme_customization_font_summary">Set system font style</string>
     <string name="theme_customization_icon_shape_title">Icon shape</string>
     <string name="theme_customization_icon_shape_summary">Set system icon shape style</string>
+    <string name="custom_wifi_bar_summary">Set wifi icon style</string>
+    <string name="custom_signal_bar_summary">Set signal icon style</string>
 
 </resources>

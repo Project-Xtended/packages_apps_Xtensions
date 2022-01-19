@@ -72,13 +72,19 @@
             android:fragment="com.android.settings.display.darkmode.DarkModeSettingsFragment"
             settings:controller="com.android.settings.display.DarkUIPreferenceController" />
 
-        <ListPreference
+        <!-- Wifi Icon style -->
+        <Preference
             android:key="android.theme.customization.wifi_icon"
-            android:title="@string/custom_wifi_bar_title"/>
+            android:title="@string/custom_wifi_bar_title"
+            android:summary="@string/custom_wifi_bar_summary"
+            android:fragment="com.xtended.fragments.WifiIcons"/>
 
-        <ListPreference
+        <!-- Signal icon style -->
+        <Preference
             android:key="android.theme.customization.signal_icon"
-            android:title="@string/custom_signal_bar_title"/>
+            android:title="@string/custom_signal_bar_title"
+            android:summary="@string/custom_signal_bar_summary"
+            android:fragment="com.xtended.fragments.SignalIcons"/>
 
         <!-- Font style -->
         <Preference
