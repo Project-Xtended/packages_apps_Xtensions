@@ -346,13 +346,15 @@
     <string name="custom_signal_bar_title">Signal icons</string>
 
     <!-- Custom Wi-Fi bar icons -->
-    <string name="custom_wifi_bar_title">Wi-Fi icon</string>
+    <string name="custom_wifi_bar_title">Wi-Fi icons</string>
 
     <!-- Font style / Icon pack -->
     <string name="theme_customization_font_title">Font style</string>
     <string name="theme_customization_font_summary">Set system font style</string>
     <string name="theme_customization_icon_shape_title">Icon shape</string>
     <string name="theme_customization_icon_shape_summary">Set system icon shape style</string>
+    <string name="custom_wifi_bar_summary">Set wifi icon style</string>
+    <string name="custom_signal_bar_summary">Set signal icon style</string>
 
     <!-- VoLTE Icon Type -->
     <string name="volte_icon_style_title">Select VoLTE/HD Icon</string>
