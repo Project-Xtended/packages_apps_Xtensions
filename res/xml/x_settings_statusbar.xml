@@ -101,6 +101,12 @@
             android:summary="@string/mic_camera_privacy_indicator_summary"
             android:defaultValue="true" />
 
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="bluetooth_show_battery"
+            android:title="@string/bluetooth_battery_title"
+            android:summary="@string/bluetooth_battery_summary"
+            android:defaultValue="true"/>
+
         <com.xtended.support.preferences.SystemSettingSwitchPreference 
             android:key="show_fourg_icon"
             android:title="@string/show_fourg_title"
