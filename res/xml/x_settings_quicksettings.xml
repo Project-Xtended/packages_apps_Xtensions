@@ -90,6 +90,12 @@
         android:title="@string/qs_general_category">
 
         <com.xtended.support.preferences.SecureSettingSwitchPreference
+          android:key="secure_lockscreen_qs_disabled"
+          android:title="@string/disable_qs_title"
+          android:summary="@string/disable_qs_summary"
+          android:defaultValue="false" />
+
+        <com.xtended.support.preferences.SecureSettingSwitchPreference
             android:key="quick_settings_vibrate"
             android:title="@string/quick_settings_vibrate_title"
             android:summary="@string/quick_settings_vibrate_summary"
