@@ -77,10 +77,6 @@
     <string name="lockscreen_battery_info_title">Lockscreen charging info</string>
     <string name="lockscreen_battery_info_summary">Show charging current, voltage, wattage and battery temperature on lockscreen while charging</string>
 
-    <!-- Navigation bar -->
-    <string name="navigation_bar_title">On-screen Navbar</string>
-    <string name="navigation_bar_summary">Enable on-screen navigation keys</string>
-
     <!-- Power menu Animations  -->
     <string name="power_menu_anim_cat">Power UI Animation Option</string>
     <string name="power_menu_animation_title">Power menu animation</string>
@@ -101,19 +97,6 @@
     <string name="panel_porn_title">Power Menu Transparency</string>
     <string name="power_menu_transparency">Power/reboot menu opacity</string>
     <string name="power_menu_dialog_dim">Power/reboot dialog dim background amount</string>
-
-    <!-- Navbar options -->
-    <string name="navbar_invert_layout_title">Invert layout</string>
-    <string name="navbar_invert_layout_summary">Menus for changing nav-bar layout</string>
-    <string name="navbar_layout_title">Layout</string>
-    <string name="navbar_layout_normal">Normal</string>
-    <string name="navbar_layout_compact">Compact</string>
-    <string name="navbar_layout_leftleaning">Left-leaning</string>
-    <string name="navbar_layout_rightleaning">Right-leaning</string>
-
-    <!-- Navbar Typing Arrow Keys -->
-    <string name="navigation_bar_arrow_keys_title">Show arrow keys while typing</string>
-    <string name="navigation_bar_arrow_keys_summary">Display left and right cursor buttons in navigation bar while typing</string>
 
     <!-- QuickSettings haptic feedback -->
     <string name="qs_general_category">Qs General Options</string>
@@ -625,10 +608,6 @@
     <!-- Annoying Notifications -->
     <string name="notification_sound_vib_screen_on_title">Annoying Notifications</string>
     <string name="notification_sound_vib_screen_on_summary">Play sound and vibration for notifications when screen is on</string>
-
-    <!-- SmartSpace -->
-    <string name="smart_space_title">SmartSpace</string>
-    <string name="smart_space_summary">Display conditional info such as weather and events on lockscreen\nRequires a SystemUI restart</string>
 
     <!-- Custom SB n QS Logo -->
     <string name="custom_sb_logo_title">Custom Statusbar Logo</string>

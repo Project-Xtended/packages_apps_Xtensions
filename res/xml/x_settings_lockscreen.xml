@@ -68,12 +68,6 @@
         android:defaultValue="false" />
 
     <com.xtended.support.preferences.SystemSettingSwitchPreference
-        android:key="smart_space"
-        android:title="@string/smart_space_title"
-        android:summary="@string/smart_space_summary"
-        android:defaultValue="true" />
-
-    <com.xtended.support.preferences.SystemSettingSwitchPreference
         android:key="lockscreen_battery_info"
         android:title="@string/lockscreen_battery_info_title"
         android:summary="@string/lockscreen_battery_info_summary"
