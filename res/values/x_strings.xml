@@ -875,4 +875,6 @@
     <string name="qsclockpicker_new1">Custom Clock 2</string>
     <string name="qsclockpicker_aosp">Aosp Clock</string>
     <string name="qsclockpicker_coloros">ColorOS</string>
+    <string name="qsclockpicker_simple">Simple Clock</string>
+    <string name="qsclockpicker_right">Right Clock</string>
 </resources>
