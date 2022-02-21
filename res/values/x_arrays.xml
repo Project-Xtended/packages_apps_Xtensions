@@ -806,6 +806,8 @@
         <item>@string/qsclockpicker_new1</item>
         <item>@string/qsclockpicker_aosp</item>
         <item>@string/qsclockpicker_coloros</item>
+        <item>@string/qsclockpicker_simple</item>
+        <item>@string/qsclockpicker_right</item>
     </string-array>
 
     <string-array name="qsclock_type_values" translatable="false">
@@ -815,6 +817,8 @@
         <item>3</item>
         <item>4</item>
         <item>5</item>
+        <item>6</item>
+        <item>7</item>
     </string-array>
 
 </resources>
