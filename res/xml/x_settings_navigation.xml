@@ -25,4 +25,16 @@
         android:fragment="com.android.settings.gestures.SystemNavigationGestureSettings"
         settings:controller="com.android.settings.gestures.SystemNavigationPreferenceController" />
 
+    <PreferenceCategory
+        android:key="button_navigation_settings_page"
+        android:title="@string/button_settings_activity_title">
+
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="navigation_bar_inverse"
+            android:title="@string/navigation_bar_inverse_title"
+            android:summary="@string/navigation_bar_inverse_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
