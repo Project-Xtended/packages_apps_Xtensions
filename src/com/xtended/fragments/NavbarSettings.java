@@ -42,10 +42,13 @@ import android.provider.Settings;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto;
+import com.android.internal.util.xtended.XtendedUtils;
 import com.android.settings.R;
 
 public class NavbarSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
+
+    private static final String CATEGORY_3BUTTONS = "button_navigation_settings_page";
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -53,6 +56,13 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.x_settings_navigation);
 
         final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        PreferenceCategory navBarCat = (PreferenceCategory) prefScreen
+                .findPreference(CATEGORY_3BUTTONS);
+
+        if (!XtendedUtils.isThemeEnabled("com.android.internal.systemui.navbar.threebutton")) {
+            navBarCat.setEnabled(false);
+        }
     }
 
     @Override
