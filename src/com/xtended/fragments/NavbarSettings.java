@@ -49,16 +49,36 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String CATEGORY_3BUTTONS = "button_navigation_settings_page";
+    private static final String KEY_NAVIGATION_BAR_ENABLED = "force_show_navbar";
+
+    private SwitchPreference mNavigationBar;
+    private boolean mIsNavSwitchingMode = false;
+    private Handler mHandler;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.x_settings_navigation);
 
+        final ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        mHandler = new Handler();
 
         PreferenceCategory navBarCat = (PreferenceCategory) prefScreen
                 .findPreference(CATEGORY_3BUTTONS);
+
+        final boolean defaultToNavigationBar = getResources().getBoolean(
+                com.android.internal.R.bool.config_showNavigationBar);
+        final boolean navigationBarEnabled = Settings.System.getIntForUser(
+                resolver, Settings.System.FORCE_SHOW_NAVBAR,
+                defaultToNavigationBar ? 1 : 0, UserHandle.USER_CURRENT) != 0;
+
+        mNavigationBar = (SwitchPreference) findPreference(KEY_NAVIGATION_BAR_ENABLED);
+        mNavigationBar.setChecked((Settings.System.getInt(getContentResolver(),
+                Settings.System.FORCE_SHOW_NAVBAR,
+                defaultToNavigationBar ? 1 : 0) == 1));
+        mNavigationBar.setOnPreferenceChangeListener(this);
 
         if (!XtendedUtils.isThemeEnabled("com.android.internal.systemui.navbar.threebutton")) {
             navBarCat.setEnabled(false);
@@ -68,6 +88,22 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mNavigationBar) {
+            boolean value = (Boolean) newValue;
+            if (mIsNavSwitchingMode) {
+                return false;
+            }
+            mIsNavSwitchingMode = true;
+            Settings.System.putInt(resolver, Settings.System
+            .FORCE_SHOW_NAVBAR, value ? 1 : 0);
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mIsNavSwitchingMode = false;
+                }
+            }, 1500);
+            return true;
+        }
         return false;
     }
 

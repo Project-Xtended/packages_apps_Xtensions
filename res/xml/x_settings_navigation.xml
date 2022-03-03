@@ -29,6 +29,11 @@
         android:key="button_navigation_settings_page"
         android:title="@string/button_settings_activity_title">
 
+        <SwitchPreference
+            android:key="force_show_navbar"
+            android:title="@string/navigation_bar_title"
+            android:summary="@string/navigation_bar_summary" />
+
         <com.xtended.support.preferences.SystemSettingSwitchPreference
             android:key="navigation_bar_inverse"
             android:title="@string/navigation_bar_inverse_title"
