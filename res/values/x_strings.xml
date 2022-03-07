@@ -748,13 +748,6 @@
     <string name="custom_fp_select_title">Select Custom UDFPS Icon</string>
     <string name="custom_fp_select_summary">Select custom image from your saved files or gallery</string>
 
-    <!-- Qs Column Settings -->
-    <string name="qs_columns_cat">Qs Column Menu</string>
-    <string name="qs_columns_portrait_title">Qs Columns in Portrait</string>
-    <string name="qs_columns_landscape_title">Qs Columns in Landscape</string>
-    <string name="qs_tile_vertical_layout_title">Qs Vertical Layout</string>
-    <string name="qs_tile_vertical_layout_summary">Enable-disable tile vertical layout</string>
-
     <!-- Smart pulldown-->
     <string name="smart_pulldown_title">Smart pulldown</string>
     <string name="smart_pulldown_summary">Open quick settings when there are %1$s notifications</string>
@@ -850,10 +843,6 @@
     <string name="screen_off_animation_default">Default</string>
     <string name="screen_off_animation_crt">CRT</string>
     <string name="screen_off_animation_scale">Scale</string>
-
-    <!-- QS tiles title visibility -->
-    <string name="qs_tile_title_visibility_title">Hide titles</string>
-    <string name="qs_tile_title_visibility_summary">Enable to hide QS tile titles</string>
 
     <!-- Ripple Effect on lockscreen -->
     <string name="disable_fingerprint_ripple_effect_title">Ripple effect</string>
