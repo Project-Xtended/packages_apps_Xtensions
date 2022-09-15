@@ -80,12 +80,12 @@
             android:fragment="com.xtended.fragments.PowerMenuSettings"
             android:icon="@drawable/ic_x_powermenu" />
 
-        <!-- Quick settings -->
+        <!-- Quick settings
         <com.xtended.ui.XtendedPreference
             android:key="quicksettings_category"
             android:title="@string/quicksettings_title"
             android:fragment="com.xtended.fragments.QuickSettings"
-            android:icon="@drawable/ic_x_quicksettings" />
+            android:icon="@drawable/ic_x_quicksettings" />-->
 
         <!-- Status bar -->
         <com.xtended.ui.XtendedPreference
