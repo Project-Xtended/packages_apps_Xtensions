@@ -22,6 +22,12 @@
         android:key="volume_category"
         android:title="@string/volume_category">
 
+     <com.xtended.support.preferences.SecureSettingSwitchPreference
+         android:key="volume_panel_on_left"
+         android:title="@string/volume_panel_on_left_title"
+         android:summary="@string/volume_panel_on_left_summary"
+         android:defaultValue="false" />
+
     <com.xtended.support.preferences.SystemSettingSwitchPreference
 	android:key="volume_button_music_control"
         android:summary="@string/volume_rocker_music_controls_summary"
