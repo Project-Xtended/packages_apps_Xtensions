@@ -52,6 +52,16 @@
         android:key="quick_settings_general_category"
         android:title="@string/qs_general_category">
         
+        <com.xtended.support.preferences.SystemSettingSeekBarPreference
+            android:key="qs_transparency"
+            android:title="@string/qs_transparency_title"
+            android:summary="@string/qs_transparency_summary"
+            android:defaultValue="100"
+            settings:interval="1"
+            settings:units="%"
+            android:max="100"
+            android:min="1" />
+
         <com.xtended.support.preferences.SystemSettingSwitchPreference
             android:key="qs_footer_warnings"
             android:title="@string/qs_footer_warnings_title"
