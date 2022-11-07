@@ -53,6 +53,7 @@ import java.util.Map;
 public class DisplayCutoutForceFullscreenSettings extends SettingsPreferenceFragment
         implements ApplicationsState.Callbacks {
 
+    private ActivityManager mActivityManager;
     private AllPackagesAdapter mAllPackagesAdapter;
     private ApplicationsState mApplicationsState;
     private ApplicationsState.Session mSession;
@@ -71,6 +72,8 @@ public class DisplayCutoutForceFullscreenSettings extends SettingsPreferenceFrag
         mSession = mApplicationsState.newSession(this);
         mSession.onResume();
         mActivityFilter = new ActivityFilter(getActivity().getPackageManager());
+        mActivityManager = (ActivityManager) getActivity().getSystemService(
+                Context.ACTIVITY_SERVICE);
         mAllPackagesAdapter = new AllPackagesAdapter(getActivity());
 
         mCutoutForceFullscreenSettings = new CutoutFullscreenController(getContext());
@@ -249,6 +252,10 @@ public class DisplayCutoutForceFullscreenSettings extends SettingsPreferenceFrag
                     mCutoutForceFullscreenSettings.addApp(appEntry.info.packageName);
                 } else {
                     mCutoutForceFullscreenSettings.removeApp(appEntry.info.packageName);
+                }
+                try{
+                    mActivityManager.forceStopPackage(appEntry.info.packageName);
+                } catch (Exception ignored) {
                 }
                 Toast.makeText(getActivity(),
                     getActivity().getString(R.string.display_cutout_force_fullscreen_restart_app),
