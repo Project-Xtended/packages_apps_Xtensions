@@ -42,15 +42,21 @@
             android:summary="@string/charging_animation_summary"
             android:defaultValue="true" />
             
-         <PreferenceCategory
-            android:key="developer_options_category"
-            android:title="@string/developer_options_category">
+        <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="click_partial_screenshot"
+            android:title="@string/click_partial_screenshot_title"
+            android:summary="@string/click_partial_screenshot_summary"
+            android:defaultValue="false" />
+
+    <PreferenceCategory
+        android:key="developer_options_category"
+        android:title="@string/developer_options_category">
 
          <com.xtended.support.preferences.SecureSettingSwitchPreference
             android:key="window_ignore_secure"
             android:title="@string/ignore_window_secure_title"
             android:summary="@string/ignore_window_secure_summary"
             android:defaultValue="false"/>
-         </PreferenceCategory>
+    </PreferenceCategory>
 
 </PreferenceScreen>
