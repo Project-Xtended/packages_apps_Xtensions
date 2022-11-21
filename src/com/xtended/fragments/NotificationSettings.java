@@ -36,17 +36,21 @@ import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+import com.xtended.support.preferences.CustomSeekBarPreference;
+
 public class NotificationSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String SMS_BREATH = "sms_breath";
     private static final String MISSED_CALL_BREATH = "missed_call_breath";
     private static final String VOICEMAIL_BREATH = "voicemail_breath";
+    private static final String NOTIF_PANEL_MAX_NOTIF_CONFIG = "notif_panel_max_notif_cofig";
 
     protected Context mContext;
     private SwitchPreference mSmsBreath;
     private SwitchPreference mMissedCallBreath;
     private SwitchPreference mVoicemailBreath;
+    private CustomSeekBarPreference mMaxNotifPanelNotifConfig;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -80,6 +84,12 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
             prefScreen.removePreference(mMissedCallBreath);
             prefScreen.removePreference(mVoicemailBreath);
         }
+
+        mMaxNotifPanelNotifConfig = (CustomSeekBarPreference) findPreference(NOTIF_PANEL_MAX_NOTIF_CONFIG);
+        int nPconf = Settings.System.getInt(getContentResolver(),
+                Settings.System.NOTIF_PANEL_MAX_NOTIF_CONFIG, 3);
+        mMaxNotifPanelNotifConfig.setValue(nPconf);
+        mMaxNotifPanelNotifConfig.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -95,6 +105,11 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
         } else if (preference == mVoicemailBreath) {
             boolean value = (Boolean) newValue;
             Settings.Global.putInt(getContentResolver(), VOICEMAIL_BREATH, value ? 1 : 0);
+            return true;
+        } else if (preference == mMaxNotifPanelNotifConfig) {
+            int nPconf = (Integer) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NOTIF_PANEL_MAX_NOTIF_CONFIG, nPconf);
             return true;
         }
         return false;
