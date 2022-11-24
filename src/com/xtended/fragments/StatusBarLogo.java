@@ -97,6 +97,15 @@ public class StatusBarLogo extends SettingsPreferenceFragment implements
         boolean valSbLogo = Settings.System.getIntForUser(getActivity().getContentResolver(),
                 Settings.System.CUSTOM_SB_LOGO_ENABLED, 0, UserHandle.USER_CURRENT) == 1;
         mCustomSbLogoEnabled.setOnPreferenceChangeListener(this);
+
+        if (showLogo == 0) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                Settings.System.CUSTOM_SB_LOGO_ENABLED, 0);
+            mCustomSbLogoEnabled.setEnabled(false);
+            mLogoStyle.setEnabled(false);
+            mStatusBarLogoColor.setEnabled(false);
+        }
+
         if (valSbLogo) {
             mLogoStyle.setEnabled(false);
             mStatusBarLogoColor.setEnabled(false);
