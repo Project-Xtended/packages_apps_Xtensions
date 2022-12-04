@@ -807,4 +807,9 @@
     <string name="custom_qs_logo_summary">Enable custom quicksetting logo from files</string>
     <string name="custom_qs_logo_select_title">Select Custom QS Logo</string>
 
+    <!-- Media art -->
+    <string name="lockscreen_media_art_options_title">Lockscreen Media Cover</string>
+    <string name="media_art_title">Media cover art</string>
+    <string name="media_art_summary">Display media cover art when available</string>
+
 </resources>

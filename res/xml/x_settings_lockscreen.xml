@@ -58,6 +58,24 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="lockscreen_media_art_options"
+        android:title="@string/lockscreen_media_art_options_title">
+
+        <com.xtended.support.preferences.SecureSettingSwitchPreference
+            android:key="lockscreen_media_metadata"
+            android:title="@string/media_art_title"
+            android:summary="@string/media_art_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <Preference
+        android:key="pulse"
+        android:title="@string/pulse_settings"
+        android:summary="@string/pulse_settings_summary"
+        android:fragment="com.xtended.fragments.PulseSettings" />
+
     <com.xtended.support.preferences.SystemSettingSwitchPreference
          android:key="lock_screen_custom_notif"
          android:title="@string/lockscreen_maxnotif_title"
@@ -73,11 +91,5 @@
          settings:unitsRight=""
          android:persistent="false"
          android:dependency="lock_screen_custom_notif" />
-
-    <Preference
-        android:key="pulse"
-        android:title="@string/pulse_settings"
-        android:summary="@string/pulse_settings_summary"
-        android:fragment="com.xtended.fragments.PulseSettings" />
 
 </PreferenceScreen>
