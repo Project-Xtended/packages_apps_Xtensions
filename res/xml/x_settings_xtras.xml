@@ -29,6 +29,16 @@
             android:targetClass="io.chaldeaprjkt.gamespace.settings.SettingsActivity" />
     </Preference>
     
+    <!-- Parallel space -->
+    <Preference
+        android:key="parallel_space"
+        android:title="@string/laboratory_parallel_space_title"
+        android:summary="@string/laboratory_parallel_space_summary">
+        <intent
+            android:targetPackage="ink.kscope.parallelspace"
+            android:targetClass="ink.kscope.parallelspace.MainActivity" />
+    </Preference>
+
        <!-- Unlock FPS for specific games -->
        <com.xtended.support.preferences.SystemSettingSwitchPreference
             android:key="persist.sys.pixelprops.games"
