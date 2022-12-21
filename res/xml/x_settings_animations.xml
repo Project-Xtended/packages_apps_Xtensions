@@ -26,6 +26,12 @@
         android:summary="%s"
         android:defaultValue="0" />
 
+    <com.xtended.support.preferences.GlobalSettingSwitchPreference
+        android:key="pie_animation_style"
+        android:title="@string/pie_animation_style_title"
+        android:summary="@string/pie_animation_style_summary"
+        android:defaultValue="false" />
+
    <PreferenceCategory
       android:title="@string/power_menu_anim_cat">
 

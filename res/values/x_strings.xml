@@ -1032,4 +1032,8 @@
     <string name="display_cutout_force_fullscreen_restart_app">Please restart the application to apply the changes.</string>
     <string name="cutout_force_fullscreen_no_apps">No apps</string>
 
+    <!-- Android P animation style -->
+    <string name="pie_animation_style_title">Android P animation style</string>
+    <string name="pie_animation_style_summary">Enable Android P \"Default\" animations</string>
+
 </resources>
