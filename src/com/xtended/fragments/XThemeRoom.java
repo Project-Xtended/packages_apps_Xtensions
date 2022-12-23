@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020-21 The Project-Xtended
+ * Copyright (C) 2020-23 The Project-Xtended
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -60,6 +60,8 @@ import android.provider.SearchIndexableResource;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.xtended.preferences;
+
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class XThemeRoom extends DashboardFragment implements
         OnPreferenceChangeListener {
@@ -95,6 +97,7 @@ public class XThemeRoom extends DashboardFragment implements
             Context context, Lifecycle lifecycle, Fragment fragment) {
 
         final List<AbstractPreferenceController> controllers = new ArrayList<>();
+        controllers.add(new CustomUIPreferenceController(context));
         return controllers;
     }
 
