@@ -64,6 +64,11 @@
             android:summary="@string/theme_customization_icon_shape_summary"
             android:fragment="com.xtended.fragments.IconShapes"/>
 
+        <SwitchPreference
+            android:key="custom_ui_toggle"
+            android:title="@string/custom_ui_toggle_title"
+            android:summary="@string/custom_ui_toggle_summary"
+            android:defaultValue="false" />
     </PreferenceCategory>
 
 </PreferenceScreen>
