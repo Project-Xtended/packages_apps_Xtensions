@@ -970,6 +970,9 @@
     <string name="tint_background_title">Tint Background</string>
     <string name="tint_background_summary">Make Luminance and Chroma selection affect background colors as well</string>
 
+    <!-- CustomUI -->
+    <string name="custom_ui_toggle_title">Settings dashboard style</string>
+    <string name="custom_ui_toggle_summary">Enable card-style dashboard UI</string>
     <!-- QS Header image -->
     <string name="qs_header_image_title">QS Header image</string>
     <string name="qs_header_random_image_title">QS Header random image</string>
