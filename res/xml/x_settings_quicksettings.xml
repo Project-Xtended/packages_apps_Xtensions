@@ -52,6 +52,15 @@
         android:key="quick_settings_general_category"
         android:title="@string/qs_general_category">
         
+        <!-- QS styles -->
+        <com.xtended.support.preferences.SystemSettingListPreference
+            android:key="qs_panel_style"
+            android:title="@string/qs_styles_title"
+            android:entries="@array/qs_styles_entries"
+            android:entryValues="@array/qs_styles_values"
+            android:summary="%s"
+            android:defaultValue="0" />
+
         <com.xtended.support.preferences.SystemSettingSeekBarPreference
             android:key="qs_transparency"
             android:title="@string/qs_transparency_title"

@@ -18,16 +18,24 @@
 
 package com.xtended.fragments;
 
+import static android.os.UserHandle.USER_CURRENT;
+import static android.os.UserHandle.USER_SYSTEM;
+
 import com.android.internal.logging.nano.MetricsProto;
 
 import android.os.Bundle;
 import android.content.Context;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.os.UserHandle;
-import android.content.ContentResolver;
 import android.content.res.Resources;
+import android.database.ContentObserver;
+import android.net.Uri;
+import android.os.Handler;
+import android.os.RemoteException;
+import android.os.ServiceManager;
+import android.os.UserHandle;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
@@ -43,7 +51,10 @@ import java.util.Locale;
 import android.text.TextUtils;
 import android.view.View;
 
+import com.android.internal.util.xtended.ThemesUtils;
+
 import com.xtended.support.preferences.SystemSettingEditTextPreference;
+import com.xtended.support.preferences.SystemSettingListPreference;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -52,8 +63,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String X_FOOTER_TEXT_STRING = "x_footer_text_string";
+    private static final String KEY_QS_PANEL_STYLE  = "qs_panel_style";
 
+    private Handler mHandler;
+    private ThemesUtils mThemeUtils;
     private SystemSettingEditTextPreference mFooterString;
+    private SystemSettingListPreference mQsStyle;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -63,6 +78,8 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
         PreferenceScreen prefScreen = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
+
+        mThemeUtils = new ThemesUtils(getActivity());
 
         mFooterString = (SystemSettingEditTextPreference) findPreference(X_FOOTER_TEXT_STRING);
         mFooterString.setOnPreferenceChangeListener(this);
@@ -74,6 +91,32 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             mFooterString.setText("Xtended");
             Settings.System.putString(getActivity().getContentResolver(),
                     Settings.System.X_FOOTER_TEXT_STRING, "Xtended");
+        }
+
+        mQsStyle = (SystemSettingListPreference) findPreference(KEY_QS_PANEL_STYLE);
+        mCustomSettingsObserver.observe();
+    }
+
+    private CustomSettingsObserver mCustomSettingsObserver = new CustomSettingsObserver(mHandler);
+    private class CustomSettingsObserver extends ContentObserver {
+
+        CustomSettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            Context mContext = getContext();
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_PANEL_STYLE),
+                    false, this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            if (uri.equals(Settings.System.getUriFor(Settings.System.QS_PANEL_STYLE))) {
+                updateQsStyle();
+            }
         }
     }
 
@@ -91,6 +134,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                         Settings.System.X_FOOTER_TEXT_STRING, "Xtended");
             }
             return true;
+        } else if (preference == mQsStyle) {
+            mCustomSettingsObserver.observe();
+            return true;
         }
         return false;
     }
@@ -98,5 +144,30 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.XTENSIONS;
+    }
+
+    private void updateQsStyle() {
+        ContentResolver resolver = getActivity().getContentResolver();
+
+        int qsPanelStyle = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.QS_PANEL_STYLE , 0, UserHandle.USER_CURRENT);
+
+        switch (qsPanelStyle) {
+            case 0:
+              setQsStyle("com.android.systemui");
+              break;
+            case 1:
+              setQsStyle("com.android.system.qs.outline");
+              break;
+            case 2:
+            case 3:
+              setQsStyle("com.android.system.qs.twotoneaccent");
+              break;
+            default:
+              break;
+        }
+    }
+    public void setQsStyle(String overlayName) {
+        mThemeUtils.setOverlayEnabled("android.theme.customization.qs_panel", overlayName);
     }
 }
