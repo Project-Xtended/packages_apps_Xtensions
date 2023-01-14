@@ -18,6 +18,22 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
 	android:title="@string/lockscreen_title">
 
+    <ListPreference
+        android:key="lockscreen_shortcut_start"
+        android:title="@string/lockscreen_shortcut_start_title"
+        android:summary="%s"
+        android:entries="@array/lockscreen_shortcut_entries"
+        android:entryValues="@array/lockscreen_shortcut_values"
+        android:defaultValue="home" />
+
+    <ListPreference
+        android:key="lockscreen_shortcut_end"
+        android:title="@string/lockscreen_shortcut_end_title"
+        android:summary="%s"
+        android:entries="@array/lockscreen_shortcut_entries"
+        android:entryValues="@array/lockscreen_shortcut_values"
+        android:defaultValue="wallet" />
+
     <com.xtended.support.preferences.SystemSettingSwitchPreference
         android:key="lockscreen_battery_info"
         android:title="@string/lockscreen_battery_info_title"
