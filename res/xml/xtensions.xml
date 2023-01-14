@@ -24,13 +24,6 @@
             android:layout="@layout/xtensions_header"
             android:selectable="false"/>
 
-        <!-- Theme Room -->
-        <com.xtended.ui.XtendedPreference
-            android:key="theme_room"
-            android:title="@string/themeroom_title"
-            android:fragment="com.xtended.fragments.XThemeRoom"
-            android:icon="@drawable/ic_x_themeroom" />
-
         <!-- Animations -->
         <com.xtended.ui.XtendedPreference
             android:key="animations_category"
@@ -93,6 +86,13 @@
             android:title="@string/statusbar_title"
             android:fragment="com.xtended.fragments.StatusBarSettings"
             android:icon="@drawable/ic_x_statusbar" />
+
+        <!-- Theme Room -->
+        <com.xtended.ui.XtendedPreference
+            android:key="theme_room"
+            android:title="@string/themeroom_title"
+            android:fragment="com.xtended.fragments.XThemeRoom"
+            android:icon="@drawable/ic_x_themeroom" />
 
         <!-- Xtras -->
         <com.xtended.ui.XtendedPreference
