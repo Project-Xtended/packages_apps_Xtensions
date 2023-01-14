@@ -993,4 +993,19 @@
     <string name="floating_rotation_button_title">Floating rotate button</string>
     <string name="floating_rotation_button_summary">Show a floating rotate button when device is rotated</string>
 
+    <!-- Lockscreen bottom shortcuts -->
+    <string name="ls_shortcut_category">Bottom shortcuts</string>
+    <string name="lockscreen_shortcut_start_title">Left shortcut</string>
+    <string name="lockscreen_shortcut_end_title">Right shortcut</string>
+    <string name="lockscreen_shortcut_wallet">Wallet</string>
+    <string name="lockscreen_shortcut_home">Home controls</string>
+    <string name="lockscreen_shortcut_flashlight">Flashlight</string>
+    <string name="lockscreen_shortcut_qr">QR code scanner</string>
+    <string name="lockscreen_shortcut_camera">Camera</string>
+    <string name="lockscreen_shortcut_remote">Google TV Remote</string>
+    <string name="lockscreen_shortcut_dnd">DND</string>
+    <string name="lockscreen_shortcut_none">None</string>
+    <string name="lockscreen_shortcut_enforce_title">Enforce shortcuts</string>
+    <string name="lockscreen_shortcut_enforce_summary">Do not display next available shortcut if chosen shortcut is not available</string>
+
 </resources>
