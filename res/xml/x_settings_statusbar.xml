@@ -78,6 +78,12 @@
             android:defaultValue="1"/>
 
         <com.xtended.support.preferences.SecureSettingSwitchPreference
+            android:key="show_wifi_standard_icon"
+            android:title="@string/show_wifi_standard_icon_title"
+            android:summary="@string/show_wifi_standard_icon_summary"
+            android:defaultValue="false" /> 
+
+        <com.xtended.support.preferences.SecureSettingSwitchPreference
             android:key="enable_camera_privacy_indicator"
             android:title="@string/mic_camera_privacy_indicator_title"
             android:summary="@string/mic_camera_privacy_indicator_summary"
