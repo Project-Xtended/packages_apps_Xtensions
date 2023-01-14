@@ -18,6 +18,12 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
 	android:title="@string/quicksettings_title">
 	
+	<Preference
+        android:key="qs_tile_layout"
+        android:title="@string/qs_tile_layout_title"
+        android:summary="@string/qs_tile_layout_summary"
+        android:fragment="com.xtended.fragments.QsTileLayoutSettings" />
+        
 	<PreferenceCategory
         android:key="quick_settings_brighness_category"
         android:title="@string/qs_brightness_slider_category">
