@@ -188,10 +188,6 @@
     <string name="network_traffic_layout_v">Vertical</string>
     <string name="nettraf_font_size">Single net font size</string>
 
-    <!-- Lockscreen shortcuts -->
-    <string name="lockscreen_tuner_title">Lockscreen shortcuts</string>
-    <string name="lockscreen_tuner_summary">Modify the shortcuts shown in the lockscreen</string>
-
     <!-- Udfps Haptic Feedback -->
     <string name="udfps_haptic_feedback_title">Udfps haptic feedback</string>
     <string name="udfps_haptic_feedback_summary">Vibrate when touching udfps icon</string>
