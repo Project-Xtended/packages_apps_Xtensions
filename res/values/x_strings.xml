@@ -782,15 +782,15 @@
 
     <!-- Privacy Indicator -->
     <string name="mic_camera_privacy_indicator_title">Mic and camera privacy indicator</string>
-    <string name="mic_camera_privacy_indicator_summary">Show separate indicator when an any app uses mic or camera</string>
+    <string name="mic_camera_privacy_indicator_summary">Show separate indicator when an any app uses mic or camera.(Requires SystemUI restart)</string>
 
     <!-- Location Privacy Indicator -->
     <string name="location_privacy_title"> Show Location Privacy Indicator</string>
-    <string name="location_privacy_summary">Enable - Disable location privacy indicator in qs and sb</string>
+    <string name="location_privacy_summary">Enable - Disable location privacy indicator in qs and sb.(Requires SystemUI restart)</string>
 
     <!-- Projection Privacy Indicator -->
     <string name="projection_privacy_title"> Show Projection Privacy Indicator</string>
-    <string name="projection_privacy_summary">Enable - Disable Projection privacy indicator in qs and sb</string>
+    <string name="projection_privacy_summary">Enable - Disable Projection privacy indicator in qs and sb.(Requires SystemUI restart)</string>
 
     <!-- Statusbar logo -->
     <string name="status_bar_logo_category_title">Statusbar Logo</string>
