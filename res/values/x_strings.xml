@@ -255,10 +255,6 @@
     <string name="toast_icon_title">Toast app icon</string>
     <string name="toast_icon_summary">Display the app\'s icon corresponding with the toast</string>
 
-    <!-- Screen off FOD -->
-    <string name="screen_off_fod_title">Screen off FOD</string>
-    <string name="screen_off_fod_summary">Keep FOD enabled when the screen is off</string>
-
      <!-- Nightlight Fod -->
     <string name="fod_night_light_title">Disable night light when showing FOD</string>
     <string name="fod_night_light_summary">Disable night light on lockscreen if FOD is active. Disabling this option might affect your fingerprint accuracy with night light on.</string>
