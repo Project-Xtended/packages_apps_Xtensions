@@ -15,11 +15,23 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
 	android:title="@string/udfps_category">
 
-    <!--<com.xtended.support.preferences.SystemSettingSwitchPreference
+    <com.xtended.support.preferences.SystemSettingSwitchPreference
         android:key="udfps_haptic_feedback"
         android:title="@string/udfps_haptic_feedback_title"
         android:summary="@string/udfps_haptic_feedback_summary"
-        android:defaultValue="true" />-->
+        android:defaultValue="true" />
+
+    <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="udfps_success_vib"
+            android:title="@string/udfps_success_vib_title"
+            android:summary="@string/udfps_success_vib_summary"
+            android:defaultValue="true" />
+
+    <com.xtended.support.preferences.SystemSettingSwitchPreference
+            android:key="udfps_error_vib"
+            android:title="@string/udfps_error_vib_title"
+            android:summary="@string/udfps_error_vib_summary"
+            android:defaultValue="true" />
 
     <!-- FOD Nightlight -->
     <com.xtended.support.preferences.SystemSettingSwitchPreference
