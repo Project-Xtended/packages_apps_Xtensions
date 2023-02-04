@@ -47,6 +47,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 import com.android.settings.SettingsPreferenceFragment;
+import com.xtended.fragments.SmartPixels;
 import com.xtended.support.preferences.CustomSeekBarPreference;
 import com.xtended.support.preferences.SecureSettingSwitchPreference;
 import com.xtended.support.preferences.SystemSettingSeekBarPreference;
@@ -58,6 +59,7 @@ public class XtraSettings extends SettingsPreferenceFragment implements
 
     private static final String STATUSBAR_LEFT_PADDING = "statusbar_left_padding";
     private static final String STATUSBAR_RIGHT_PADDING = "statusbar_right_padding";
+    private static final String SMART_PIXELS = "smart_pixels";
 
     private SystemSettingSeekBarPreference mSbLeftPadding;
     private SystemSettingSeekBarPreference mSbRightPadding;
@@ -93,6 +95,8 @@ public class XtraSettings extends SettingsPreferenceFragment implements
                 Settings.System.RIGHT_PADDING, ((int) (res.getIdentifier("com.android.systemui:dimen/status_bar_padding_end", null, null) / density)), UserHandle.USER_CURRENT);
         mSbRightPadding.setValue(sbRightPadding);
         mSbRightPadding.setOnPreferenceChangeListener(this);
+        
+        updateSmartPixelsPreference();        
     }
 
     @Override
@@ -122,6 +126,17 @@ public class XtraSettings extends SettingsPreferenceFragment implements
             return true;
         }
         return false;
+    }
+
+    private void updateSmartPixelsPreference() {
+        PreferenceScreen prefSet = getPreferenceScreen();
+        boolean enableSmartPixels = getContext().getResources().
+                getBoolean(com.android.internal.R.bool.config_supportSmartPixels);
+        Preference smartPixels = findPreference(SMART_PIXELS);
+
+        if (!enableSmartPixels){
+            prefSet.removePreference(smartPixels);
+        }
     }
 
     @Override
