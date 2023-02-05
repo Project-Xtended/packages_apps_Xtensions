@@ -91,7 +91,8 @@
         <com.xtended.support.preferences.SystemSettingSwitchPreference
             android:key="qs_show_battery_estimate"
             android:title="@string/battery_estimate_title"
-            android:summary="@string/battery_estimate_summary" />
+            android:summary="@string/battery_estimate_summary"
+            android:defaultValue="false" />
 
     </PreferenceCategory>
 
