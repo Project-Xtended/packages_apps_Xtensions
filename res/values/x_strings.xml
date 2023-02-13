@@ -832,4 +832,8 @@
     <string name="lockscreen_albumart_filter_blur">Blur</string>
     <string name="lockscreen_albumart_filter_grayblur">Grayscale and blurred</string>
 
+    <!-- Disable QS on Secure Lockscreen -->
+    <string name="disable_qs_lockscreen_title">Disable QS on Lockscreen</string>
+    <string name="disable_qs_lockscreen_summary">Enable or disable QS on secure lockscreen</string>
+
 </resources>
