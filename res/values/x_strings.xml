@@ -852,4 +852,8 @@
     <string name="theme_customization_clock_font_title">Lock Clock Font style</string>
     <string name="theme_customization_clock_font_summary">Set lockscreen clock font style</string>
 
+    <string name="clock_use_single_line_title">Lockscreen clock Format</string>
+    <string name="single_line">Single-line</string>
+    <string name="double_line">Double-line</string>
+
 </resources>
