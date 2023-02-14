@@ -844,4 +844,12 @@
     <string name="show_wifi_standard_icon_title">Show Wi-Fi type icon</string>
     <string name="show_wifi_standard_icon_summary">Show Wi-Fi type in Wi-Fi signal indicator</string>
 
+    <!-- Clock picker format -->
+    <string name="clock_format">12\n26</string>
+    <string name="text_sample">AaBbCc</string>
+
+    <!-- Clock Font style -->
+    <string name="theme_customization_clock_font_title">Lock Clock Font style</string>
+    <string name="theme_customization_clock_font_summary">Set lockscreen clock font style</string>
+
 </resources>

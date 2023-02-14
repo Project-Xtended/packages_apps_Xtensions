@@ -64,6 +64,13 @@
             android:summary="@string/theme_customization_icon_shape_summary"
             android:fragment="com.xtended.fragments.IconShapes"/>
 
+        <!-- Clock Font style -->
+        <Preference
+            android:key="android.theme.customization.clock.fonts"
+            android:title="@string/theme_customization_clock_font_title"
+            android:summary="@string/theme_customization_clock_font_summary"
+            android:fragment="com.xtended.fragments.ClockFontsPicker"/>
+
     </PreferenceCategory>
 
 </PreferenceScreen>
