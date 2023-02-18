@@ -45,6 +45,12 @@
         android:title="@string/hide_lockscreen_status_bar_title"
         android:summary="@string/hide_lockscreen_status_bar_summary"
         android:defaultValue="false" />
+        
+    <com.xtended.support.preferences.SystemSettingSwitchPreference
+        android:key="disable_ripple_effect"
+        android:title="@string/disable_fingerprint_ripple_effect_title"
+        android:summary="@string/disable_fingerprint_ripple_effect_summary"
+        android:defaultValue="false" />
 
     <PreferenceCategory
         android:key="udfps_category"

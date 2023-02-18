@@ -907,4 +907,8 @@
     <string name="custom_timeout_summary_4hours">4 hours</string>
     <string name="custom_timeout_summary_8hours">8 hours</string>
     
+    <!-- Ripple Effect on lockscreen -->
+    <string name="disable_fingerprint_ripple_effect_title">Disable Ripple effect</string>
+    <string name="disable_fingerprint_ripple_effect_summary">Disable ripple effect on unlock</string>
+    
 </resources>
