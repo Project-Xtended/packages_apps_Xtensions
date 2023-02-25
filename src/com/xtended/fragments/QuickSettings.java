@@ -27,6 +27,7 @@ import android.os.Bundle;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.om.IOverlayManager;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
@@ -62,10 +63,22 @@ import java.util.ArrayList;
 public class QuickSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
+    public static final String[] QS_STYLES = {
+        "com.android.system.qs.outline",
+        "com.android.system.qs.twotoneaccent",
+        "com.android.system.qs.shaded",
+        "com.android.system.qs.cyberpunk",
+        "com.android.system.qs.neumorph",
+        "com.android.system.qs.reflected",
+        "com.android.system.qs.surround",
+        "com.android.system.qs.thin"
+    };
+
     private static final String X_FOOTER_TEXT_STRING = "x_footer_text_string";
     private static final String KEY_QS_PANEL_STYLE  = "qs_panel_style";
 
     private Handler mHandler;
+    private IOverlayManager mOverlayService;
     private ThemesUtils mThemeUtils;
     private SystemSettingEditTextPreference mFooterString;
     private SystemSettingListPreference mQsStyle;
@@ -78,6 +91,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
         PreferenceScreen prefScreen = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
+
+        mOverlayService = IOverlayManager.Stub
+        .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
 
         mThemeUtils = new ThemesUtils(getActivity());
 
@@ -154,14 +170,16 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
         switch (qsPanelStyle) {
             case 0:
-              setQsStyle("com.android.systemui");
+              setDefaultStyle(mOverlayService);
               break;
             case 1:
               setQsStyle("com.android.system.qs.outline");
               break;
             case 2:
-            case 3:
               setQsStyle("com.android.system.qs.twotoneaccent");
+              break;
+            case 3:
+              setDefaultStyle(mOverlayService);
               break;
             case 4:
               setQsStyle("com.android.system.qs.shaded");
@@ -185,6 +203,18 @@ public class QuickSettings extends SettingsPreferenceFragment implements
               break;
         }
     }
+
+    public static void setDefaultStyle(IOverlayManager overlayManager) {
+        for (int i = 0; i < QS_STYLES.length; i++) {
+            String qsStyles = QS_STYLES[i];
+            try {
+                overlayManager.setEnabled(qsStyles, false, USER_SYSTEM);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public void setQsStyle(String overlayName) {
         mThemeUtils.setOverlayEnabled("android.theme.customization.qs_panel", overlayName);
     }
