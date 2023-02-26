@@ -951,4 +951,8 @@
     <string name="weather_statusbar">Status Bar</string>
     <string name="weather_qsheader">Qs Header</string>
 
+    <!-- USB configuration -->
+    <string name="usb_default_config_title">USB configuration</string>
+    <string name="usb_default_config_summary">Choose the default behavior when connected to a device via USB</string>
+
 </resources>
