@@ -18,34 +18,38 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
 	android:title="@string/quicksettings_title">
 	
-	<Preference
+    <Preference
         android:key="qs_tile_layout"
         android:title="@string/qs_tile_layout_title"
         android:summary="@string/qs_tile_layout_summary"
         android:fragment="com.xtended.fragments.QsTileLayoutSettings" />
         
-	<PreferenceCategory
+    <PreferenceCategory
         android:key="quick_settings_brighness_category"
-        android:title="@string/qs_brightness_slider_category">
+        android:title="@string/qs_show_brightness_slider_title">
 
-        <com.xtended.support.preferences.SystemSettingListPreference
-            android:key="brightness_slider_position"
-            android:title="@string/brightness_slider_position_title"
-            android:summary="%s"
-            android:entries="@array/brightness_slider_position_entries"
-            android:entryValues="@array/brightness_slider_position_values"
+        <com.xtended.support.preferences.SecureSettingListPreference
+            android:key="qs_show_brightness_slider"
+            android:title="@string/qs_show_brightness_slider_title"
+            android:entries="@array/qs_show_brightness_slider_entries"
+            android:entryValues="@array/qs_show_brightness_slider_values"
+            android:defaultValue="1" />
+
+        <com.xtended.support.preferences.SecureSettingListPreference
+            android:key="qs_brightness_slider_position"
+            android:title="@string/qs_brightness_slider_position_title"
+            android:entries="@array/qs_brightness_slider_position_entries"
+            android:entryValues="@array/qs_brightness_slider_position_values"
+            android:dependency="qs_show_brightness_slider"
             android:defaultValue="0" />
 
-        <com.xtended.support.preferences.SystemSettingSwitchPreference
-            android:key="qqs_show_brightness"
-            android:title="@string/qqs_show_brightness_title"
-            android:defaultValue="false" />
-
-        <com.xtended.support.preferences.SystemSettingSwitchPreference
-            android:key="show_auto_brightness_button"
-            android:title="@string/show_auto_brightness_button_title"
-            android:defaultValue="false" />
-
+        <com.xtended.support.preferences.SecureSettingSwitchPreference
+            android:key="qs_show_auto_brightness"
+            android:title="@string/qs_show_auto_brightness_title"
+            android:summary="@string/qs_show_auto_brightness_summary"
+            android:dependency="qs_show_brightness_slider"
+            android:defaultValue="true" />
+            
     </PreferenceCategory>
 
     <PreferenceCategory
