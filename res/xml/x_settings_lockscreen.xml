@@ -18,6 +18,47 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
 	android:title="@string/lockscreen_title">
 
+    <PreferenceCategory
+        android:title="@string/ls_clock_category">
+
+        <!-- Clock Font style -->
+        <Preference
+            android:key="android.theme.customization.clock.fonts"
+            android:title="@string/theme_customization_clock_font_title"
+            android:summary="@string/theme_customization_clock_font_summary"
+            android:fragment="com.xtended.fragments.ClockFontsPicker"/>
+
+        <com.xtended.support.preferences.SystemSettingListPreference
+            android:key="clock_use_custom_format"
+            android:title="@string/clock_use_single_line_title"
+            android:entries="@array/clock_use_single_line_entries"
+            android:entryValues="@array/clock_use_single_line_values"
+            android:summary="%s"
+            android:defaultValue="0" />
+
+        <com.xtended.support.preferences.SecureSettingSwitchPreference
+            android:key="kg_custom_clock_color_enabled"
+            android:title="@string/lockscreen_clock_color_title"
+            android:summary="@string/lockscreen_clock_color_summary"
+            android:defaultValue="false" />
+
+        <com.xtended.support.colorpicker.SecureSettingColorPickerPreference
+            android:key="kg_custom_clock_color"
+            android:title="@string/kg_custom_clock_color_title"
+            android:defaultValue="0x92FFFFFF"
+            android:dependency="kg_custom_clock_color_enabled"/>
+
+        <com.xtended.support.preferences.SecureSettingSeekBarPreference
+            android:key="kg_big_clock_text_size"
+            android:title="@string/kg_big_clock_text_size_title"
+            android:max="180"
+            settings:min="80"
+            settings:interval="1"
+            android:defaultValue="180"
+            settings:units="dp" />
+
+    </PreferenceCategory>
+
     <com.xtended.support.preferences.SystemSettingSwitchPreference
         android:key="lockscreen_battery_info"
         android:title="@string/lockscreen_battery_info_title"

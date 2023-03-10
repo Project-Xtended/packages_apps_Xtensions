@@ -975,4 +975,14 @@
     <string name="qs_header_random_image_title">QS Header random image</string>
     <string name="qs_header_random_image_summary">Enable random QS Header image</string>
 
+    <!-- Keyguard Clock Margin n Size -->
+    <string name="ls_clock_category">Lockscreen Clock Options</string>
+    <string name="kg_custom_clock_top_margin_title">Clock bottom spacing</string>
+    <string name="kg_big_clock_text_size_title">Large clock size</string>
+
+    <!-- Keyguard Clock color -->
+    <string name="kg_custom_clock_color_title">Choose lockscreen clock color</string>
+    <string name="lockscreen_clock_color_summary">Use custom color instead of wallpaper accent</string>
+    <string name="lockscreen_clock_color_title">Custom lockscreen clock color</string>
+
 </resources>
