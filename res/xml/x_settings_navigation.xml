@@ -25,12 +25,6 @@
         android:fragment="com.android.settings.gestures.SystemNavigationGestureSettings"
         settings:controller="com.android.settings.gestures.SystemNavigationPreferenceController" />
 
-        <com.xtended.support.preferences.SecureSettingSwitchPreference
-            android:key="hide_ime_space_enable"
-            android:title="@string/navigation_bar_ime_space_title"
-            android:summary="@string/navigation_bar_ime_space_summary"
-            android:defaultValue="false" />
-
     <PreferenceCategory
         android:key="button_navigation_settings_page"
         android:title="@string/button_settings_activity_title">

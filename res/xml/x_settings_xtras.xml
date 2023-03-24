@@ -57,13 +57,6 @@
             android:title="@string/click_partial_screenshot_title"
             android:summary="@string/click_partial_screenshot_summary"
             android:defaultValue="false" />
-            
-	    <!-- Smart Pixels -->
-    	<Preference
-        	android:key="smart_pixels"
-        	android:title="@string/smart_pixels_title" 
-        	android:summary="@string/smart_pixels_summary" 
-        	android:fragment="com.xtended.fragments.SmartPixels" />
 
     <PreferenceCategory
         android:key="developer_options_category"
