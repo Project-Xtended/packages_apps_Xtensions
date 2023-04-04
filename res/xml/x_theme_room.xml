@@ -31,10 +31,10 @@
             settings:keywords="@string/keywords_dark_ui_mode"/>
 
         <Preference
-            android:key="monet_engine_settings"
-            android:title="@string/monet_engine_title"
-            android:summary="@string/monet_engine_summary"
-            android:fragment="com.xtended.settings.theme.MonetEngine" />
+            android:key="monet_settings"
+            android:title="@string/monet_settings_title"
+            android:summary="@string/monet_settings_summary"
+            android:fragment="com.xtended.fragments.MonetSettings" />
             
         <!-- Wifi Icon style -->
         <Preference
