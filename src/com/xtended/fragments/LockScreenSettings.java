@@ -41,7 +41,7 @@ import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-import com.android.internal.util.xtended.fod.FodUtils;
+import com.android.internal.util.xtended.udfps.UdfpsUtils;
 import com.android.internal.util.xtended.XtendedUtils;
 
 import com.xtended.support.preferences.CustomSeekBarPreference;
@@ -63,7 +63,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         Resources resources = getResources();
 
         PreferenceCategory udfps = (PreferenceCategory) prefScreen.findPreference("udfps_category");
-        if (!FodUtils.hasFodSupport(getActivity())) {
+        if (!UdfpsUtils.hasUdfpsSupport(getActivity())) {
             prefScreen.removePreference(udfps);
         }
 

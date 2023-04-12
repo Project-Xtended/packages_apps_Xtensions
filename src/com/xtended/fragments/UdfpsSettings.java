@@ -50,7 +50,7 @@ import android.text.TextUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-import com.android.internal.util.xtended.fod.FodUtils;
+import com.android.internal.util.xtended.udfps.UdfpsUtils;
 import com.android.internal.util.xtended.XtendedUtils;
 
 import com.xtended.support.preferences.SystemSettingSwitchPreference;
