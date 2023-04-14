@@ -94,7 +94,7 @@
             android:title="@string/qs_footer_warnings_title"
             android:summary="@string/qs_footer_warnings_summary"
             android:defaultValue="true" />
-
+<!--
         <com.xtended.support.preferences.SystemSettingSwitchPreference
             android:key="qs_footer_show_user"
             android:title="@string/qs_footer_users_icon_title"
@@ -124,7 +124,7 @@
             android:title="@string/qs_footer_settings_icon_title"
             android:summary="@string/qs_footer_settings_icon_summary"
             android:defaultValue="true" />
-
+-->
         <com.xtended.support.preferences.SystemSettingSwitchPreference
             android:key="omni_footer_text_show"
             android:title="@string/qs_footer_text_title"
