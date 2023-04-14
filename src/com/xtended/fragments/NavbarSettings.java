@@ -44,35 +44,23 @@ import com.android.internal.logging.nano.MetricsProto;
 import com.android.internal.util.xtended.XtendedUtils;
 import com.android.settings.R;
 
-import com.xtended.support.preferences.SecureSettingSwitchPreference;
-
 public class NavbarSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String CATEGORY_3BUTTONS = "button_navigation_settings_page";
-    private static final String HIDE_IME_SPACE = "hide_ime_space_enable";
-
-    private SecureSettingSwitchPreference mHideImeSpace;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.x_settings_navigation);
 
-        final ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
         PreferenceCategory navBarCat = (PreferenceCategory) prefScreen
                 .findPreference(CATEGORY_3BUTTONS);
 
-        mHideImeSpace = (SecureSettingSwitchPreference) findPreference(HIDE_IME_SPACE);
-
         if (!XtendedUtils.isThemeEnabled("com.android.internal.systemui.navbar.threebutton")) {
             navBarCat.setEnabled(false);
-        }
-        if (!XtendedUtils.isThemeEnabled("com.android.internal.systemui.navbar.gestural")) {
-            Settings.Secure.putInt(resolver, Settings.Secure.HIDE_IME_SPACE_ENABLE, 0);
-            mHideImeSpace.setEnabled(false);
         }
     }
 
