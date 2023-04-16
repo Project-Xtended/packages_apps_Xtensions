@@ -33,7 +33,7 @@ public class SBWeather extends SettingsPreferenceFragment implements
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
-        addPreferencesFromResource(R.xml.x_sb_weather);
+        addPreferencesFromResource(R.xml.x_settings_statusbar);
 
     }
 
