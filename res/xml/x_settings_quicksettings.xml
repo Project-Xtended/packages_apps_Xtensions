@@ -56,6 +56,14 @@
         android:key="quick_settings_general_category"
         android:title="@string/qs_general_category">
         
+        <com.xtended.support.preferences.SystemSettingSeekBarPreference
+            android:key="qs_header_image"
+            android:title="@string/qs_header_image_title"
+            android:defaultValue="0"
+            settings:interval="1"
+            android:max="11"
+            android:min="0" />
+
         <!-- QS styles -->
         <com.xtended.support.preferences.SystemSettingListPreference
             android:key="qs_panel_style"
