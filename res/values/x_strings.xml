@@ -985,4 +985,8 @@
     <string name="lockscreen_clock_color_summary">Use custom color instead of wallpaper accent</string>
     <string name="lockscreen_clock_color_title">Custom lockscreen clock color</string>
 
+    <!-- Screen off FOD -->
+    <string name="screen_off_fod_title">Screen off FOD</string>
+    <string name="screen_off_fod_summary">Keep FOD enabled when the screen is off</string>
+
 </resources>
