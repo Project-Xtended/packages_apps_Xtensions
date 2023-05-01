@@ -25,6 +25,13 @@
         android:fragment="com.android.settings.gestures.SystemNavigationGestureSettings"
         settings:controller="com.android.settings.gestures.SystemNavigationPreferenceController" />
 
+    <!-- Floating rotation button -->
+    <com.xtended.support.preferences.SystemSettingSwitchPreference
+        android:key="enable_floating_rotation_button"
+        android:title="@string/floating_rotation_button_title"
+        android:summary="@string/floating_rotation_button_summary"
+        android:defaultValue="true" />
+
     <PreferenceCategory
         android:key="button_navigation_settings_page"
         android:title="@string/button_settings_activity_title">
