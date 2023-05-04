@@ -40,11 +40,11 @@
     </Preference>
 
        <!-- Unlock FPS for specific games -->
-       <com.xtended.support.preferences.SystemSettingSwitchPreference
-            android:key="persist.sys.pixelprops.games"
-            android:title="@string/use_games_spoof_title"
-            android:summary="@string/use_games_spoof_summary"
-            android:defaultValue="false" />
+       <com.xtended.support.preferences.SecureSettingSwitchPreference
+            android:key="games_device_spoof"
+            android:title="@string/games_device_spoof_title"
+            android:summary="@string/games_device_spoof_summary"
+            android:defaultValue="false"/>
 
         <com.xtended.support.preferences.SystemSettingSwitchPreference
             android:key="charging_animation"
