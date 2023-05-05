@@ -41,7 +41,7 @@ import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-import com.android.internal.util.xtended.udfps.UdfpsUtils;
+import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.xtended.XtendedUtils;
 
 import com.xtended.support.preferences.CustomSeekBarPreference;
@@ -71,8 +71,13 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         final PreferenceScreen prefScreen = getPreferenceScreen();
         Resources resources = getResources();
 
+        final int[] udfpsProps = getContext().getResources().getIntArray(
+                com.android.internal.R.array.config_udfps_sensor_props);
+
+        final boolean isUdfps = !ArrayUtils.isEmpty(udfpsProps);
+
         PreferenceCategory udfps = (PreferenceCategory) prefScreen.findPreference("udfps_category");
-        if (!UdfpsUtils.hasUdfpsSupport(getActivity())) {
+        if (!isUdfps) {
             prefScreen.removePreference(udfps);
         }
 
