@@ -60,7 +60,7 @@ import android.provider.SearchIndexableResource;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.xtended.preferences;
+import com.xtended.preferences.CustomUIPreferenceController;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class XThemeRoom extends DashboardFragment implements
