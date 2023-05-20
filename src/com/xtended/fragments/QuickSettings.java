@@ -23,7 +23,7 @@ import static android.os.UserHandle.USER_SYSTEM;
 
 import com.android.internal.logging.nano.MetricsProto;
 
-import android.os.Bundle;
+import android.app.Activity;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -33,6 +33,7 @@ import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.RemoteException;
 import android.os.ServiceManager;
@@ -56,6 +57,8 @@ import com.android.internal.util.xtended.ThemesUtils;
 
 import com.xtended.support.preferences.SystemSettingEditTextPreference;
 import com.xtended.support.preferences.SystemSettingListPreference;
+import com.xtended.support.preferences.SystemSettingSwitchPreference;
+import com.xtended.support.preferences.SystemSettingSeekBarPreference;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -76,12 +79,18 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
     private static final String X_FOOTER_TEXT_STRING = "x_footer_text_string";
     private static final String KEY_QS_PANEL_STYLE  = "qs_panel_style";
+    private static final String PREF_QS_HEADER_NEW_IMAGE = "qs_header_type_background";
+    private static final String FILE_HEADER_SELECT = "file_header_select";
+    private static final String PREF_QS_HEADER_LIST = "qs_header_image";
+    private static final int REQUEST_PICK_HEADER_IMAGE = 0;
 
     private Handler mHandler;
     private IOverlayManager mOverlayService;
     private ThemesUtils mThemeUtils;
     private SystemSettingEditTextPreference mFooterString;
     private SystemSettingListPreference mQsStyle;
+    private Preference mQsHeaderCustomImage;
+    private SystemSettingSwitchPreference mQsHeaderImage;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -111,6 +120,11 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
         mQsStyle = (SystemSettingListPreference) findPreference(KEY_QS_PANEL_STYLE);
         mCustomSettingsObserver.observe();
+
+        mQsHeaderCustomImage = findPreference(FILE_HEADER_SELECT);
+
+        mQsHeaderImage = (SystemSettingSwitchPreference) findPreference(PREF_QS_HEADER_NEW_IMAGE);
+
     }
 
     private CustomSettingsObserver mCustomSettingsObserver = new CustomSettingsObserver(mHandler);
@@ -155,6 +169,28 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference == mQsHeaderCustomImage) {
+            Intent intent = new Intent(Intent.ACTION_PICK);
+            intent.setType("image/*");
+            startActivityForResult(intent, REQUEST_PICK_HEADER_IMAGE);
+            return true;
+        }
+        return super.onPreferenceTreeClick(preference);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent result) {
+        if (requestCode == REQUEST_PICK_HEADER_IMAGE) {
+            if (resultCode != Activity.RESULT_OK) {
+                return;
+            }
+            final Uri headerImageUri = result.getData();
+            Settings.System.putString(getContentResolver(), Settings.System.QS_HEADER_CUSTOM_IMAGE, headerImageUri.toString());
+        }
     }
 
     @Override

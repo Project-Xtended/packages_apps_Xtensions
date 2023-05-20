@@ -1051,4 +1051,12 @@
     <string name="pie_animation_style_title">Android P animation style</string>
     <string name="pie_animation_style_summary">Enable Android P \"Default\" animations</string>
 
+    <!-- QS Header Type Background -->
+    <string name="qs_header_cat_title">QS Header Options</string>
+    <string name="qs_header_cat_summary">Qs header customization options</string>
+    <string name="qs_header_type_title">QS Header Background</string>
+    <string name="qs_header_type_summary">Enable custom qs header background</string>
+    <string name="custom_header_shadow_title">Header image shadow</string>
+    <string name="custom_header_shadow_summary">For better visibility on bright images</string>
+
 </resources>
