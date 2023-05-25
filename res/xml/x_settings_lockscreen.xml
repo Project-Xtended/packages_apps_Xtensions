@@ -51,10 +51,10 @@
         <com.xtended.support.preferences.SecureSettingSeekBarPreference
             android:key="kg_big_clock_text_size"
             android:title="@string/kg_big_clock_text_size_title"
-            android:max="180"
+            android:max="300"
             settings:min="80"
             settings:interval="1"
-            android:defaultValue="180"
+            android:defaultValue="200"
             settings:units="dp" />
 
     </PreferenceCategory>
