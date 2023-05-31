@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2020-21 The Project-Xtended
+<!-- Copyright (C) 2020-23 The Project-Xtended
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -34,6 +34,7 @@
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
     <string name="default_string">Default</string>
+    <string name="enable">Enable</string>
 
     <string name="system_navigation_summary">Configure navigation menus</string>
 
@@ -1061,4 +1062,7 @@
     <string name="custom_header_shadow_title">Header image shadow</string>
     <string name="custom_header_shadow_summary">For better visibility on bright images</string>
 
+    <string name="gms_enabled_title">Google services</string>
+    <string name="gms_enabled_summary">Control Google services and core apps</string>
+    <string name="gms_enabled_footer">Before disabling Google services and core apps, you should disable "Find My Device" and 2-step verification on your Google account. It is strongly recommended to keep this setting enabled else apps dependent on Google components will be affected. If you run into any issues after changing this setting, perform a factory reset.</string>
 </resources>
