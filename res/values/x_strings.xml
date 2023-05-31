@@ -1071,4 +1071,11 @@
     <string name="brightness_slider_haptics_intensity_title">Brightness slider haptics intensity</string>
     <string name="edge_scrolling_haptics_intensity_title">Edge scrolling haptics intensity</string>
     <string name="volume_slider_haptics_intensity_title">Volume slider haptics intensity</string>
+
+    <!-- Volume Styles -->
+    <string name="rui_style">Realme UI style</string>
+    <string name="rising_style">Rice style</string>
+    <string name="volume_style_title">Volume panel styles</string>
+    <string name="two_tone_style">Two tone style</string>
+    <string name="two_tone_thin_style">Two tone thin style</string>
 </resources>
