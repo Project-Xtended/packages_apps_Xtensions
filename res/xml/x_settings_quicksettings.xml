@@ -28,6 +28,12 @@
         android:key="quick_settings_brighness_category"
         android:title="@string/qs_show_brightness_slider_title">
 
+        <Preference
+            android:key="android.theme.customization.brightness_slider"
+            android:title="@string/theme_customization_brightness_slider_title"
+            android:summary="@string/theme_customization_brightness_slider_summary"
+            android:fragment="com.xtended.fragments.BrightnessSlider"/>
+            
         <com.xtended.support.preferences.SecureSettingListPreference
             android:key="qs_show_brightness_slider"
             android:title="@string/qs_show_brightness_slider_title"

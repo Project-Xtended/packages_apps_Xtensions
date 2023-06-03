@@ -356,6 +356,8 @@
     <string name="theme_customization_icon_shape_summary">Set system icon shape style</string>
     <string name="custom_wifi_bar_summary">Set wifi icon style</string>
     <string name="custom_signal_bar_summary">Set signal icon style</string>
+    <string name="theme_customization_brightness_slider_title">Brightness slider style</string>
+    <string name="theme_customization_brightness_slider_summary">Set custom brightness slider style</string>    
 
     <!-- VoLTE Icon Type -->
     <string name="volte_icon_style_title">Select VoLTE/HD Icon</string>
