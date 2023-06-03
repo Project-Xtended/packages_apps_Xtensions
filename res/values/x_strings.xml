@@ -1036,14 +1036,6 @@
     <string name="solid_gradient_shape">Sharp gradient corner</string>
     <string name="solid_gradient_void_light">Gradient Void light</string>
 
-    <!-- Brightness slider styles -->
-    <string name="brightness_slider_style_title">Brightness slider style</string>
-    <string name="brightness_slider_style_default">Default</string>
-    <string name="brightness_slider_style_filled">Filled</string>
-    <string name="brightness_slider_style_thin">Thin</string>
-    <string name="brightness_slider_style_acun">Acun</string>
-    <string name="brightness_slider_style_bang">Bang</string>    
-
     <!-- Notch: Full screen apps -->
     <string name="display_cutout_force_fullscreen_title">Full screen apps</string>
     <string name="display_cutout_force_fullscreen_summary">Force apps to ignore notch space</string>
