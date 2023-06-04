@@ -25,6 +25,7 @@
     <string name="powermenu_title">PowerMenu</string>
     <string name="quicksettings_title">QuickSettings</string>
     <string name="statusbar_title">StatusBar</string>
+    <string name="udfps_title">UDFPS</string>
     <string name="xtras_title">Xtras</string>
     <string name="ambient_decor_title">AmbientDecor</string>
 
