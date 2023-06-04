@@ -13,7 +13,13 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-	android:title="@string/udfps_category">
+    android:title="@string/udfps_category">
+
+    <Preference
+        android:key="udfps_settings"
+        android:title="@string/udfps_settings_title"
+        android:summary="@string/udfps_settings_summary"
+        android:fragment="com.xtended.fragments.UdfpsSettings" />
 
     <com.xtended.support.preferences.SecureSettingSwitchPreference
         android:key="screen_off_udfps_enabled"
@@ -42,7 +48,7 @@
     <PreferenceCategory
         android:key="udfps_customization"
         android:title="UDFPS Customization">
-    
+
         <com.xtended.support.preferences.SystemSettingSwitchPreference
             android:key="custom_fp_icon_enabled"
             android:title="@string/custom_fp_icon_title"
@@ -54,8 +60,7 @@
             android:title="@string/custom_fp_select_title"
             android:summary="@string/custom_fp_select_summary"
             android:dependency="custom_fp_icon_enabled"
-            android:persistent="false" >
-        </Preference>
+            android:persistent="false" />
 
         <Preference
             android:key="udfps_icon_picker"
@@ -67,8 +72,8 @@
             android:key="udfps_recognizing_animation_preview"
             android:title="@string/udfps_recog_animation_effect_title"
             android:summary="@string/udfps_recog_animation_effect_summary"
-            android:fragment="com.xtended.fragments.UdfpsAnimation"/>
-    
+            android:fragment="com.xtended.fragments.UdfpsAnimation" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

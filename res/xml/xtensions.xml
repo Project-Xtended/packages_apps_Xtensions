@@ -101,6 +101,13 @@
             android:fragment="com.xtended.fragments.XThemeRoom"
             android:icon="@drawable/ic_x_themeroom" />
 
+        <!-- Udfps -->
+        <com.xtended.ui.XtendedPreference
+            android:key="udfps_category"
+            android:title="@string/udfps_category"
+            android:fragment="com.xtended.fragments.UdfpsSettings"
+            android:icon="@drawable/ic_x_udfps" />
+
         <!-- Xtras -->
         <com.xtended.ui.XtendedPreference
             android:key="xtras_category"
