@@ -1078,4 +1078,8 @@
     <string name="volume_style_title">Volume panel styles</string>
     <string name="two_tone_style">Two tone style</string>
     <string name="two_tone_thin_style">Two tone thin style</string>
+    
+    <!-- QS Dual Tone Colors -->
+    <string name="qs_dual_tone_title">QS dual-tone</string>
+    <string name="qs_dual_tone_summary">Use dual tone background colors</string>
 </resources>
