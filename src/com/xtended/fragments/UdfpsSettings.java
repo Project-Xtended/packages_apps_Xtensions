@@ -54,6 +54,7 @@ import com.android.internal.util.xtended.udfps.UdfpsUtils;
 import com.android.internal.util.xtended.XtendedUtils;
 
 import com.xtended.support.preferences.SystemSettingSwitchPreference;
+import com.xtended.support.preferences.SecureSettingSwitchPreference;
 import com.xtended.fragments.UdfpsIconPicker;
 
 import java.io.FileDescriptor;
@@ -67,14 +68,14 @@ public class UdfpsSettings extends SettingsPreferenceFragment implements
 
     private static final String CUSTOM_FOD_ICON_KEY = "custom_fp_icon_enabled";
     private static final String CUSTOM_FP_FILE_SELECT = "custom_fp_file_select";
-    private static final String SCREEN_OFF_UDFPS = "screen_off_udfps";
+    private static final String SCREEN_OFF_UDFPS = "screen_off_udfps_enabled";
 
     private static final int REQUEST_PICK_IMAGE = 0;
 
     private Preference mCustomFPImage;
     private SystemSettingSwitchPreference mCustomFodIcon;
     private Preference mUdfpsIconPicker;
-    private Preference mScreenOffUdfps;
+    private SecureSettingSwitchPreference mScreenOffUdfps;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -82,7 +83,7 @@ public class UdfpsSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.x_settings_udfps);
 
         final PreferenceScreen prefScreen = getPreferenceScreen();
-        Resources resources = getResources();
+        Resources resources = getContext().getResources();
 
         /**
         boolean udfpsResPkgInstalled = XtendedUtils.isPackageInstalled(getContext(),
@@ -108,7 +109,7 @@ public class UdfpsSettings extends SettingsPreferenceFragment implements
             mUdfpsIconPicker.setEnabled(true);
         }
 
-        mScreenOffUdfps = (Preference) prefScreen.findPreference(SCREEN_OFF_UDFPS);
+        mScreenOffUdfps = (SecureSettingSwitchPreference) prefScreen.findPreference(SCREEN_OFF_UDFPS);
         boolean mScreenOffUdfpsAvailable = resources.getBoolean(
                 com.android.internal.R.bool.config_supportScreenOffUdfps);
         if (!mScreenOffUdfpsAvailable)
