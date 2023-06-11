@@ -25,6 +25,13 @@
         android:fragment="com.android.settings.gestures.GestureSettings"
         settings:controller="com.android.settings.gestures.GesturesSettingPreferenceController"/>
 
+    <Preference
+        android:key="gesture_double_tap_power_input_summary"
+        android:title="@string/double_tap_power_for_camera_title"
+        android:fragment="com.android.settings.gestures.DoubleTapPowerSettings"
+        settings:searchable="false"
+        settings:controller="com.android.settings.gestures.DoubleTapPowerPreferenceController" />
+        
     <com.xtended.support.preferences.SystemSettingSwitchPreference
         android:key="three_finger_gesture"
         android:title="@string/three_finger_gesture"
