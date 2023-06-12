@@ -59,6 +59,12 @@ public class XtraSettings extends SettingsPreferenceFragment implements
     private static final String STATUSBAR_LEFT_PADDING = "statusbar_left_padding";
     private static final String STATUSBAR_RIGHT_PADDING = "statusbar_right_padding";
 
+    private static final String KEY_GAMES_SPOOF = "use_games_spoof";
+
+    private static final String SYS_GAMES_SPOOF = "persist.sys.pixelprops.games";
+
+    private SwitchPreference mGamesSpoof;
+    
     private SystemSettingSeekBarPreference mSbLeftPadding;
     private SystemSettingSeekBarPreference mSbRightPadding;
 
@@ -93,6 +99,10 @@ public class XtraSettings extends SettingsPreferenceFragment implements
                 Settings.System.RIGHT_PADDING, ((int) (res.getIdentifier("com.android.systemui:dimen/status_bar_padding_end", null, null) / density)), UserHandle.USER_CURRENT);
         mSbRightPadding.setValue(sbRightPadding);
         mSbRightPadding.setOnPreferenceChangeListener(this);
+
+        mGamesSpoof = (SwitchPreference) findPreference(KEY_GAMES_SPOOF);
+        mGamesSpoof.setChecked(SystemProperties.getBoolean(SYS_GAMES_SPOOF, false));
+        mGamesSpoof.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -119,6 +129,10 @@ public class XtraSettings extends SettingsPreferenceFragment implements
             int sbRight = ((int) (rightValue / density));
             Settings.System.putIntForUser(getContext().getContentResolver(),
                     Settings.System.RIGHT_PADDING, sbRight, UserHandle.USER_CURRENT);
+            return true;
+        } else if  (preference == mGamesSpoof) {
+            boolean value = (Boolean) newValue;
+            SystemProperties.set(SYS_GAMES_SPOOF, value ? "true" : "false");
             return true;
         }
         return false;

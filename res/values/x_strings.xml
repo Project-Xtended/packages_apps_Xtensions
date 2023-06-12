@@ -609,9 +609,9 @@
     <string name="gaming_mode_title">Game space</string>
     <string name="gaming_mode_summary">Extra features for immersive gaming experience</string>
     
-    <!-- GamesPropsUtils -->
-    <string name="games_device_spoof_title">Unlock higher FPS in games</string>
-    <string name="games_device_spoof_summary">Spoof device as a high-end model in certain games, to unlock higher FPS</string>
+    <!-- Unlock FPS for specific games -->
+    <string name="use_games_spoof_title">Unlock higher FPS in games</string>
+    <string name="use_games_spoof_summary">Spoof your device as a different model for specific games to unlock higher FPS</string>
 
     <!-- reTicker -->
     <string name="reticker_category" translatable="false">reTicker</string>
