@@ -41,6 +41,7 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.provider.Settings;
+import android.widget.Toast;
 import com.android.settings.R;
 
 import java.util.Arrays;
@@ -60,10 +61,13 @@ public class XtraSettings extends SettingsPreferenceFragment implements
     private static final String STATUSBAR_RIGHT_PADDING = "statusbar_right_padding";
 
     private static final String KEY_GAMES_SPOOF = "use_games_spoof";
+    private static final String KEY_PHOTOS_SPOOF = "use_photos_spoof";
 
     private static final String SYS_GAMES_SPOOF = "persist.sys.pixelprops.games";
+    private static final String SYS_PHOTOS_SPOOF = "persist.sys.pixelprops.gphotos";
 
     private SwitchPreference mGamesSpoof;
+    private SwitchPreference mPhotosSpoof;
     
     private SystemSettingSeekBarPreference mSbLeftPadding;
     private SystemSettingSeekBarPreference mSbRightPadding;
@@ -103,6 +107,11 @@ public class XtraSettings extends SettingsPreferenceFragment implements
         mGamesSpoof = (SwitchPreference) findPreference(KEY_GAMES_SPOOF);
         mGamesSpoof.setChecked(SystemProperties.getBoolean(SYS_GAMES_SPOOF, false));
         mGamesSpoof.setOnPreferenceChangeListener(this);
+        
+        mPhotosSpoof = (SwitchPreference) findPreference(KEY_PHOTOS_SPOOF);
+        mPhotosSpoof.setChecked(SystemProperties.getBoolean(SYS_PHOTOS_SPOOF, true));
+        mPhotosSpoof.setOnPreferenceChangeListener(this);
+        
     }
 
     @Override
@@ -133,6 +142,10 @@ public class XtraSettings extends SettingsPreferenceFragment implements
         } else if  (preference == mGamesSpoof) {
             boolean value = (Boolean) newValue;
             SystemProperties.set(SYS_GAMES_SPOOF, value ? "true" : "false");
+            return true;
+        } else if (preference == mPhotosSpoof) {
+            boolean value = (Boolean) newValue;
+            SystemProperties.set(SYS_PHOTOS_SPOOF, value ? "true" : "false");
             return true;
         }
         return false;
