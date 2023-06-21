@@ -48,6 +48,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settingslib.development.SystemPropPoker;
 import com.xtended.support.preferences.CustomSeekBarPreference;
 import com.xtended.support.preferences.SecureSettingSwitchPreference;
 import com.xtended.support.preferences.SystemSettingSeekBarPreference;
@@ -62,12 +63,15 @@ public class XtraSettings extends SettingsPreferenceFragment implements
 
     private static final String KEY_GAMES_SPOOF = "use_games_spoof";
     private static final String KEY_PHOTOS_SPOOF = "use_photos_spoof";
+    private static final String KEY_NETFLIX_SPOOF = "use_netflix_spoof";
 
     private static final String SYS_GAMES_SPOOF = "persist.sys.pixelprops.games";
     private static final String SYS_PHOTOS_SPOOF = "persist.sys.pixelprops.gphotos";
+    private static final String SYS_NETFLIX_SPOOF = "persist.sys.pixelprops.spoof_netflix";
 
     private SwitchPreference mGamesSpoof;
     private SwitchPreference mPhotosSpoof;
+    private SwitchPreference mNetFlixSpoof;
     
     private SystemSettingSeekBarPreference mSbLeftPadding;
     private SystemSettingSeekBarPreference mSbRightPadding;
@@ -112,6 +116,9 @@ public class XtraSettings extends SettingsPreferenceFragment implements
         mPhotosSpoof.setChecked(SystemProperties.getBoolean(SYS_PHOTOS_SPOOF, true));
         mPhotosSpoof.setOnPreferenceChangeListener(this);
         
+        mNetFlixSpoof = (SwitchPreference) findPreference(KEY_NETFLIX_SPOOF);
+        mNetFlixSpoof.setChecked(SystemProperties.getBoolean(SYS_NETFLIX_SPOOF, false));
+        mNetFlixSpoof.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -142,10 +149,17 @@ public class XtraSettings extends SettingsPreferenceFragment implements
         } else if  (preference == mGamesSpoof) {
             boolean value = (Boolean) newValue;
             SystemProperties.set(SYS_GAMES_SPOOF, value ? "true" : "false");
+            SystemPropPoker.getInstance().poke();
             return true;
         } else if (preference == mPhotosSpoof) {
             boolean value = (Boolean) newValue;
             SystemProperties.set(SYS_PHOTOS_SPOOF, value ? "true" : "false");
+            SystemPropPoker.getInstance().poke();
+            return true;
+        } else if (preference == mNetFlixSpoof) {
+            boolean value = (Boolean) newValue;
+            SystemProperties.set(SYS_NETFLIX_SPOOF, value ? "true" : "false");
+            SystemPropPoker.getInstance().poke();
             return true;
         }
         return false;
