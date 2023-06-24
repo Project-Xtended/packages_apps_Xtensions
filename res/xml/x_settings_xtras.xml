@@ -87,6 +87,20 @@
             android:defaultValue="false" />-->
    </PreferenceCategory>
 
+    <!-- System Haptics intensities preference -->
+    <PreferenceCategory
+        android:key="haptics_settings"
+        android:title="@string/haptics_settings_title" >
+
+    <Preference
+        android:key="haptics_settings"
+        android:title="@string/haptics_settings_title"
+        android:summary="@string/haptics_settings_summary"
+        android:order="-91"
+        android:fragment="com.xtended.fragments.HapticsPreferenceFragment"/>
+
+   </PreferenceCategory>
+           
     <PreferenceCategory
         android:key="developer_options_category"
         android:title="@string/developer_options_category">
