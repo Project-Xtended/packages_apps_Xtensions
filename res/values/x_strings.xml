@@ -84,6 +84,7 @@
     <string name="power_menu_hide_on_secure_summary">Hides the global actions menu on secure lockscreen</string>
 
     <!-- Lockscreen battery info indicator  -->
+    <string name="miscellaneous_category">Miscellaneous</string>    
     <string name="lockscreen_battery_info_title">Lockscreen charging info</string>
     <string name="lockscreen_battery_info_summary">Show charging current, voltage, wattage and battery temperature on lockscreen while charging</string>
 
@@ -1062,4 +1063,5 @@
     <!-- Netflix Spooft -->
     <string name="netflix_spoof_title">Netflix spoof</string>
     <string name="netflix_spoof_summary">Spoof your device as different model for Netflix</string>
+    <string name="spoof_device_category">Spoof your device</string>
 </resources>

@@ -46,7 +46,11 @@
         android:summary="@string/gms_enabled_summary"
         android:fragment="com.xtended.fragments.GmsSwitch"/>
         
-       <!-- Unlock FPS for specific games -->
+    <!-- Device Spoofing -->
+    <PreferenceCategory
+        android:key="Spoofing"
+        android:title="@string/spoof_device_category" >
+
        <com.xtended.support.preferences.SystemSettingSwitchPreference
             android:key="use_games_spoof"
             android:title="@string/use_games_spoof_title"
@@ -64,6 +68,11 @@
 	        android:title="@string/netflix_spoof_title"
 	        android:summary="@string/netflix_spoof_summary"
 	        android:defaultValue="false" />
+    </PreferenceCategory>
+        
+     <PreferenceCategory
+        android:key="miscellaneous"
+        android:title="@string/miscellaneous_category" >
         
         <com.xtended.support.preferences.SystemSettingSwitchPreference
             android:key="charging_animation"
@@ -76,6 +85,7 @@
             android:title="@string/click_partial_screenshot_title"
             android:summary="@string/click_partial_screenshot_summary"
             android:defaultValue="false" />-->
+   </PreferenceCategory>
 
     <PreferenceCategory
         android:key="developer_options_category"
