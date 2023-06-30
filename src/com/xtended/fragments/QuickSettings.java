@@ -74,7 +74,8 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         "com.android.system.qs.neumorph",
         "com.android.system.qs.reflected",
         "com.android.system.qs.surround",
-        "com.android.system.qs.thin"
+        "com.android.system.qs.thin",
+        "com.android.system.qs.twotoneaccenttrans"
     };
 
     private static final String X_FOOTER_TEXT_STRING = "x_footer_text_string";
@@ -234,6 +235,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
               break;
             case 9:
               setQsStyle("com.android.system.qs.thin");
+              break;
+            case 10:
+              setQsStyle("com.android.system.qs.twotoneaccenttrans");
               break;
             default:
               break;
